@@ -1,8 +1,8 @@
 # ReVanced Magisk Module
-[![Build Modules](https://github.com/j-hc/revanced-magisk-module/actions/workflows/build.yml/badge.svg)](https://github.com/j-hc/revanced-magisk-module/actions/workflows/build.yml)
-[![CI](https://github.com/j-hc/revanced-magisk-module/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/j-hc/revanced-magisk-module/actions/workflows/ci.yml)
+[![Build Modules](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
+[![CI](../../actions/workflows/ci.yml/badge.svg?event=schedule)](../../actions/workflows/ci.yml)
 
-You can get the [latest CI release from here](https://github.com/j-hc/revanced-magisk-module/releases).
+You can get the [latest CI release from here](../../releases).
 
 The [**mindetach module**](https://github.com/j-hc/mindetach-magisk) in the releases section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
 
@@ -32,14 +32,3 @@ The default config is for building Magisk modules for YouTube and YT Music, if y
  * Grab your modules from [releases](../../releases)
 
 **If you include microg patches in [build.conf](./build.conf), you get non-root APKs instead of Magisk modules. Apps except Youtube and Music will always be built as APKs regardless. To be able to use non-root variants of YT and Music you will need to install [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases).**
-
-### **Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs everyday if there is a change. You may want to disable it.**
-
-# Building Locally
-Make sure you have JDK 17 installed. Then run:
-
-```console
-$ git clone --recurse-submodules https://github.com/j-hc/revanced-magisk-module
-$ cd revanced-magisk-module
-$ ./build.sh build
-```
