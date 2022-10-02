@@ -316,10 +316,10 @@ customize_sh() {
 
 module_prop() {
 	echo "id=${1}
-name=${2}
+name=${2} | template by j-hc
 version=v${3}
 versionCode=${NEXT_VER_CODE}
-author=j-hc
+author=thrwKappu
 description=${4}" >"${MODULE_TEMPLATE_DIR}/module.prop"
 
 	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then
