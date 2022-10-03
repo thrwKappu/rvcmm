@@ -31,7 +31,8 @@ jobs:
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
           NEXT_VER_CODE: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
 
-      - id: get_output
+      - name: Set output files
+        id: get_output
         run: |
           echo -e "\n[rvcmm]($GITHUB_SERVER_URL/thrwKappu/rvcmm) | [original template by j-hc]($GITHUB_SERVER_URL/j-hc/revanced-magisk-module)" >>build.log
           BUILD_LOG=$(cat build.log)
