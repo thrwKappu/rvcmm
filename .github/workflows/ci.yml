@@ -33,6 +33,16 @@ jobs:
               return 1 # not experimental, dont build
             fi
           }
+          
+          is_integrations_latest() {
+            declare -r last_integrations_url=$(wget -nv -O- https://api.github.com/repos/revanced/revanced-integrations/releases/latest | tr -d ' ' | sed -n 's/.*"browser_download_url":"\(.*apk\)".*/\1/p')
+            declare -r last_integrations=${last_integrations_url##*/}
+            cur_integrations=$(sed -n 's/.*Integrations: \(.*\)/\1/p' latest_build.md | xargs)
+
+            echo "current integrations version: $cur_integrations"
+            echo "latest integrations version: $last_integrations"
+            [ "$cur_integrations" != "$last_integrations" ] # test success=>build, fail=>dont build
+          }
 
           is_patches_latest() {
             declare -r last_patches_url=$(wget -nv -O- https://api.github.com/repos/revanced/revanced-patches/releases/latest | tr -d ' ' | sed -n 's/.*"browser_download_url":"\(.*jar\)".*/\1/p')
@@ -47,7 +57,7 @@ jobs:
           if ! git checkout update; then
             echo "first time building!"
             echo ::set-output name=SHOULD_BUILD::1
-          elif is_patches_latest || is_youtube_latest; then
+          elif is_patches_latest || is_integrations_latest || is_youtube_latest; then
             echo "build!"
             echo ::set-output name=SHOULD_BUILD::1
           else
