@@ -36,8 +36,8 @@ jobs:
           
           is_integrations_latest() {
             declare -r last_integrations_url=$(wget -nv -O- https://api.github.com/repos/revanced/revanced-integrations/releases/latest | tr -d ' ' | sed -n 's/.*"browser_download_url":"\(.*apk\)".*/\1/p')
-            declare -r last_integrations=${last_integrations_url##*/}
-            last_integrations="${last_integrations%.apk}-$(cut -d/ -f8 <<< "$last_integrations_url").apk"
+            declare -r last_integrations_apk=${last_integrations_url##*/}
+            last_integrations="${last_integrations_apk%.apk}-$(cut -d/ -f8 <<< "$last_integrations_url").apk"
             cur_integrations=$(sed -n 's/.*Integrations: \(.*\)/\1/p' latest_build.md | xargs)
 
             echo "current integrations version: $cur_integrations"
