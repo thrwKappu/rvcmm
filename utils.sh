@@ -200,7 +200,7 @@ build_rv() {
 	module_prop "${args[module_prop_name]}" \
 		"${args[app_name]} ReVanced (${args[arch]})" \
 		"${version}" \
-		"${args[app_name]} ReVanced Magisk module. built with ${RV_INTEGRATIONS_URL#"$TEMP_DIR/"} and ${RV_PATCHES_JAR#"$TEMP_DIR/"}" \
+		"${args[app_name]} ReVanced Magisk module. built with ${RV_INTEGRATIONS_APK#"$TEMP_DIR/"} and ${RV_PATCHES_JAR#"$TEMP_DIR/"}" \
 		"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${args[module_update_json]}"
 
 	local module_output="${args[app_name],,}-revanced-magisk-v${version}-${args[arch]}.zip"
