@@ -1,5 +1,4 @@
 # shellcheck disable=SC2148,SC2086,SC2115
-ui_print ""
 
 if [ $ARCH = "arm" ]; then
 	alias cmpr='$MODPATH/bin/arm/cmpr'
@@ -17,17 +16,17 @@ basepath() {
 
 grep __PKGNAME /proc/self/mountinfo | while read -r line; do
 	mountpoint=$(echo "$line" | cut -d' ' -f5)
-	ui_print "* Un-mounting ${mountpoint%%\\*}"
+	ui_print "  * Un-mounting ${mountpoint%%\\*}"
 	umount -l "${mountpoint%%\\*}"
 done
 am force-stop __PKGNAME
 
 BASEPATH=$(basepath)
 if [ -n "$BASEPATH" ] && cmpr $BASEPATH $MODPATH/__PKGNAME.apk; then
-	ui_print "* Installed __PKGNAME and module APKs are identical"
-	ui_print "* Skipping stock APK installation"
+	ui_print "  * Installed __PKGNAME and module APKs are identical"
+	ui_print "  * Skipping stock APK installation"
 else
-	ui_print "* Updating stock __PKGNAME"
+	ui_print "  * Updating stock __PKGNAME"
 	set_perm $MODPATH/__PKGNAME.apk 1000 1000 644 u:object_r:apk_data_file:s0
 	if ! op=$(pm install --user 0 -i com.android.vending -r -d $MODPATH/__PKGNAME.apk 2>&1); then
 		ui_print "ERROR: APK installation failed!"
@@ -38,10 +37,10 @@ else
 		abort "ERROR: install __PKGNAME manually and reflash the module"
 	fi
 fi
-ui_print "* Setting Permissions"
+ui_print "  * Setting Permissions"
 set_perm $MODPATH/base.apk 1000 1000 644 u:object_r:apk_data_file:s0
 
-ui_print "* Mounting __PKGNAME"
+ui_print "  * Mounting __PKGNAME"
 RVPATH=/data/local/tmp/__PKGNAME_rv.apk
 ln -f $MODPATH/base.apk $RVPATH
 
@@ -52,7 +51,7 @@ fi
 rm -r $MODPATH/bin $MODPATH/__PKGNAME.apk
 am force-stop __PKGNAME
 
-ui_print "* Optimizing __PKGNAME"
+ui_print "  * Optimizing __PKGNAME"
 cmd package compile -m speed-profile -f __PKGNAME &
 
-ui_print "* Finished"
+ui_print "  * Finished"
