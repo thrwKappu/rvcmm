@@ -15,7 +15,7 @@ Patches: revanced-patches-2.104.0.jar
 
   
 **App Versions:**  
-YouTube: 17.43.36  
 Music (arm64-v8a): 5.31.50  
+YouTube: 17.43.36  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [j-hc's revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
