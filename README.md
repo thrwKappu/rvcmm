@@ -5,6 +5,7 @@
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
 You can get the latest CI release from [here](../../releases).
+
 To be able to use non-root variants of YT and Music you will need to install [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases).
 
 [**mindetach module**](https://github.com/j-hc/mindetach-magisk) in the releases section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
@@ -22,5 +23,3 @@ To be able to use non-root variants of YT and Music you will need to install [Va
      * mount the patched app immediately without needing to reboot
 
 #### **Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs if there is a change. You may want to disable it.**
-
-
