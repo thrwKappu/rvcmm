@@ -1,5 +1,5 @@
 CLI: revanced-cli-2.16.0-all.jar  
-Integrations: 0.67.0.apk  
+Integrations: app-release-unsigned-0.67.0.apk  
 ### [0.67.0](https://github.com/revanced/revanced-integrations/compare/v0.66.0...v0.67.0) (2022-11-05)
 ### Bug Fixes
 * **fix-playback:** seek to maximum end ([fd69010](https://github.com/revanced/revanced-integrations/commit/fd69010defdf9a459dd93173208ecc3867037ad9))
@@ -15,7 +15,7 @@ Patches: revanced-patches-2.104.0.jar
 
   
 **App Versions:**  
-Music (arm64-v8a): 5.31.50  
 YouTube: 17.43.36  
+Music (arm64-v8a): 5.31.50  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [j-hc's revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
