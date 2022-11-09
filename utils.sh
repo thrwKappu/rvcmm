@@ -24,14 +24,14 @@ get_prebuilts() {
 	echo "Getting prebuilts"
 	RV_CLI_URL=$(req https://api.github.com/repos/j-hc/revanced-cli/releases/latest - | json_get 'browser_download_url')
 	RV_CLI_JAR="${TEMP_DIR}/${RV_CLI_URL##*/}"
-	log "CLI: ${RV_CLI_URL##*/}"
+	log "## CLI: ${RV_CLI_URL##*/}"
 
 	RV_INTEGRATIONS=$(req https://api.github.com/repos/revanced/revanced-integrations/releases/latest -)
 	RV_INTEGRATIONS_CHANGELOG=$(echo "$RV_INTEGRATIONS" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	RV_INTEGRATIONS_URL=$(echo "$RV_INTEGRATIONS" | json_get 'browser_download_url')
 	RV_INTEGRATIONS_APK=${RV_INTEGRATIONS_URL##*/}
 	RV_INTEGRATIONS_APK="${RV_INTEGRATIONS_APK%.apk}-$(cut -d/ -f8 <<<"$RV_INTEGRATIONS_URL").apk"
-	log "Integrations: ${RV_INTEGRATIONS_APK//v}"
+	log "## Integrations: ${RV_INTEGRATIONS_APK//v}"
 	log "${RV_INTEGRATIONS_CHANGELOG//# [/### [}\n"
 	RV_INTEGRATIONS_APK="${TEMP_DIR}/${RV_INTEGRATIONS_APK}"
 
@@ -39,7 +39,7 @@ get_prebuilts() {
 	RV_PATCHES_CHANGELOG=$(echo "$RV_PATCHES" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	RV_PATCHES_URL=$(echo "$RV_PATCHES" | json_get 'browser_download_url' 'jar')
 	RV_PATCHES_JAR="${TEMP_DIR}/${RV_PATCHES_URL##*/}"
-	log "Patches: ${RV_PATCHES_URL##*/}"
+	log "## Patches: ${RV_PATCHES_URL##*/}"
 	log "${RV_PATCHES_CHANGELOG//# [/### [}\n"
 
 	dl_if_dne "$RV_CLI_JAR" "$RV_CLI_URL"
@@ -58,13 +58,13 @@ set_prebuilts() {
 	[ -d "$TEMP_DIR" ] || abort "${TEMP_DIR} directory could not be found"
 	RV_CLI_JAR=$(find "$TEMP_DIR" -maxdepth 1 -name "revanced-cli-*" | tail -n1)
 	[ -z "$RV_CLI_JAR" ] && abort "revanced cli not found"
-	log "CLI: ${RV_CLI_JAR#"$TEMP_DIR/"}"
+	log "## CLI: ${RV_CLI_JAR#"$TEMP_DIR/"}"
 	RV_INTEGRATIONS_APK=$(find "$TEMP_DIR" -maxdepth 1 -name "app-release-unsigned-*" | tail -n1)
 	[ -z "$RV_CLI_JAR" ] && abort "revanced integrations not found"
-	log "Integrations: ${RV_INTEGRATIONS_APK#"$TEMP_DIR/"}"
+	log "## Integrations: ${RV_INTEGRATIONS_APK#"$TEMP_DIR/"}"
 	RV_PATCHES_JAR=$(find "$TEMP_DIR" -maxdepth 1 -name "revanced-patches-*" | tail -n1)
 	[ -z "$RV_CLI_JAR" ] && abort "revanced patches not found"
-	log "Patches: ${RV_PATCHES_JAR#"$TEMP_DIR/"}"
+	log "## Patches: ${RV_PATCHES_JAR#"$TEMP_DIR/"}"
 }
 
 reset_template() {
@@ -225,9 +225,9 @@ build_rv() {
 		fi
 
 		if [ "${arch}" = "all" ]; then
-			! grep -q "${args[app_name]}:" build.md && log "${args[app_name]}: ${version}"
+			! grep -q "${args[app_name]}:" build.md && log "* ${args[app_name]}: ${version}"
 		else
-			! grep -q "${args[app_name]} (${arch}):" build.md && log "${args[app_name]} (${arch}): ${version}"
+			! grep -q "${args[app_name]} (${arch}):" build.md && log "* ${args[app_name]} (${arch}): ${version}"
 		fi
 
 		[ ! -f "$patched_apk" ] && patch_apk "$stock_apk" "$patched_apk" "$patcher_args"
