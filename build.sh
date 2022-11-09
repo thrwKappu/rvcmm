@@ -37,7 +37,7 @@ if ((COMPRESSION_LEVEL > 9)) || ((COMPRESSION_LEVEL < 1)); then
 	abort "COMPRESSION_LEVEL must be between 1 and 9"
 fi
 
-log "**App Versions:**"
+log "## App Versions:"
 build_youtube &
 build_music &
 build_twitter &
@@ -63,7 +63,7 @@ fi
 if [[ "${YOUTUBE_MODE%/*}" =~ ^(apk|both)$ || "${MUSIC_ARM64_V8A_MODE%/*}" =~ ^(apk|both)$ || "${MUSIC_ARM_V7A_MODE%/*}" =~ ^(apk|both)$ ]]; then
 	log "\nInstall [Vanced Microg](https://github.com/TeamVanced/VancedMicroG/releases) to be able to use non-root YouTube or Music"
 fi
-log "\n [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [j-hc's revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
+log "\n [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 
 reset_template
 echo "Done"
