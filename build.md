@@ -5,10 +5,11 @@
 * **youtube/general-ads-patch:** exclude playlists wrapper from filtering ([#206](https://github.com/revanced/revanced-integrations/issues/206)) ([e357ac6](https://github.com/revanced/revanced-integrations/commit/e357ac664b920a348bc8e98fc2b2a11e40045353))
 
   
-## Patches: revanced-patches-2.108.0.jar  
-### [2.108.0](https://github.com/revanced/revanced-patches/compare/v2.107.0...v2.108.0) (2022-11-13)
+## Patches: revanced-patches-2.109.0.jar  
+### [2.109.0](https://github.com/revanced/revanced-patches/compare/v2.108.0...v2.109.0) (2022-11-13)
 ### Features
-* **twitch:** `debug-mode` patch ([#1031](https://github.com/revanced/revanced-patches/issues/1031)) ([c514860](https://github.com/revanced/revanced-patches/commit/c514860bc4a46295b11f09df9ffc1c556b798eb3))
+* **twitch:** `block-audio-ads` patch ([#1041](https://github.com/revanced/revanced-patches/issues/1041)) ([3419bae](https://github.com/revanced/revanced-patches/commit/3419baed489ce231f84b3e2d600cf123cdfa7ff7))
+* **twitch:** `block-video-ads` patch  ([#1040](https://github.com/revanced/revanced-patches/issues/1040)) ([b47bf24](https://github.com/revanced/revanced-patches/commit/b47bf24d1b52cfa1883a942894a6216ae81b8325))
 
   
 ## App Versions:  
