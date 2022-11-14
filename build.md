@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.16.0-all.jar  
-## Integrations: app-release-unsigned-0.69.1.apk  
-#### [0.69.1](https://github.com/revanced/revanced-integrations/compare/v0.69.0...v0.69.1) (2022-11-14)
+## Integrations: app-release-unsigned-0.69.2.apk  
+#### [0.69.2](https://github.com/revanced/revanced-integrations/compare/v0.69.1...v0.69.2) (2022-11-14)
 ### Bug Fixes
-* **youtube/theme:** revert comment box background color hook ([#210](https://github.com/revanced/revanced-integrations/issues/210)) ([197f003](https://github.com/revanced/revanced-integrations/commit/197f0034a18d3ed796f9a2076aca9659987ed2ed))
+* **youtube/general-ads-patch:** revert reducing filter exclusions ([af86dd8](https://github.com/revanced/revanced-integrations/commit/af86dd8ec6084be7f42de1edaa14501d2c0a2eb7))
 
   
 ## Patches: revanced-patches-2.109.0.jar  
