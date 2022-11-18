@@ -1,4 +1,4 @@
-## CLI: revanced-cli-2.16.0-all.jar  
+## CLI: revanced-cli-2.16.1-all.jar  
 ## Integrations: app-release-unsigned-0.71.0.apk  
 ### [0.71.0](https://github.com/revanced/revanced-integrations/compare/v0.70.0...v0.71.0) (2022-11-15)
 ### Bug Fixes
@@ -8,8 +8,10 @@
 * **youtube/general-ads:** hide shorts in search ([d82b989](https://github.com/revanced/revanced-integrations/commit/d82b9898a850d3e1c5163461341dbe1b34199250))
 
   
-## Patches: revanced-patches-2.111.1.jar  
-#### [2.111.1](https://github.com/revanced/revanced-patches/compare/v2.111.0...v2.111.1) (2022-11-18)
+## Patches: revanced-patches-2.111.2.jar  
+#### [2.111.2](https://github.com/revanced/revanced-patches/compare/v2.111.1...v2.111.2) (2022-11-18)
+### Bug Fixes
+* **youtube/general-ads:** import correct compatibility annotation ([#1065](https://github.com/revanced/revanced-patches/issues/1065)) ([db2085c](https://github.com/revanced/revanced-patches/commit/db2085c217311a8b7d45a01c03c6162bc60a9298))
 
   
 ## App Versions:  
