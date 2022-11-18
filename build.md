@@ -8,14 +8,12 @@
 * **youtube/general-ads:** hide shorts in search ([d82b989](https://github.com/revanced/revanced-integrations/commit/d82b9898a850d3e1c5163461341dbe1b34199250))
 
   
-## Patches: revanced-patches-2.111.0.jar  
-### [2.111.0](https://github.com/revanced/revanced-patches/compare/v2.110.0...v2.111.0) (2022-11-15)
-### Features
-* **iconpackstudio:** `unlock-pro` patch ([#1047](https://github.com/revanced/revanced-patches/issues/1047)) ([fcbca9c](https://github.com/revanced/revanced-patches/commit/fcbca9cf0ff3940c48df53a9e5e4d06d65f9a1b1))
+## Patches: revanced-patches-2.111.1.jar  
+#### [2.111.1](https://github.com/revanced/revanced-patches/compare/v2.111.0...v2.111.1) (2022-11-18)
 
   
 ## App Versions:  
-* YouTube: 17.43.36  
 * Music (arm64-v8a): 5.31.50  
+* YouTube: 17.43.36  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
