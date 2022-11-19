@@ -8,10 +8,10 @@
 * **youtube/general-ads:** hide shorts in search ([d82b989](https://github.com/revanced/revanced-integrations/commit/d82b9898a850d3e1c5163461341dbe1b34199250))
 
   
-## Patches: revanced-patches-2.111.3.jar  
-#### [2.111.3](https://github.com/revanced/revanced-patches/compare/v2.111.2...v2.111.3) (2022-11-18)
-### Bug Fixes
-* **youtube/litho-filter:** use correct type for switch case ([#1068](https://github.com/revanced/revanced-patches/issues/1068)) ([ab03511](https://github.com/revanced/revanced-patches/commit/ab03511e23d07c7c40b58eae5791fb2a798289de))
+## Patches: revanced-patches-2.112.0.jar  
+### [2.112.0](https://github.com/revanced/revanced-patches/compare/v2.111.3...v2.112.0) (2022-11-19)
+### Features
+* **anytracker:** `unlock-premium` patch ([#1076](https://github.com/revanced/revanced-patches/issues/1076)) ([52b3d90](https://github.com/revanced/revanced-patches/commit/52b3d909bbe59dafaea0cb9da1c27bdd0cda502f))
 
   
 ## App Versions:  
