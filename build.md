@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.74.1.apk  
-#### [0.74.1](https://github.com/revanced/revanced-integrations/compare/v0.74.0...v0.74.1) (2022-11-20)
-### Bug Fixes
-* **youtube/general-ads:** hide bytecode home ad view ([c3e88c7](https://github.com/revanced/revanced-integrations/commit/c3e88c79e9e7de0700c4e0ade349e47173002567))
+## Integrations: app-release-unsigned-0.75.0.apk  
+### [0.75.0](https://github.com/revanced/revanced-integrations/compare/v0.74.1...v0.75.0) (2022-11-21)
+### Features
+* **twitch:** integrations code for patches ([#216](https://github.com/revanced/revanced-integrations/issues/216)) ([d4c3b74](https://github.com/revanced/revanced-integrations/commit/d4c3b74a9a49c7595cf63e3ccedc03586bc2de8d))
 
   
 ## Patches: revanced-patches-2.117.0.jar  
