@@ -8,10 +8,10 @@
 * **youtube/debugging:** do not require restarting on toggle ([ee1f895](https://github.com/revanced/revanced-integrations/commit/ee1f895e877e515898118ff440066645de0a6a76))
 
   
-## Patches: revanced-patches-2.120.0.jar  
-### [2.120.0](https://github.com/revanced/revanced-patches/compare/v2.119.0...v2.120.0) (2022-11-23)
+## Patches: revanced-patches-2.121.0.jar  
+### [2.121.0](https://github.com/revanced/revanced-patches/compare/v2.120.0...v2.121.0) (2022-11-23)
 ### Features
-* **youtube:** `remove-player-button-background` patch ([#855](https://github.com/revanced/revanced-patches/issues/855)) ([9e14817](https://github.com/revanced/revanced-patches/commit/9e14817fd2ef29b9f3ec161d74ab972ba19066b0))
+* **anytracker:** remove `unlock-premium` patch ([#1094](https://github.com/revanced/revanced-patches/issues/1094)) ([c3818be](https://github.com/revanced/revanced-patches/commit/c3818befc6e342ff04bc8e9fde84a667c123d7ab))
 
   
 ## App Versions:  
