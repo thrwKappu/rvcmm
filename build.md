@@ -8,12 +8,14 @@
 * **youtube/debugging:** do not require restarting on toggle ([ee1f895](https://github.com/revanced/revanced-integrations/commit/ee1f895e877e515898118ff440066645de0a6a76))
 
   
-## Patches: revanced-patches-2.118.1.jar  
-#### [2.118.1](https://github.com/revanced/revanced-patches/compare/v2.118.0...v2.118.1) (2022-11-22)
+## Patches: revanced-patches-2.120.0.jar  
+### [2.120.0](https://github.com/revanced/revanced-patches/compare/v2.119.0...v2.120.0) (2022-11-23)
+### Features
+* **youtube:** `remove-player-button-background` patch ([#855](https://github.com/revanced/revanced-patches/issues/855)) ([9e14817](https://github.com/revanced/revanced-patches/commit/9e14817fd2ef29b9f3ec161d74ab972ba19066b0))
 
   
 ## App Versions:  
-* YouTube: 17.45.36  
 * YTMusic (arm64-v8a): 5.31.50  
+* YouTube: 17.45.36  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
