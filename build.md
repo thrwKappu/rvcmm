@@ -8,14 +8,12 @@
 * **youtube/debugging:** do not require restarting on toggle ([ee1f895](https://github.com/revanced/revanced-integrations/commit/ee1f895e877e515898118ff440066645de0a6a76))
 
   
-## Patches: revanced-patches-2.118.0.jar  
-### [2.118.0](https://github.com/revanced/revanced-patches/compare/v2.117.1...v2.118.0) (2022-11-22)
-### Features
-* **youtube:** bump patches compatibility to v17.45.36 ([ab7dfd8](https://github.com/revanced/revanced-patches/commit/ab7dfd8ee1d902095811ed91b80aa0ed362ee9c5))
+## Patches: revanced-patches-2.118.1.jar  
+#### [2.118.1](https://github.com/revanced/revanced-patches/compare/v2.118.0...v2.118.1) (2022-11-22)
 
   
 ## App Versions:  
 * YouTube: 17.45.36  
-* Music (arm64-v8a): 5.31.50  
+* YTMusic (arm64-v8a): 5.31.50  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
