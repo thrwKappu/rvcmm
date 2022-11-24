@@ -1,10 +1,8 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.77.0.apk  
-### [0.77.0](https://github.com/revanced/revanced-integrations/compare/v0.76.0...v0.77.0) (2022-11-24)
+## Integrations: app-release-unsigned-0.77.1.apk  
+#### [0.77.1](https://github.com/revanced/revanced-integrations/compare/v0.77.0...v0.77.1) (2022-11-24)
 ### Bug Fixes
-* invalid syntax error ([d4a23ed](https://github.com/revanced/revanced-integrations/commit/d4a23ed5c931993e9c642d0948e9551f848f480c))
-### Features
-* **youtube/general-ads:** hide movie ad from search ([767201c](https://github.com/revanced/revanced-integrations/commit/767201ce05f01db692828b453d2b31487f88e015))
+* **youtube/return-youtube-dislike:** don't block the UI thread ([#221](https://github.com/revanced/revanced-integrations/issues/221)) ([b2eab33](https://github.com/revanced/revanced-integrations/commit/b2eab33e02241c62122da3063c12dc17cae2611e))
 
   
 ## Patches: revanced-patches-2.121.0.jar  
