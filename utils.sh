@@ -259,7 +259,7 @@ build_rv() {
 		module_prop "$pn" \
 			"${args[app_name]} ReVanced - ${arch}" \
 			"$version" \
-			"${args[app_name]} v${version}. Patched with ${RV_CLI_URL##*/}, ${RV_INTEGRATIONS_APK//v} and ${RV_PATCHES_URL##*/}. Original template by j-hc" \
+			"${args[app_name]} v${version}. Patched with ${RV_CLI_URL##*/}, ${RV_INTEGRATIONS_APK##*/} and ${RV_PATCHES_URL##*/}. Original template by j-hc" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${upj}" \
 			"$base_template"
 
