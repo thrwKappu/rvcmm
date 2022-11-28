@@ -5,10 +5,10 @@
 * **tiktok:** `sim-spoof` patch ([#219](https://github.com/revanced/revanced-integrations/issues/219)) ([cea3a5e](https://github.com/revanced/revanced-integrations/commit/cea3a5edc74e96efd79d4a4f9b363694d85216a6))
 
   
-## Patches: revanced-patches-2.127.0.jar  
-### [2.127.0](https://github.com/revanced/revanced-patches/compare/v2.126.1...v2.127.0) (2022-11-28)
+## Patches: revanced-patches-2.128.0.jar  
+### [2.128.0](https://github.com/revanced/revanced-patches/compare/v2.127.0...v2.128.0) (2022-11-28)
 ### Features
-* **twitch:** `settings` patch ([#1075](https://github.com/revanced/revanced-patches/issues/1075)) ([6e95b86](https://github.com/revanced/revanced-patches/commit/6e95b86e50cb09b60d82b456d4650218436ed154))
+* **twitch:** settings for patches ([#1142](https://github.com/revanced/revanced-patches/issues/1142)) ([ed56f94](https://github.com/revanced/revanced-patches/commit/ed56f94f12c3bee46ab370b2e3b7890d1181d53d))
 
   
 ## App Versions:  
