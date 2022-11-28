@@ -5,10 +5,10 @@
 * **tiktok:** `sim-spoof` patch ([#219](https://github.com/revanced/revanced-integrations/issues/219)) ([cea3a5e](https://github.com/revanced/revanced-integrations/commit/cea3a5edc74e96efd79d4a4f9b363694d85216a6))
 
   
-## Patches: revanced-patches-2.125.0.jar  
-### [2.125.0](https://github.com/revanced/revanced-patches/compare/v2.124.0...v2.125.0) (2022-11-26)
+## Patches: revanced-patches-2.126.0.jar  
+### [2.126.0](https://github.com/revanced/revanced-patches/compare/v2.125.0...v2.126.0) (2022-11-28)
 ### Features
-* **myexpenses:** `unlock-pro` patch ([#1120](https://github.com/revanced/revanced-patches/issues/1120)) ([e1a327a](https://github.com/revanced/revanced-patches/commit/e1a327a15d4289d9708546cc40f423597f22a66d))
+* **backdrops:** `pro-unlock` patch ([#1121](https://github.com/revanced/revanced-patches/issues/1121)) ([76b5449](https://github.com/revanced/revanced-patches/commit/76b5449c61c97e8ad9f87fb7173c9819815744ba))
 
   
 ## App Versions:  
