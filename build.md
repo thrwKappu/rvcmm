@@ -5,14 +5,14 @@
 * **tiktok:** `sim-spoof` patch ([#219](https://github.com/revanced/revanced-integrations/issues/219)) ([cea3a5e](https://github.com/revanced/revanced-integrations/commit/cea3a5edc74e96efd79d4a4f9b363694d85216a6))
 
   
-## Patches: revanced-patches-2.128.0.jar  
-### [2.128.0](https://github.com/revanced/revanced-patches/compare/v2.127.0...v2.128.0) (2022-11-28)
+## Patches: revanced-patches-2.130.0.jar  
+### [2.130.0](https://github.com/revanced/revanced-patches/compare/v2.129.0...v2.130.0) (2022-11-29)
 ### Features
-* **twitch:** settings for patches ([#1142](https://github.com/revanced/revanced-patches/issues/1142)) ([ed56f94](https://github.com/revanced/revanced-patches/commit/ed56f94f12c3bee46ab370b2e3b7890d1181d53d))
+* **youtube/enable-wide-searchbar:** bump compatibility to v17.45.36 ([66ce54c](https://github.com/revanced/revanced-patches/commit/66ce54c9921e6fbf5bbe52d73b0182352181f2b8))
 
   
 ## App Versions:  
-* YouTube: 17.43.36  
 * YTMusic (arm64-v8a): 5.31.50  
+* YouTube: 17.43.36  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
