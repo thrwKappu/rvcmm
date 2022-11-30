@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.79.0.apk  
-### [0.79.0](https://github.com/revanced/revanced-integrations/compare/v0.78.1...v0.79.0) (2022-11-30)
+## Integrations: app-release-unsigned-0.80.0.apk  
+### [0.80.0](https://github.com/revanced/revanced-integrations/compare/v0.79.1...v0.80.0) (2022-11-30)
 ### Features
-* **twitch:** `block-embedded-ads` patch support ([#227](https://github.com/revanced/revanced-integrations/issues/227)) ([00ea006](https://github.com/revanced/revanced-integrations/commit/00ea006b8c2e395ba56e8e5b90c467542849be46))
+* **twitch:** remove `block-embedded-ads` patch ([#230](https://github.com/revanced/revanced-integrations/issues/230)) ([2f32786](https://github.com/revanced/revanced-integrations/commit/2f327866616d9449963aefb9067b35138a4f4844))
 
   
 ## Patches: revanced-patches-2.131.0.jar  
