@@ -1,13 +1,14 @@
 # ReVanCed Magisk Module (rvcmm)
+**Only availble in root variant, hence the repo name
+
 [![Build Modules](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
 [![CI](../../actions/workflows/ci.yml/badge.svg?event=schedule)](../../actions/workflows/ci.yml)
 
-**Only availble in root variant, hence the repo name*
-
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
-You can get the latest CI release from [here](../../releases). (*[Only compatible with official Magisk manager](https://github.com/j-hc/revanced-magisk-module/issues/55)*)
-*[**mindetach module**](https://github.com/j-hc/mindetach-magisk) in the releases section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.*
+You can get the latest CI release from [here](../../releases), *([Only compatible with official Magisk manager](https://github.com/j-hc/revanced-magisk-module/issues/55))*
+
+*__mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.*
 
 ## Features
  * Can build Magisk modules or non-root APKs
@@ -21,4 +22,4 @@ You can get the latest CI release from [here](../../releases). (*[Only compatibl
      * handle installation of the correct version of the stock app and all that
      * mount the patched app immediately without needing to reboot
 
-#### **Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs if there is a change. You may want to disable it.**
+**Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs if there is a change. You may want to disable it.**
