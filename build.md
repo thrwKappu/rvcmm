@@ -1,9 +1,8 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.82.0.apk  
-### [0.82.0](https://github.com/revanced/revanced-integrations/compare/v0.81.0...v0.82.0) (2022-12-05)
+## Integrations: app-release-unsigned-0.83.0.apk  
+### [0.83.0](https://github.com/revanced/revanced-integrations/compare/v0.82.0...v0.83.0) (2022-12-05)
 ### Features
-* **youtube/debugging:** print stack traces ([a9d2487](https://github.com/revanced/revanced-integrations/commit/a9d24872a89f9039956993d8290713dcde3f0ead))
-* **youtube/return-youtube-dislike:** do not debug log when updating the text ([080e22b](https://github.com/revanced/revanced-integrations/commit/080e22b1bf18f9c09e7687aa694d6601318bd99b))
+* **twitch:** `block-embedded-ads` patch ([#231](https://github.com/revanced/revanced-integrations/issues/231)) ([a098594](https://github.com/revanced/revanced-integrations/commit/a09859470688c88afe1e0ee1688068656feda521))
 
   
 ## Patches: revanced-patches-2.140.0.jar  
@@ -13,8 +12,8 @@
 
   
 ## App Versions:  
-* YouTube: 17.45.36  
 * YTMusic (arm64-v8a): 5.34.51  
+* YouTube: 17.45.36  
 * YTMusic (arm-v7a): 5.34.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
