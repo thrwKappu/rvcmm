@@ -6,10 +6,10 @@
 * **youtube/return-youtube-dislike:** do not debug log when updating the text ([080e22b](https://github.com/revanced/revanced-integrations/commit/080e22b1bf18f9c09e7687aa694d6601318bd99b))
 
   
-## Patches: revanced-patches-2.138.0.jar  
-### [2.138.0](https://github.com/revanced/revanced-patches/compare/v2.137.0...v2.138.0) (2022-12-05)
+## Patches: revanced-patches-2.139.0.jar  
+### [2.139.0](https://github.com/revanced/revanced-patches/compare/v2.138.0...v2.139.0) (2022-12-05)
 ### Features
-* **youtube/debugging:** print stack traces ([9cea382](https://github.com/revanced/revanced-patches/commit/9cea382750456434d0547351ee7d4013eac9de9c))
+* **youtube/return-youtube-dislike:** improve settings labels ([#1203](https://github.com/revanced/revanced-patches/issues/1203)) ([fb4a612](https://github.com/revanced/revanced-patches/commit/fb4a612592d82857b0e892a6f5d135dbd657c44d))
 
   
 ## App Versions:  
