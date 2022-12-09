@@ -5,15 +5,17 @@
 * **youtube/general-ads:** block new ad in home feed ([934b981](https://github.com/revanced/revanced-integrations/commit/934b981605515128c9d38f09768392f8d1c7bd98))
 
   
-## Patches: revanced-patches-2.139.0.jar  
-### [2.139.0](https://github.com/revanced/revanced-patches/compare/v2.138.0...v2.139.0) (2022-12-05)
+## Patches: revanced-patches-2.141.0.jar  
+### [2.141.0](https://github.com/revanced/revanced-patches/compare/v2.140.0...v2.141.0) (2022-12-09)
+### Bug Fixes
+* inconsistencies in preference switches ([#1207](https://github.com/revanced/revanced-patches/issues/1207)) ([b6ea5a4](https://github.com/revanced/revanced-patches/commit/b6ea5a43b3eec6a06c7514cd79569b97a2b7d333))
 ### Features
-* **youtube/return-youtube-dislike:** improve settings labels ([#1203](https://github.com/revanced/revanced-patches/issues/1203)) ([fb4a612](https://github.com/revanced/revanced-patches/commit/fb4a612592d82857b0e892a6f5d135dbd657c44d))
+* **youtube/return-youtube-dislike:** simplify preference descriptions ([#1216](https://github.com/revanced/revanced-patches/issues/1216)) ([514b5da](https://github.com/revanced/revanced-patches/commit/514b5da9a7de6f8d0b0d00ec6269f836df3e9333))
 
   
 ## App Versions:  
 * YouTube: 17.45.36  
-* YTMusic (arm64-v8a): 5.31.50  
-* YTMusic (arm-v7a): 5.31.50  
+* YTMusic (arm64-v8a): 5.34.51  
+* YTMusic (arm-v7a): 5.34.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
