@@ -5,15 +5,15 @@
 * **youtube/general-ads:** block new ad in home feed ([934b981](https://github.com/revanced/revanced-integrations/commit/934b981605515128c9d38f09768392f8d1c7bd98))
 
   
-## Patches: revanced-patches-2.140.0.jar  
-### [2.140.0](https://github.com/revanced/revanced-patches/compare/v2.139.0...v2.140.0) (2022-12-05)
+## Patches: revanced-patches-2.139.0.jar  
+### [2.139.0](https://github.com/revanced/revanced-patches/compare/v2.138.0...v2.139.0) (2022-12-05)
 ### Features
-* **music:** bump compatibility to v5.34.51 ([fc0c92e](https://github.com/revanced/revanced-patches/commit/fc0c92e2b68a2d93a02f4577aeb864955b1b5701))
+* **youtube/return-youtube-dislike:** improve settings labels ([#1203](https://github.com/revanced/revanced-patches/issues/1203)) ([fb4a612](https://github.com/revanced/revanced-patches/commit/fb4a612592d82857b0e892a6f5d135dbd657c44d))
 
   
 ## App Versions:  
 * YouTube: 17.45.36  
-* YTMusic (arm64-v8a): 5.34.51  
-* YTMusic (arm-v7a): 5.34.51  
+* YTMusic (arm64-v8a): 5.31.50  
+* YTMusic (arm-v7a): 5.31.50  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
