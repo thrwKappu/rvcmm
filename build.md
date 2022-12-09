@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.83.1.apk  
-#### [0.83.1](https://github.com/revanced/revanced-integrations/compare/v0.83.0...v0.83.1) (2022-12-06)
-### Bug Fixes
-* inconsistencies in preference switches ([#235](https://github.com/revanced/revanced-integrations/issues/235)) ([d64a0f9](https://github.com/revanced/revanced-integrations/commit/d64a0f95995e6fbd96127941cf16133c5661dfe4))
+## Integrations: app-release-unsigned-0.84.0.apk  
+### [0.84.0](https://github.com/revanced/revanced-integrations/compare/v0.83.1...v0.84.0) (2022-12-08)
+### Features
+* **youtube/general-ads:** block new ad in home feed ([934b981](https://github.com/revanced/revanced-integrations/commit/934b981605515128c9d38f09768392f8d1c7bd98))
 
   
 ## Patches: revanced-patches-2.140.0.jar  
