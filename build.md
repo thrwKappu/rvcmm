@@ -1,26 +1,21 @@
 ## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.84.0.apk  
-### [0.84.0](https://github.com/revanced/revanced-integrations/compare/v0.83.1...v0.84.0) (2022-12-08)
-### Features
-* **youtube/general-ads:** block new ad in home feed ([934b981](https://github.com/revanced/revanced-integrations/commit/934b981605515128c9d38f09768392f8d1c7bd98))
+## Integrations: app-release-unsigned-0.84.1.apk  
+#### [0.84.1](https://github.com/revanced/revanced-integrations/compare/v0.84.0...v0.84.1) (2022-12-18)
+### Performance Improvements
+* **youtube/general-ads-patch:** reduce amount of ignored components ([#237](https://github.com/revanced/revanced-integrations/issues/237)) ([bf368e8](https://github.com/revanced/revanced-integrations/commit/bf368e8dd49a91ba1d7a1df66344f77d8b788072))
 
   
-## Patches: revanced-patches-2.144.0.jar  
-### [2.144.0](https://github.com/revanced/revanced-patches/compare/v2.143.0...v2.144.0) (2022-12-15)
-
-
+## Patches: revanced-patches-2.146.0.jar  
+### [2.146.0](https://github.com/revanced/revanced-patches/compare/v2.145.0...v2.146.0) (2022-12-18)
 ### Features
-
-* **citra:** add compatibility for canary package ([#1256](https://github.com/revanced/revanced-patches/issues/1256)) ([42ec021](https://github.com/revanced/revanced-patches/commit/42ec0218d829ea15759f83562d24588ce97cb646))
-* link packages to Google PlayStore ([#1272](https://github.com/revanced/revanced-patches/issues/1272)) ([97892e0](https://github.com/revanced/revanced-patches/commit/97892e01044c74916375aeebcc094d3304e14f4e))
-
-
-
+* **predictive-back-gesture:** exclude by default ([176d34b](https://github.com/revanced/revanced-patches/commit/176d34b2ff92d0eb627dad86ad87f559df3db815))
+* **twitter/timeline-ads:** add clarifying notice to description ([0eca2af](https://github.com/revanced/revanced-patches/commit/0eca2af1a4a688903c61ff6469ffea90c60f06a6))
+* **youtube:** bump patches compatibility to v17.49.37 ([83ebc73](https://github.com/revanced/revanced-patches/commit/83ebc731130d3d216ac4b815382d8f13548cf665))
 
   
 ## App Versions:  
-* YouTube: 17.45.36  
-* YTMusic (arm64-v8a): 5.34.51  
-* YTMusic (arm-v7a): 5.34.51  
+* YouTube: 17.49.37  
+* YTMusic (arm64-v8a): 5.36.51  
+* YTMusic (arm-v7a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
