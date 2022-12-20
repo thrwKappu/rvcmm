@@ -1,8 +1,8 @@
-## CLI: revanced-cli-2.17.0-all.jar  
-## Integrations: app-release-unsigned-0.84.1.apk  
-#### [0.84.1](https://github.com/revanced/revanced-integrations/compare/v0.84.0...v0.84.1) (2022-12-18)
-### Performance Improvements
-* **youtube/general-ads-patch:** reduce amount of ignored components ([#237](https://github.com/revanced/revanced-integrations/issues/237)) ([bf368e8](https://github.com/revanced/revanced-integrations/commit/bf368e8dd49a91ba1d7a1df66344f77d8b788072))
+## CLI: revanced-cli-2.18.2-all.jar  
+## Integrations: app-release-unsigned-0.84.2.apk  
+#### [0.84.2](https://github.com/revanced/revanced-integrations/compare/v0.84.1...v0.84.2) (2022-12-20)
+### Bug Fixes
+* migrate old to new settings correctly ([#241](https://github.com/revanced/revanced-integrations/issues/241)) ([98ce2df](https://github.com/revanced/revanced-integrations/commit/98ce2df47dded785986dee3c64becf96956f5eb6))
 
   
 ## Patches: revanced-patches-2.146.0.jar  
@@ -13,7 +13,7 @@
 * **youtube:** bump patches compatibility to v17.49.37 ([83ebc73](https://github.com/revanced/revanced-patches/commit/83ebc731130d3d216ac4b815382d8f13548cf665))
 
   
-## App Versions:  
+**App Versions:**  
 * YouTube: 17.49.37  
 * YTMusic (arm64-v8a): 5.36.51  
 * YTMusic (arm-v7a): 5.36.51  
