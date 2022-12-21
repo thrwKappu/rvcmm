@@ -1,16 +1,14 @@
 ## CLI: revanced-cli-2.18.2-all.jar  
-## Integrations: app-release-unsigned-0.85.1.apk  
-#### [0.85.1](https://github.com/revanced/revanced-integrations/compare/v0.85.0...v0.85.1) (2022-12-21)
-### Bug Fixes
-* revert semantically incorrect simplification of ˋAdRemoverAPI.HideViewWithLayout1dpˋ ([#244](https://github.com/revanced/revanced-integrations/issues/244)) ([71e81a6](https://github.com/revanced/revanced-integrations/commit/71e81a6473b94c5a2c82a9aad340799ff174bdf7))
+## Integrations: app-release-unsigned-0.86.0.apk  
+### [0.86.0](https://github.com/revanced/revanced-integrations/compare/v0.85.1...v0.86.0) (2022-12-21)
+### Features
+* **youtube/return-youtube-dislike:** debug connection statistics, toast on error, high priority background threads ([#236](https://github.com/revanced/revanced-integrations/issues/236)) ([693ef08](https://github.com/revanced/revanced-integrations/commit/693ef08c6c2ebb2a4dde9194583ac77ae3af9fc6))
 
   
-## Patches: revanced-patches-2.146.0.jar  
-### [2.146.0](https://github.com/revanced/revanced-patches/compare/v2.145.0...v2.146.0) (2022-12-18)
+## Patches: revanced-patches-2.147.0.jar  
+### [2.147.0](https://github.com/revanced/revanced-patches/compare/v2.146.0...v2.147.0) (2022-12-21)
 ### Features
-* **predictive-back-gesture:** exclude by default ([176d34b](https://github.com/revanced/revanced-patches/commit/176d34b2ff92d0eb627dad86ad87f559df3db815))
-* **twitter/timeline-ads:** add clarifying notice to description ([0eca2af](https://github.com/revanced/revanced-patches/commit/0eca2af1a4a688903c61ff6469ffea90c60f06a6))
-* **youtube:** bump patches compatibility to v17.49.37 ([83ebc73](https://github.com/revanced/revanced-patches/commit/83ebc731130d3d216ac4b815382d8f13548cf665))
+* **youtube/return-youtube-dislike:** debug connection statistics, toast on error, high priority background threads ([#1320](https://github.com/revanced/revanced-patches/issues/1320)) ([30273a9](https://github.com/revanced/revanced-patches/commit/30273a9bbdd40453baeb09f26ac9d218569a3e71))
 
   
 **App Versions:**  
