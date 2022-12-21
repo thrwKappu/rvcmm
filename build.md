@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.18.2-all.jar  
-## Integrations: app-release-unsigned-0.85.0.apk  
-### [0.85.0](https://github.com/revanced/revanced-integrations/compare/v0.84.2...v0.85.0) (2022-12-21)
-### Features
-* **youtube/general-ads:** hide grid of shorts ([d125d20](https://github.com/revanced/revanced-integrations/commit/d125d20974774fbe2b4a61b6ddad66f76d161e42))
+## Integrations: app-release-unsigned-0.85.1.apk  
+#### [0.85.1](https://github.com/revanced/revanced-integrations/compare/v0.85.0...v0.85.1) (2022-12-21)
+### Bug Fixes
+* revert semantically incorrect simplification of ˋAdRemoverAPI.HideViewWithLayout1dpˋ ([#244](https://github.com/revanced/revanced-integrations/issues/244)) ([71e81a6](https://github.com/revanced/revanced-integrations/commit/71e81a6473b94c5a2c82a9aad340799ff174bdf7))
 
   
 ## Patches: revanced-patches-2.146.0.jar  
