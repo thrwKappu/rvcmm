@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.18.2-all.jar  
-## Integrations: app-release-unsigned-0.84.2.apk  
-#### [0.84.2](https://github.com/revanced/revanced-integrations/compare/v0.84.1...v0.84.2) (2022-12-20)
-### Bug Fixes
-* migrate old to new settings correctly ([#241](https://github.com/revanced/revanced-integrations/issues/241)) ([98ce2df](https://github.com/revanced/revanced-integrations/commit/98ce2df47dded785986dee3c64becf96956f5eb6))
+## Integrations: app-release-unsigned-0.85.0.apk  
+### [0.85.0](https://github.com/revanced/revanced-integrations/compare/v0.84.2...v0.85.0) (2022-12-21)
+### Features
+* **youtube/general-ads:** hide grid of shorts ([d125d20](https://github.com/revanced/revanced-integrations/commit/d125d20974774fbe2b4a61b6ddad66f76d161e42))
 
   
 ## Patches: revanced-patches-2.146.0.jar  
