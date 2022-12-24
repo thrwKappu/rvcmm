@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.18.2-all.jar  
-## Integrations: app-release-unsigned-0.86.0.apk  
-### [0.86.0](https://github.com/revanced/revanced-integrations/compare/v0.85.1...v0.86.0) (2022-12-21)
-### Features
-* **youtube/return-youtube-dislike:** debug connection statistics, toast on error, high priority background threads ([#236](https://github.com/revanced/revanced-integrations/issues/236)) ([693ef08](https://github.com/revanced/revanced-integrations/commit/693ef08c6c2ebb2a4dde9194583ac77ae3af9fc6))
+## Integrations: app-release-unsigned-0.86.1.apk  
+#### [0.86.1](https://github.com/revanced/revanced-integrations/compare/v0.86.0...v0.86.1) (2022-12-24)
+### Bug Fixes
+* **youtube/theme:** correct background color for the shorts comment box ([#239](https://github.com/revanced/revanced-integrations/issues/239)) ([9ab8a64](https://github.com/revanced/revanced-integrations/commit/9ab8a646ed07d709c46fe7b5dd3238bc23301b8b))
 
   
 ## Patches: revanced-patches-2.147.0.jar  
