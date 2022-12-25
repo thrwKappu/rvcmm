@@ -29,3 +29,64 @@ arch = "arm64-v8a"                                        # 'arm64-v8a', 'arm-v7
 apkmirror-regex = 'APK</span>[^@]*@\([^#]*\)'             # regex used to get the dl url in apkmirror. default: APK</span>[^@]*@\([^#]*\)
 														  # this default gets the url to the non-bundle apk.
 ```
+
+-------------------
+
+removed apps
+```toml
+[Twitter]
+enabled = false
+build-mode = "none"
+excluded-patches = ""
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/twitter-inc/twitter/"
+
+[Reddit]
+enabled = false
+build-mode = "none"
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
+
+[Twitch]
+enabled = false                                                     # still, use twitchmod or his new project: purpletv (orangetv) instead
+build-mode = "none"
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
+merge-integrations = true
+
+[Tiktok]
+enabled = false
+build-mode = "none"
+version = "27.2.5"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
+merge-integrations = true
+
+[Spotify]
+enabled = false
+build-mode = "none"
+version = "latest"
+
+[TickTick]
+enabled = false
+build-mode = "none"
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/appest-inc/ticktick-to-do-list-with-reminder-day-planner/"
+
+[WarnWetter]
+enabled = false
+version = "latest"
+build-mode = "none"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/appest-inc/deutscher-wetterdienst/warnwetter/"
+
+[Backdrops]
+enabled = false
+build-mode = "none"
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/backdrops/backdrops-wallpapers/"
+
+[Windy]
+enabled = false
+build-mode = "none"
+version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/windy-weather-world-inc/windy-wind-weather-forecast/"
+```
