@@ -10,7 +10,8 @@ PKGS_LIST="temp/module-pkgs"
 
 GITHUB_REPOSITORY=${GITHUB_REPOSITORY:-$"j-hc/revanced-magisk-module"}
 NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
-WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0"
+WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"
+DRYRUN=false
 
 SERVICE_SH=$(cat $MODULE_SCRIPTS_DIR/service.sh)
 POSTFSDATA_SH=$(cat $MODULE_SCRIPTS_DIR/post-fs-data.sh)
@@ -22,7 +23,7 @@ json_get() {
 }
 
 toml_prep() {
-	__TOML__=$(echo "$1" | sed -r 's/^([^"]*"[^"]*")*([^#]*).*/\1\2/' | tr -d ' \t\r' | grep -v '^$')
+	__TOML__=$(echo "$1" | tr -d '\t\r' | tr "'" '"' | grep -o '^[^#]*' | grep -v '^$' | sed -r 's/(\".*\")|\s*/\1/g')
 }
 
 toml_get_all_tables() {
@@ -32,11 +33,7 @@ toml_get_all_tables() {
 toml_get() {
 	local table=$1 key=$2
 	val=$(echo "$__TOML__" | sed -n "/\[${table}]/,/^\[.*]$/p" | grep "^${key}=")
-	if [ "$val" ]; then
-		echo "${val#*=}" | sed -e "s/^[\"']//" -e "s/[\"']$//"
-	else
-		return 1
-	fi
+	[ "$val" ] && echo "${val#*=}" | sed -e "s/^\"//; s/\"$//"
 }
 
 #shellcheck disable=SC2034
@@ -130,6 +127,10 @@ dl_if_dne() {
 # ------- apkmirror -------------
 dl_apkmirror() {
 	local url=$1 version=$2 regexp=$3 output=$4
+	if [ $DRYRUN = true ]; then
+		echo "#" >"$output"
+		return
+	fi
 	local resp
 	url="${url}/${url##*/}-${version//./-}-release/"
 	resp=$(req "$url" -) || return 1
@@ -165,7 +166,9 @@ dl_uptodown() {
 	req "$url" "$output"
 }
 get_uptodown_pkg_name() {
-	req "https://${1}.en.uptodown.com/android/download" - | grep -A 1 "Package Name" | tail -1 | tr -d '</td>'
+	local p
+	p=$(req "https://${1}.en.uptodown.com/android/download" - | grep -A 1 "Package Name" | tail -1)
+	echo "${p:4:-5}"
 }
 # ------------------------------
 
@@ -174,7 +177,11 @@ patch_apk() {
 	declare -r tdir=$(mktemp -d -p $TEMP_DIR)
 	local cmd="java -jar $RV_CLI_JAR --temp-dir=$tdir -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args"
 	echo "$cmd"
-	eval "$cmd"
+	if [ $DRYRUN = true ]; then
+		cp -f "$stock_input" "$patched_apk"
+	else
+		eval "$cmd"
+	fi
 }
 
 zip_module() {
@@ -273,9 +280,9 @@ build_rv() {
 		fi
 
 		if [ "${arch}" = "all" ]; then
-			! grep -q "${args[app_name]}:" build.md && log "* ${args[app_name]}: ${version}"
+			! grep -q "${args[app_name]}:" build.md && log " * ${args[app_name]}: ${version}"
 		else
-			! grep -q "${args[app_name]} (${arch}):" build.md && log "* ${args[app_name]} (${arch}): ${version}"
+			! grep -q "${args[app_name]} (${arch}):" build.md && log " * ${args[app_name]} (${arch}): ${version}"
 		fi
 
 		if [ ! -f "$patched_apk" ]; then patch_apk "$stock_apk" "$patched_apk" "$patcher_args"; fi
