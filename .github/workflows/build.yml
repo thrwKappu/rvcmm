@@ -40,11 +40,8 @@ jobs:
 
           cd build
           yt_op=$(find . -maxdepth 1 -name "youtube-revanced-magisk-*.zip" -printf '%P')
-          if [ -z "$yt_op" ]; then
-            echo "RELEASE_NAME=rvcmm - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
-          else
-            echo "RELEASE_NAME=$yt_op - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
-          fi
+          echo "RELEASE_NAME=rvcmm - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          
 
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@v2
