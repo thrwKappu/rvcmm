@@ -23,7 +23,7 @@ merge-integrations = true
 
 [Music-arm64]
 build-mode = "module"
-app-name = "YT Music"
+app-name = "YTMusic"
 excluded-patches = "debugging"
 included-patches = ""
 version = "auto"
@@ -34,7 +34,7 @@ arch = "arm64-v8a"
 
 [Music-arm]
 build-mode = "module"
-app-name = "YT Music"
+app-name = "YTMusic"
 excluded-patches = "debugging"
 included-patches = ""
 version = "auto"
