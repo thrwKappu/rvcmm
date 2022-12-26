@@ -42,12 +42,12 @@ jobs:
             declare -r last_integrations="${last_integrations_apk%.apk}-${last_integrations_version##*v}.apk"
             cur_integrations=$(sed -n 's/.*Integrations: \(.*\)/\1/p' build.md | xargs)
             
-            if [ "$last_integrations" != ""]; then
+            if [ ! "$last_integrations" ]; then
+              return 1
+            else
               echo "current integrations version: $cur_integrations"
               echo "latest integrations version: $last_integrations"
               [ "$cur_integrations" != "$last_integrations" ] # test success=>build, fail=>dont build
-            else
-              return 1
             fi
           }
 
@@ -56,12 +56,12 @@ jobs:
             declare -r last_patches=${last_patches_url##*/}
             cur_patches=$(sed -n 's/.*Patches: \(.*\)/\1/p' build.md | xargs)
 
-            if [ "$last_patches" != ""]; then
+            if [ ! "$last_patches" ]; then
+              return 1
+            else
               echo "current patches version: $cur_patches"
               echo "latest patches version: $last_patches"
               [ "$cur_patches" != "$last_patches" ] # test success=>build, fail=>dont build
-            else
-              return 1
             fi
           }
 
