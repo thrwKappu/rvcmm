@@ -308,7 +308,7 @@ build_rv() {
 		local upj
 		upj=$([ "${arch}" = "all" ] && echo "${app_name_l}-update.json" || echo "${app_name_l}-${arch}-update.json")
 		module_prop "${args[module_prop_name]}" \
-			"rvcmm: ${args[app_name]} ${arch}" \
+			"RVCMM: ${args[app_name]} ReVanced - ${arch}" \
 			"$version" \
 			"${args[app_name]} v${version}. Patched with ${RV_CLI_URL##*/}, ${RV_INTEGRATIONS_APK##*/} and ${RV_PATCHES_URL##*/}. Original template by j-hc" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${upj}" \
