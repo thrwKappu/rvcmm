@@ -12,8 +12,8 @@
 
   
 **App Versions:**  
+ * YTMusic (arm64-v8a): 5.36.51  
  * YouTube: 17.49.37  
  * YTMusic (arm-v7a): 5.36.51  
- * YTMusic (arm64-v8a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
