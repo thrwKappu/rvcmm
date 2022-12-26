@@ -2,7 +2,7 @@ name: CI
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0/30 5/6 * * *"
+    - cron: "0,50 5/6 * * *"
 
 jobs:
   check:
@@ -36,7 +36,7 @@ jobs:
           }
           
           is_integrations_latest() {
-            declare -r last_integrations_url=$(wget -nv -O- https://api.github.com/repos/revanced/revanced-integrations/releases/latest | json_get 'browser_download_url')
+            declare -r last_integrations_url=$(wget -nv -O- https://api.github.com/repos/j-hc/revanced-integrations/releases/latest | json_get 'browser_download_url')
             declare -r last_integrations_apk=${last_integrations_url##*/}
             declare -r last_integrations_version=$(cut -d/ -f8 <<< "$last_integrations_url")
             declare -r last_integrations="${last_integrations_apk%.apk}-${last_integrations_version##*v}.apk"
