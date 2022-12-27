@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.19.0-all.jar  
-## Integrations: app-release-unsigned-0.86.1.apk  
-#### [0.86.1](https://github.com/revanced/revanced-integrations/compare/v0.86.0...v0.86.1) (2022-12-24)
-### Bug Fixes
-* **youtube/theme:** correct background color for the shorts comment box ([#239](https://github.com/revanced/revanced-integrations/issues/239)) ([9ab8a64](https://github.com/revanced/revanced-integrations/commit/9ab8a646ed07d709c46fe7b5dd3238bc23301b8b))
+## Integrations: app-release-unsigned-0.87.0.apk  
+### [0.87.0](https://github.com/revanced/revanced-integrations/compare/v0.86.1...v0.87.0) (2022-12-26)
+### Features
+* **youtube/general-ads-patch:** hide guidelines for subscriber ([#249](https://github.com/revanced/revanced-integrations/issues/249)) ([f4e8afe](https://github.com/revanced/revanced-integrations/commit/f4e8afe7ba7c3b516f2a3821918152a55fdd563d))
 
   
 ## Patches: revanced-patches-2.147.0.jar  
