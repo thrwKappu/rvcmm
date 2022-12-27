@@ -39,9 +39,7 @@ jobs:
           cp -f build.md build.tmp
 
           cd build
-          yt_op=$(find . -maxdepth 1 -name "youtube-revanced-magisk-*.zip" -printf '%P')
           echo "RELEASE_NAME=rvcmm - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
-          
 
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@v2

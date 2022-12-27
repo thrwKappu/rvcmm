@@ -25,11 +25,9 @@ json_get() {
 toml_prep() {
 	__TOML__=$(echo "$1" | tr -d '\t\r' | tr "'" '"' | grep -o '^[^#]*' | grep -v '^$' | sed -r 's/(\".*\")|\s*/\1/g')
 }
-
 toml_get_all_tables() {
 	echo "$__TOML__" | grep -x '\[.*\]' | tr -d '[]' || return 1
 }
-
 toml_get() {
 	local table=$1 key=$2
 	val=$(echo "$__TOML__" | sed -n "/\[${table}]/,/^\[.*]$/p" | grep "^${key}=")
@@ -74,8 +72,8 @@ get_prebuilts() {
 }
 
 get_cmpr() {
-	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm64/cmpr" "https://github.com/j-hc/cmpr/releases/download/20220811/cmpr-arm64-v8a"
-	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm/cmpr" "https://github.com/j-hc/cmpr/releases/download/20220811/cmpr-armeabi-v7a"
+	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm64/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-arm64-v8a"
+	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-armeabi-v7a"
 }
 
 abort() { echo "abort: $1" && exit 1; }
@@ -306,7 +304,7 @@ build_rv() {
 		local upj
 		upj=$([ "${arch}" = "all" ] && echo "${app_name_l}-update.json" || echo "${app_name_l}-${arch}-update.json")
 		module_prop "${args[module_prop_name]}" \
-			"RVCMM: ${args[app_name]} ReVanced - ${arch}" \
+			"RVCMM: ${args[app_name]} - ${arch}" \
 			"$version" \
 			"${args[app_name]} v${version}. Patched with ${RV_CLI_URL##*/}, ${RV_INTEGRATIONS_APK##*/} and ${RV_PATCHES_URL##*/}. Original template by j-hc" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${upj}" \
