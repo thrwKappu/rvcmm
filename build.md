@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.19.0-all.jar  
-## Integrations: app-release-unsigned-0.87.0.apk  
-### [0.87.0](https://github.com/revanced/revanced-integrations/compare/v0.86.1...v0.87.0) (2022-12-26)
+## Integrations: app-release-unsigned-0.88.0.apk  
+### [0.88.0](https://github.com/revanced/revanced-integrations/compare/v0.87.0...v0.88.0) (2022-12-29)
 ### Features
-* **youtube/general-ads-patch:** hide guidelines for subscriber ([#249](https://github.com/revanced/revanced-integrations/issues/249)) ([f4e8afe](https://github.com/revanced/revanced-integrations/commit/f4e8afe7ba7c3b516f2a3821918152a55fdd563d))
+* **youtube:** `hide-breaking-news-shelf` patch ([#258](https://github.com/revanced/revanced-integrations/issues/258)) ([eec90ee](https://github.com/revanced/revanced-integrations/commit/eec90ee04cdfcad08f0448c0f2e860e6eb25294f))
 
   
 ## Patches: revanced-patches-2.147.0.jar  
