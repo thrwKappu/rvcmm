@@ -1,24 +1,23 @@
-## CLI: revanced-cli-2.19.0-all.jar  
-## Integrations: app-release-unsigned-0.90.0.apk  
-### [0.90.0](https://github.com/revanced/revanced-integrations/compare/v0.89.0...v0.90.0) (2022-12-31)
+## CLI: revanced-cli-2.20.0-all.jar  
+## Integrations: app-release-unsigned-0.91.0.apk  
+### [0.91.0](https://github.com/revanced/revanced-integrations/compare/v0.90.0...v0.91.0) (2022-12-31)
+### Bug Fixes
+* **youtube/general-ads:** restore swipe back to exit gesture ([#264](https://github.com/revanced/revanced-integrations/issues/264)) ([76c36da](https://github.com/revanced/revanced-integrations/commit/76c36daee09be00d36477ea21c8b97f11444b7d2))
 ### Features
-* **youtube/return-youtube-dislike:** better formatting and LTR support ([#252](https://github.com/revanced/revanced-integrations/issues/252)) ([b839600](https://github.com/revanced/revanced-integrations/commit/b83960072831b4097fcca91afafb9111f55d8e10))
-### Performance Improvements
-* **youtube/general-ads-patch:** reduce list of ignored component names ([#261](https://github.com/revanced/revanced-integrations/issues/261)) ([8d233a2](https://github.com/revanced/revanced-integrations/commit/8d233a2f82f49b93adb90e2b11c9fa46836dd9b0))
+* **youtube:** `copy-video-url` patch ([#263](https://github.com/revanced/revanced-integrations/issues/263)) ([e856d9d](https://github.com/revanced/revanced-integrations/commit/e856d9dccdf11888005e757e84a06523ad2c8dc5))
 
   
-## Patches: revanced-patches-2.150.0.jar  
-### [2.150.0](https://github.com/revanced/revanced-patches/compare/v2.149.0...v2.150.0) (2022-12-31)
+## Patches: revanced-patches-2.151.0.jar  
+### [2.151.0](https://github.com/revanced/revanced-patches/compare/v2.150.0...v2.151.0) (2022-12-31)
 ### Bug Fixes
-* **youtube/bottom-controls-resource-patch:** use correct length for `nameSpaceLength` ([#1401](https://github.com/revanced/revanced-patches/issues/1401)) ([7190066](https://github.com/revanced/revanced-patches/commit/7190066a8ded8b59970483a81d7902526d552093))
-* **youtube/general-ads:** resolve fingerprint to correct method ([#1404](https://github.com/revanced/revanced-patches/issues/1404)) ([e135485](https://github.com/revanced/revanced-patches/commit/e1354852501cb582549cbf0634b1a15e1d0012d9))
+* **youtube/general-ads:** restore swipe back to exit gesture ([#1405](https://github.com/revanced/revanced-patches/issues/1405)) ([2440587](https://github.com/revanced/revanced-patches/commit/24405877dd935a757fa61c7580887c1a47a25ea9))
 ### Features
-* **youtube/return-youtube-dislike:** better formatting and LTR support  ([#1370](https://github.com/revanced/revanced-patches/issues/1370)) ([fd0fe1c](https://github.com/revanced/revanced-patches/commit/fd0fe1c86ca99e395d340e85f4f1eb7b221e90ea))
+* **youtube:** `copy-video-url` patch ([#1402](https://github.com/revanced/revanced-patches/issues/1402)) ([bf982e8](https://github.com/revanced/revanced-patches/commit/bf982e8d7765c2a89a5475b6db8b203a3ac4ddf9))
 
   
 **App Versions:**  
- * YouTube: 17.49.37  
  * YTMusic (arm64-v8a): 5.36.51  
+ * YouTube: 17.49.37  
  * YTMusic (arm-v7a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
