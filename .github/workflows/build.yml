@@ -52,6 +52,13 @@ jobs:
           file_glob: true
           overwrite: false
 
+      - name: Remove previous release(s)
+        uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          keep_latest: 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
       - name: Switch to update branch
         run: git checkout -f update || git switch --discard-changes --orphan update
 
