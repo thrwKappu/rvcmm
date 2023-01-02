@@ -1,5 +1,5 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: reanced-integrations-0.91.0-0.91.1.apk  
+## Integrations: revanced-integrations-0.91.0.apk  
 #### [0.91.1](https://github.com/revanced/revanced-integrations/compare/v0.91.0...v0.91.1) (2023-01-02)
 ### Bug Fixes
 * revert removing workaround task `publish` ([64c31b8](https://github.com/revanced/revanced-integrations/commit/64c31b84e76a270513efb4ae111afae507cacad4))
@@ -15,8 +15,8 @@
 
   
 **App Versions:**  
- * YTMusic (arm64-v8a): 5.36.51  
  * YTMusic (arm-v7a): 5.36.51  
  * YouTube: 17.49.37  
+ * YTMusic (arm64-v8a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
