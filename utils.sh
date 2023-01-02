@@ -55,11 +55,10 @@ get_prebuilts() {
 	RV_INTEGRATIONS=$(gh_req https://api.github.com/repos/revanced/revanced-integrations/releases/latest -)
 	RV_INTEGRATIONS_CHANGELOG=$(echo "$RV_INTEGRATIONS" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	RV_INTEGRATIONS_URL=$(echo "$RV_INTEGRATIONS" | json_get 'browser_download_url')
-	RV_INTEGRATIONS_APK=${RV_INTEGRATIONS_URL##*/}
-	RV_INTEGRATIONS_APK="${RV_INTEGRATIONS_APK%.apk}-$(cut -d/ -f8 <<<"$RV_INTEGRATIONS_URL").apk"
-	log "## Integrations: ${RV_INTEGRATIONS_APK//v}"
+	RV_INTEGRATIONS_APK="${TEMP_DIR}/${RV_INTEGRATIONS_URL##*/}"
+	log "## Integrations: ${RV_INTEGRATIONS_URL##*/}"
 	log "${RV_INTEGRATIONS_CHANGELOG//# [/### [}\n"
-	RV_INTEGRATIONS_APK="${TEMP_DIR}/${RV_INTEGRATIONS_APK}"
+	
 
 	RV_PATCHES=$(gh_req https://api.github.com/repos/revanced/revanced-patches/releases/latest -)
 	RV_PATCHES_CHANGELOG=$(echo "$RV_PATCHES" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
