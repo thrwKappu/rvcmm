@@ -1,14 +1,16 @@
 # ReVanCed Magisk Module (rvcmm)
-**Only availble in root variant, hence the repo name
+**Only available in root variant, hence the repo name*
+
 
 [![Build Modules](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
 [![CI](../../actions/workflows/ci.yml/badge.svg?event=schedule)](../../actions/workflows/ci.yml)
 
+
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
+([Better compatibility](https://github.com/j-hc/revanced-magisk-module/issues/55) with official Magisk Manager, but FoxMMM should be fine in most cases)
+ * You can get the latest CI release from [here](../../releases)
+ * __mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
 
-You can get the latest CI release from [here](../../releases), *([Only compatible with official Magisk manager](https://github.com/j-hc/revanced-magisk-module/issues/55))*
-
-*__mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.*
 
 ## Features
  * Can build Magisk modules or non-root APKs
