@@ -1,10 +1,9 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: app-release-unsigned-0.91.0.apk  
-### [0.91.0](https://github.com/revanced/revanced-integrations/compare/v0.90.0...v0.91.0) (2022-12-31)
+## Integrations: reanced-integrations-0.91.0-0.91.1.apk  
+#### [0.91.1](https://github.com/revanced/revanced-integrations/compare/v0.91.0...v0.91.1) (2023-01-02)
 ### Bug Fixes
-* **youtube/general-ads:** restore swipe back to exit gesture ([#264](https://github.com/revanced/revanced-integrations/issues/264)) ([76c36da](https://github.com/revanced/revanced-integrations/commit/76c36daee09be00d36477ea21c8b97f11444b7d2))
-### Features
-* **youtube:** `copy-video-url` patch ([#263](https://github.com/revanced/revanced-integrations/issues/263)) ([e856d9d](https://github.com/revanced/revanced-integrations/commit/e856d9dccdf11888005e757e84a06523ad2c8dc5))
+* revert removing workaround task `publish` ([64c31b8](https://github.com/revanced/revanced-integrations/commit/64c31b84e76a270513efb4ae111afae507cacad4))
+* **twitch/block-embedded-ads:** rewrite Kotlin classes to Java ([#270](https://github.com/revanced/revanced-integrations/issues/270)) ([843dd9d](https://github.com/revanced/revanced-integrations/commit/843dd9de9e7fcd0b2b609e8af9a705faa1e23bc6))
 
   
 ## Patches: revanced-patches-2.151.0.jar  
@@ -16,8 +15,8 @@
 
   
 **App Versions:**  
- * YTMusic (arm64-v8a): 5.36.51  
  * YouTube: 17.49.37  
  * YTMusic (arm-v7a): 5.36.51  
+ * YTMusic (arm64-v8a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
