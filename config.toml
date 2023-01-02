@@ -8,7 +8,7 @@ parallel-jobs = 3             # max number of concurrent building jobs
 update-prebuilts = true       # dont touch this
 build-mindetach-module = true
 
-
+# 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
 enabled = true                                                        # add 'enabled = false' key to entries to not build them
 build-mode = "module"                                                 # 'both', 'apk' or 'module'
