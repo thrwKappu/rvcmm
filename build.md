@@ -1,22 +1,19 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: revanced-integrations-0.91.0.apk  
-#### [0.91.1](https://github.com/revanced/revanced-integrations/compare/v0.91.0...v0.91.1) (2023-01-02)
+## Integrations: revanced-integrations-0.91.1.apk  
+#### [0.91.2](https://github.com/revanced/revanced-integrations/compare/v0.91.1...v0.91.2) (2023-01-04)
 ### Bug Fixes
-* revert removing workaround task `publish` ([64c31b8](https://github.com/revanced/revanced-integrations/commit/64c31b84e76a270513efb4ae111afae507cacad4))
-* **twitch/block-embedded-ads:** rewrite Kotlin classes to Java ([#270](https://github.com/revanced/revanced-integrations/issues/270)) ([843dd9d](https://github.com/revanced/revanced-integrations/commit/843dd9de9e7fcd0b2b609e8af9a705faa1e23bc6))
+* **youtube/return-youtube-dislike:** use manufacturer specific span styles ([#265](https://github.com/revanced/revanced-integrations/issues/265)) ([8f8e8ea](https://github.com/revanced/revanced-integrations/commit/8f8e8ea87edccfabb7e02608dd9765fb8a48e092))
 
   
-## Patches: revanced-patches-2.151.0.jar  
-### [2.151.0](https://github.com/revanced/revanced-patches/compare/v2.150.0...v2.151.0) (2022-12-31)
-### Bug Fixes
-* **youtube/general-ads:** restore swipe back to exit gesture ([#1405](https://github.com/revanced/revanced-patches/issues/1405)) ([2440587](https://github.com/revanced/revanced-patches/commit/24405877dd935a757fa61c7580887c1a47a25ea9))
+## Patches: revanced-patches-2.152.0.jar  
+### [2.152.0](https://github.com/revanced/revanced-patches/compare/v2.151.0...v2.152.0) (2023-01-04)
 ### Features
-* **youtube:** `copy-video-url` patch ([#1402](https://github.com/revanced/revanced-patches/issues/1402)) ([bf982e8](https://github.com/revanced/revanced-patches/commit/bf982e8d7765c2a89a5475b6db8b203a3ac4ddf9))
+* **youtube/copy-video-url:** match icon style with native icon ([#1419](https://github.com/revanced/revanced-patches/issues/1419)) ([e89e54c](https://github.com/revanced/revanced-patches/commit/e89e54c316a2d99195d2b79e9176d34f6de0113c))
 
   
 **App Versions:**  
- * YTMusic (arm-v7a): 5.36.51  
  * YouTube: 17.49.37  
  * YTMusic (arm64-v8a): 5.36.51  
+ * YTMusic (arm-v7a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
