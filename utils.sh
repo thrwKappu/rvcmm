@@ -17,6 +17,7 @@ WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/2010010
 DRYRUN=false
 
 SERVICE_SH=$(cat $MODULE_SCRIPTS_DIR/service.sh)
+POSTFSDATA_SH=$(cat $MODULE_SCRIPTS_DIR/post-fs-data.sh)
 CUSTOMIZE_SH=$(cat $MODULE_SCRIPTS_DIR/customize.sh)
 UNINSTALL_SH=$(cat $MODULE_SCRIPTS_DIR/uninstall.sh)
 
@@ -38,7 +39,6 @@ toml_get() {
 
 #shellcheck disable=SC2034
 read_main_config() {
-	MOUNT_DELAY=$(toml_get "main-config" mount-delay)
 	COMPRESSION_LEVEL=$(toml_get "main-config" compression-level)
 	ENABLE_MAGISK_UPDATE=$(toml_get "main-config" enable-magisk-update)
 	PARALLEL_JOBS=$(toml_get "main-config" parallel-jobs)
@@ -305,6 +305,7 @@ build_rv() {
 
 		uninstall_sh "$pkg_name" "$base_template"
 		service_sh "$pkg_name" "$version" "$base_template"
+		postfsdata_sh "$pkg_name" "$base_template"
 		customize_sh "$pkg_name" "$version" "$base_template"
 
 		local upj
@@ -327,15 +328,14 @@ build_rv() {
 join_args() {
 	echo "$1" | tr -d '\t\r' | tr ' ' '\n' | grep -v '^$' | sed "s/^/${2} /" | paste -sd " " - || echo ""
 }
-
+postfsdata_sh() { echo "${POSTFSDATA_SH//__PKGNAME/$1}" >"${2}/post-fs-data.sh"; }
 uninstall_sh() { echo "${UNINSTALL_SH//__PKGNAME/$1}" >"${2}/uninstall.sh"; }
 customize_sh() {
 	local s="${CUSTOMIZE_SH//__PKGNAME/$1}"
 	echo "${s//__PKGVER/$2}" >"${3}/customize.sh"
 }
 service_sh() {
-	local s="${SERVICE_SH//__MNTDLY/$MOUNT_DELAY}"
-	s="${s//__PKGNAME/$1}"
+	local s="${SERVICE_SH//__PKGNAME/$1}"
 	echo "${s//__PKGVER/$2}" >"${3}/service.sh"
 }
 module_prop() {
