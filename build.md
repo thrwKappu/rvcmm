@@ -1,8 +1,8 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: revanced-integrations-0.92.1.apk  
-#### [0.92.1](https://github.com/revanced/revanced-integrations/compare/v0.92.0...v0.92.1) (2023-01-07)
+## Integrations: revanced-integrations-0.92.2.apk  
+#### [0.92.2](https://github.com/revanced/revanced-integrations/compare/v0.92.1...v0.92.2) (2023-01-07)
 ### Bug Fixes
-* save preferences with correct type ([56c1a3c](https://github.com/revanced/revanced-integrations/commit/56c1a3c03c67393285a7499e9d3e92eb710691f0))
+* load numeric preferences as type String ([212d3a7](https://github.com/revanced/revanced-integrations/commit/212d3a72d879189c061fb77805cda81ca0519495))
 
   
 ## Patches: revanced-patches-2.153.0.jar  
