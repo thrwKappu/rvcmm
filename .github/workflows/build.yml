@@ -77,8 +77,8 @@ jobs:
           }
 
           cd build || echo "build folder not found"
-          for OUTPUT in *revanced*.zip; do
-            [ "$OUTPUT" = "*revanced*.zip" ] && continue
+          for OUTPUT in RVCMM*.zip; do
+            [ "$OUTPUT" = "RVCMM*.zip" ] && continue
             ZIP_S=$(unzip -p "$OUTPUT" module.prop)
             if ! UPDATE_JSON=$(echo "$ZIP_S" | grep updateJson); then
               continue
