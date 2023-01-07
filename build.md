@@ -1,10 +1,8 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: revanced-integrations-0.92.0.apk  
-### [0.92.0](https://github.com/revanced/revanced-integrations/compare/v0.91.2...v0.92.0) (2023-01-07)
+## Integrations: revanced-integrations-0.92.1.apk  
+#### [0.92.1](https://github.com/revanced/revanced-integrations/compare/v0.92.0...v0.92.1) (2023-01-07)
 ### Bug Fixes
-* ensure thread safety for class `StringRef` ([#273](https://github.com/revanced/revanced-integrations/issues/273)) ([f5c5fcb](https://github.com/revanced/revanced-integrations/commit/f5c5fcb5e46f43b2e5abbbc4f55a1cf1c52e0549))
-### Features
-* **youtube:** `remember-playback-rate` patch ([b5c0c84](https://github.com/revanced/revanced-integrations/commit/b5c0c843a502a7f4938053d136e826fbf7399e7b))
+* save preferences with correct type ([56c1a3c](https://github.com/revanced/revanced-integrations/commit/56c1a3c03c67393285a7499e9d3e92eb710691f0))
 
   
 ## Patches: revanced-patches-2.153.0.jar  
@@ -17,8 +15,8 @@
 
   
 **App Versions:**  
- * YTMusic (arm-v7a): 5.36.51  
  * YouTube: 17.49.37  
  * YTMusic (arm64-v8a): 5.36.51  
+ * YTMusic (arm-v7a): 5.36.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
