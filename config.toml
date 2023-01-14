@@ -1,8 +1,7 @@
 # SEE https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
 
-[main-config]
 compression-level = 9         # compression level for module zips. between 1 and 9
-enable-magisk-update = true   # set this to false if you do not want to receive updates from magisk app
+enable-magisk-update = true   # set this to false if you do not want to receive updates for the module in magisk app
 parallel-jobs = 3             # max number of concurrent building jobs
 update-prebuilts = true       # dont touch this
 build-mindetach-module = true
@@ -19,7 +18,6 @@ microg-patch = "microg-support"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
 module-prop-name = "rvcmm-yt"
 merge-integrations = true
-rip-libs = true
 
 [Music-arm64]
 build-mode = "module"
