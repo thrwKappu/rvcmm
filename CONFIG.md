@@ -35,67 +35,73 @@ module-prop-name = "ytrv-magisk"                          # explicit magisk modu
 merge-integrations = true                                 # whether to merge revanced integrations. default: false
 arch = "arm64-v8a"                                        # 'arm64-v8a', 'arm-v7a' or 'all'. 
                                                           # this option is sometimes needed to be able to download the apks from apkmirror and does not affect anything else. default: all
-apkmirror-regex = 'APK</span>[^@]*@\([^#]*\)'             # regex used to get the dl url in apkmirror. default: APK</span>[^@]*@\([^#]*\)
-														  # this default gets the url to the non-bundle apk.
 ```
 
 -------------------
 
 removed apps
 ```toml
-[Twitter]
-enabled = false
-build-mode = "none"
-excluded-patches = ""
-version = "latest"
+[[Twitter]
+build-mode = "apk"
+excluded-patches = "hide-views-stats"
+version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitter-inc/twitter/"
 
 [Reddit]
-enabled = false
-build-mode = "none"
-version = "latest"
+build-mode = "apk"
+version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
 
 [Twitch]
-enabled = false                                                     # still, use twitchmod or his new project: purpletv (orangetv) instead
-build-mode = "none"
-version = "latest"
+build-mode = "apk"
+version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 merge-integrations = true
 
-[Tiktok]
-enabled = false
-build-mode = "none"
-version = "27.2.5"
+[TikTok]
+version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
 merge-integrations = true
 
 [Spotify]
 enabled = false
-build-mode = "none"
-version = "latest"
+build-mode = "apk"
+version = "auto"
+uptodown-dlurl = "https://spotify.en.uptodown.com/android"
 
-[TickTick]
+[Citra]
 enabled = false
-build-mode = "none"
-version = "latest"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/appest-inc/ticktick-to-do-list-with-reminder-day-planner/"
-
-[WarnWetter]
-enabled = false
-version = "latest"
-build-mode = "none"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/appest-inc/deutscher-wetterdienst/warnwetter/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/citra-emulator/citra-emulator/"
 
 [Backdrops]
 enabled = false
-build-mode = "none"
-version = "latest"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/backdrops/backdrops-wallpapers/"
 
-[Windy]
+[WarnWetter]
 enabled = false
-build-mode = "none"
-version = "latest"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/deutscher-wetterdienst/warnwetter/"
+
+[Windyapp]
+enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/windy-weather-world-inc/windy-wind-weather-forecast/"
+
+[MyExpenses]
+enabled = false
+uptodown-dlurl = "https://my-expenses.en.uptodown.com/android"
+
+[NyxMusicPlayer]
+enabled = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/awedea/nyx-music-player/"
+
+[IconPackStudio]
+enabled = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/smart-launcher-team/icon-pack-studio/"
+
+[TickTick]
+enabled = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/appest-inc/ticktick-to-do-list-with-reminder-day-planner/"
+
+[Tasker]
+enabled = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/joaomgcd/tasker/"
 ```

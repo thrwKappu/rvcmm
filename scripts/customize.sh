@@ -3,7 +3,7 @@
 if [ $ARCH = "arm" ]; then
 	alias cmpr='$MODPATH/bin/arm/cmpr'
 	ARCH_LIB=armeabi-v7a
-elif [ $ARCH = "arm64" ]; then
+elif [ $ARCH = "arm64" ] || [ $ARCH = "x64" ]; then
 	ARCH_LIB=arm64-v8a
 	alias cmpr='$MODPATH/bin/arm64/cmpr'
 else
@@ -28,7 +28,7 @@ if [ -n "$BASEPATH" ] && cmpr $BASEPATH $MODPATH/__PKGNAME.apk; then
 
 	ui_print "  * Skipped stock APK installation (__PKGNAME is up-to-date)"
 else
-	ui_print "  * Updating __PKGNAME to __PKGVER"
+	ui_print "  * Attempting to update __PKGNAME to v__PKGVER"
 	set_perm $MODPATH/__PKGNAME.apk 1000 1000 644 u:object_r:apk_data_file:s0
 	if ! op=$(cmd package install --user 0 -i com.android.vending -r -d $MODPATH/__PKGNAME.apk 2>&1); then
 		ui_print "ERROR: APK installation failed!"
