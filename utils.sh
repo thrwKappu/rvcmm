@@ -254,6 +254,7 @@ build_rv() {
 			if [ -z "$version" ]; then get_latest_ver=true; fi
 		elif [ "$version_mode" = latest ]; then
 			get_latest_ver=true
+			patcher_args="$patcher_args --experimental"
 		else
 			version=$version_mode
 			patcher_args="$patcher_args --experimental"
