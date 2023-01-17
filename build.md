@@ -1,25 +1,24 @@
 ## CLI: revanced-cli-2.20.0-all.jar  
-## Integrations: revanced-integrations-0.93.0.apk  
-### [0.93.0](https://github.com/revanced/revanced-integrations/compare/v0.92.2...v0.93.0) (2023-01-14)
-### Features
-* `remove-screenshot-restriction` patch ([#285](https://github.com/revanced/revanced-integrations/issues/285)) ([c3eff91](https://github.com/revanced/revanced-integrations/commit/c3eff913ddb076dc86efd0398e34d04336a655ec))
-* **youtube/return-youtube-dislike:** better matching color for separators ([#281](https://github.com/revanced/revanced-integrations/issues/281)) ([2a16da1](https://github.com/revanced/revanced-integrations/commit/2a16da15d9a8d37ca65973671f0b4edff0078b47))
-* **youtube/return-youtube-dislike:** style for minimum width ([#284](https://github.com/revanced/revanced-integrations/issues/284)) ([a80fab7](https://github.com/revanced/revanced-integrations/commit/a80fab7070be203aa8aaf4c8422ea8e998843e67))
-* **youtube:** `spoof-app-version` patch ([#282](https://github.com/revanced/revanced-integrations/issues/282)) ([fd818a3](https://github.com/revanced/revanced-integrations/commit/fd818a35f5252fc0a37e12b528e020cdfac0ab53))
+## Integrations: revanced-integrations-0.93.1.apk  
+#### [0.93.1](https://github.com/revanced/revanced-integrations/compare/v0.93.0...v0.93.1) (2023-01-17)
+### Bug Fixes
+* **youtube/microg-support:** open download link if Vanced MicroG is missing ([#290](https://github.com/revanced/revanced-integrations/issues/290)) ([0af87e2](https://github.com/revanced/revanced-integrations/commit/0af87e29085fb5b55cd80ccb61f6e58f72fc5271))
 
   
-## Patches: revanced-patches-2.155.0.jar  
-### [2.155.0](https://github.com/revanced/revanced-patches/compare/v2.154.0...v2.155.0) (2023-01-15)
+## Patches: revanced-patches-2.156.0.jar  
+### [2.156.0](https://github.com/revanced/revanced-patches/compare/v2.155.0...v2.156.0) (2023-01-17)
 ### Bug Fixes
-* bump patcher dependency version ([a5d16d7](https://github.com/revanced/revanced-patches/commit/a5d16d7a22168b519180684e0efa3b0450915d7b))
-* **youtube/open-links-directly:** use better titles and correct descriptions ([#1488](https://github.com/revanced/revanced-patches/issues/1488)) ([2874bbe](https://github.com/revanced/revanced-patches/commit/2874bbef154d28e56b5928048a255409a956a012))
+* **reddit/general-reddit-ads:** specify last version that works correctly ([#1495](https://github.com/revanced/revanced-patches/issues/1495)) ([2a3bedd](https://github.com/revanced/revanced-patches/commit/2a3bedd5608d2f23b174c4227ac167e44e54215e))
 ### Features
-* **youtube:** remove `fix-playback` patch ([edcb6cc](https://github.com/revanced/revanced-patches/commit/edcb6cc94961aaebe2df884db3049b2afa79f38f))
+* explain how to capture crash logs [skip ci] ([f938ba8](https://github.com/revanced/revanced-patches/commit/f938ba81ec98f06f508dbdceeabd29a0ea7bf1af))
+* **id-austria:** `remove-root-detection` patch ([3cf77cd](https://github.com/revanced/revanced-patches/commit/3cf77cdb4ebbd128d29eedefa1ee35289e3c8058))
+* **id-austria:** `spoof-signature` patch ([355a847](https://github.com/revanced/revanced-patches/commit/355a847b1ccd69c4ab2c356395c97b4871e53f1f))
+* **nova-launcher:** `unlock-prime` patch ([#1463](https://github.com/revanced/revanced-patches/issues/1463)) ([cf710b2](https://github.com/revanced/revanced-patches/commit/cf710b27740cce4b9a0fbdf03a494eb8c65246da))
 
   
 **App Versions:**  
- * YouTube: 17.49.37  
- * YTMusic (arm-v7a): 5.39.52  
- * YTMusic (arm64-v8a): 5.39.52  
+YouTube: 17.49.37  
+YTMusic (arm-v7a): 5.39.52  
+YTMusic (arm64-v8a): 5.39.52  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
