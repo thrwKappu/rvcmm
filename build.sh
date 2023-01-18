@@ -53,7 +53,7 @@ for table_name in $(toml_get_table_names); do
 	app_args[arch]=$(toml_get "$t" arch) || app_args[arch]="all"
 	app_args[module_prop_name]=$(toml_get "$t" module-prop-name) || {
 		app_name_l=${app_args[app_name],,}
-		app_args[module_prop_name]=$([ "${app_args[arch]}" = "all" ] && echo "${app_name_l}-rv-jhc-magisk" || echo "${app_name_l}-${app_args[arch]}-rv-jhc-magisk")
+		app_args[module_prop_name]=$([ "${app_args[arch]}" = "all" ] && echo "rvcmm-${app_name_l}" || echo "rvcmm-${app_name_l}-${app_args[arch]}")
 	}
 	if [ "${app_args[arch]}" = "all" ]; then
 		app_args[apkmirror_regex]="APK</span>[^@]*@\([^#]*\)"
