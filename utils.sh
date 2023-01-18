@@ -338,7 +338,7 @@ build_rv() {
 		module_prop "${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} Revanced v${version}. Original template by j-hc" \
+			"${app_name} Revanced v${version}. Original template by j-hc. Patched with $RV_CLI_JAR, $RV_INTEGRATIONS_APK, $RV_PATCHES_JAR" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${upj}" \
 			"$base_template"
 
