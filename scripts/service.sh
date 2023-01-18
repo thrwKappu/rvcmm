@@ -13,6 +13,6 @@ if [ $BASEPATH ] && [ -d ${BASEPATH%base.apk}lib ]; then
 	VERSION=$(dumpsys package __PKGNAME | grep -m1 versionName)
 	if [ ${VERSION#*=} = __PKGVER ]; then
 		chcon u:object_r:apk_data_file:s0 $RVPATH
-		mount -o bind $RVPATH $BASEPATH
+		su -Mc mount -o bind $RVPATH $BASEPATH
 	fi
 fi
