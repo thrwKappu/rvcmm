@@ -40,7 +40,6 @@ jobs:
           echo "${DELIM}" >> "$GITHUB_OUTPUT"
           cp -f build.md build.tmp
 
-          cd build
           echo "RELEASE_NAME=rvcmm - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: Upload modules to release
@@ -104,3 +103,4 @@ jobs:
         with:
           name: logs
           path: logs
+          if-no-files-found: ignore
