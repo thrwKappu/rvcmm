@@ -13,18 +13,25 @@ set_perm_recursive $MODPATH/bin 0 0 0755 0777
 
 grep __PKGNAME /proc/self/mountinfo | while read -r line; do
 	mountpoint=$(echo "$line" | cut -d' ' -f5)
-	ui_print "  * Un-mounting ${mountpoint%%\\*}"
 	umount -l "${mountpoint%%\\*}"
+	ui_print "  * Unmounted ${mountpoint%%\\*}"
 done
 am force-stop __PKGNAME
 
 BASEPATH=$(pm path __PKGNAME | grep base)
 BASEPATH=${BASEPATH#*:}
-if [ -n "$BASEPATH" ] && cmpr $BASEPATH $MODPATH/__PKGNAME.apk; then
-
-	ui_print "  * Skipped stock APK installation (__PKGNAME is up-to-date)"
-else
-	ui_print "  * Attempting to update __PKGNAME to v__PKGVER"
+INS=true
+if [ "$BASEPATH" ]; then
+	if [ ! -d ${BASEPATH%base.apk}lib ]; then
+		ui_print "  * Invalid installation found. Uninstalling..."
+		pm uninstall -k --user 0 __PKGNAME
+	elif cmpr $BASEPATH $MODPATH/__PKGNAME.apk; then
+		ui_print "  * __PKGNAME is already up-to-date"
+		INS=false
+	fi
+fi
+if [ $INS = true ]; then
+	ui_print "  * Updating __PKGNAME (v__PKGVER)"
 	set_perm $MODPATH/__PKGNAME.apk 1000 1000 644 u:object_r:apk_data_file:s0
 	if ! op=$(pm install --user 0 -i com.android.vending -r -d $MODPATH/__PKGNAME.apk 2>&1); then
 		ui_print "ERROR: APK installation failed!"
@@ -49,8 +56,9 @@ ui_print "  * Setting Permissions"
 set_perm $MODPATH/base.apk 1000 1000 644 u:object_r:apk_data_file:s0
 
 ui_print "  * Mounting __PKGNAME"
-RVPATH=/data/adb/__PKGNAME_rv.apk
-ln -f $MODPATH/base.apk $RVPATH
+mkdir $NVBASE/rvcmm 2>/dev/null
+RVPATH=$NVBASE/rvcmm/__PKGNAME_rv.apk
+mv -f $MODPATH/base.apk $RVPATH
 
 if ! op=$(su -Mc mount -o bind $RVPATH $BASEPATH 2>&1); then
 	ui_print "ERROR: Mount failed!"
@@ -61,6 +69,6 @@ am force-stop __PKGNAME
 ui_print "  * Optimizing __PKGNAME"
 cmd package compile --reset __PKGNAME &
 
-rm -r $MODPATH/bin $MODPATH/__PKGNAME.apk
+rm -rf $MODPATH/bin $MODPATH/__PKGNAME.apk $NVBASE/__PKGNAME_rv.apk
 
 ui_print "  * Finished"

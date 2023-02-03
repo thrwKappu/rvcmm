@@ -6,6 +6,7 @@
 /build
 build.md
 /test
+/logs
 cmpr
 test.toml
 options.toml

@@ -1,6 +1,7 @@
 #!/system/bin/sh
-grep __PKGNAME /proc/self/mountinfo | while read -r line; do
-	mountpoint=$(echo "$line" | cut -d' ' -f5)
-	umount -l "${mountpoint%%\\*}"
+grep __PKGNAME /proc/mounts | while read -r line; do
+	mp=${line#* }
+	mp=${mp%% *}
+	umount -l ${mp%%\\*}
 done
 am force-stop __PKGNAME
