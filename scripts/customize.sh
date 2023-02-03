@@ -63,7 +63,7 @@ mv -f $MODPATH/base.apk $RVPATH
 if ! op=$(su -Mc mount -o bind $RVPATH $BASEPATH 2>&1); then
 	ui_print "ERROR: Mount failed!"
 	ui_print "$op"
-	abort "Flash the module in official Magisk Manager app"
+	abort "Flash the module in official Magisk Manager app, If you already using it, try restart your phone and flash again"
 fi
 am force-stop __PKGNAME
 ui_print "  * Optimizing __PKGNAME"
