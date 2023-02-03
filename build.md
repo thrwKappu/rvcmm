@@ -1,23 +1,27 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.94.1.apk  
-#### [0.94.1](https://github.com/revanced/revanced-integrations/compare/v0.94.0...v0.94.1) (2023-01-29)
-### Bug Fixes
-* **youtube/sponsorblock:** fix saving and loading settings ([#304](https://github.com/revanced/revanced-integrations/issues/304)) ([49aedae](https://github.com/revanced/revanced-integrations/commit/49aedae3fcbb4ec1cfe6b9291c95ccac6935d1d0))
-* **youtube:** resolve duplicate preference keys ([#307](https://github.com/revanced/revanced-integrations/issues/307)) ([27d1392](https://github.com/revanced/revanced-integrations/commit/27d1392a73ba634e4d05c0c22849bb933a8f04b3))
+## Integrations: revanced-integrations-0.95.0.apk  
+### [0.95.0](https://github.com/revanced/revanced-integrations/compare/v0.94.1...v0.95.0) (2023-02-03)
+### Features
+* `spoof-wifi-connection` patch ([#297](https://github.com/revanced/revanced-integrations/issues/297)) ([293eae4](https://github.com/revanced/revanced-integrations/commit/293eae4a46ee8acf3484ac271a1ccf194853d42e))
+* spoof-wifi-connection patch ([6679e6e](https://github.com/revanced/revanced-integrations/commit/6679e6ee45385c8a3cf559f685dae7e6cf1f0c1f))
+* **youtube:** `hide-player-buttons` patch ([d5bcef2](https://github.com/revanced/revanced-integrations/commit/d5bcef2cdbe5dfdb1ad2552e7fde339cee1a3f27))
 
   
-## Patches: revanced-patches-2.158.0.jar  
-### [2.158.0](https://github.com/revanced/revanced-patches/compare/v2.157.0...v2.158.0) (2023-01-29)
+## Patches: revanced-patches-2.159.0.jar  
+### [2.159.0](https://github.com/revanced/revanced-patches/compare/v2.158.0...v2.159.0) (2023-02-03)
 ### Bug Fixes
-* **youtube/microg-support:** replace new permission ([3d1cce5](https://github.com/revanced/revanced-patches/commit/3d1cce5b4ca54c622b863f24febeb03a6060033c))
-* **youtube:** resolve duplicate preference keys ([#1550](https://github.com/revanced/revanced-patches/issues/1550)) ([aafdb89](https://github.com/revanced/revanced-patches/commit/aafdb891b2f0f243cb2d997a38ab3e6a7b46aba8))
+* **youtube/custom-branding:** correct scaling, margin and images ([#1580](https://github.com/revanced/revanced-patches/issues/1580)) ([491c413](https://github.com/revanced/revanced-patches/commit/491c4138f0185664a9c5d3db9ebdf026ff4594e8))
 ### Features
-* **irplus:** `remove-ads` patch ([#1554](https://github.com/revanced/revanced-patches/issues/1554)) ([9943a52](https://github.com/revanced/revanced-patches/commit/9943a520d29ee89598b4aa6aba69ff83cb4768ce))
+* `spoof-wifi-connection` patch ([#1527](https://github.com/revanced/revanced-patches/issues/1527)) ([adce206](https://github.com/revanced/revanced-patches/commit/adce206d66e1f7017328fe68a5818d424f70e588))
+* **music:** bump patches compatibility to v5.41.50 ([#1551](https://github.com/revanced/revanced-patches/issues/1551)) ([0b1024a](https://github.com/revanced/revanced-patches/commit/0b1024ab754a3e2ce798a54cccda6f41f97069a5))
+* **netguard:** `remove-broadcasts-restriction` patch ([#1581](https://github.com/revanced/revanced-patches/issues/1581)) ([73132e3](https://github.com/revanced/revanced-patches/commit/73132e37cf83f4c1f05cf6a184dfd8e454f7456e))
+* **spotify-lite:** enable on-demand patch ([9f0de4f](https://github.com/revanced/revanced-patches/commit/9f0de4f5678e9f57baaf6ec788821641d75defdc))
+* **youtube:** `hide-player-buttons` patch ([3469d37](https://github.com/revanced/revanced-patches/commit/3469d37bcedfd2dfbe46231b17cd098b591810c1))
 
   
 **App Versions:**  
-YTMusic (arm-v7a): 5.40.51  
+YTMusic (arm64-v8a): 5.41.50  
+YTMusic (arm-v7a): 5.41.50  
 YouTube: 18.03.36  
-YTMusic (arm64-v8a): 5.40.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
