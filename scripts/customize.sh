@@ -1,9 +1,11 @@
 # shellcheck disable=SC2148,SC2086,SC2115
 
 if [ $ARCH = "arm" ]; then
-	alias cmpr='$MODPATH/bin/arm/cmpr'
+	#arm
 	ARCH_LIB=armeabi-v7a
-elif [ $ARCH = "arm64" ] || [ $ARCH = "x64" ]; then
+	alias cmpr='$MODPATH/bin/arm/cmpr'
+elif [ $ARCH = "arm64" ]; then
+	#arm64
 	ARCH_LIB=arm64-v8a
 	alias cmpr='$MODPATH/bin/arm64/cmpr'
 else
@@ -11,10 +13,12 @@ else
 fi
 set_perm_recursive $MODPATH/bin 0 0 0755 0777
 
-grep __PKGNAME /proc/self/mountinfo | while read -r line; do
-	mountpoint=$(echo "$line" | cut -d' ' -f5)
-	umount -l "${mountpoint%%\\*}"
-	ui_print "  * Unmounted ${mountpoint%%\\*}"
+grep __PKGNAME /proc/mounts | while read -r line; do
+	ui_print "* Un-mount"
+	mp=${line#* }
+	mp=${mp%% *}
+	umount -l ${mp%%\\*}
+	ui_print "  * Unmounted ${mp%%\\*}"
 done
 am force-stop __PKGNAME
 
