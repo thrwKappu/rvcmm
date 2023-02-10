@@ -1,7 +1,7 @@
 #!/system/bin/sh
 # shellcheck disable=SC2086
 MODDIR=${0%/*}
-RVPATH=/data/adb/rvcmm/__PKGNAME_rv.apk
+RVPATH=${NVBASE}/rvcmm/__PKGNAME_rv.apk
 until [ "$(getprop sys.boot_completed)" = 1 ]; do sleep 1; done
 until [ "$(getprop init.svc.bootanim)" = stopped ]; do sleep 1; done
 sleep 3
@@ -20,15 +20,15 @@ if [ $BASEPATH ]; then
 			if chcon u:object_r:apk_data_file:s0 $RVPATH; then
 				mount -o bind $RVPATH $BASEPATH
 				am force-stop __PKGNAME
-					[ -f $MODDIR/err ] && mv -f $MODDIR/err $MODDIR/module.prop
+				[ -f $MODDIR/err ] && mv -f $MODDIR/err $MODDIR/module.prop
 			else
-				err "Base APK is cannot be found"
+				err "mount failed"
 			fi
 		else
-			err "Version mismatch (${VERSION#*=})"
+			err "version mismatch (${VERSION#*=})"
 		fi
 	else
-		err "Invalid installation"
+		err "invalid installation"
 	fi
 else
 	err "app not installed"

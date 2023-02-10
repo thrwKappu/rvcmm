@@ -11,6 +11,10 @@ build-mindetach-module = true
 #integrations-source = "inotia00/revanced-integrations"
 #rv-brand = "ReVanced Extended"
 
+# force select patches/integrations version, default: latest available
+#patches-version = "v2.160.0"
+#integrations-version = "v0.95.0"
+
 # 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
 enabled = true                                                        # add 'enabled = false' key to entries to not build them
