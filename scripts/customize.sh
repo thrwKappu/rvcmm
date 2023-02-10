@@ -14,7 +14,6 @@ fi
 set_perm_recursive $MODPATH/bin 0 0 0755 0777
 
 grep __PKGNAME /proc/mounts | while read -r line; do
-	ui_print "* Un-mount"
 	mp=${line#* }
 	mp=${mp%% *}
 	umount -l ${mp%%\\*}
@@ -77,7 +76,7 @@ am force-stop __PKGNAME
 ui_print "  * Optimizing __PKGNAME"
 cmd package compile --reset __PKGNAME &
 
-ui_print "* Cleanup"
+ui_print "  * Cleanup"
 rm -rf $MODPATH/bin $MODPATH/__PKGNAME.apk $NVBASE/__PKGNAME_rv.apk
 for s in "uninstall.sh" "service.sh"; do
 	sed -i "2 i\NVBASE=${NVBASE}" $MODPATH/$s
