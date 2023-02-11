@@ -1,16 +1,14 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.96.0.apk  
-### [0.96.0](https://github.com/revanced/revanced-integrations/compare/v0.95.0...v0.96.0) (2023-02-10)
-### Features
-* **youtube/general-ads:** hide pill to view products ([43e419e](https://github.com/revanced/revanced-integrations/commit/43e419e6a6b7e6da372b5ec970a70ae86702b706))
+## Integrations: revanced-integrations-0.96.1.apk  
+#### [0.96.1](https://github.com/revanced/revanced-integrations/compare/v0.96.0...v0.96.1) (2023-02-11)
+### Bug Fixes
+* **youtube/minimized-playback:** disable when playing shorts ([1dd84a3](https://github.com/revanced/revanced-integrations/commit/1dd84a37851359143140d1d1df664c3eab680fa7))
 
   
-## Patches: revanced-patches-2.161.0.jar  
-### [2.161.0](https://github.com/revanced/revanced-patches/compare/v2.160.0...v2.161.0) (2023-02-10)
+## Patches: revanced-patches-2.161.1.jar  
+#### [2.161.1](https://github.com/revanced/revanced-patches/compare/v2.161.0...v2.161.1) (2023-02-11)
 ### Bug Fixes
-* **instagram/hide-timeline-ads:** fix compatibility with newer versions ([3d4646a](https://github.com/revanced/revanced-patches/commit/3d4646ae7efe13f9f7e47cf5ba7613aac4d04d66))
-### Features
-* **youtube/general-ads:** hide pill to view products ([7b1bc1a](https://github.com/revanced/revanced-patches/commit/7b1bc1ad50f2b38277b0c19aad735ea65f8333d3))
+* **youtube/minimized-playback:** disable when playing shorts ([cd48030](https://github.com/revanced/revanced-patches/commit/cd48030cada3666d0159ad25711c20045a8a70c7))
 
   
 **App Versions:**  
