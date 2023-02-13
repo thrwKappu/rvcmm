@@ -1,8 +1,9 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.96.1.apk  
-#### [0.96.1](https://github.com/revanced/revanced-integrations/compare/v0.96.0...v0.96.1) (2023-02-11)
+## Integrations: revanced-integrations-0.96.2.apk  
+#### [0.96.2](https://github.com/revanced/revanced-integrations/compare/v0.96.1...v0.96.2) (2023-02-13)
 ### Bug Fixes
-* **youtube/minimized-playback:** disable when playing shorts ([1dd84a3](https://github.com/revanced/revanced-integrations/commit/1dd84a37851359143140d1d1df664c3eab680fa7))
+* **youtube/general-ads:** do not hide chapters when hiding preview comments ([cfb7aab](https://github.com/revanced/revanced-integrations/commit/cfb7aab77991e8a123fb6956e699df8ad53bf59d))
+* **youtube/general-ads:** use correct setting for `BlockRule` ([#316](https://github.com/revanced/revanced-integrations/issues/316)) ([7225bc3](https://github.com/revanced/revanced-integrations/commit/7225bc3c48b2d8f94d21b5481e37d78a26f49544))
 
   
 ## Patches: revanced-patches-2.161.1.jar  
