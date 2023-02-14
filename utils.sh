@@ -13,7 +13,6 @@ WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/2010010
 REBUILD=false
 
 SERVICE_SH=$(cat $MODULE_SCRIPTS_DIR/service.sh)
-POSTFSDATA_SH=$(cat $MODULE_SCRIPTS_DIR/post-fs-data.sh)
 CUSTOMIZE_SH=$(cat $MODULE_SCRIPTS_DIR/customize.sh)
 UNINSTALL_SH=$(cat $MODULE_SCRIPTS_DIR/uninstall.sh)
 
@@ -407,7 +406,7 @@ build_rv() {
 join_args() {
 	echo "$1" | tr -d '\t\r' | tr ' ' '\n' | grep -v '^$' | sed "s/^/${2} /" | paste -sd " " - || :
 }
-postfsdata_sh() { echo "${POSTFSDATA_SH//__PKGNAME/$1}" >"${2}/post-fs-data.sh"; }
+
 uninstall_sh() {
 	local s="${UNINSTALL_SH//__PKGNAME/$1}"
 	echo "${s//__ISBNDL/$2}" >"${3}/uninstall.sh"

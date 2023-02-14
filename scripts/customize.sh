@@ -50,7 +50,7 @@ BASEPATHLIB=${BASEPATH%base.apk}lib/${ARCH}
 if [ -z "$(ls -A1 ${BASEPATHLIB})" ]; then
 	ui_print "  * Extracting native libs"
 	mkdir -p $BASEPATHLIB
-	if ! op=$(unzip -j $MODPATH/__EXTRCT lib/${ARCH_LIB}/* -d ${BASEPATHLIB} 2>&1); then
+	if ! op=$(unzip -j $MODPATH/__PKGNAME.apk lib/${ARCH_LIB}/* -d ${BASEPATHLIB} 2>&1); then
 		ui_print "ERROR: extracting native libs failed"
 		abort "$op"
 	fi
@@ -65,11 +65,11 @@ RVPATH=$NVBASE/rvcmm/__PKGNAME_rv.apk
 mv -f $MODPATH/base.apk $RVPATH
 
 if ! op=$(su -Mc mount -o bind $RVPATH $BASEPATH 2>&1); then
-	ui_print "ERROR: Mount failed! Trying in non-global mountspace mode"
 	ui_print "$op"
+	ui_print "WARNING: Mount failed! Trying in non-global mountspace mode"
 	if ! op=$(mount -o bind $RVPATH $BASEPATH 2>&1); then
 		ui_print "ERROR: $op"
-		abort "Flash the module in official Magisk Manager app. If you already using it, try restart your phone and flash again"
+		abort "Try flashing the module in official Magisk Manager app. If you already using it, try restart your phone and flash again"
 	fi
 fi
 am force-stop __PKGNAME
@@ -77,9 +77,6 @@ ui_print "  * Optimizing __PKGNAME"
 cmd package compile --reset __PKGNAME &
 
 ui_print "  * Cleanup"
-rm -rf $MODPATH/bin $MODPATH/__PKGNAME.apk $NVBASE/__PKGNAME_rv.apk
-for s in "uninstall.sh" "service.sh"; do
-	sed -i "2 i\NVBASE=${NVBASE}" $MODPATH/$s
-done
+rm -rf $MODPATH/bin $MODPATH/__PKGNAME.apk
 
 ui_print "  * Finished"
