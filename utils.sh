@@ -384,7 +384,6 @@ build_rv() {
 
 		uninstall_sh "$pkg_name" "$isbndl" "$base_template"
 		service_sh "$pkg_name" "$version" "$base_template"
-		postfsdata_sh "$pkg_name" "$base_template"
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
 		module_prop \
 			"${args[module_prop_name]}" \
