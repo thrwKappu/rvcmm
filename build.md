@@ -1,15 +1,19 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.96.2.apk  
-#### [0.96.2](https://github.com/revanced/revanced-integrations/compare/v0.96.1...v0.96.2) (2023-02-13)
+## Integrations: revanced-integrations-0.97.0.apk  
+### [0.97.0](https://github.com/revanced/revanced-integrations/compare/v0.96.2...v0.97.0) (2023-02-14)
 ### Bug Fixes
-* **youtube/general-ads:** do not hide chapters when hiding preview comments ([cfb7aab](https://github.com/revanced/revanced-integrations/commit/cfb7aab77991e8a123fb6956e699df8ad53bf59d))
-* **youtube/general-ads:** use correct setting for `BlockRule` ([#316](https://github.com/revanced/revanced-integrations/issues/316)) ([7225bc3](https://github.com/revanced/revanced-integrations/commit/7225bc3c48b2d8f94d21b5481e37d78a26f49544))
+* **youtube/general-ads:** block other kind of survey ([cdf43ef](https://github.com/revanced/revanced-integrations/commit/cdf43efcf29a04b354313749057119e3de030cb1))
+### Features
+* **youtube/general-ads:** hide web search results ([9df1e46](https://github.com/revanced/revanced-integrations/commit/9df1e460c56bf0d5cb3c9d04853d07b22cef35bb))
 
   
-## Patches: revanced-patches-2.161.1.jar  
-#### [2.161.1](https://github.com/revanced/revanced-patches/compare/v2.161.0...v2.161.1) (2023-02-11)
+## Patches: revanced-patches-2.162.0.jar  
+### [2.162.0](https://github.com/revanced/revanced-patches/compare/v2.161.1...v2.162.0) (2023-02-14)
 ### Bug Fixes
-* **youtube/minimized-playback:** disable when playing shorts ([cd48030](https://github.com/revanced/revanced-patches/commit/cd48030cada3666d0159ad25711c20045a8a70c7))
+* **youtube/general-ads:** use better description for switch ([d33f959](https://github.com/revanced/revanced-patches/commit/d33f9597529d63014dd42fc6fe1e84b76831e0f3))
+### Features
+* **youtube/general-ads:** hide web search results ([9975981](https://github.com/revanced/revanced-patches/commit/997598109409ec6a096c652dd8b4b4d27daeb8ec))
+* **yuka:** `unlock-premium` patch ([#1608](https://github.com/revanced/revanced-patches/issues/1608)) ([71e1594](https://github.com/revanced/revanced-patches/commit/71e15945c1b4019eaa2ff214b4efbfc6b1a67376))
 
   
 **App Versions:**  
