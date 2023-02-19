@@ -7,7 +7,7 @@
 
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
-*Only support Official Magisk Manager, due to some limitations on FoxMMM [[1]](https://github.com/j-hc/revanced-magisk-module/issues/55) [[2]](scripts/customize.sh#L67)*
+*Only support Official Magisk Manager, due to some limitations on FoxMMM [[1]](https://github.com/j-hc/revanced-magisk-module/issues/55) [[2]](scripts/customize.sh#L70)*
 
 * You can get the latest CI release from [here](../../releases)
 * __mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
