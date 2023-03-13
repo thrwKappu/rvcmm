@@ -14,6 +14,13 @@ or:
 uptodown-dlurl = "https://app.en.uptodown.com/android"
 ```
 
+or:
+
+```toml
+[Some-App]
+apkmonk-dlurl = "https://www.apkmonk.com/app/com.app.app/"
+```
+
 ## If you'd like to get to know more about other options:
 
 There exists an example below with all defaults shown and all the keys explicitly set.  
