@@ -23,7 +23,7 @@ am force-stop __PKGNAME
 
 INS=true
 if BASEPATH=$(pm path __PKGNAME); then
-BASEPATH=${BASEPATH#*:}
+	BASEPATH=${BASEPATH##*:}
 	BASEPATH=${BASEPATH%/*}
 	if [ ${BASEPATH:1:6} = system ]; then
 		ui_print "  * __PKGNAME is a system app"
@@ -37,9 +37,10 @@ BASEPATH=${BASEPATH#*:}
 fi
 if [ $INS = true ]; then
 	ui_print "  * Updating __PKGNAME (v__PKGVER)"
+	settings put global verifier_verify_adb_installs 0
 	SZ=$(stat -c "%s" $MODPATH/__PKGNAME.apk)
 	if ! SES=$(pm install-create --user 0 -i com.android.vending -r -d -S "$SZ" 2>&1); then
-		ui_print "ERROR: session creation failed"
+		ui_print "ERROR: install-create failed"
 		abort "$SES"
 	fi
 	SES=${SES#*[}
@@ -53,8 +54,9 @@ if [ $INS = true ]; then
 		ui_print "ERROR: install-commit failed"
 		abort "$op"
 	fi
+	settings put global verifier_verify_adb_installs 1
 	if BASEPATH=$(pm path __PKGNAME); then
-	BASEPATH=${BASEPATH#*:}
+		BASEPATH=${BASEPATH##*:}
 		BASEPATH=${BASEPATH%/*}
 	else
 		abort "ERROR: install __PKGNAME manually and reflash the module"
@@ -68,13 +70,13 @@ if [ -z "$(ls -A1 ${BASEPATHLIB})" ]; then
 		ui_print "ERROR: extracting native libs failed"
 		abort "$op"
 	fi
-	set_perm_recursive ${BASEPATHLIB} 1000 1000 755 755 u:object_r:apk_data_file:s0
+	set_perm_recursive ${BASEPATH}/lib 1000 1000 755 755 u:object_r:apk_data_file:s0
 fi
 ui_print "  * Setting Permissions"
 set_perm $MODPATH/base.apk 1000 1000 644 u:object_r:apk_data_file:s0
 
 ui_print "  * Mounting __PKGNAME"
-mkdir $NVBASE/rvcmm 2>/dev/null
+mkdir -p $NVBASE/rvcmm
 RVPATH=$NVBASE/rvcmm/__PKGNAME_rv.apk
 mv -f $MODPATH/base.apk $RVPATH
 

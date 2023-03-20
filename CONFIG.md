@@ -1,6 +1,6 @@
 # Config
 
-Adding a new app is as easy as this:
+Three APK download websites are supported and adding a new app is as easy as this:
 
 ```toml
 [Some-App]
