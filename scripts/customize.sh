@@ -9,14 +9,14 @@ elif [ $ARCH = "arm64" ]; then
 	ARCH_LIB=arm64-v8a
 	alias cmpr='$MODPATH/bin/arm64/cmpr'
 else
-	abort "ERROR: unsupported arch: ${ARCH}"
+	abort " ERROR: unsupported arch: ${ARCH}"
 fi
 set_perm_recursive $MODPATH/bin 0 0 0755 0777
 
-nsenter -t1 -m grep __PKGNAME /proc/mounts | while read -r line; do
+nsenter -t1 -m -- grep __PKGNAME /proc/mounts | while read -r line; do
 	mp=${line#* }
 	mp=${mp%% *}
-	nsenter -t1 -m umount -l ${mp%%\\*}
+	nsenter -t1 -m -- umount -l ${mp%%\\*}
 	ui_print "  * Unmounted ${mp%%\\*}"
 done
 am force-stop __PKGNAME
@@ -40,26 +40,26 @@ if [ $INS = true ]; then
 	settings put global verifier_verify_adb_installs 0
 	SZ=$(stat -c "%s" $MODPATH/__PKGNAME.apk)
 	if ! SES=$(pm install-create --user 0 -i com.android.vending -r -d -S "$SZ" 2>&1); then
-		ui_print "ERROR: install-create failed"
-		abort "$SES"
+		ui_print " ERROR: install-create failed"
+		abort " $SES"
 	fi
 	SES=${SES#*[}
 	SES=${SES%]*}
 	set_perm "$MODPATH/__PKGNAME.apk" 1000 1000 644 u:object_r:apk_data_file:s0
 	if ! op=$(pm install-write -S "$SZ" "$SES" "__PKGNAME.apk" "$MODPATH/__PKGNAME.apk" 2>&1); then
-		ui_print "ERROR: install-write failed"
-		abort "$op"
+		ui_print " ERROR: install-write failed"
+		abort " $op"
 	fi
 	if ! op=$(pm install-commit "$SES" 2>&1); then
-		ui_print "ERROR: install-commit failed"
-		abort "$op"
+		ui_print " ERROR: install-commit failed"
+		abort " $op"
 	fi
 	settings put global verifier_verify_adb_installs 1
 	if BASEPATH=$(pm path __PKGNAME); then
 		BASEPATH=${BASEPATH##*:}
 		BASEPATH=${BASEPATH%/*}
 	else
-		abort "ERROR: install __PKGNAME manually and reflash the module"
+		abort " ERROR: install __PKGNAME manually and reflash the module"
 	fi
 fi
 BASEPATHLIB=${BASEPATH}/lib/${ARCH}
@@ -67,8 +67,8 @@ if [ -z "$(ls -A1 ${BASEPATHLIB})" ]; then
 	ui_print "  * Extracting native libs"
 	mkdir -p $BASEPATHLIB
 	if ! op=$(unzip -j $MODPATH/__EXTRCT lib/${ARCH_LIB}/* -d ${BASEPATHLIB} 2>&1); then
-		ui_print "ERROR: extracting native libs failed"
-		abort "$op"
+		ui_print " ERROR: extracting native libs failed"
+		abort " $op"
 	fi
 	set_perm_recursive ${BASEPATH}/lib 1000 1000 755 755 u:object_r:apk_data_file:s0
 fi
@@ -80,7 +80,7 @@ mkdir -p $NVBASE/rvcmm
 RVPATH=$NVBASE/rvcmm/__PKGNAME_rv.apk
 mv -f $MODPATH/base.apk $RVPATH
 
-if ! op=$(nsenter -t1 -m mount -o bind $RVPATH $BASEPATH/base.apk 2>&1); then
+if ! op=$(nsenter -t1 -m -- mount -o bind $RVPATH $BASEPATH/base.apk 2>&1); then
 	ui_print " ERROR: Mount failed!"
 	ui_print " $op"
 fi
