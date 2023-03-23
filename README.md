@@ -15,11 +15,12 @@
 * Support all present and future ReVanced and [ReVanced Extended](https://github.com//inotia00/revanced-patches) apps
 * Can build Magisk modules and non-root APKs
 * Updated daily with the latest versions of apps and patches
-* Cleans APKs
+* Optimize APKs and modules for size
 * Modules
   * recompile invalidated odex for faster usage
   * receive updates from Magisk app
   * do not break safetynet or trigger root detections
   * handle installation of the correct version of the stock app and all that
+     * support Magisk and KernelSU
 
 __Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs if there is a change. You may want to disable it.__
