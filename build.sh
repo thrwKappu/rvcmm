@@ -34,7 +34,7 @@ if [ "$BUILD_MINDETACH_MODULE" = true ] && [ ! -f "mindetach-magisk/mindetach/de
 	BUILD_MINDETACH_MODULE=false
 fi
 if ! PARALLEL_JOBS=$(toml_get "$main_config_t" parallel-jobs); then
-	PARALLEL_JOBS=$(nproc); fi
+	PARALLEL_JOBS=$(nproc); 
 fi
 LOGGING_F=$(toml_get "$main_config_t" logging-to-file) && vtf "$LOGGING_F" "logging-to-file" || LOGGING_F=false
 CONF_PATCHES_VER=$(toml_get "$main_config_t" patches-version) || CONF_PATCHES_VER=
