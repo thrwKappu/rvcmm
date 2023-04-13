@@ -1,32 +1,22 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.101.0.apk  
-### [0.101.0](https://github.com/revanced/revanced-integrations/compare/v0.100.1...v0.101.0) (2023-03-29)
+## Integrations: revanced-integrations-0.101.1.apk  
+#### [0.101.1](https://github.com/revanced/revanced-integrations/compare/v0.101.0...v0.101.1) (2023-04-13)
 ### Bug Fixes
-* **youtube/remember-playback-speed:**  allow to not remember playback speed ([#338](https://github.com/revanced/revanced-integrations/issues/338)) ([7627e5d](https://github.com/revanced/revanced-integrations/commit/7627e5d057fdfb5847b2406b609634489efd3cbf))
-* **youtube/return-youtube-dislike:** fix right to left text layout ([#333](https://github.com/revanced/revanced-integrations/issues/333)) ([2dd1431](https://github.com/revanced/revanced-integrations/commit/2dd14313a64930acbb544f4ad971c51dcfbb80e1))
-* **youtube/return-youtube-dislike:** layout fix for low dpi devices ([#335](https://github.com/revanced/revanced-integrations/issues/335)) ([46e0272](https://github.com/revanced/revanced-integrations/commit/46e0272f9e96e7893e6fbb919d90248f59addaf9))
-* **youtube/spoof-signature-verification:** fix audio during home feed video playback ([#336](https://github.com/revanced/revanced-integrations/issues/336)) ([68d0930](https://github.com/revanced/revanced-integrations/commit/68d09305b990b411efffeeb02aa638e59eee9e5d))
-### Features
-* **youtube/spoof-signature-verification:** automatic signature spoofing ([d16980e](https://github.com/revanced/revanced-integrations/commit/d16980ef2f18b7b5752be36f0183985c6c398ea1))
+* **youtube/spoof-signature-verification:** additional fixes for subtitle locations ([#346](https://github.com/revanced/revanced-integrations/issues/346)) ([eeddb59](https://github.com/revanced/revanced-integrations/commit/eeddb59b0815b9e92869fc7c1d1f49d51039ce2e))
+* **youtube/spoof-signature-verification:** fixed subtitles in wrong location ([#343](https://github.com/revanced/revanced-integrations/issues/343)) ([1a0a6ee](https://github.com/revanced/revanced-integrations/commit/1a0a6ee90be8168f46ada6dfc736f3609a921561))
+* **youtube/spoof-signature-verification:** spoof videos in playlists ([86bedb2](https://github.com/revanced/revanced-integrations/commit/86bedb2183c01bd06afaa10221e2a1504ee20ed3))
 
   
-## Patches: revanced-patches-2.167.0.jar  
-### [2.167.0](https://github.com/revanced/revanced-patches/compare/v2.166.0...v2.167.0) (2023-03-29)
+## Patches: revanced-patches-2.167.1.jar  
+#### [2.167.1](https://github.com/revanced/revanced-patches/compare/v2.167.0...v2.167.1) (2023-04-13)
 ### Bug Fixes
-* **youtube/remember-playback-speed:**  allow to not remember playback speed ([#1762](https://github.com/revanced/revanced-patches/issues/1762)) ([49ec3e8](https://github.com/revanced/revanced-patches/commit/49ec3e83f18ec4eb180d220c5a7015f8e4feb3a7))
-* **youtube/sponsorblock:** fix segments not skipping during background play ([#1765](https://github.com/revanced/revanced-patches/issues/1765)) ([7620ea1](https://github.com/revanced/revanced-patches/commit/7620ea1752406d703deb15aa0267d4572b1b171a))
-* **youtube/spoof-signature-verification:** fix audio during home feed video playback ([#1754](https://github.com/revanced/revanced-patches/issues/1754)) ([7dd067b](https://github.com/revanced/revanced-patches/commit/7dd067b0e96679fe653c9796bef31d743287b2d0))
-### Features
-* `export-all-activities` patch ([#1751](https://github.com/revanced/revanced-patches/issues/1751)) ([aad6e05](https://github.com/revanced/revanced-patches/commit/aad6e055380f91462d94fc96c4ec17a27e283c64))
-* **reddit:** bump compatibility to `2023.10.0` ([#1772](https://github.com/revanced/revanced-patches/issues/1772)) ([f95ab6e](https://github.com/revanced/revanced-patches/commit/f95ab6e13e70667fdffe479b7292112244e6bb9e))
-* **twitter:** remove `monochrome-icon` patch ([#1786](https://github.com/revanced/revanced-patches/issues/1786)) ([b8bf804](https://github.com/revanced/revanced-patches/commit/b8bf804835e75c9f2c8453c8ce22cfd8d17318ce))
-* **youtube/microg-support:** do not depend on `spoof-signature-verification` patch ([af4e765](https://github.com/revanced/revanced-patches/commit/af4e765ca87c6c979e95bc274b32c764a0a32a88))
-* **youtube/spoof-signature-verification:** automatic signature spoofing ([f1395f4](https://github.com/revanced/revanced-patches/commit/f1395f49fae1c0a00de074d58fa7d81f562d3009))
+* **youtube/spoof-signature-verification:** fixed subtitles in wrong location ([#1833](https://github.com/revanced/revanced-patches/issues/1833)) ([0dbfa62](https://github.com/revanced/revanced-patches/commit/0dbfa6247e6e7ff51e8fee86fd798f693ab05bcf))
+* **youtube/spoof-signature-verification:** spoof videos in playlists ([0a858ec](https://github.com/revanced/revanced-patches/commit/0a858ecef3f152dfd97e7f2d27501201968de4e4))
 
   
 **App Versions:**  
-YTMusic (arm64-v8a): 5.39.52  
 YouTube: 18.05.40  
+YTMusic (arm64-v8a): 5.39.52  
 YTMusic (arm-v7a): 5.39.52  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
