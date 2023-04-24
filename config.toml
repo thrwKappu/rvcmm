@@ -3,7 +3,7 @@
 compression-level = 9         # compression level for module zips. between 1 and 9
 logging-to-file = true        # enables logging of every patch process to a seperate file
 enable-magisk-update = true   # set this to false if you do not want to receive updates for the module in magisk app
-build-mindetach-module = false
+build-mindetach-module = true
 
 # uncomment these to add more option(s)
 #patches-source = "inotia00/revanced-patches"
@@ -11,8 +11,8 @@ build-mindetach-module = false
 #rv-brand = "ReVanced Extended"
 
 # force select patches/integrations version, default: latest available
-patches-version = "v2.170.0-dev.1"
-integrations-version = "v0.104.0-dev.1"
+#patches-version = "v2.160.0"
+#integrations-version = "v0.95.0"
 
 # 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
@@ -20,7 +20,7 @@ enabled = true                                                        # add 'ena
 build-mode = "module"                                                 # 'both', 'apk' or 'module'
 excluded-patches = "debugging"                                        # whitespace seperated list of patches to exclude (multiline strings are not supported)
 included-patches = ""                                                 # whitespace seperated list of patches to include
-version = "18.15.40"                                                      # 'auto', 'latest' or a custom one like '17.40.41'
+version = "auto"                                                      # 'auto', 'latest' or a custom one like '17.40.41'
 exclusive-patches = false                                             # excludes all patches by default
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
 module-prop-name = "rvcmm-yt"
