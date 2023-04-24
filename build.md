@@ -1,23 +1,30 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.104.0-dev.1.apk  
-### [0.104.0-dev.1](https://github.com/revanced/revanced-integrations/compare/v0.103.1-dev.2...v0.104.0-dev.1) (2023-04-24)
+## Integrations: revanced-integrations-0.104.0.apk  
+### [0.104.0](https://github.com/revanced/revanced-integrations/compare/v0.103.0...v0.104.0) (2023-04-24)
+### Bug Fixes
+* **spoof-wifi-connection:** fixed crash when wifi is disabled ([#363](https://github.com/revanced/revanced-integrations/issues/363)) ([7fc8e88](https://github.com/revanced/revanced-integrations/commit/7fc8e882d8d268484b6e273fdb0371db2feef1d3))
+* **youtube/hide-video-action-buttons:** fix hide action buttons not working for some users ([#366](https://github.com/revanced/revanced-integrations/issues/366)) ([246deb1](https://github.com/revanced/revanced-integrations/commit/246deb16020adda26d9d0a0449157f4855678d18))
+* **youtube/sponsorblock:** Include milliseconds in the voting menu ([#362](https://github.com/revanced/revanced-integrations/issues/362)) ([6952c50](https://github.com/revanced/revanced-integrations/commit/6952c505957153d7fdeb7ee42b3f824c155993f5))
 ### Features
-* **youtube/wide-searchbar:** rename patch ([2320880](https://github.com/revanced/revanced-integrations/commit/2320880a42bf37335ececf1f8e6cb83bd57f347d))
-* **youtube:** bump compatibility to `18.15.40` ([#367](https://github.com/revanced/revanced-integrations/issues/367)) ([52a3193](https://github.com/revanced/revanced-integrations/commit/52a31930870b838e766d08c3203bd8cd7ae443ba))
-* **youtube:** remove non working patch `hide-my-mix` ([98edcdd](https://github.com/revanced/revanced-integrations/commit/98edcdd589c0d3615530b44c8bbaeb94ae599afb))
+* **youtube/wide-searchbar:** rename patch ([8493f57](https://github.com/revanced/revanced-integrations/commit/8493f57879f0075c73932240b61bf0c52efda0ed))
+* **youtube:** remove non working patch `hide-my-mix` ([436a84e](https://github.com/revanced/revanced-integrations/commit/436a84ee0785e5b0bed1b9a4a02b5be86eff4a4a))
 
   
-## Patches: revanced-patches-2.170.0-dev.1.jar  
-### [2.170.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.4...v2.170.0-dev.1) (2023-04-24)
+## Patches: revanced-patches-2.170.0.jar  
+### [2.170.0](https://github.com/revanced/revanced-patches/compare/v2.169.0...v2.170.0) (2023-04-24)
 ### Bug Fixes
-* **youtube/tablet-mini-player:** throw if fingerprint fails to resolve ([c78ab33](https://github.com/revanced/revanced-patches/commit/c78ab33a8d41694aaee60d0a3d99c51c95085489))
+* **enable-android-debugging:** don't include by default ([b2856f7](https://github.com/revanced/revanced-patches/commit/b2856f7f71640f78dfc11b3dff90a58add48d605))
+* **twitch/block-embedded-ads:** correct spelling mistake ([#1962](https://github.com/revanced/revanced-patches/issues/1962)) ([6138c2a](https://github.com/revanced/revanced-patches/commit/6138c2ac24f586137bc4ef974a6600d24ebdda3e))
+* **youtube/hide-video-action-buttons:** fix hide action buttons not working for some users ([#1959](https://github.com/revanced/revanced-patches/issues/1959)) ([3ab5842](https://github.com/revanced/revanced-patches/commit/3ab5842ebbee3381604efcaa454ea5c49d3a5363))
+* **youtube/sponsorblock:** correct spelling mistake ([#1941](https://github.com/revanced/revanced-patches/issues/1941)) ([d9d0fe7](https://github.com/revanced/revanced-patches/commit/d9d0fe7e236ccce348e8b3214454d29656a853c0))
+* **youtube/sponsorblock:** use lowercase letters for URL string ([#1942](https://github.com/revanced/revanced-patches/issues/1942)) ([b58842a](https://github.com/revanced/revanced-patches/commit/b58842a5f6f3fbcf06e87821bbc1ad3be7ca2fc0))
+* **youtube/tablet-mini-player:** throw if fingerprint fails to resolve ([642eef3](https://github.com/revanced/revanced-patches/commit/642eef39e8e8eeb1f95980f95b83e79faffe3a18))
 ### Features
-* **youtube/wide-searchbar:** rename patch ([ac9ad79](https://github.com/revanced/revanced-patches/commit/ac9ad79f2ff4fbe4fa73b80bae88d12a03a287d7))
-* **youtube:** bump compatibility to `18.15.40` ([72008da](https://github.com/revanced/revanced-patches/commit/72008da28637bb6b4bf6f0e0ae1b6bce584dd696))
-* **youtube:** bump compatibility to `18.15.40` ([#1964](https://github.com/revanced/revanced-patches/issues/1964)) ([c4c6653](https://github.com/revanced/revanced-patches/commit/c4c6653c37b9675ff0f7b0f29470342c99caba34))
-* **youtube:** constrain patches to `18.15.40` ([dfbf8ab](https://github.com/revanced/revanced-patches/commit/dfbf8ab206e779fe2624d5f62c5dab170d68fce5))
-* **youtube:** remove non working patch `hide-my-mix` ([f8ea2cf](https://github.com/revanced/revanced-patches/commit/f8ea2cf3bcec3ec4bfb424ed8e4a640b505387d7))
-* **youtube:** support version `18.15.40` ([b2916a3](https://github.com/revanced/revanced-patches/commit/b2916a379a631481c0750e312d04a4c9e82590d6))
+* **youtube/wide-searchbar:** rename patch ([bb5885e](https://github.com/revanced/revanced-patches/commit/bb5885eca4b750f15776de9099fb4dd83f6d70f5))
+* **youtube:** bump compatibility to `18.15.40` ([ad82fcd](https://github.com/revanced/revanced-patches/commit/ad82fcdb63c7cc77e7387b7f0da95b005c90ce31))
+* **youtube:** constrain patches to `18.15.40` ([c0c10de](https://github.com/revanced/revanced-patches/commit/c0c10dec3446d35e20b17c25510cddcbe07b494f))
+* **youtube:** remove non working patch `hide-my-mix` ([6ae0f0b](https://github.com/revanced/revanced-patches/commit/6ae0f0b466322c4d60feb20ed0e809783452b9d4))
+* **youtube:** support version `18.15.40` ([c3614ab](https://github.com/revanced/revanced-patches/commit/c3614ab1d10a70fdb0813d7249866d696b28088f))
 
   
 **App Versions:**  
