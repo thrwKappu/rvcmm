@@ -1,30 +1,24 @@
 ## CLI: revanced-cli-2.21.0-all.jar  
-## Integrations: revanced-integrations-0.104.0.apk  
-### [0.104.0](https://github.com/revanced/revanced-integrations/compare/v0.103.0...v0.104.0) (2023-04-24)
+## Integrations: revanced-integrations-0.105.0.apk  
+### [0.105.0](https://github.com/revanced/revanced-integrations/compare/v0.104.0...v0.105.0) (2023-04-27)
 ### Bug Fixes
-* **spoof-wifi-connection:** fixed crash when wifi is disabled ([#363](https://github.com/revanced/revanced-integrations/issues/363)) ([7fc8e88](https://github.com/revanced/revanced-integrations/commit/7fc8e882d8d268484b6e273fdb0371db2feef1d3))
-* **youtube/hide-video-action-buttons:** fix hide action buttons not working for some users ([#366](https://github.com/revanced/revanced-integrations/issues/366)) ([246deb1](https://github.com/revanced/revanced-integrations/commit/246deb16020adda26d9d0a0449157f4855678d18))
-* **youtube/sponsorblock:** Include milliseconds in the voting menu ([#362](https://github.com/revanced/revanced-integrations/issues/362)) ([6952c50](https://github.com/revanced/revanced-integrations/commit/6952c505957153d7fdeb7ee42b3f824c155993f5))
+* **youtube/minimized-playback:** disable minimized playback for shorts ([#371](https://github.com/revanced/revanced-integrations/issues/371)) ([df4b03f](https://github.com/revanced/revanced-integrations/commit/df4b03fed5a0622b18bf4a8dca1940d26a590d8f))
+* **youtube/return-youtube-dislike:** fix dislikes using wrong font if dark mode is enabled during video playback ([#368](https://github.com/revanced/revanced-integrations/issues/368)) ([3b37a3b](https://github.com/revanced/revanced-integrations/commit/3b37a3b41f7bfbc4a6d6d12e2deb2acd9bb2ccc8))
+* **youtube/spoof-signature-verification:** additional fixes for subtitle window positions ([#369](https://github.com/revanced/revanced-integrations/issues/369)) ([6f2ae31](https://github.com/revanced/revanced-integrations/commit/6f2ae313cf492166d64e5e33e759f2b234191b64))
 ### Features
-* **youtube/wide-searchbar:** rename patch ([8493f57](https://github.com/revanced/revanced-integrations/commit/8493f57879f0075c73932240b61bf0c52efda0ed))
-* **youtube:** remove non working patch `hide-my-mix` ([436a84e](https://github.com/revanced/revanced-integrations/commit/436a84ee0785e5b0bed1b9a4a02b5be86eff4a4a))
+* **youtube/sponsorblock:** automatically hide skip button ([#365](https://github.com/revanced/revanced-integrations/issues/365)) ([75dad2f](https://github.com/revanced/revanced-integrations/commit/75dad2f3071c19aa097ebdc7bd83d1ce9afb78ea))
 
   
-## Patches: revanced-patches-2.170.0.jar  
-### [2.170.0](https://github.com/revanced/revanced-patches/compare/v2.169.0...v2.170.0) (2023-04-24)
+## Patches: revanced-patches-2.171.0.jar  
+### [2.171.0](https://github.com/revanced/revanced-patches/compare/v2.170.0...v2.171.0) (2023-04-27)
 ### Bug Fixes
-* **enable-android-debugging:** don't include by default ([b2856f7](https://github.com/revanced/revanced-patches/commit/b2856f7f71640f78dfc11b3dff90a58add48d605))
-* **twitch/block-embedded-ads:** correct spelling mistake ([#1962](https://github.com/revanced/revanced-patches/issues/1962)) ([6138c2a](https://github.com/revanced/revanced-patches/commit/6138c2ac24f586137bc4ef974a6600d24ebdda3e))
-* **youtube/hide-video-action-buttons:** fix hide action buttons not working for some users ([#1959](https://github.com/revanced/revanced-patches/issues/1959)) ([3ab5842](https://github.com/revanced/revanced-patches/commit/3ab5842ebbee3381604efcaa454ea5c49d3a5363))
-* **youtube/sponsorblock:** correct spelling mistake ([#1941](https://github.com/revanced/revanced-patches/issues/1941)) ([d9d0fe7](https://github.com/revanced/revanced-patches/commit/d9d0fe7e236ccce348e8b3214454d29656a853c0))
-* **youtube/sponsorblock:** use lowercase letters for URL string ([#1942](https://github.com/revanced/revanced-patches/issues/1942)) ([b58842a](https://github.com/revanced/revanced-patches/commit/b58842a5f6f3fbcf06e87821bbc1ad3be7ca2fc0))
-* **youtube/tablet-mini-player:** throw if fingerprint fails to resolve ([642eef3](https://github.com/revanced/revanced-patches/commit/642eef39e8e8eeb1f95980f95b83e79faffe3a18))
+* **enable-android-debugging:** make option `debuggable` false by default ([e717e26](https://github.com/revanced/revanced-patches/commit/e717e260fd0449a97929c3c82da577362586c5e1))
+* **youtube/minimized-playback:** disable minimized playback for shorts ([#1990](https://github.com/revanced/revanced-patches/issues/1990)) ([b91d18d](https://github.com/revanced/revanced-patches/commit/b91d18d24f332a9aa8721dc053e395d352b5796d))
+* **youtube/spoof-signature-verification:** additional fixes for subtitle window positions ([#1975](https://github.com/revanced/revanced-patches/issues/1975)) ([08584e6](https://github.com/revanced/revanced-patches/commit/08584e680fc658f37e8730499fa5197a08370776))
 ### Features
-* **youtube/wide-searchbar:** rename patch ([bb5885e](https://github.com/revanced/revanced-patches/commit/bb5885eca4b750f15776de9099fb4dd83f6d70f5))
-* **youtube:** bump compatibility to `18.15.40` ([ad82fcd](https://github.com/revanced/revanced-patches/commit/ad82fcdb63c7cc77e7387b7f0da95b005c90ce31))
-* **youtube:** constrain patches to `18.15.40` ([c0c10de](https://github.com/revanced/revanced-patches/commit/c0c10dec3446d35e20b17c25510cddcbe07b494f))
-* **youtube:** remove non working patch `hide-my-mix` ([6ae0f0b](https://github.com/revanced/revanced-patches/commit/6ae0f0b466322c4d60feb20ed0e809783452b9d4))
-* **youtube:** support version `18.15.40` ([c3614ab](https://github.com/revanced/revanced-patches/commit/c3614ab1d10a70fdb0813d7249866d696b28088f))
+* **id-austria:** remove compatibility version constraint ([#1952](https://github.com/revanced/revanced-patches/issues/1952)) ([94ffd5a](https://github.com/revanced/revanced-patches/commit/94ffd5a26fe42f223a09ad6bd7f34f1fac0986ad))
+* **youtube/sponsorblock:** automatically hide skip button ([#1956](https://github.com/revanced/revanced-patches/issues/1956)) ([c3c8ae6](https://github.com/revanced/revanced-patches/commit/c3c8ae6b4377b12838971cedc32779e12c07363c))
+* **youtube:** `hide-player-overlay` patch ([#1965](https://github.com/revanced/revanced-patches/issues/1965)) ([d233d96](https://github.com/revanced/revanced-patches/commit/d233d96faf838b22f4c458ad445af048362e7421))
 
   
 **App Versions:**  
