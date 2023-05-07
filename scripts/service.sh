@@ -22,12 +22,12 @@ if [ $svcl = 0 ]; then
 	if [ -d $BASEPATH/lib ]; then
 		VERSION=$(dumpsys package __PKGNAME | grep -m1 versionName)
 		VERSION="${VERSION#*=}"
-		if [ "$VERSION" = __PKGVER ]; then
-			#grep __PKGNAME /proc/mounts | while read -r line; do
-			#	mp=${line#* }
-			#	mp=${mp%% *}
-			#	umount -l ${mp%%\\*}
-			#done
+		if [ "$VERSION" = __PKGVER ] || [ -z "$VERSION" ]; then
+			grep __PKGNAME /proc/mounts | while read -r line; do
+				mp=${line#* }
+				mp=${mp%% *}
+				umount -l ${mp%%\\*}
+			done
 			if chcon u:object_r:apk_data_file:s0 $RVPATH; then
 				mount -o bind $RVPATH $BASEPATH/base.apk
 				am force-stop __PKGNAME

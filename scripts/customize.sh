@@ -26,17 +26,33 @@ if BASEPATH=$(pm path __PKGNAME); then
 	BASEPATH=${BASEPATH##*:}
 	BASEPATH=${BASEPATH%/*}
 	if [ ${BASEPATH:1:6} = system ]; then
-		ui_print "  * __PKGNAME is a system app"
+		ui_print "  * __PKGNAME is system app"
 	elif [ ! -d ${BASEPATH}/lib ]; then
 		ui_print "  * Invalid installation found. Uninstalling..."
 		pm uninstall -k --user 0 __PKGNAME
+	elif [ ! -f $MODPATH/__PKGNAME.apk ]; then
+		ui_print "  * Stock __PKGNAME APK is not found"
+		VERSION=$(dumpsys package __PKGNAME | grep -m1 versionName)
+		VERSION="${VERSION#*=}"
+		if [ "$VERSION" = __PKGVER ] || [ -z "$VERSION" ]; then
+			ui_print "  * Skipping stock installation"
+			INS=false
+		else
+			abort " ERROR: Version mismatch
+			installed: $VERSION
+			module:    __PKGVER
+			"
+		fi
 	elif cmpr $BASEPATH/base.apk $MODPATH/__PKGNAME.apk; then
 		ui_print "  * __PKGNAME is already up-to-date"
 		INS=false
 	fi
 fi
 if [ $INS = true ]; then
-	ui_print "  * Updating __PKGNAME (v__PKGVER)"
+	if [ ! -f $MODPATH/__PKGNAME.apk ]; then
+		abort " ERROR: Stock __PKGNAME apk is not found"
+	fi
+	ui_print "  * Installing __PKGNAME (__PKGVER)"
 	settings put global verifier_verify_adb_installs 0
 	SZ=$(stat -c "%s" $MODPATH/__PKGNAME.apk)
 	if ! SES=$(pm install-create --user 0 -i com.android.vending -r -d -S "$SZ" 2>&1); then
