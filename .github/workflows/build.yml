@@ -83,7 +83,7 @@ jobs:
           }"
           }
 
-          cd build || echo "build folder not found"
+          cd build || echo "build folder not found"; exit 1
           for OUTPUT in RVCMM*.zip; do
             [ "$OUTPUT" = "RVCMM*.zip" ] && continue
             ZIP_S=$(unzip -p "$OUTPUT" module.prop)
