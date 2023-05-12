@@ -49,7 +49,7 @@ jobs:
           echo "${DELIM}" >> "$GITHUB_OUTPUT"
           cp -f build.md build.tmp
 
-          echo "RELEASE_NAME=rvcmm - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          echo "RELEASE_NAME=RVCMM - $(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@v2
@@ -83,13 +83,11 @@ jobs:
           }"
           }
 
-          cd build || echo "build folder not found"; exit 1
+          cd build || { echo "build folder not found"; exit 1; }
           for OUTPUT in RVCMM*.zip; do
             [ "$OUTPUT" = "RVCMM*.zip" ] && continue
             ZIP_S=$(unzip -p "$OUTPUT" module.prop)
-            if ! UPDATE_JSON=$(echo "$ZIP_S" | grep updateJson); then
-              continue
-            fi
+            if ! UPDATE_JSON=$(echo "$ZIP_S" | grep updateJson); then continue; fi
             UPDATE_JSON="${UPDATE_JSON##*/}"
             VER=$(echo "$ZIP_S" | grep version=)
             VER="${VER##*=}"
