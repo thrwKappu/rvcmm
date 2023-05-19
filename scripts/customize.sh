@@ -31,7 +31,7 @@ if BASEPATH=$(pm path __PKGNAME); then
 		ui_print "  * Invalid installation found. Uninstalling..."
 		pm uninstall -k --user 0 __PKGNAME
 	elif [ ! -f $MODPATH/__PKGNAME.apk ]; then
-		ui_print "  * Stock __PKGNAME APK is not found"
+		ui_print "  * Stock __PKGNAME APK was not found"
 		VERSION=$(dumpsys package __PKGNAME | grep -m1 versionName)
 		VERSION="${VERSION#*=}"
 		if [ "$VERSION" = __PKGVER ] || [ -z "$VERSION" ]; then
@@ -50,7 +50,7 @@ if BASEPATH=$(pm path __PKGNAME); then
 fi
 if [ $INS = true ]; then
 	if [ ! -f $MODPATH/__PKGNAME.apk ]; then
-		abort " ERROR: Stock __PKGNAME apk is not found"
+		abort " ERROR: Stock __PKGNAME apk was not found"
 	fi
 	ui_print "  * Installing __PKGNAME (__PKGVER)"
 	settings put global verifier_verify_adb_installs 0
