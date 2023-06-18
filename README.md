@@ -8,11 +8,11 @@
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
 * You can get the latest CI release from [here](../../releases)
-* __mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
+* [__mindetach module__](https://github.com/j-hc/mindetach-magisk/releases) detaches YouTube and YouTube Music from Play Store and blocks their forced updates.
 
 ## Features
 
-* Support all present and future ReVanced and [ReVanced Extended](https://github.com//inotia00/revanced-patches) apps
+* Support all present and future ReVanced and [ReVanced Extended](https://github.com/inotia00/revanced-patches) apps
 * Can build Magisk modules and non-root APKs
 * Updated daily with the latest versions of apps and patches
 * Optimize APKs and modules for size
