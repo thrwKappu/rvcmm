@@ -1,27 +1,41 @@
-## CLI: revanced-cli-2.22.0-all.jar  
-## Integrations: revanced-integrations-0.110.0.apk  
-### [0.110.0](https://github.com/revanced/revanced-integrations/compare/v0.109.0...v0.110.0) (2023-06-12)
-### Bug Fixes
-* **youtube/swipe-controls:** require restart if settings are changed ([#417](https://github.com/revanced/revanced-integrations/issues/417)) ([f951897](https://github.com/revanced/revanced-integrations/commit/f9518979448bf40f0a85ad88ac5971ade9343566))
-### Features
-* **reddit:** add `hide-promoted` patch ([#419](https://github.com/revanced/revanced-integrations/issues/419)) ([7eb209d](https://github.com/revanced/revanced-integrations/commit/7eb209d8533f68cd344c331482b38bfcf4baca06))
-* **youtube/hide-ads:** hide mix playlists ([aa72125](https://github.com/revanced/revanced-integrations/commit/aa721253170890a35640b860be569932b8536345))
-* **youtube/swipe-controls:** add option to save and restore brightness ([b5a71a8](https://github.com/revanced/revanced-integrations/commit/b5a71a843eaecaf9f2566d0b6a3c21422b14a44f))
-
-  
-## Patches: revanced-patches-2.177.0.jar  
-### [2.177.0](https://github.com/revanced/revanced-patches/compare/v2.176.1...v2.177.0) (2023-06-12)
-### Bug Fixes
-* **reddit/hide-ads:** search for correct reference class descriptor ([ad2a858](https://github.com/revanced/revanced-patches/commit/ad2a8585b2a5ecbc5eb92dd23b0ab124aa8a2541))
-* **syncforreddit/change-oauth-client-id:** trim whitespace from OAuth string ([#2402](https://github.com/revanced/revanced-patches/issues/2402)) ([2afea71](https://github.com/revanced/revanced-patches/commit/2afea71557cfe4eb64d7c7ebf5a07dfd24a11824))
-* **syncforreddit/change-oauth-client-id:** use downloads directory ([9b5af77](https://github.com/revanced/revanced-patches/commit/9b5af77a229a22466cfe8ed41a21d081beeae960))
-### Features
-* **syncforreddit/change-oauth-client-id:** support pro version ([d34288b](https://github.com/revanced/revanced-patches/commit/d34288b6e8c7f5bb944622a3c741fcc693868033))
-
-  
-**App Versions:**  
-YTMusic (arm64-v8a): 5.39.52  
 YouTube: 18.19.35  
-YTMusic (arm-v7a): 5.39.52  
+Music-arm64: 6.07.50  
+Music-arm: 6.07.50  
+
+Install [Vanced Microg](https://github.com/TeamVanced/VancedMicroG/releases) to be able to use non-root YouTube or Music  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
+
+---
+Changelog:  
+## CLI: j-hc/revanced-cli-2.22.0-all.jar
+## Integrations: revanced/revanced-integrations-0.111.0.apk
+### [0.111.0](https://github.com/revanced/revanced-integrations/compare/v0.110.0...v0.111.0) (2023-06-21)
+### Bug Fixes
+* don't include all Litho patches, when not included ([9952581](https://github.com/revanced/revanced-integrations/commit/9952581a325b780f7dea074cc4ed138d7ac2758b))
+* **reddit/hide-ads:** only filter promoted links ([efc2b9b](https://github.com/revanced/revanced-integrations/commit/efc2b9b6a39de93d6cc1052dfcea457aeaf949b2))
+* **youtube/client-spoof:** use new visitor data to work around playback issues ([be9c948](https://github.com/revanced/revanced-integrations/commit/be9c948ce6135ec7fad4d7e7dc18be64e9dbb3eb))
+* **youtube/hide-layout-components:** preserve gap when hiding expandable chips ([b47a214](https://github.com/revanced/revanced-integrations/commit/b47a214067031c099df990d4c83a1d96ab7b3c34))
+* **youtube:** separate `hide-ads` to `hide-layout-components` patch ([bdce029](https://github.com/revanced/revanced-integrations/commit/bdce0298c404be6e5c3ae6854f3609d82ad76e28))
+### Features
+* **youtube/hide-layout-components:** separate hiding expandable chips and chapters ([80fb3a3](https://github.com/revanced/revanced-integrations/commit/80fb3a31dd4604b0d1d72c6033624d2d780746ea))
+
+---
+
+## Patches: revanced/revanced-patches-2.178.0.jar
+### [2.178.0](https://github.com/revanced/revanced-patches/compare/v2.177.0...v2.178.0) (2023-06-21)
+### Bug Fixes
+* **boostforreddit:** use correct options ([ec39732](https://github.com/revanced/revanced-patches/commit/ec39732a05f7c4c3360b8ba42fe50fd60952e6ac))
+* don't include all Litho patches, when not included ([fc69491](https://github.com/revanced/revanced-patches/commit/fc69491dfe4b119d46dd3da27b556e55fe0cecfb))
+* **googlerecorder/remove-device-restrictions:** add missing app constraint ([#2438](https://github.com/revanced/revanced-patches/issues/2438)) ([d5efe26](https://github.com/revanced/revanced-patches/commit/d5efe26f8959cde75dd3865ec3c2df4b05210e4a))
+* **youtube/comments:** add missing filter ([#2423](https://github.com/revanced/revanced-patches/issues/2423)) ([cab04b3](https://github.com/revanced/revanced-patches/commit/cab04b3a56cfc5bf00b7c6fcf6f86ab75aa5d4fd))
+* **youtube/hide-album-cards:** call correct integrations method ([0dbffaa](https://github.com/revanced/revanced-patches/commit/0dbffaae7d6dcb7050a9ea6e3c771839bcfdfbe1))
+* **youtube:** separate `hide-ads` to `hide-layout-components` patch ([7e0417f](https://github.com/revanced/revanced-patches/commit/7e0417f6728fa7b79a9d8cbcfd3ccba484a5567d))
+### Features
+* **boostforreddit:** add `change-oauth-client-id` patch ([3dbc4bd](https://github.com/revanced/revanced-patches/commit/3dbc4bd49df1656893ef69c68550a2deb6a92cb7))
+* **google-recorder:** add `remove-device-restrictions` patch ([ef96ed1](https://github.com/revanced/revanced-patches/commit/ef96ed124e12091dde34124eabd8be9f2bb9280c))
+* **twitch:** 15.4.1 support ([#2462](https://github.com/revanced/revanced-patches/issues/2462)) ([826ed49](https://github.com/revanced/revanced-patches/commit/826ed49c7ca5a00e383b743f88f75dbfc00adb43))
+* **youtube-music:** remove version compatibility constraints ([276af14](https://github.com/revanced/revanced-patches/commit/276af1415a4d354c62fe6259b6559bca1fa84f08))
+* **youtube/hide-layout-components:** separate hiding expandable chips and chapters ([3fb1ce9](https://github.com/revanced/revanced-patches/commit/3fb1ce9f9af150b784e42aaf5b419bb123c08375))
+
+---  
