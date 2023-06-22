@@ -490,7 +490,7 @@ name=${2}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=thrwKappu, j-hc
-description=${4}" >"${6}/module.prop"
+description=${2}" >"${5}/module.prop"
 
-	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then echo "updateJson=${5}" >>"${6}/module.prop"; fi
+	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then echo "updateJson=${4}" >>"${5}/module.prop"; fi
 }
