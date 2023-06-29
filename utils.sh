@@ -430,7 +430,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. \
+			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc." \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
