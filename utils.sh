@@ -49,7 +49,7 @@ get_rv_prebuilts() {
 
 	rv_cli_url=$(gh_req "https://api.github.com/repos/j-hc/revanced-cli/releases/latest" - | json_get 'browser_download_url') || return 1
 	local rv_cli_jar="${prebuilts_dir}/${rv_cli_url##*/}"
-	log "## CLI: $(cut -d/ -f4 <<<"$rv_cli_url")/$(cut -d/ -f9 <<<"$rv_cli_url")" "$prebuilts_dir/changelog.md"
+	log "## CLI: ${rv_cli_jar}" "$prebuilts_dir/changelog.md"
 
 	local rv_integrations_rel="https://api.github.com/repos/${integrations_src}/releases/"
 	if [ "$CONF_INTEGRATIONS_VER" ]; then rv_integrations_rel+="tags/${CONF_INTEGRATIONS_VER}"; else rv_integrations_rel+="latest"; fi
@@ -57,7 +57,7 @@ get_rv_prebuilts() {
 	rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${prebuilts_dir}/${rv_integrations_url##*/}"
-	log "## Integrations:$(cut -d/ -f4 <<<"$rv_integrations_url")/$(cut -d/ -f9 <<<"$rv_integrations_url")" "$prebuilts_dir/changelog.md"
+	log "## Integrations: ${rv_integrations_apk}" "$prebuilts_dir/changelog.md"
 	log "${rv_integrations_changelog//# [/### [}\n---\n" "$prebuilts_dir/changelog.md"
 	
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
@@ -69,7 +69,7 @@ get_rv_prebuilts() {
 	rv_patches_url=$(grep 'jar' <<<"$rv_patches_dl")
 	local rv_patches_jar="${prebuilts_dir}/${rv_patches_url##*/}"
 	[ -f "$rv_patches_jar" ] || REBUILD=true
-	log "## Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$(cut -d/ -f9 <<<"$rv_patches_url")" "$prebuilts_dir/changelog.md"
+	log "## Patches: ${rv_patches_jar}" "$prebuilts_dir/changelog.md"
 	log "${rv_patches_changelog//# [/### [}\n---\n" "$prebuilts_dir/changelog.md"
 
 	dl_if_dne "$rv_cli_jar" "$rv_cli_url"
