@@ -335,7 +335,7 @@ build_rv() {
 			return 0
 		fi
 	fi
-	log "${table}: ${version}"
+	log "${table}: v${version}"
 
 	if [ "${args[merge_integrations]}" = true ]; then p_patcher_args+=("-m ${args[integ]}"); fi
 	local microg_patch
