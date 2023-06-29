@@ -430,7 +430,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. Patched with ${rv_cli_jar#"$prebuilts_dir/"}, ${rv_integrations_apk#"$prebuilts_dir/"}, ${rv_patches_jar#"$prebuilts_dir/"}" \
+			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 

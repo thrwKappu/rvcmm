@@ -146,7 +146,7 @@ if [ "$youtube_mode" != module ] || [ "$music_arm_mode" != module ] || [ "$music
 	log "\nInstall [Vanced Microg](https://github.com/TeamVanced/VancedMicroG/releases) to be able to use non-root YouTube or Music"
 fi
 log "\n [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
-log "\n---\nChangelog:"
+log "\n---\n"
 log "$(cat $TEMP_DIR/*-rvcmm/changelog.md)"
 
 pr "Done"
