@@ -5,8 +5,8 @@ Music-arm: v6.08.50
 
 ---
   
-## CLI: temp/revanced-rvcmm/revanced-cli-2.22.0-all.jar  
-## Integrations: temp/revanced-rvcmm/revanced-integrations-0.111.0.apk  
+## CLI: revanced-cli-2.22.0-all.jar  
+## Integrations: revanced-integrations-0.111.0.apk  
 ### [0.111.0](https://github.com/revanced/revanced-integrations/compare/v0.110.0...v0.111.0) (2023-06-21)
 ### Bug Fixes
 * don't include all Litho patches, when not included ([9952581](https://github.com/revanced/revanced-integrations/commit/9952581a325b780f7dea074cc4ed138d7ac2758b))
@@ -19,7 +19,7 @@ Music-arm: v6.08.50
 
 ---
   
-## Patches: temp/revanced-rvcmm/revanced-patches-2.178.0.jar  
+## Patches: revanced-patches-2.178.0.jar  
 ### [2.178.0](https://github.com/revanced/revanced-patches/compare/v2.177.0...v2.178.0) (2023-06-21)
 ### Bug Fixes
 * **boostforreddit:** use correct options ([ec39732](https://github.com/revanced/revanced-patches/commit/ec39732a05f7c4c3360b8ba42fe50fd60952e6ac))
