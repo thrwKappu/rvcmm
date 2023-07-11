@@ -1,12 +1,12 @@
 YouTube: v18.23.35  
-Music-arm64: v6.08.50  
-Music-arm: v6.08.50  
+Music-arm64: v6.10.51  
+Music-arm: v6.10.51  
 
  [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
 
 ---
   
-## CLI: revanced-cli-2.22.0-all.jar  
+## CLI: revanced-cli-2.23.0-all.jar  
 ## Integrations: revanced-integrations-0.112.0.apk  
 ### [0.112.0](https://github.com/revanced/revanced-integrations/compare/v0.111.2...v0.112.0) (2023-07-08)
 ### Bug Fixes
@@ -18,11 +18,10 @@ Music-arm: v6.08.50
 
 ---
   
-## Patches: revanced-patches-2.183.1.jar  
-#### [2.183.1](https://github.com/revanced/revanced-patches/compare/v2.183.0...v2.183.1) (2023-07-10)
-### Bug Fixes
-* find resource by correct name ([7e562f3](https://github.com/revanced/revanced-patches/commit/7e562f3fb30d0ef5601114433090b2eebcf04c9e))
-* use correct patch naming convention ([3d8856b](https://github.com/revanced/revanced-patches/commit/3d8856b29aba4d7436e637bc5778261b4acddeba))
+## Patches: revanced-patches-2.184.0.jar  
+### [2.184.0](https://github.com/revanced/revanced-patches/compare/v2.183.1...v2.184.0) (2023-07-11)
+### Features
+* **youtube/custom-branding:** update logo ([e2187f3](https://github.com/revanced/revanced-patches/commit/e2187f33ff82fce40592517aef31cb191b42987c))
 
 ---
     
