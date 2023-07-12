@@ -97,11 +97,15 @@ _req() {
 	else
 		local dlp
 		dlp="$(dirname "$2")/tmp.$(basename "$2")"
+  		if [ -f "$dlp" ]; then
+			while [ -f "$dlp" ]; do sleep 1; done
+			return
+		fi
 		wget -nv -O "$dlp" --header="$3" "$1"
 		mv -f "$dlp" "$2"
 	fi
 }
-req() { _req "$1" "$2" "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"; }
+req() { _req "$1" "$2" "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0"; }
 gh_req() { _req "$1" "$2" "$GH_HEADER"; }
 
 log() { echo -e "$1  " >>"${2:-build.md}"; }
@@ -330,10 +334,7 @@ build_rv() {
 				break
 			fi
 		done
-		if [ ! -f "$stock_apk" ]; then
-			epr "ERROR: Could not download ${table} from any provider"
-			return 0
-		fi
+		if [ ! -f "$stock_apk" ]; then return 0; fi
 	fi
 	log "${table}: v${version}"
 
@@ -342,7 +343,7 @@ build_rv() {
 	microg_patch=$(jq -r ".[] | select(.compatiblePackages[].name==\"${pkg_name}\") | .name" "${args[ptjs]}" | grep -iF microg || :)
 	if [ "$microg_patch" ]; then
  		microg_patch="${microg_patch,,}"
-	        microg_patch="${microg_patch// /-}"
+		microg_patch="${microg_patch// /-}"
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
 
