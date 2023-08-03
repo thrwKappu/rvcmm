@@ -57,10 +57,10 @@ set_prebuilts() {
 	local integrations_dir=${integrations_src%/*}
 	local cli_dir=${cli_src%/*}
 
-	app_args[cli]=$(find "${TEMP_DIR}/${cli_dir//[^[:alnum:]]/}-rv" -name "revanced-cli-*.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[cli]}" ] || return 1
-	app_args[integ]=$(find "${TEMP_DIR}/${integrations_dir//[^[:alnum:]]/}-rv" -name "revanced-integrations-${integrations_ver:-*}.apk" -type f -print -quit 2>/dev/null) && [ "${app_args[integ]}" ] || return 1
-	app_args[ptjar]=$(find "${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rv" -name "revanced-patches-${patches_ver:-*}.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjar]}" ] || return 1
-	app_args[ptjs]=$(find "${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rv" -name "patches-${patches_ver:-*}.json" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjs]}" ] || return 1
+	app_args[cli]=$(find "${TEMP_DIR}/${cli_dir//[^[:alnum:]]/}-rvcmm" -name "revanced-cli-*.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[cli]}" ] || return 1
+	app_args[integ]=$(find "${TEMP_DIR}/${integrations_dir//[^[:alnum:]]/}-rvcmm" -name "revanced-integrations-${integrations_ver:-*}.apk" -type f -print -quit 2>/dev/null) && [ "${app_args[integ]}" ] || return 1
+	app_args[ptjar]=$(find "${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rvcmm" -name "revanced-patches-${patches_ver:-*}.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjar]}" ] || return 1
+	app_args[ptjs]=$(find "${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rvcmm" -name "patches-${patches_ver:-*}.json" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjs]}" ] || return 1
 }
 
 build_rv_w() {

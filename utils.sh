@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MODULE_TEMPLATE_DIR="revanced-magisk"
+MODULE_TEMPLATE_DIR="rvcmm"
 TEMP_DIR="temp"
 BUILD_DIR="build"
 PKGS_LIST="${TEMP_DIR}/module-pkgs"
@@ -44,11 +44,11 @@ abort() {
 get_rv_prebuilts() {
 	local integrations_src=$1 patches_src=$2 integrations_ver=$3 patches_ver=$4 cli_src=$5
 	local patches_dir=${patches_src%/*}
-	patches_dir=${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rv
+	patches_dir=${TEMP_DIR}/${patches_dir//[^[:alnum:]]/}-rvcmm
 	local integrations_dir=${integrations_src%/*}
-	integrations_dir=${TEMP_DIR}/${integrations_dir//[^[:alnum:]]/}-rv
+	integrations_dir=${TEMP_DIR}/${integrations_dir//[^[:alnum:]]/}-rvcmm
 	local cli_dir=${cli_src%/*}
-	cli_dir=${TEMP_DIR}/${cli_dir//[^[:alnum:]]/}-rv
+	cli_dir=${TEMP_DIR}/${cli_dir//[^[:alnum:]]/}-rvcmm
 	mkdir -p "$patches_dir" "$integrations_dir" "$cli_dir"
 	pr "Getting prebuilts (${patches_src%/*})" >&2
 	local rv_cli_url rv_integrations rv_integrations_changelog rv_integrations_url rv_patches rv_patches_changelog rv_patches_dl rv_patches_url rv_patches_json
@@ -64,7 +64,7 @@ get_rv_prebuilts() {
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	log "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$(cut -d/ -f9 <<<"$rv_integrations_url")  " >>"$patches_dir/changelog.md"
-	log "${rv_integrations_changelog//# [/### [}\n---\n" "$prebuilts_dir/changelog.md"
+	log "${rv_integrations_changelog//# [/### [}\n---\n" "$patches_dir/changelog.md"
 
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
 	if [ "$patches_ver" ]; then rv_patches_rel+="tags/${patches_ver}"; else rv_patches_rel+="latest"; fi
