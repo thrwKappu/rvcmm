@@ -167,6 +167,6 @@ if [ "$youtube_mode" != module ] || [ "$music_mode" != module ]; then
 fi
 log "\n [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 log "\n---\n"
-log "$(cat $TEMP_DIR/rvcmm-*/changelog.md)"
+log "$(cat $TEMP_DIR/changelog.md)"
 
 pr "Done"

@@ -55,7 +55,7 @@ get_rv_prebuilts() {
 
 	rv_cli_url=$(gh_req "https://api.github.com/repos/${cli_src}/releases/latest" - | json_get 'browser_download_url') || return 1
 	local rv_cli_jar="${cli_dir}/${rv_cli_url##*/}"
-	echo "## CLI: $(cut -d/ -f4 <<<"$rv_cli_url")/$(cut -d/ -f9 <<<"$rv_cli_url")" >>"$patches_dir/changelog.md"
+	echo "## CLI: $(cut -d/ -f4 <<<"$rv_cli_url")/$(cut -d/ -f9 <<<"$rv_cli_url")" >"$TEMP_DIR/changelog.md"
 
 	local rv_integrations_rel="https://api.github.com/repos/${integrations_src}/releases/"
 	if [ "$integrations_ver" ]; then rv_integrations_rel+="tags/${integrations_ver}"; else rv_integrations_rel+="latest"; fi
@@ -63,8 +63,8 @@ get_rv_prebuilts() {
 	rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
-	echo "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$(cut -d/ -f9 <<<"$rv_integrations_url")" >>"$patches_dir/changelog.md"
-	echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$patches_dir/changelog.md"
+	echo "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$(cut -d/ -f9 <<<"$rv_integrations_url")" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$TEMP_DIR/changelog.md"
 
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
 	if [ "$patches_ver" ]; then rv_patches_rel+="tags/${patches_ver}"; else rv_patches_rel+="latest"; fi
@@ -75,8 +75,8 @@ get_rv_prebuilts() {
 	rv_patches_url=$(grep 'jar' <<<"$rv_patches_dl")
 	local rv_patches_jar="${patches_dir}/${rv_patches_url##*/}"
 	[ -f "$rv_patches_jar" ] || REBUILD=true
-	echo "## Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$(cut -d/ -f9 <<<"$rv_patches_url")" >>"$patches_dir/changelog.md"
-	echo -e "\n${rv_patches_changelog//# [/### [}\n---" >>"$patches_dir/changelog.md"
+	echo "## Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$(cut -d/ -f9 <<<"$rv_patches_url")" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_patches_changelog//# [/### [}\n---" >>"$TEMP_DIR/changelog.md"
 
 	dl_if_dne "$rv_cli_jar" "$rv_cli_url" >&2
 	dl_if_dne "$rv_integrations_apk" "$rv_integrations_url" >&2
