@@ -64,7 +64,7 @@ get_rv_prebuilts() {
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	echo "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$(cut -d/ -f9 <<<"$rv_integrations_url")" >>"$patches_dir/changelog.md"
-	echo "${rv_integrations_changelog//# [/### [}\n---\n" "$patches_dir/changelog.md"
+	echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$patches_dir/changelog.md"
 
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
 	if [ "$patches_ver" ]; then rv_patches_rel+="tags/${patches_ver}"; else rv_patches_rel+="latest"; fi
