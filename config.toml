@@ -12,8 +12,8 @@ build-mindetach-module = false
 #cli-source = "inotia00/revanced-cli"
 
 # force select patches/integrations version, default: latest available
-patches-version = "v2.188.0-dev.15"
-integrations-version = "v0.116.0-dev.4"
+#patches-version = "v2.188.0-dev.15"
+#integrations-version = "v0.116.0-dev.4"
 
 # 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
