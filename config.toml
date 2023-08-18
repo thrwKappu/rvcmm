@@ -12,27 +12,26 @@ build-mindetach-module = false
 #cli-source = "inotia00/revanced-cli"
 
 # force select patches/integrations version, default: latest available
-#patches-version = "v2.160.0"
-#integrations-version = "v0.95.0"
+patches-version = "v2.188.0-dev.15"
+integrations-version = "v0.116.0-dev.4"
 
 # 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
-enabled = true                                                        # add 'enabled = false' key to entries to not build them
-build-mode = "module"                                                 # 'both', 'apk' or 'module'
-excluded-patches = "enable-debugging"                                 # whitespace seperated list of patches to exclude (multiline strings are not supported)
-included-patches = ""                                                 # whitespace seperated list of patches to include
-version = "auto"                                                      # 'auto', 'latest' or a custom one like '17.40.41'
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+enabled = true                                                                  # add 'enabled = false' key to entries to not build them
+build-mode = "module"                                                           # 'both', 'apk' or 'module'
+excluded-patches = "enable-debugging"                                           # whitespace seperated list of patches to exclude (multiline strings are not supported)
+included-patches = ""                                                           # whitespace seperated list of patches to include
+version = "auto"                                                                # 'auto', 'latest' or a custom one like '17.40.41'
 module-prop-name = "rvcmm-yt"
-
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
 
 [Music]
 build-mode = "module"
-app-name = "YTMusic"
+#app-name = "YTMusic"
 excluded-patches = "enable-debugging"
 included-patches = ""
 version = "auto"
 module-prop-name = "rvcmm-ytm"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
-apkmirror-arch = "both"                                                     # both arm64-v8a and arm-v7a
+apkmirror-arch = "both"                                                        # both arm64-v8a and arm-v7a
 
