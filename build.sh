@@ -76,6 +76,7 @@ build_rv_w() {
 	fi
 }
 
+log "# Apps:"
 idx=0
 for table_name in $(toml_get_table_names); do
 	if [ -z "$table_name" ]; then continue; fi
@@ -170,8 +171,7 @@ if music_t=$(toml_get_table "Music"); then music_mode=$(toml_get "$music_t" "bui
 if [ "$youtube_mode" != module ] || [ "$music_mode" != module ]; then
 	log "\nInstall [Vanced Microg](https://github.com/TeamVanced/VancedMicroG/releases) to be able to use non-root YouTube or YT Music"
 fi
-log "\n [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
-log "---\nChangelog:"
+log "---\n\nChangelog:"
 log "$(cat $TEMP_DIR/changelog.md)"
-
+log "\n\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 pr "Done"
