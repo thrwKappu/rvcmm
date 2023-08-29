@@ -8,7 +8,7 @@
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
 * You can get the latest CI release from [here](../../releases)
-* __mindetach module__ in the [release](../../releases) section detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
+* [__mindetach module__](https://github.com/j-hc/mindetach-magisk/releases/latest) detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
 
 ## Features
 
@@ -21,6 +21,6 @@
   * receive updates from Magisk app
   * do not break safetynet or trigger root detections
   * handle installation of the correct version of the stock app and all that
-     * support Magisk and KernelSU
+  * support Magisk and KernelSU
 
 __Note that the [CI workflow](../../actions/workflows/ci.yml) is scheduled to build the modules and APKs if there is a change. You may want to disable it.__

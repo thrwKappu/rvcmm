@@ -454,13 +454,13 @@ build_rv() {
 		service_sh "$pkg_name" "$version" "$base_template"
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
 
-		local patches_string = ""
-		if [ -n "${args[included_patches]}" ]; then " Patches: ${args[included_patches]}" fi
+		local patches_string = "(Everything)"
+		if [ -n "${args[included_patches]}" ]; then "${args[included_patches]}" fi
 		module_prop \
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc.${patches_string}" \
+			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. Patches: ${patches_string}" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
