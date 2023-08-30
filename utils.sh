@@ -454,8 +454,8 @@ build_rv() {
 		service_sh "$pkg_name" "$version" "$base_template"
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
 
-		local patches_string = "(Everything)"
-		if [ -n "${args[included_patches]}" ]; then "${args[included_patches]}" fi
+		local patches_string="(All)"
+		if [ -n "${args[included_patches]}" ]; then patches_string="${args[included_patches]}" fi
 		module_prop \
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
