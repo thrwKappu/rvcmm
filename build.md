@@ -1,23 +1,29 @@
+# Apps:  
 YouTube: v18.32.39  
-Music (arm64-v8a): v6.16.52  
-Music (arm-v7a): v6.16.52  
-
- [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
----
-Changelog:  
-## CLI: j-hc/revanced-cli-3.0.1-all.jar
-## Integrations: ReVanced/revanced-integrations-0.117.0.apk
-
-### [0.117.0](https://github.com/ReVanced/revanced-integrations/compare/v0.116.2...v0.117.0) (2023-08-27)
-### Features
-* Restore previous release ([dc955d1](https://github.com/ReVanced/revanced-integrations/commit/dc955d1bc2db63efc83d4fd5c7e076ed0867d48b))
-
+Music (arm64-v8a): v6.17.52  
+Music (arm-v7a): v6.17.52  
 ---
 
-## Patches: ReVanced/revanced-patches-2.189.0.jar
+# Changelog:  
+## CLI: j-hc/revanced-cli-3.1.0-all.jar
+## Integrations: ReVanced/revanced-integrations-0.117.1.apk
 
-### [2.189.0](https://github.com/ReVanced/revanced-patches/compare/v2.188.1...v2.189.0) (2023-08-27)
+#### [0.117.1](https://github.com/ReVanced/revanced-integrations/compare/v0.117.0...v0.117.1) (2023-09-03)
+### Bug Fixes
+* **YouTube - ExternalDownloads:** Trim whitespace from package name ([#469](https://github.com/ReVanced/revanced-integrations/issues/469)) ([61d997e](https://github.com/ReVanced/revanced-integrations/commit/61d997e1db64730c36674445ff5b516a3acb41fb))
+
+---
+
+## Patches: ReVanced/revanced-patches-2.190.0.jar
+
+### [2.190.0](https://github.com/ReVanced/revanced-patches/compare/v2.189.0...v2.190.0) (2023-09-03)
+### Bug Fixes
+* **Infinity for Reddit - Spoof client:** Support latest version ([8a5311b](https://github.com/ReVanced/revanced-patches/commit/8a5311b1e645ca2aab1e416d647cf52bf0be6e7f))
 ### Features
-* Restore previous release ([f7352fe](https://github.com/ReVanced/revanced-patches/commit/f7352feb6e9604162b52072d74310b9e3067bc69))
+* **Photomath:** Support latest version ([5a2cad0](https://github.com/ReVanced/revanced-patches/commit/5a2cad077f03880ee1417c5cfd448bbdea4c07e2))
+* **Twitch:** Support version `16.1.0` ([#2923](https://github.com/ReVanced/revanced-patches/issues/2923)) ([d9834a9](https://github.com/ReVanced/revanced-patches/commit/d9834a9abb43390af4cb33f5dd5a0e2d3b7060e2))
 
 ---  
+
+
+[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
