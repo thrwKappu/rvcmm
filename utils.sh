@@ -449,7 +449,6 @@ build_rv() {
 			stock_apk_module=$stock_apk
 		fi
 
-
 		uninstall_sh "$pkg_name" "$isbndl" "$base_template"
 		service_sh "$pkg_name" "$version" "$base_template"
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
