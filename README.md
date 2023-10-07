@@ -8,7 +8,7 @@
 ## Based on the [original template by j-hc](https://github.com/j-hc/revanced-magisk-module)
 
 * You can get the latest CI release from [here](../../releases)
-* [__mindetach module__](https://github.com/j-hc/mindetach-magisk/releases/latest) detaches YouTube and YouTube Music from Play Store and blocks it from updating them.
+* *Use [**zygisk-detach**](https://github.com/j-hc/zygisk-detach) to detach YouTube and YT Music from Play Store if you are using magisk modules.*
 
 ## Features
 

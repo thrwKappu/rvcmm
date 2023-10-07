@@ -13,10 +13,10 @@ else
 fi
 set_perm_recursive $MODPATH/bin 0 0 0755 0777
 
-su -M -c grep __PKGNAME /proc/mounts | while read -r line; do
+nsenter -t1 -m -- grep __PKGNAME /proc/mounts | while read -r line; do
 	mp=${line#* }
 	mp=${mp%% *}
-	su -M -c umount -l "${mp%%\\*}"
+	nsenter -t1 -m -- umount -l "${mp%%\\*}"
 	ui_print "  * Unmounted ${mp%%\\*}"
 done
 am force-stop __PKGNAME
@@ -96,7 +96,7 @@ mkdir -p $NVBASE/rvcmm
 RVPATH=$NVBASE/rvcmm/${MODPATH##*/}.apk
 mv -f $MODPATH/base.apk $RVPATH
 
-if ! op=$(su -M -c mount -o bind $RVPATH $BASEPATH/base.apk 2>&1); then
+if ! op=$(nsenter -t1 -m -- mount -o bind $RVPATH $BASEPATH/base.apk 2>&1); then
 	ui_print " ERROR: Mount failed!"
 	ui_print " $op"
 fi
@@ -106,7 +106,6 @@ nohup cmd package compile --reset __PKGNAME >/dev/null 2>&1 &
 
 ui_print "  * Cleanup"
 rm -rf $MODPATH/bin $MODPATH/__PKGNAME.apk
-rm -rf $NVBASE/rvcmm/__PKGNAME_rv.apk # rm this later
 
 for s in "uninstall.sh" "service.sh"; do
 	sed -i "2 i\NVBASE=${NVBASE}" $MODPATH/$s
