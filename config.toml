@@ -3,7 +3,6 @@
 compression-level = 9         # compression level for module zips. between 1 and 9
 logging-to-file = true        # enables logging of every patch process to a seperate file
 enable-magisk-update = true   # set this to false if you do not want to receive updates for the module in magisk app
-build-mindetach-module = false
 
 # add these for more options, or just uncomment them to apply for all apps
 #rv-brand = "ReVanced Extended"
@@ -17,21 +16,21 @@ build-mindetach-module = false
 
 # 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
-enabled = true                                                                  # add 'enabled = false' key to entries to not build them
-build-mode = "module"                                                           # 'both', 'apk' or 'module'
-excluded-patches = "enable-debugging"                                           # whitespace seperated list of patches to exclude (multiline strings are not supported)
-included-patches = ""                                                           # whitespace seperated list of patches to include
-version = "18.38.44"                                                                # 'auto', 'latest' or a custom one like '17.40.41'
+build-mode = "module"                                                                                   # 'both', 'apk' or 'module'
+excluded-patches = "Enable Debugging"                                                                   # space-seperated patches to exclude (multiline strings are not supported)
+included-patches = ""                                                                                   # space-seperated patches to include (non-excluded patches are included by default)
+version = "auto"                                                                                        # 'auto', 'latest' or a custom one like '17.40.41'
 module-prop-name = "rvcmm-yt"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 
 [Music]
 build-mode = "module"
 #app-name = "YTMusic"
-excluded-patches = "enable-debugging"
+excluded-patches = ""
 included-patches = ""
 version = "auto"
 module-prop-name = "rvcmm-ytm"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
-apkmirror-arch = "both"                                                        # both arm64-v8a and arm-v7a
-
+#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+apkmirror-arch = "both"                                                                                 # both arm64-v8a and arm-v7a
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
