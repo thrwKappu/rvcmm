@@ -1,7 +1,7 @@
 # Apps:  
-Music (arm64-v8a): v6.22.51  
-Music (arm-v7a): v6.22.51  
 YouTube: v18.38.44  
+Music (arm-v7a): v6.22.51  
+Music (arm64-v8a): v6.22.51  
 ---
 
 # Changelog:  
