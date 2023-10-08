@@ -62,7 +62,7 @@ get_rv_prebuilts() {
 	local rv_integrations_rel="https://api.github.com/repos/${integrations_src}/releases/"
 	if [ "$integrations_ver" ]; then rv_integrations_rel+="tags/${integrations_ver}"; else rv_integrations_rel+="latest"; fi
 	rv_integrations=$(gh_req "$rv_integrations_rel" -) || return 1
-	#rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
+	# rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	local nm=$(cut -d/ -f9 <<<"$rv_integrations_url")
@@ -107,6 +107,8 @@ get_prebuilts() {
 			rm "${TEMP_DIR}/htmlq.tar.gz"
 		fi
 	fi
+}
+
 config_update() {
 	declare -A sources
 	for table_name in $(toml_get_table_names); do
@@ -602,6 +604,5 @@ version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=thrwKappu, j-hc
 description=${4}" >"${6}/module.prop"
-
 	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then echo "updateJson=${5}" >>"${6}/module.prop"; fi
 }
