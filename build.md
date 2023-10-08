@@ -1,23 +1,25 @@
 # Apps:  
-YouTube: v18.39.40  
+YouTube: v18.38.44  
 Music (arm64-v8a): v6.22.51  
 Music (arm-v7a): v6.22.51  
 ---
 
 # Changelog:  
-## CLI: j-hc/revanced-cli-4.0.0-all.jar
+## CLI: j-hc/revanced-cli-4.0.1-all.jar
 ## Integrations: ReVanced/revanced-integrations-0.119.0.apk
 
 ### [0.119.0](https://github.com/ReVanced/revanced-integrations/compare/v0.118.0...v0.119.0) (2023-10-08)
-### Bug Fixes
-* **YouTube - Hide shorts components:** Add filter to filter group list ([30788ba](https://github.com/ReVanced/revanced-integrations/commit/30788ba1a3e8d666b55a37e9389246e4bfa039cb))
-* **YouTube - Hide shorts components:** Do not prevent filtering components ([6eb3017](https://github.com/ReVanced/revanced-integrations/commit/6eb301776e202cf1d923f96cc83ddf6f0430b211))
-* **YouTube - Hide shorts components:** Hide the subscribe button when paused ([6730aaf](https://github.com/ReVanced/revanced-integrations/commit/6730aaf2b864b747a6b77411cdaceee653b36218))
-* **YouTube - ReturnYouTubeDislike:** Do not retry API call if same fetch recently failed ([#493](https://github.com/ReVanced/revanced-integrations/issues/493)) ([486c894](https://github.com/ReVanced/revanced-integrations/commit/486c894257e91dedc04b38191e0e01e38c66b5c4))
+
+
+
 ### Features
+
 * **YouTube - Hide shorts components:** Hide subscribe button when paused separately from subscribe button ([3ac869f](https://github.com/ReVanced/revanced-integrations/commit/3ac869fa6ae095f074481d98d9a4eea207eda00d))
 * **YouTube - Return YouTube Dislike:** Support version `18.37.36` ([#490](https://github.com/ReVanced/revanced-integrations/issues/490)) ([245c3b3](https://github.com/ReVanced/revanced-integrations/commit/245c3b35373313d49cc5b1c2fd8e9deebb6258a5))
 * **YouTube:** Add `Disable fine scrubbing gesture` patch ([4498f39](https://github.com/ReVanced/revanced-integrations/commit/4498f39b8c4900fccdc359d0c687c26db23526c3))
+
+
+
 
 ---
 
