@@ -62,18 +62,18 @@ get_rv_prebuilts() {
 	local rv_integrations_rel="https://api.github.com/repos/${integrations_src}/releases/"
 	if [ "$integrations_ver" ]; then rv_integrations_rel+="tags/${integrations_ver}"; else rv_integrations_rel+="latest"; fi
 	rv_integrations=$(gh_req "$rv_integrations_rel" -) || return 1
-	# rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
+	rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	local nm=$(cut -d/ -f9 <<<"$rv_integrations_url")
 	echo "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$nm" >>"$TEMP_DIR/changelog.md"
-	#echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$TEMP_DIR/changelog.md"
-	echo -e "[Changelog](https://github.com/${integrations_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm))\n" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$TEMP_DIR/changelog.md"
+	# echo -e "[Changelog](https://github.com/${integrations_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm))\n" >>"$TEMP_DIR/changelog.md"
 
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
 	if [ "$patches_ver" ]; then rv_patches_rel+="tags/${patches_ver}"; else rv_patches_rel+="latest"; fi
 	rv_patches=$(gh_req "$rv_patches_rel" -) || return 1
-	# rv_patches_changelog=$(json_get 'body' <<<"$rv_patches" | sed 's/\(\\n\)\+/\\n/g')
+	rv_patches_changelog=$(json_get 'body' <<<"$rv_patches" | sed 's/\(\\n\)\+/\\n/g')
 	rv_patches_dl=$(json_get 'browser_download_url' <<<"$rv_patches")
 	rv_patches_json="${patches_dir}/patches-$(json_get 'tag_name' <<<"$rv_patches").json"
 	rv_patches_url=$(grep 'jar' <<<"$rv_patches_dl")
@@ -81,8 +81,8 @@ get_rv_prebuilts() {
 	[ -f "$rv_patches_jar" ] || REBUILD=true
 	local nm2=$(cut -d/ -f9 <<<"$rv_patches_url")
 	echo "## Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$nm2" >>"$TEMP_DIR/changelog.md"
-	echo -e "[Changelog](https://github.com/${patches_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm2))\n" >>"$TEMP_DIR/changelog.md"
-	# echo -e "\n${rv_patches_changelog//# [/### [}\n---" >>"$TEMP_DIR/changelog.md"
+	#echo -e "[Changelog](https://github.com/${patches_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm2))\n" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_patches_changelog//# [/### [}\n---" >>"$TEMP_DIR/changelog.md"
 
 	dl_if_dne "$rv_cli_jar" "$rv_cli_url" >&2 || return 1
 	dl_if_dne "$rv_integrations_apk" "$rv_integrations_url" >&2 || return 1
@@ -181,17 +181,19 @@ semver_validate() {
 	[ ${#ac} = 0 ]
 }
 get_patch_last_supported_ver() {
-	local inc_sel exc_sel
+	local inc_sel exc_sel vs
 	inc_sel=$(list_args "$2" | sed 's/.*/\.name == &/' | paste -sd '~' | sed 's/~/ or /g' || :)
 	exc_sel=$(list_args "$3" | sed 's/.*/\.name != &/' | paste -sd '~' | sed 's/~/ and /g' || :)
 	inc_sel=${inc_sel:-false}
 	if [ "$4" = false ]; then inc_sel="${inc_sel} or .use==true"; fi
-	jq -r ".[]
+	if ! vs=$(jq -r ".[]
 			| select(.compatiblePackages // [] | .[] | .name==\"${1}\")
 			| select(${inc_sel})
 			| select(${exc_sel:-true})
-			| .compatiblePackages[].versions // []" "$5" |
-		tr -d ' ,\t[]"' | sort -u | grep -v '^$' | get_largest_ver || return 1
+			| .compatiblePackages[].versions // []" "$5"); then
+		abort "error in jq query"
+	fi
+	tr -d ' ,\t[]"' <<<"$vs" | sort -u | grep -v '^$' | get_largest_ver || :
 }
 
 dl_if_dne() {
@@ -222,11 +224,7 @@ dl_apkmirror() {
 	local resp node app_table dlurl=""
 	if [ "$arch" = universal ]; then
 		apparch=(universal noarch 'arm64-v8a + armeabi-v7a')
-	elif [ "$arch" = "arm64-v8a" ]; then
-		apparch=(arm64-v8a universal)
-	elif [ "$arch" = "armeabi-v7a" ]; then
-		apparch=(armeabi-v7a universal)
-	else apparch=("$arch"); fi
+	else apparch=("$arch" universal); fi
 	url="${url}/${url##*/}-${version//./-}-release/"
 	resp=$(req "$url" -) || return 1
 	for ((n = 1; n < 40; n++)); do
@@ -357,10 +355,12 @@ build_rv() {
 
 	local get_latest_ver=false
 	if [ "$version_mode" = auto ]; then
-		version=$(
-			get_patch_last_supported_ver "$pkg_name" \
-				"${args[included_patches]}" "${args[excluded_patches]}" "${args[exclusive_patches]}" "${args[ptjs]}"
-		) || get_latest_ver=true
+		if ! version=$(get_patch_last_supported_ver "$pkg_name" \
+			"${args[included_patches]}" "${args[excluded_patches]}" "${args[exclusive_patches]}" "${args[ptjs]}"); then
+			exit 1
+		elif [ -z "$version" ]; then
+			get_latest_ver=true
+		fi
 	elif isoneof "$version_mode" latest beta; then
 		get_latest_ver=true
 		p_patcher_args+=("-f")
@@ -404,7 +404,7 @@ build_rv() {
 		for dl_p in archive apkmirror uptodown apkmonk; do
 			if [ "$dl_p" = archive ]; then
 				if [ -z "${args[archive_dlurl]}" ]; then continue; fi
-				pr "Downloading '${table}' from j-hc archive"
+				pr "Downloading '${table}' from j-hc's archive"
 				if ! dl_archive "$archive_resp" "$version_f" "$arch_f" "$stock_apk" "${args[archive_dlurl]}"; then
 					epr "ERROR: Could not download ${table} from j-hc's archive"
 					continue
@@ -414,11 +414,7 @@ build_rv() {
 				if [ -z "${args[apkmirror_dlurl]}" ]; then continue; fi
 				pr "Downloading '${table}' from APKMirror"
 				local apkm_arch
-				if [ "$arch" = "universal" ]; then
-					apkm_arch="universal"
-				elif [[ "$arch" = "arm64-v8a"* ]]; then
-					apkm_arch="arm64-v8a"
-				elif [[ "$arch" = "arm-v7a"* ]]; then
+				if [ "$arch" = "arm-v7a" ]; then
 					apkm_arch="armeabi-v7a"
 				else
 					apkm_arch="$arch"
@@ -462,7 +458,8 @@ build_rv() {
 	if [ "${args[merge_integrations]}" = true ]; then p_patcher_args+=("-m ${args[integ]}"); fi
 	local microg_patch
 	microg_patch=$(jq -r ".[] | select(.compatiblePackages // [] | .[] | .name==\"${pkg_name}\") | .name" "${args[ptjs]}" | grep -iF microg || :)
-	if [ "$microg_patch" ]; then
+	if [ "$microg_patch" ] && [[ ${p_patcher_args[*]} =~ $microg_patch ]]; then
+		epr "microg related patches are handling automatically by the builder."
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
 
@@ -510,9 +507,9 @@ build_rv() {
 		if [ "$microg_patch" ]; then
 			patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}-${build_mode}.apk"
 			if [ "$build_mode" = apk ]; then
-				patcher_args+=("-i '${microg_patch}'")
+				patcher_args+=("-i \"${microg_patch}\"")
 			elif [ "$build_mode" = module ]; then
-				patcher_args+=("-e '${microg_patch}'")
+				patcher_args+=("-e \"${microg_patch}\"")
 			fi
 		else
 			patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}.apk"
@@ -558,7 +555,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. Patches: ${patches_string}" \
+			"${app_name} ${args[rv_brand]} v${version}. Original template by j-hc. Patches: \"${patches_string}\"" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
