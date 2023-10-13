@@ -44,11 +44,11 @@ abort() {
 get_rv_prebuilts() {
 	local integrations_src=$1 patches_src=$2 integrations_ver=$3 patches_ver=$4 cli_src=$5 cli_ver=$6
 	local patches_dir=${patches_src%/*}
-	patches_dir=${TEMP_DIR}/${patches_dir,,}-rv
+	patches_dir=${TEMP_DIR}/${patches_dir,,}
 	local integrations_dir=${integrations_src%/*}
-	integrations_dir=${TEMP_DIR}/${integrations_dir,,}-rv
+	integrations_dir=${TEMP_DIR}/${integrations_dir,,}
 	local cli_dir=${cli_src%/*}
-	cli_dir=${TEMP_DIR}/${cli_dir,,}-rv
+	cli_dir=${TEMP_DIR}/${cli_dir,,}
 	mkdir -p "$patches_dir" "$integrations_dir" "$cli_dir"
 	pr "Getting prebuilts (${patches_src%/*})" >&2
 	local rv_cli_url rv_integrations rv_integrations_changelog rv_integrations_url rv_patches rv_patches_changelog rv_patches_dl rv_patches_url rv_patches_json
