@@ -48,7 +48,7 @@ if [ "$LOGGING_F" = true ]; then mkdir -p logs; fi
 jq --version >/dev/null || abort "\`jq\` is not installed. install it with 'apt install jq' or equivalent"
 java --version >/dev/null || abort "\`openjdk 17\` is not installed. install it with 'apt install openjdk-17-jre' or equivalent"
 zip --version >/dev/null || abort "\`zip\` is not installed. install it with 'apt install zip' or equivalent"
-
+# ----------------
 get_prebuilts
 
 set_prebuilts() {

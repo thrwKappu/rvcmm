@@ -404,9 +404,9 @@ build_rv() {
 		for dl_p in archive apkmirror uptodown apkmonk; do
 			if [ "$dl_p" = archive ]; then
 				if [ -z "${args[archive_dlurl]}" ]; then continue; fi
-				pr "Downloading '${table}' from j-hc's archive"
+				pr "Downloading '${table}' from j-hc archive"
 				if ! dl_archive "$archive_resp" "$version_f" "$arch_f" "$stock_apk" "${args[archive_dlurl]}"; then
-					epr "ERROR: Could not download ${table} from j-hc's archive"
+					epr "ERROR: Could not download ${table} from j-hc archive"
 					continue
 				fi
 				break
