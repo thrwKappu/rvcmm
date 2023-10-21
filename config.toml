@@ -14,13 +14,14 @@ enable-magisk-update = true   # set this to false if you do not want to receive 
 #patches-version = "v2.188.0-dev.15"
 #integrations-version = "v0.116.0-dev.4"
 
-# 'predictive-back-gesture' (all apps; only useful for android 13+) and 'compact-header' (for yt music) that got excluded by default
 [YouTube]
 build-mode = "module"
+excluded-patches = ""
+included-patches = ""
 version = "auto"
 module-prop-name = "rvcmm-yt"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
-apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
 
 [Music]
 build-mode = "module"

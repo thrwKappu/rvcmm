@@ -18,7 +18,7 @@ toml_prep "$(cat 2>/dev/null "${1:-config.toml}")" || abort "could not find conf
 main_config_t=$(toml_get_table "")
 COMPRESSION_LEVEL=$(toml_get "$main_config_t" compression-level) || COMPRESSION_LEVEL="9"
 if ! PARALLEL_JOBS=$(toml_get "$main_config_t" parallel-jobs); then
-	PARALLEL_JOBS=$(nproc); 
+	PARALLEL_JOBS=$(nproc);
 fi
 LOGGING_F=$(toml_get "$main_config_t" logging-to-file) && vtf "$LOGGING_F" "logging-to-file" || LOGGING_F=false
 DEF_PATCHES_VER=$(toml_get "$main_config_t" patches-version) || DEF_PATCHES_VER=""
@@ -189,9 +189,9 @@ log "---\n\n# Changelog:"
 log "$(cat $TEMP_DIR/changelog.md)"
 log "\n\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 
-SKIPPED=$(grep -F "Patches: " <<<"$PREV_BUILDMD" | grep -vE "$(grep -F "Patches: " build.md | cut -d/ -f1 | sed 's/  //g' | paste -sd '~' | sed 's;~;|;g')" || :)
+SKIPPED=$(sed '/Skipped:/,$d' <<<"$PREV_BUILDMD" | grep -F "Patches: " | grep -vE "$(grep -F "Patches: " build.md | cut -d/ -f1 | sed 's/  //g' | paste -sd '~' | sed 's;~;|;g')" || :)
 if [ -n "$SKIPPED" ]; then
-	log "\nSkipped: $SKIPPED"
+	log "\nSkipped: [$SKIPPED]"
 fi
 
 pr "Done"
