@@ -116,37 +116,35 @@ config_update() {
 		t=$(toml_get_table "$table_name")
 		enabled=$(toml_get "$t" enabled) || enabled=true
 		if [ "$enabled" = false ]; then continue; fi
-		
-		INTEGRATIONS_SRC=$(toml_get "$t" integrations-source) || INTEGRATIONS_SRC=$DEF_INTEGRATIONS_SRC
-		if [[ -v sources[$INTEGRATIONS_SRC] ]]; then
-			if [ "${sources[$INTEGRATIONS_SRC]}" = 1 ]; then echo "$t"; fi
-		else
+
+		INTEGRATIONS_SRC=$(toml_get "$t" integrations-source) || INTEGRATIONS_SRC=$DEF_INTEGRATIONS_SRC	
+		if [[ ! -v sources[$INTEGRATIONS_SRC] ]]; then
 			sources[$INTEGRATIONS_SRC]=0
 			if ! last_integrations_url=$(gh_req "https://api.github.com/repos/${INTEGRATIONS_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep 'apk'); then
-				abort oops
+				abort "unable to get latest integrations info"
 			fi
 			last_integrations=${last_integrations_url##*/}
 			cur_integrations=$(sed -n "s/.*Integrations: ${INTEGRATIONS_SRC%%/*}\/\(.*\)/\1/p" build.md | xargs)
 			if [ "$cur_integrations" ] && [ "$last_integrations" ] && [ "${cur_integrations}" != "$last_integrations" ]; then
 				sources[$INTEGRATIONS_SRC]=1
-				echo "$t"
 			fi
 		fi
-		
+
 		PATCHES_SRC=$(toml_get "$t" patches-source) || PATCHES_SRC=$DEF_PATCHES_SRC
-		if [[ -v sources[$PATCHES_SRC] ]]; then
-			if [ "${sources[$PATCHES_SRC]}" = 1 ]; then echo "$t"; fi
-		else
+		if [[ ! -v sources[$PATCHES_SRC] ]]; then
 			sources[$PATCHES_SRC]=0
 			if ! last_patches_url=$(gh_req "https://api.github.com/repos/${PATCHES_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep 'jar'); then
-				abort oops
+				abort "unable to get latest patches info"
 			fi
 			last_patches=${last_patches_url##*/}
 			cur_patches=$(sed -n "s/.*Patches: ${PATCHES_SRC%%/*}\/\(.*\)/\1/p" build.md | xargs)
 			if [ "$cur_patches" ] && [ "$last_patches" ] && [ "${cur_patches}" != "$last_patches" ]; then
 				sources[$PATCHES_SRC]=1
-				echo "$t"
 			fi
+		fi
+
+		if [ "${sources[$INTEGRATIONS_SRC]}" = 1 ] || [ "${sources[$PATCHES_SRC]}" = 1 ]; then 
+			echo "$t";
 		fi
 	done
 }
