@@ -18,8 +18,9 @@ toml_prep() { __TOML__=$(tr -d '\t\r' <<<"$1" | tr "'" '"' | grep -o '^[^#]*' | 
 toml_get_table_names() {
 	local tn
 	tn=$(grep -x '\[.*\]' <<<"$__TOML__" | tr -d '[]') || return 1
+	tn="$(sort <<<"$tn" | uniq -u)"
 	if [ "$(sort <<<"$tn" | uniq -u | wc -l)" != "$(wc -l <<<"$tn")" ]; then
-		abort "ERROR: Duplicate tables \"$tn\" in TOML"
+		abort "ERROR: Duplicate tables '$tn' in TOML"
 	fi
 	echo "$tn"
 }
