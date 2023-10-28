@@ -153,7 +153,7 @@ config_update() {
 			fi
 		fi
 
-		if [[ "${sources[$INTEGRATIONS_SRC]}" = 1 ] || [ "${sources[$PATCHES_SRC]}" = 1 ]]; then 
+		if [ "${sources[$INTEGRATIONS_SRC]}" = 1 ] || [ "${sources[$PATCHES_SRC]}" = 1 ]; then 
 			prcfg=true
 			conf+="$t"
 			conf+=$'\n'
