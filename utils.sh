@@ -508,7 +508,10 @@ build_rv() {
 
 		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}"; 
 		if [ -z "${args[exclusive_patches]}" ]; then
-			patches_string="(All) With: ${patches_string}"
+			patches_string="(ALL), Extra: ${patches_string}"
+			if [ -z "${args[excluded_patches]}" ]; then
+				patches_string="${patches_string}, Without: ${args[excluded_patches]}"
+			fi
 		fi
 		module_prop \
 			"${args[module_prop_name]}" \
