@@ -189,7 +189,7 @@ log "---\n\n# Changelog:"
 log "$(cat $TEMP_DIR/changelog.md)"
 log "\n\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 
-SKIPPED=$(sed '/Skipped:/,$d' <<<"$PREV_BUILDMD" | grep -F "Patches: " | grep -vE "$(grep -F "Patches: " build.md | cut -d/ -f1 | sed 's/  //g' | paste -sd '~' | sed 's;~;|;g')" || :)
+SKIPPED=$(cat $TEMP_DIR/skipped 2>/dev/null || :)
 if [ -n "$SKIPPED" ]; then
 	log "\nSkipped: [$SKIPPED]"
 fi
