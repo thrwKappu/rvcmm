@@ -415,7 +415,7 @@ build_rv() {
 	if [ "${args[merge_integrations]}" = true ]; then p_patcher_args+=("-m ${args[integ]}"); fi
 	local microg_patch
 	microg_patch=$(jq -r ".[] | select(.compatiblePackages // [] | .[] | .name==\"${pkg_name}\") | .name" "${args[ptjs]}" | grep -iF microg || :)
-	if [ "$microg_patch" ] && [[ ${p_patcher_args[*]} =~ $microg_patch ]]; then
+	if [ -n "$microg_patch" ] && [[ ${p_patcher_args[*]} =~ $microg_patch ]]; then
 		epr "microg related patches are handling automatically by the builder."
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
@@ -507,9 +507,9 @@ build_rv() {
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
 
 		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}"; 
-		if [ -z "${args[exclusive_patches]}" ]; then
+		if [ ! -n "${args[exclusive_patches]}" ]; then
 			patches_string="(ALL), Extra: ${patches_string}"
-			if [ -z "${args[excluded_patches]}" ]; then
+			if [ -n "${args[excluded_patches]}" ]; then
 				patches_string="${patches_string}, Without: ${args[excluded_patches]}"
 			fi
 		fi
