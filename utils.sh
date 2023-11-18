@@ -506,8 +506,8 @@ build_rv() {
 		service_sh "$pkg_name" "$version" "$base_template"
 		customize_sh "$pkg_name" "$version" "$arch" "$extrct" "$base_template"
 
-		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}"; 
-		if [ ! -n "${args[exclusive_patches]}" ]; then
+		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}";
+		if [ "${args[exclusive_patches]}" != true ]; then
 			patches_string="(ALL), Extra: ${patches_string}"
 			if [ -n "${args[excluded_patches]}" ]; then
 				patches_string="${patches_string}, Without: ${args[excluded_patches]}"
