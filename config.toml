@@ -10,7 +10,7 @@ apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
 #archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 build-mode = "module"
 included-patches = "'Remove player controls background'"
-excluded-patches = ""
+excluded-patches = "'Premium heading'"
 module-prop-name = "rvcmm-yt"
 
 [Music]
