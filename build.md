@@ -6,23 +6,27 @@ Music (arm-v7a): v6.28.52
 
 # Changelog:  
 ## CLI: j-hc/revanced-cli-4.1.0-all.jar
-## Integrations: ReVanced/revanced-integrations-0.122.1.apk
+## Integrations: ReVanced/revanced-integrations-0.123.0.apk
 
-#### [0.122.1](https://github.com/ReVanced/revanced-integrations/compare/v0.122.0...v0.122.1) (2023-11-19)
+### [0.123.0](https://github.com/ReVanced/revanced-integrations/compare/v0.122.1...v0.123.0) (2023-11-20)
 ### Bug Fixes
-* **YouTube - ReturnYouTubeDislike:** Improve layout padding ([#517](https://github.com/ReVanced/revanced-integrations/issues/517)) ([ba15aba](https://github.com/ReVanced/revanced-integrations/commit/ba15aba063d95116d8f028cf9c3b72aa2737fc30))
-* **YouTube:** Check if `protobufBuffer` can be filtered ([b078f0c](https://github.com/ReVanced/revanced-integrations/commit/b078f0ca37020b1aefdbe34724370f6b08c7d600))
+* **YouTube - Hide layout components:** Check if `bytes` parameter of `LayoutComponentsFilter#filterMixPlaylists` for null ([abfbb0d](https://github.com/ReVanced/revanced-integrations/commit/abfbb0d7d58defee77424996af52fd82d6c4ef73))
+* **YouTube - Spoof client:** Fix frozen video on playback start ([#520](https://github.com/ReVanced/revanced-integrations/issues/520)) ([ffcee71](https://github.com/ReVanced/revanced-integrations/commit/ffcee71f798470577ade6d59cc0408c59c878f7e))
+### Features
+* **YouTube:** Add `Disable rolling number animations` patch ([#519](https://github.com/ReVanced/revanced-integrations/issues/519)) ([ce0bedc](https://github.com/ReVanced/revanced-integrations/commit/ce0bedc5d3b332760ee4d816a57fe64dc754ea0f))
 
 ---
 
-## Patches: ReVanced/revanced-patches-2.198.0.jar
+## Patches: ReVanced/revanced-patches-2.199.0.jar
 
-### [2.198.0](https://github.com/ReVanced/revanced-patches/compare/v2.197.0...v2.198.0) (2023-11-19)
+### [2.199.0](https://github.com/ReVanced/revanced-patches/compare/v2.198.0...v2.199.0) (2023-11-20)
 ### Bug Fixes
-* **YouTube - ReturnYouTubeDislike:** Fix text alignment on videos that don't use rolling number animations ([8fe9df7](https://github.com/ReVanced/revanced-patches/commit/8fe9df75efa59faa9586eda8462d97f81b9f8ed0))
-* **YouTube - ReturnYouTubeDislike:** Improve layout padding ([#3291](https://github.com/ReVanced/revanced-patches/issues/3291)) ([630b067](https://github.com/ReVanced/revanced-patches/commit/630b067b1828476708fd019e84153b0fb5e25d1c))
+* **Twitch - Settings:** Constrain to last working version ([941c1dd](https://github.com/ReVanced/revanced-patches/commit/941c1dd5cf9f43b4f6d023eacd6cfb31d87c2cd3))
+* **YouTube - Settings:** Remove unnecessary punctuation ([#3301](https://github.com/ReVanced/revanced-patches/issues/3301)) ([c50ee82](https://github.com/ReVanced/revanced-patches/commit/c50ee8281f2b90a2721839047bdc8cd59c4c913a))
+* **Yuka - Unlock premium:** Constrain to last working version ([81900fb](https://github.com/ReVanced/revanced-patches/commit/81900fb8db79284f57b5fd9e9ee0fe97cc0e7451))
 ### Features
-* **YouTube - Custom branding:** Add 
+* **YouTube:** Add `Disable rolling number animations` patch ([#3298](https://github.com/ReVanced/revanced-patches/issues/3298)) ([a0121ae](https://github.com/ReVanced/revanced-patches/commit/a0121ae7b60de88f0f2113ad0cefdb538f370780))
+
 ---  
 
 
