@@ -508,7 +508,7 @@ build_rv() {
 
 		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}";
 		if [ "${args[exclusive_patches]}" != true ]; then
-			patches_string="(ALL), Extra: ${patches_string}"
+			patches_string="(ALL), Extra: ${args[included_patches]}"
 			if [[ -n ${args[excluded_patches]} ]]; then
 				patches_string="${patches_string}, Without: ${args[excluded_patches]}"
 			fi
