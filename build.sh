@@ -188,10 +188,4 @@ fi
 log "---\n\n# Changelog:"
 log "$(cat $TEMP_DIR/changelog.md)"
 log "\n\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
-
-SKIPPED=$(cat $TEMP_DIR/skipped 2>/dev/null || :)
-if [ -n "$SKIPPED" ]; then
-	log "\nSkipped: [$SKIPPED]"
-fi
-
 pr "Done"
