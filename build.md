@@ -1,35 +1,32 @@
 # Apps:  
-Music (arm64-v8a): v6.28.52  
 YouTube: v18.45.41  
 Music (arm-v7a): v6.28.52  
+Music (arm64-v8a): v6.28.52  
 ---
 
 # Changelog:  
 ## CLI: j-hc/revanced-cli-4.1.0-all.jar
-## Integrations: ReVanced/revanced-integrations-0.123.0.apk
+## Integrations: ReVanced/revanced-integrations-0.124.0.apk
 
-### [0.123.0](https://github.com/ReVanced/revanced-integrations/compare/v0.122.1...v0.123.0) (2023-11-20)
+### [0.124.0](https://github.com/ReVanced/revanced-integrations/compare/v0.123.0...v0.124.0) (2023-11-23)
 ### Bug Fixes
-* **YouTube - Hide layout components:** Check if `bytes` parameter of `LayoutComponentsFilter#filterMixPlaylists` for null ([abfbb0d](https://github.com/ReVanced/revanced-integrations/commit/abfbb0d7d58defee77424996af52fd82d6c4ef73))
-* **YouTube - Spoof client:** Fix frozen video on playback start ([#520](https://github.com/ReVanced/revanced-integrations/issues/520)) ([ffcee71](https://github.com/ReVanced/revanced-integrations/commit/ffcee71f798470577ade6d59cc0408c59c878f7e))
+* **YouTube - Custom playback speed:** Fix toast error on opening playback speed menu ([#522](https://github.com/ReVanced/revanced-integrations/issues/522)) ([0124f41](https://github.com/ReVanced/revanced-integrations/commit/0124f41cd699467e1c973ea42774c89b751f576f))
+* **YouTube - Enable tablet layout:** Respect the original device layout ([bc56aa5](https://github.com/ReVanced/revanced-integrations/commit/bc56aa5f07d8fa5c241343ebf43887f360c79e74))
+* **YouTube - SponsorBlock:** Do not disable autoplay when skipping to the end of the video ([f936f24](https://github.com/ReVanced/revanced-integrations/commit/f936f240a7ad14bbf6130ef6960c0fa5542f78c5))
 ### Features
-* **YouTube:** Add `Disable rolling number animations` patch ([#519](https://github.com/ReVanced/revanced-integrations/issues/519)) ([ce0bedc](https://github.com/ReVanced/revanced-integrations/commit/ce0bedc5d3b332760ee4d816a57fe64dc754ea0f))
-
+* **YouTube - Hide ads:** Hide shopping links in video description ([11e7c04](https://github.com/ReVanced/revanced-integrations/commit/11e7c04b707d86901809db3b4f427a0155787177))
+* **YouTube - Hide layout components:** Hide 
 ---
 
-## Patches: ReVanced/revanced-patches-2.200.0.jar
+## Patches: ReVanced/revanced-patches-2.201.0.jar
 
-### [2.200.0](https://github.com/ReVanced/revanced-patches/compare/v2.199.0...v2.200.0) (2023-11-22)
+### [2.201.0](https://github.com/ReVanced/revanced-patches/compare/v2.200.0...v2.201.0) (2023-11-23)
 ### Bug Fixes
-* **Spotify - Custom theme:** Add more background surfaces coloring options ([#3285](https://github.com/ReVanced/revanced-patches/issues/3285)) ([869ec26](https://github.com/ReVanced/revanced-patches/commit/869ec26966f7750c45355ac0acc18b81a2abce87))
-* **YouTube - Remove tracking query parameter:** Sanitize shared URLs in remaining places ([2442902](https://github.com/ReVanced/revanced-patches/commit/2442902dacc25f2c932a6689e9788e5a02fdff6b))
+* **YouTube - Enable tablet layout:** Respect the original device layout ([b2c5bab](https://github.com/ReVanced/revanced-patches/commit/b2c5babf3fd9ad73daa06e03f4830a9dd7199d0c))
 ### Features
-* **Twitch:** Constrain patches to versions known to work ([65b55a5](https://github.com/ReVanced/revanced-patches/commit/65b55a5189df52dc7e99b7e9c68b908fbca92434))
-* **Twitch:** Support version `16.9.1` ([c70e4a6](https://github.com/ReVanced/revanced-patches/commit/c70e4a66bd65b42db88dcabd412ec985226bd1e7))
-
+* **YouTube - Hide ads:** Hide shopping links in video description ([0c875a1](https://github.com/ReVanced/revanced-patches/commit/0c875a106308ae9747ae998d75b84db1c336762b))
+* **YouTube - Hide layout components:** Hide 
 ---  
 
 
 [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
-
-Skipped: [## Patches: ReVanced/revanced-patches-2.200.0.jar]  
