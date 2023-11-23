@@ -513,11 +513,12 @@ build_rv() {
 				patches_string="${patches_string}, Without: ${args[excluded_patches]}"
 			fi
 		fi
+
 		module_prop \
 			"${args[module_prop_name]}" \
 			"RVCMM: ${app_name} - ${arch}" \
 			"$version" \
-			"${app_name} ${args[rv_brand]} v${version} | Patched with: ${args[ptjar]} + ${args[integ]} on ${args[cli]} | Selected Patches: ${patches_string} | Original template by j-hc" \
+			"${app_name} ${args[rv_brand]} v${version} | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/} | Selected Patches: ${patches_string} | Original template by j-hc" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
