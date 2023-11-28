@@ -518,7 +518,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: $app_name" \
 			"$version - $arch" \
-			"Original template by j-hc | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/} | Selected Patches: ${patches_string} | " \
+			"Original template by j-hc | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/} | Selected Patches: ${patches_string}" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
