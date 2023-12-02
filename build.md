@@ -1,27 +1,28 @@
 # Apps:  
-YouTube: v18.45.41  
-Music (arm-v7a): v6.28.52  
-Music (arm64-v8a): v6.28.52  
+YouTube: v18.45.43  
+Music (arm64-v8a): v6.29.57  
 ---
 
 # Changelog:  
 ## CLI: j-hc/revanced-cli-4.1.0-all.jar
-## Integrations: ReVanced/revanced-integrations-0.124.1.apk
+## Integrations: ReVanced/revanced-integrations-0.125.0.apk
 
-#### [0.124.1](https://github.com/ReVanced/revanced-integrations/compare/v0.124.0...v0.124.1) (2023-11-27)
-### Bug Fixes
-* **YouTube - Hide layout components:** Prevent app from crashing on startup ([c2112e0](https://github.com/ReVanced/revanced-integrations/commit/c2112e066af31890c5d441870d24f3582e9b1dd1))
-* **YouTube - Return YouTube dislike:** Fix layout of right to left languages ([11abdf1](https://github.com/ReVanced/revanced-integrations/commit/11abdf162f1a4c82a2330b16ca42800d8599c215))
-* **YouTube - Spoof signature:** fix error toast when viewing very old YouTube videos ([#525](https://github.com/ReVanced/revanced-integrations/issues/525)) ([eede028](https://github.com/ReVanced/revanced-integrations/commit/eede028c96042e6abc18377bf16a75e4806aba4a))
+### [0.125.0](https://github.com/ReVanced/revanced-integrations/compare/v0.124.1...v0.125.0) (2023-12-02)
+### Features
+* Modernize restart logic ([#527](https://github.com/ReVanced/revanced-integrations/issues/527)) ([0ea4e72](https://github.com/ReVanced/revanced-integrations/commit/0ea4e720edab250aac02b32a8014c24b1127d02f))
 
 ---
 
-## Patches: ReVanced/revanced-patches-2.201.1.jar
+## Patches: ReVanced/revanced-patches-2.202.0.jar
 
-#### [2.201.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.0...v2.201.1) (2023-11-27)
+### [2.202.0](https://github.com/ReVanced/revanced-patches/compare/v2.201.1...v2.202.0) (2023-12-02)
 ### Bug Fixes
-* **Spotify - Hide premium navbar:** Support latest version ([b87005d](https://github.com/ReVanced/revanced-patches/commit/b87005de0c40293f85d3997f43b353a87a925156))
-* **YouTube - Hide layout components:** Clarify custom filter usage ([cc16db5](https://github.com/ReVanced/revanced-patches/commit/cc16db56d1c9925852265fcebb459d9620cd1b92))
+* **Spotify - Custom Theme:** Clarify patch option description ([#3338](https://github.com/ReVanced/revanced-patches/issues/3338)) ([1b9a90f](https://github.com/ReVanced/revanced-patches/commit/1b9a90f9753e40cb07e270e7f5144cd57c3c3ce3))
+* **YouTube - Enable tablet layout:** Respect the original device layout ([cdbbe8f](https://github.com/ReVanced/revanced-patches/commit/cdbbe8f78d26f24e58362c7ef1da83bf689d52bb))
+* **YouTube - Restore old seekbar thumbnails:** Move setting into 'Seekbar' submenu ([#3344](https://github.com/ReVanced/revanced-patches/issues/3344)) ([880091a](https://github.com/ReVanced/revanced-patches/commit/880091a96d1a628520732367c96c4c11fb93b72d))
+### Features
+* Modernize restart app logic ([#3343](https://github.com/ReVanced/revanced-patches/issues/3343)) ([3897647](https://github.com/ReVanced/revanced-patches/commit/3897647321b6c1860dc9804cac6c6985da8bb675))
+* **YouTube:** Support version `18.45.43` ([#3345](https://github.com/ReVanced/revanced-patches/issues/3345)) ([ff82a36](https://github.com/ReVanced/revanced-patches/commit/ff82a36e6cd661201169246497176493d7093b58))
 
 ---  
 
