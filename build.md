@@ -1,28 +1,39 @@
 # Apps:  
 YouTube: v18.45.43  
-Music (arm64-v8a): v6.29.57  
+Music (arm64-v8a): v6.31.55  
+Music (arm-v7a): v6.31.55  
 ---
 
 # Changelog:  
-## CLI: j-hc/revanced-cli-4.1.0-all.jar
-## Integrations: ReVanced/revanced-integrations-0.125.0.apk
+## CLI: j-hc/revanced-cli-4.3.0-all.jar
+## Integrations: ReVanced/revanced-integrations-1.0.0.apk
 
-### [0.125.0](https://github.com/ReVanced/revanced-integrations/compare/v0.124.1...v0.125.0) (2023-12-02)
+### [1.0.0](https://github.com/ReVanced/revanced-integrations/compare/v0.125.0...v1.0.0) (2023-12-12)
+### Bug Fixes
+* **YouTube - Announcements:** Don't show error toast if there is no internet connection ([#537](https://github.com/ReVanced/revanced-integrations/issues/537)) ([0ce92c2](https://github.com/ReVanced/revanced-integrations/commit/0ce92c284d08a1c6bffba976e9cf208e82288ddf))
+* **YouTube - Client spoof:** Do not break clips ([f9102fa](https://github.com/ReVanced/revanced-integrations/commit/f9102fa83bdb2b147543882cb8ebb80b5985ad3e))
+* **YouTube - Minimized playback:** Fix PIP incorrectly shown for some Shorts playback ([#533](https://github.com/ReVanced/revanced-integrations/issues/533)) ([fb433da](https://github.com/ReVanced/revanced-integrations/commit/fb433da6ad652aee48fc92794de82bb914ab80ca))
+* **YouTube - Return YouTube Dislike:** Fix dislikes sometimes not showing for non English language ([5d4c8b0](https://github.com/ReVanced/revanced-integrations/commit/5d4c8b0a1b77e97c7c0c02288927e92f3c9765ce))
+* **YouTube - Return YouTube Dislike:** Prevent the first Short opened from freezing the UI ([#532](https://github.com/ReVanced/revanced-integrations/issues/532)) ([0bb8669](https://github.com/ReVanced/revanced-integrations/commit/0bb86694e24a6a41edee62f5ef1bb80fe7bc3f19))
+* **YouTube - Return YouTube Dislike:** Wait until fetch is complete before allowing the first Short to start playback ([#538](https://github.com/ReVanced/revanced-integrations/issues/538)) ([1c9c51c](https://github.com/ReVanced/revanced-integrations/commit/1c9c51ca5f7970774d4e0b5aad5ebcd064cac716))
+* **YouTube - SponsorBlock:** Allow autoplay when skipping to the end of the video ([3d660e1](https://github.com/ReVanced/revanced-integrations/commit/3d660e1b5eeab9771f96bd2d26a222b835e2485c))
+* **YouTube - SponsorBlock:** Prevent autoplay from stopping to work ([f4e2d56](https://github.com/ReVanced/revanced-integrations/commit/f4e2d56b181fee4d693dea1dfe81974237e4eff7))
+* **YouTube - Spoof signature:** Wait until storyboard fetch is done ([#535](https://github.com/ReVanced/revanced-integrations/issues/535)) ([92e8619](https://github.com/ReVanced/revanced-integrations/commit/92e8619cd7bbcf82f27e9407e18c30d65214e31c))
 ### Features
-* Modernize restart logic ([#527](https://github.com/ReVanced/revanced-integrations/issues/527)) ([0ea4e72](https://github.com/ReVanced/revanced-integrations/commit/0ea4e720edab250aac02b32a8014c24b1127d02f))
+* Allow choosing the vendor of GmsCore via patch options ([#529](https://github.com/ReVanced/revanced-integrations/issues/529)) ([fba7181](https://github.com/ReVanced/revanced-integrations/commit/fba7181e70d695d7fb13c530754dc1db99b87216))
+* **Tiktok:** Bump compatibility to `32.5.3` ([#536](https://github.com/ReVanced/revanced-integrations/issues/536)) ([10a1e16](https://github.com/ReVanced/revanced-integrations/commit/10a1e168d062adc3c979de17738d8cf1b8f25d63))
+* **YouTube - Alternative Thumbnails:** Add option to use DeArrow ([#534](https://github.com/ReVanced/revanced-integrations/issues/534)) ([c4ee6ca](https://github.com/ReVanced/revanced-integrations/commit/c4ee6ca4dde13ab8ce6f9cf94f1910455f9d9ecc))
+* **YouTube:** Add `Change start page` patch ([792dc0c](https://github.com/ReVanced/revanced-integrations/commit/792dc0c52210dc9b1560290b0cc2afad572c584c))
+### BREAKING CHANGES
+* The class `MicroGSupport` has been renamed to `GmsCoreSupport`
 
 ---
 
-## Patches: ReVanced/revanced-patches-2.202.0.jar
+## Patches: ReVanced/revanced-patches-3.0.1.jar
 
-### [2.202.0](https://github.com/ReVanced/revanced-patches/compare/v2.201.1...v2.202.0) (2023-12-02)
+#### [3.0.1](https://github.com/ReVanced/revanced-patches/compare/v3.0.0...v3.0.1) (2023-12-12)
 ### Bug Fixes
-* **Spotify - Custom Theme:** Clarify patch option description ([#3338](https://github.com/ReVanced/revanced-patches/issues/3338)) ([1b9a90f](https://github.com/ReVanced/revanced-patches/commit/1b9a90f9753e40cb07e270e7f5144cd57c3c3ce3))
-* **YouTube - Enable tablet layout:** Respect the original device layout ([cdbbe8f](https://github.com/ReVanced/revanced-patches/commit/cdbbe8f78d26f24e58362c7ef1da83bf689d52bb))
-* **YouTube - Restore old seekbar thumbnails:** Move setting into 'Seekbar' submenu ([#3344](https://github.com/ReVanced/revanced-patches/issues/3344)) ([880091a](https://github.com/ReVanced/revanced-patches/commit/880091a96d1a628520732367c96c4c11fb93b72d))
-### Features
-* Modernize restart app logic ([#3343](https://github.com/ReVanced/revanced-patches/issues/3343)) ([3897647](https://github.com/ReVanced/revanced-patches/commit/3897647321b6c1860dc9804cac6c6985da8bb675))
-* **YouTube:** Support version `18.45.43` ([#3345](https://github.com/ReVanced/revanced-patches/issues/3345)) ([ff82a36](https://github.com/ReVanced/revanced-patches/commit/ff82a36e6cd661201169246497176493d7093b58))
+* **YouTube Music - GmsCore support:** Change from correct package name to prevent the patch from failing ([284a7f0](https://github.com/ReVanced/revanced-patches/commit/284a7f0b1a7b46e36b5f3dd132bb36d6d3fef584))
 
 ---  
 
