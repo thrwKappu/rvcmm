@@ -1,48 +1,60 @@
 # Apps:  
 YouTube: v18.45.43  
-Music (arm-v7a): v6.31.55  
 Music (arm64-v8a): v6.31.55  
+Music (arm-v7a): v6.31.55  
 ---
 
 # Changelog:  
 ## CLI: j-hc/revanced-cli-4.3.0-all.jar
-## Integrations: ReVanced/revanced-integrations-1.0.0.apk
+## Integrations: ReVanced/revanced-integrations-1.1.0.apk
 
-### [1.0.0](https://github.com/ReVanced/revanced-integrations/compare/v0.125.0...v1.0.0) (2023-12-12)
+### [1.1.0](https://github.com/ReVanced/revanced-integrations/compare/v1.0.0...v1.1.0) (2023-12-28)
+
+
 ### Bug Fixes
-* **YouTube - Announcements:** Don't show error toast if there is no internet connection ([#537](https://github.com/ReVanced/revanced-integrations/issues/537)) ([0ce92c2](https://github.com/ReVanced/revanced-integrations/commit/0ce92c284d08a1c6bffba976e9cf208e82288ddf))
-* **YouTube - Client spoof:** Do not break clips ([f9102fa](https://github.com/ReVanced/revanced-integrations/commit/f9102fa83bdb2b147543882cb8ebb80b5985ad3e))
-* **YouTube - Minimized playback:** Fix PIP incorrectly shown for some Shorts playback ([#533](https://github.com/ReVanced/revanced-integrations/issues/533)) ([fb433da](https://github.com/ReVanced/revanced-integrations/commit/fb433da6ad652aee48fc92794de82bb914ab80ca))
-* **YouTube - Return YouTube Dislike:** Fix dislikes sometimes not showing for non English language ([5d4c8b0](https://github.com/ReVanced/revanced-integrations/commit/5d4c8b0a1b77e97c7c0c02288927e92f3c9765ce))
-* **YouTube - Return YouTube Dislike:** Prevent the first Short opened from freezing the UI ([#532](https://github.com/ReVanced/revanced-integrations/issues/532)) ([0bb8669](https://github.com/ReVanced/revanced-integrations/commit/0bb86694e24a6a41edee62f5ef1bb80fe7bc3f19))
-* **YouTube - Return YouTube Dislike:** Wait until fetch is complete before allowing the first Short to start playback ([#538](https://github.com/ReVanced/revanced-integrations/issues/538)) ([1c9c51c](https://github.com/ReVanced/revanced-integrations/commit/1c9c51ca5f7970774d4e0b5aad5ebcd064cac716))
-* **YouTube - SponsorBlock:** Allow autoplay when skipping to the end of the video ([3d660e1](https://github.com/ReVanced/revanced-integrations/commit/3d660e1b5eeab9771f96bd2d26a222b835e2485c))
-* **YouTube - SponsorBlock:** Prevent autoplay from stopping to work ([f4e2d56](https://github.com/ReVanced/revanced-integrations/commit/f4e2d56b181fee4d693dea1dfe81974237e4eff7))
-* **YouTube - Spoof signature:** Wait until storyboard fetch is done ([#535](https://github.com/ReVanced/revanced-integrations/issues/535)) ([92e8619](https://github.com/ReVanced/revanced-integrations/commit/92e8619cd7bbcf82f27e9407e18c30d65214e31c))
+
+* **YouTube - Hide ads:** Hide new type of ad ([#545](https://github.com/ReVanced/revanced-integrations/issues/545)) ([e28b8cc](https://github.com/ReVanced/revanced-integrations/commit/e28b8cc59a445ba8f184ba6f5b9e076b7731129a))
+* **YouTube - Hide layout components:** Hide emergency box when enabled ([6ca7946](https://github.com/ReVanced/revanced-integrations/commit/6ca7946e8f3d5be76241b88f1d7a5a881629dda9))
+* **YouTube - Return YouTube Dislike:** Do not prefetch Shorts shelf items on app startup ([697c2aa](https://github.com/ReVanced/revanced-integrations/commit/697c2aaac68976c985f0d838795b03f284e907e8))
+* **YouTube - SponsorBlock:** Do not auto skip end segments more than once if using a slow playback speed ([88b3ca4](https://github.com/ReVanced/revanced-integrations/commit/88b3ca4992e8278e1d43dbe5cc7607d4890c0eda))
+* **YouTube - SponsorBlock:** Export local statistics with saved settings ([#542](https://github.com/ReVanced/revanced-integrations/issues/542)) ([0ed8e5a](https://github.com/ReVanced/revanced-integrations/commit/0ed8e5a2988c07f3dfbd5dd4e9ef8ed53378fbbe))
+* **YouTube - VideoInformation:** Ignore video seek attempts during the last 250ms of video playback ([6263edc](https://github.com/ReVanced/revanced-integrations/commit/6263edce11077f9e9c0629d9260e2f2eaef1c0e8))
+
+
 ### Features
-* Allow choosing the vendor of GmsCore via patch options ([#529](https://github.com/ReVanced/revanced-integrations/issues/529)) ([fba7181](https://github.com/ReVanced/revanced-integrations/commit/fba7181e70d695d7fb13c530754dc1db99b87216))
-* **Tiktok:** Bump compatibility to `32.5.3` ([#536](https://github.com/ReVanced/revanced-integrations/issues/536)) ([10a1e16](https://github.com/ReVanced/revanced-integrations/commit/10a1e168d062adc3c979de17738d8cf1b8f25d63))
-* **YouTube - Alternative Thumbnails:** Add option to use DeArrow ([#534](https://github.com/ReVanced/revanced-integrations/issues/534)) ([c4ee6ca](https://github.com/ReVanced/revanced-integrations/commit/c4ee6ca4dde13ab8ce6f9cf94f1910455f9d9ecc))
-* **YouTube:** Add `Change start page` patch ([792dc0c](https://github.com/ReVanced/revanced-integrations/commit/792dc0c52210dc9b1560290b0cc2afad572c584c))
-### BREAKING CHANGES
-* The class `MicroGSupport` has been renamed to `GmsCoreSupport`
+
+* **Tiktok:** Add `Remember clear mode` patch ([#544](https://github.com/ReVanced/revanced-integrations/issues/544)) ([05eddb6](https://github.com/ReVanced/revanced-integrations/commit/05eddb68d5d5de1b76545c42313d4e9f9ba6712e))
+* **YouTube - Hide ads:** Hide fullscreen ads ([0f6dee5](https://github.com/ReVanced/revanced-integrations/commit/0f6dee5bae6b8017a53830587e09079942bc24aa))
+* **YouTube - Hide layout components:** Hide search result recommendations ([d241e43](https://github.com/ReVanced/revanced-integrations/commit/d241e437ee25cc2211bf06b4a7f8fd1c295fad25))
+* **YouTube:** Add `Remove viewer discretion dialog` patch ([6f3f882](https://github.com/ReVanced/revanced-integrations/commit/6f3f88264e736b80f88103e795534f86f053c8d1))
+
+
+
 
 ---
 
-## Patches: ReVanced/revanced-patches-3.1.0.jar
+## Patches: ReVanced/revanced-patches-3.2.0.jar
 
-### [3.1.0](https://github.com/ReVanced/revanced-patches/compare/v3.0.1...v3.1.0) (2023-12-12)
+### [3.2.0](https://github.com/ReVanced/revanced-patches/compare/v3.1.0...v3.2.0) (2023-12-28)
 
 
 ### Bug Fixes
 
-* **Boost for Reddit - Spoof client:** Fix account login by removing user agent patch ([42a5de9](https://github.com/ReVanced/revanced-patches/commit/42a5de98becee7fc027c3e7143e071a3447f7077))
-* **Sync for Reddit - Spoof client:** Fix account login by removing user agent patch ([d90786e](https://github.com/ReVanced/revanced-patches/commit/d90786e26d9c0e581284aab0d9d6d5097da2bfda))
+* **YouTube - Alternative thumbnails:** Clarify DeArrow support is for thumbnails ([#2531](https://github.com/ReVanced/revanced-patches/issues/2531)) ([828abb0](https://github.com/ReVanced/revanced-patches/commit/828abb0558926cd6557c79abcf1a04bfe2c719e6))
+* **YouTube - SponsorBlock:** Export local statistics with saved settings ([f8365b4](https://github.com/ReVanced/revanced-patches/commit/f8365b4e3585328506887022ac6168045ac110b9))
+* **YouTube:** Fix grammer mistakes in patch descriptions ([#2543](https://github.com/ReVanced/revanced-patches/issues/2543)) ([ebf5993](https://github.com/ReVanced/revanced-patches/commit/ebf599349c508067a28526267d82030b679df045))
 
 
 ### Features
 
-* **IconPackStudio - Unlock pro:** Constrain to last working version ([#3410](https://github.com/ReVanced/revanced-patches/issues/3410)) ([fb6ee8a](https://github.com/ReVanced/revanced-patches/commit/fb6ee8a8976b64477171f70229e161188c39efcd))
+* **Public API:** Deprecate `HideEmailAddressPatch` ([866bceb](https://github.com/ReVanced/revanced-patches/commit/866bcebdd990b964d3dfd5aea792e7fffaedbf44))
+* **Public API:** Make `BottomControlsResource#addControls` public ([#2514](https://github.com/ReVanced/revanced-patches/issues/2514)) ([f4e2257](https://github.com/ReVanced/revanced-patches/commit/f4e2257072ca02003f7c272d6c0c8ef1aa6032ae))
+* **Tiktok:** Add `Remember clear mode` patch ([#2509](https://github.com/ReVanced/revanced-patches/issues/2509)) ([048bf59](https://github.com/ReVanced/revanced-patches/commit/048bf592ef93ee5138aa1886be1644501f88964a))
+* **YouTube - Hide ads:** Hide fullscreen ads ([bdc9a12](https://github.com/ReVanced/revanced-patches/commit/bdc9a129eff3a5051b8b37665b3243a8b61cbbac))
+* **YouTube - Hide layout components:** Hide search result recommendations ([55cc7f1](https://github.com/ReVanced/revanced-patches/commit/55cc7f1c7722f56af6d33ea2bd09a1b99d635209))
+* **YouTube - Theme:** Add classic dark color to presets ([#2542](https://github.com/ReVanced/revanced-patches/issues/2542)) ([4e1dc00](https://github.com/ReVanced/revanced-patches/commit/4e1dc0041d6693fba08e78514787407f933a6e41))
+* **YouTube:** Add `Remove viewer discretion dialog` patch ([a07f83f](https://github.com/ReVanced/revanced-patches/commit/a07f83fe89ce577fc8bd904eacad5383a639b09b))
+* **YouTube:** Remove `Hide email address` patch ([3b84305](https://github.com/ReVanced/revanced-patches/commit/3b84305a6b97800cb147f86c642f19689548aca5))
 
 
 
