@@ -56,7 +56,7 @@ get_rv_prebuilts() {
 	if [ "$cli_ver" ]; then rv_cli_rel+="tags/${cli_ver}"; else rv_cli_rel+="latest"; fi
 	rv_cli_url=$(gh_req "$rv_cli_rel" - | json_get 'browser_download_url') || return 1
 	local rv_cli_jar="${cli_dir}/${rv_cli_url##*/}"
-	echo "## CLI: $(cut -d/ -f4 <<<"$rv_cli_url")/$(cut -d/ -f9 <<<"$rv_cli_url")" >"$TEMP_DIR/changelog.md"
+	echo "### CLI: $(cut -d/ -f4 <<<"$rv_cli_url")/$(cut -d/ -f9 <<<"$rv_cli_url")" >"$TEMP_DIR/changelog.md"
 
 	local rv_integrations_rel="https://api.github.com/repos/${integrations_src}/releases/"
 	if [ "$integrations_ver" ]; then rv_integrations_rel+="tags/${integrations_ver}"; else rv_integrations_rel+="latest"; fi
@@ -65,8 +65,8 @@ get_rv_prebuilts() {
 	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	local nm=$(cut -d/ -f9 <<<"$rv_integrations_url")
-	echo "## Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$nm" >>"$TEMP_DIR/changelog.md"
-	echo -e "\n${rv_integrations_changelog//# [/### [}\n---\n" >>"$TEMP_DIR/changelog.md"
+	echo "### Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$nm" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_integrations_changelog//# [/#### [}\n" >>"$TEMP_DIR/changelog.md"
 	# echo -e "[Changelog](https://github.com/${integrations_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm))\n" >>"$TEMP_DIR/changelog.md"
 
 	local rv_patches_rel="https://api.github.com/repos/${patches_src}/releases/"
@@ -79,10 +79,10 @@ get_rv_prebuilts() {
 	local rv_patches_jar="${patches_dir}/${rv_patches_url##*/}"
 	[ -f "$rv_patches_jar" ] || REBUILD=true
 	local nm2=$(cut -d/ -f9 <<<"$rv_patches_url")
-	echo "## Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$nm2" >>"$TEMP_DIR/changelog.md"
+	echo "### Patches: $(cut -d/ -f4 <<<"$rv_patches_url")/$nm2" >>"$TEMP_DIR/changelog.md"
 	# shellcheck disable=SC2001
 	#echo -e "[Changelog](https://github.com/${patches_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm2))\n" >>"$TEMP_DIR/changelog.md"
-	echo -e "\n${rv_patches_changelog//# [/### [}\n---" >>"$TEMP_DIR/changelog.md"
+	echo -e "\n${rv_patches_changelog//# [/#### [}\n---\n" >>"$TEMP_DIR/changelog.md"
 
 	dl_if_dne "$rv_cli_jar" "$rv_cli_url" >&2 || return 1
 	dl_if_dne "$rv_integrations_apk" "$rv_integrations_url" >&2 || return 1
@@ -410,7 +410,7 @@ build_rv() {
 		done
 		if [ ! -f "$stock_apk" ]; then return 0; fi
 	fi
-	log "${table}: v${version}"
+	log "* **${app_name}** (${arch}): v${version}"
 
 	if [ "${args[merge_integrations]}" = true ]; then p_patcher_args+=("-m ${args[integ]}"); fi
 	local microg_patch
