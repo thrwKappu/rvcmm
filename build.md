@@ -4,7 +4,7 @@
 * **Music** (arm-v7a): v6.36.54  
 ---
 
-## Built Details:  
+## Build Details:  
 ### CLI: j-hc/revanced-cli-4.3.0-all.jar
 ### Integrations: ReVanced/revanced-integrations-1.2.1.apk
 
