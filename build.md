@@ -1,20 +1,16 @@
 ## Apps:  
 * **YouTube** (all): v19.04.37  
-* **Music** (arm64-v8a): v6.37.50  
 * **Music** (arm-v7a): v6.37.50  
+* **Music** (arm64-v8a): v6.37.50  
 ---
 
 ## Build Details:  
 ### CLI: j-hc/revanced-cli-4.3.0-all.jar
-### Integrations: ReVanced/revanced-integrations-1.3.0.apk
+### Integrations: ReVanced/revanced-integrations-1.3.1.apk
 
-#### [1.3.0](https://github.com/ReVanced/revanced-integrations/compare/v1.2.1...v1.3.0) (2024-02-05)
+##### [1.3.1](https://github.com/ReVanced/revanced-integrations/compare/v1.3.0...v1.3.1) (2024-02-07)
 ### Bug Fixes
-* **TikTok:** Add missing settings strings ([#561](https://github.com/ReVanced/revanced-integrations/issues/561)) ([04621f8](https://github.com/ReVanced/revanced-integrations/commit/04621f8a36490df0b35a3940ecc1fbebd6ee287f))
-* **YouTube - ReturnYouTubeDislike:** Do not show more than 1 connection toasts if the API is broken ([#560](https://github.com/ReVanced/revanced-integrations/issues/560)) ([2c73209](https://github.com/ReVanced/revanced-integrations/commit/2c7320937adc01221017c740b86c4d6851c96797))
-* **YouTube:** Correctly show channel page on tablet devices ([#558](https://github.com/ReVanced/revanced-integrations/issues/558)) ([d0edafb](https://github.com/ReVanced/revanced-integrations/commit/d0edafb1afc7b87a8eeb085a9e48dc2d20af2f3a))
-### Features
-* **YouTube - Custom filter:** Custom filtering of the protocol buffer ([#562](https://github.com/ReVanced/revanced-integrations/issues/562)) ([0eb7f3f](https://github.com/ReVanced/revanced-integrations/commit/0eb7f3f3af99bf6566526f9c48db2248d93e166c))
+* **YouTube - Litho Filter:** Do not show toast if protobuffer is empty or null ([#563](https://github.com/ReVanced/revanced-integrations/issues/563)) ([ea5748c](https://github.com/ReVanced/revanced-integrations/commit/ea5748ca8e0c7130face5ca4c86cfe5e00a3ed65))
 
 
 ### Patches: ReVanced/revanced-patches-4.1.0.jar
