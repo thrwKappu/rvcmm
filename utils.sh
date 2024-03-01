@@ -176,7 +176,7 @@ _req() {
 		mv -f "$dlp" "$2"
 	fi
 }
-req() { _req "$1" "$2" "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"; }
+req() { _req "$1" "$2" "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0"; }
 gh_req() { _req "$1" "$2" "$GH_HEADER"; }
 
 log() { echo -e "$1  " >>"build.md"; }
@@ -408,11 +408,11 @@ build_rv() {
 	fi
 	log "* **${app_name}** (${arch}): v${version}"
 
-	if [ "${args[merge_integrations]}" = true ]; then p_patcher_args+=("-m ${args[integ]}"); fi
+	p_patcher_args+=("-m ${args[integ]}")
 	local microg_patch
 	microg_patch=$(jq -r ".[] | select(.compatiblePackages // [] | .[] | .name==\"${pkg_name}\") | .name" "${args[ptjs]}" | grep -i "gmscore\|microg" || :)
 	if [ -n "$microg_patch" ] && [[ ${p_patcher_args[*]} =~ $microg_patch ]]; then
-		epr "microg related patches are handling automatically by the builder."
+		epr "microg related patches are automatically handled by builder."
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
 
