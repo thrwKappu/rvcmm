@@ -1,6 +1,6 @@
 ## Apps:  
-* **Music** (arm-v7a): v6.41.58  
 * **Music** (arm64-v8a): v6.41.58  
+* **Music** (arm-v7a): v6.41.58  
 ---
 
 ## Build Details:  
