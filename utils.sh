@@ -62,7 +62,7 @@ get_rv_prebuilts() {
 	if [ "$integrations_ver" ]; then rv_integrations_rel+="tags/${integrations_ver}"; else rv_integrations_rel+="latest"; fi
 	rv_integrations=$(gh_req "$rv_integrations_rel" -) || return 1
 	rv_integrations_changelog=$(echo "$rv_integrations" | json_get 'body' | sed 's/\(\\n\)\+/\\n/g')
-	rv_integrations_url=$(echo "$rv_integrations" | json_get 'browser_download_url')
+	rv_integrations_url=$(gh_req "$rv_integrations_rel" - | json_get 'browser_download_url' | grep -E '\.apk$') || return 1
 	local rv_integrations_apk="${integrations_dir}/${rv_integrations_url##*/}"
 	local nm=$(cut -d/ -f9 <<<"$rv_integrations_url")
 	echo "### Integrations: $(cut -d/ -f4 <<<"$rv_integrations_url")/$nm" >>"$TEMP_DIR/changelog.md"
@@ -75,7 +75,7 @@ get_rv_prebuilts() {
 	rv_patches_changelog=$(json_get 'body' <<<"$rv_patches" | sed 's/\(\\n\)\+/\\n/g')
 	rv_patches_dl=$(json_get 'browser_download_url' <<<"$rv_patches")
 	rv_patches_json="${patches_dir}/patches-$(json_get 'tag_name' <<<"$rv_patches").json"
-	rv_patches_url=$(grep 'jar' <<<"$rv_patches_dl")
+	rv_patches_url=$(grep -E '\.jar$' <<<"$rv_patches_dl")
 	local rv_patches_jar="${patches_dir}/${rv_patches_url##*/}"
 	[ -f "$rv_patches_jar" ] || REBUILD=true
 	local nm2=$(cut -d/ -f9 <<<"$rv_patches_url")
@@ -93,9 +93,11 @@ get_rv_prebuilts() {
 }
 
 get_prebuilts() {
-	mkdir -p ${MODULE_TEMPLATE_DIR}/bin/arm64 ${MODULE_TEMPLATE_DIR}/bin/arm
+	mkdir -p ${MODULE_TEMPLATE_DIR}/bin/arm64 ${MODULE_TEMPLATE_DIR}/bin/arm ${MODULE_TEMPLATE_DIR}/bin/x86 ${MODULE_TEMPLATE_DIR}/bin/x64
 	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm64/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-arm64-v8a"
 	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/arm/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-armeabi-v7a"
+	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/x86/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-x86"
+	dl_if_dne "${MODULE_TEMPLATE_DIR}/bin/x64/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-x86_64"
 
 	HTMLQ="${TEMP_DIR}/htmlq"
 	if [ ! -f "$HTMLQ" ]; then
@@ -126,7 +128,7 @@ config_update() {
 		INTEGRATIONS_SRC=$(toml_get "$t" integrations-source) || INTEGRATIONS_SRC=$DEF_INTEGRATIONS_SRC	
 		if [[ ! -v sources[$INTEGRATIONS_SRC] ]]; then
 			sources[$INTEGRATIONS_SRC]=0
-			if ! last_integrations_url=$(gh_req "https://api.github.com/repos/${INTEGRATIONS_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep 'apk'); then
+			if ! last_integrations_url=$(gh_req "https://api.github.com/repos/${INTEGRATIONS_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep -E '\.apk$'); then
 				abort "unable to get latest integrations info"
 			fi
 			last_integrations=${last_integrations_url##*/}
@@ -141,7 +143,7 @@ config_update() {
 		PATCHES_SRC=$(toml_get "$t" patches-source) || PATCHES_SRC=$DEF_PATCHES_SRC
 		if [[ ! -v sources[$PATCHES_SRC] ]]; then
 			sources[$PATCHES_SRC]=0
-			if ! last_patches_url=$(gh_req "https://api.github.com/repos/${PATCHES_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep 'jar'); then
+			if ! last_patches_url=$(gh_req "https://api.github.com/repos/${PATCHES_SRC}/releases/latest" - 2>&1 | json_get 'browser_download_url' | grep -E '\.jar$'); then
 				abort "unable to get latest patches info"
 			fi
 			last_patches=${last_patches_url##*/}
@@ -328,7 +330,7 @@ get_archive_pkg_name() { echo "$__ARCHIVE_PKG_NAME__"; }
 patch_apk() {
 	local stock_input=$1 patched_apk=$2 patcher_args=$3 rv_cli_jar=$4 rv_patches_jar=$5
 	local cmd="java -jar $rv_cli_jar patch $stock_input -p -o $patched_apk -b $rv_patches_jar \
---keystore=ks.keystore --keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --alias=jhc $patcher_args"
+--keystore=ks.keystore --keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --alias=jhc $patcher_args --options=options.json"
 	pr "$cmd"
 	if [ "${DRYRUN:-}" = true ]; then
 		cp -f "$stock_input" "$patched_apk"
@@ -436,14 +438,6 @@ build_rv() {
 	# 	fi
 	# fi
 
-	if [ "${args[riplib]}" = true ]; then
-		p_patcher_args+=("--rip-lib x86_64 --rip-lib x86")
-		if [ "$arch" = "arm64-v8a" ]; then
-			p_patcher_args+=("--rip-lib armeabi-v7a")
-		elif [ "$arch" = "arm-v7a" ]; then
-			p_patcher_args+=("--rip-lib arm64-v8a")
-		fi
-	fi
 	if [ "$mode_arg" = module ]; then
 		build_mode_arr=(module)
 	elif [ "$mode_arg" = apk ]; then
@@ -467,8 +461,18 @@ build_rv() {
 		else
 			patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}.apk"
 		fi
-		if [ "$build_mode" = module ] && [ "${args[riplib]}" = true ]; then
-			patcher_args+=("--unsigned --rip-lib arm64-v8a --rip-lib armeabi-v7a")
+		if [ "${args[riplib]}" = true ]; then
+			patcher_args+=("--rip-lib x86_64 --rip-lib x86")
+			if [ "$build_mode" = module ]; then
+				patcher_args+=("--rip-lib arm64-v8a --rip-lib armeabi-v7a --unsigned")
+			else
+				if [ "$arch" = "arm64-v8a" ]; then
+					patcher_args+=("--rip-lib armeabi-v7a")
+				elif [ "$arch" = "arm-v7a" ]; then
+					patcher_args+=("--rip-lib arm64-v8a")
+				fi
+
+			fi
 		fi
 		if [ ! -f "$patched_apk" ] || [ "$REBUILD" = true ]; then
 			if ! patch_apk "$stock_apk" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
