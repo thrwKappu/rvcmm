@@ -1,6 +1,7 @@
 ## Apps:  
 * **Music** (arm64-v8a): v6.41.58  
 * **Music** (arm-v7a): v6.41.58  
+* **YouTube** (all): v19.04.37  
 ---
 
 ## Build Details:  
