@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MODULE_TEMPLATE_DIR="rvcmm"
+MODULE_TEMPLATE_DIR="rvcmm-template"
 TEMP_DIR="temp"
 BUILD_DIR="build"
 
