@@ -1,51 +1,67 @@
 ## Apps:  
-* **Music** (arm64-v8a): v6.41.58  
-* **Music** (arm-v7a): v6.41.58  
-* **YouTube** (all): v19.04.37  
+* **YouTube** (all): v19.09.37  
+* **Music** (arm64-v8a): v6.45.54  
 ---
 
 ## Build Details:  
-### CLI: j-hc/revanced-cli-4.3.0-all.jar
-### Integrations: ReVanced/revanced-integrations-1.4.0.apk
+### CLI: j-hc/revanced-cli-4.5.0-all.jar
+### Integrations: ReVanced/revanced-integrations-1.5.0.apk
 
-#### [1.4.0](https://github.com/ReVanced/revanced-integrations/compare/v1.3.2...v1.4.0) (2024-03-02)
+#### [1.5.0](https://github.com/ReVanced/revanced-integrations/compare/v1.4.0...v1.5.0) (2024-03-27)
 ### Bug Fixes
-* **Twitter - Hide ads:** Hide ads in search ([b40687c](https://github.com/ReVanced/revanced-integrations/commit/b40687c5c7fa301c78035219b27c0bd85c968bb2))
-* **YouTube - Disable suggested end screen:** Reliably hide end screen ([b4ab5f6](https://github.com/ReVanced/revanced-integrations/commit/b4ab5f65d5607678a000783aae14257b845706b5))
-* **YouTube - Hide ads:** Do not show error toast and hide full screen ads ([#569](https://github.com/ReVanced/revanced-integrations/issues/569)) ([0b0d46f](https://github.com/ReVanced/revanced-integrations/commit/0b0d46f5183c88f73d58c8f7b9320d38976ddd4e))
-* **YouTube - Hide Shorts:** Hide Shorts in feed when using tablet layout ([#572](https://github.com/ReVanced/revanced-integrations/issues/572)) ([7f5e7df](https://github.com/ReVanced/revanced-integrations/commit/7f5e7dfd68ad0200e9ea36d45f18a85ddfe534f8))
-* **YouTube - Spoof app version:** Remove broken versions ([#573](https://github.com/ReVanced/revanced-integrations/issues/573)) ([fb4aab7](https://github.com/ReVanced/revanced-integrations/commit/fb4aab792ae93fc7e7decbc19bd71ae700d5d235))
+* Check index of pattern in string instead of the other way around ([96a1e46](https://github.com/ReVanced/revanced-integrations/commit/96a1e4680d23be7154bb83290b1887fcd1a22f53))
+* Handle custom preferences ([#586](https://github.com/ReVanced/revanced-integrations/issues/586)) ([ad477e4](https://github.com/ReVanced/revanced-integrations/commit/ad477e4859ef69beda297f7a2a6c29a918077628))
+* Revert AGP dependency update ([ab07a56](https://github.com/ReVanced/revanced-integrations/commit/ab07a563b9ef890dc8a673eeb4268ce1c9f15a69))
+* **TikTok:** Hook application context earlier to prevent crash ([#588](https://github.com/ReVanced/revanced-integrations/issues/588)) ([9ac2d63](https://github.com/ReVanced/revanced-integrations/commit/9ac2d634897d961eba1b704f2722ea757bb83e0a))
+* **YouTube - Announcements:** Only compare ID to not show same announcement after a fix-up ([#579](https://github.com/ReVanced/revanced-integrations/issues/579)) ([5d14f53](https://github.com/ReVanced/revanced-integrations/commit/5d14f53acd0b1eabd6951543edd7d7c662b6c502))
+* **YouTube - Client spoof:**  Allow playback for links with timestamp ([#582](https://github.com/ReVanced/revanced-integrations/issues/582)) ([eee3f35](https://github.com/ReVanced/revanced-integrations/commit/eee3f352c59141f47f6bda6c6cd350f1a16f1450))
+* **YouTube - Disable suggested video end screen:** Disable by default to fix autoplay issues ([#578](https://github.com/ReVanced/revanced-integrations/issues/578)) ([b9c1eec](https://github.com/ReVanced/revanced-integrations/commit/b9c1eec69fab64f213dd77d1f932e3244d81ab2d))
+* **YouTube - Downloads:** Use new task context ([#583](https://github.com/ReVanced/revanced-integrations/issues/583)) ([468dfac](https://github.com/ReVanced/revanced-integrations/commit/468dfac0544e282658675a8be65b4e43aa351068))
+* **YouTube - HDR auto brightness:** Remove non functional and obsolete patch ([#585](https://github.com/ReVanced/revanced-integrations/issues/585)) ([b060732](https://github.com/ReVanced/revanced-integrations/commit/b060732e861b011cac8737ed597385a3315f6057))
+* **YouTube - Hide ads:** Prevent app crash if hiding fullscreen ads is not possible ([#590](https://github.com/ReVanced/revanced-integrations/issues/590)) ([4ec955f](https://github.com/ReVanced/revanced-integrations/commit/4ec955fd0133643826e47be7089fbfa07fd9a089))
+* **YouTube - Hide layout components:** Correctly hide Join button ([b945e2f](https://github.com/ReVanced/revanced-integrations/commit/b945e2f44b1a62326e6d45345c1467668d803f53))
+* **YouTube - Hide seekbar:** Use original seekbar color if Theme patch is not included ([#580](https://github.com/ReVanced/revanced-integrations/issues/580)) ([8d48a90](https://github.com/ReVanced/revanced-integrations/commit/8d48a90a8b8bc7ce9e22580b7a66c4c12fd6d54f))
+* **YouTube - Hide Shorts components:** Correctly hide join button ([b7a8995](https://github.com/ReVanced/revanced-integrations/commit/b7a8995f798e386ee1d9ab5bbd857c1736cc5a29))
+* **YouTube:** Fix video playback by switching to ReVanced GmsCore vendor ([#589](https://github.com/ReVanced/revanced-integrations/issues/589)) ([6e947e2](https://github.com/ReVanced/revanced-integrations/commit/6e947e24c2ac36e1bddcd25412870a36aa6c85c8))
 ### Features
-* **Sync for Reddit:** Add `Fix /s/ links` patch ([a8c82ad](https://github.com/ReVanced/revanced-integrations/commit/a8c82ad27b74e929311536227dee0909ebc27ee1))
-* **X:** Add `Open links as query` patch ([#570](https://github.com/ReVanced/revanced-integrations/issues/570)) ([95ca632](https://github.com/ReVanced/revanced-integrations/commit/95ca632d40b90ea8160dbbf33fd5d7f2281cf711))
-* **YouTube - Change start page:** Add more start pages ([27421fb](https://github.com/ReVanced/revanced-integrations/commit/27421fb5783e677075ab0c220030d6af64cfaa18))
-* **YouTube - Spoof app version:** Add target versions ([#574](https://github.com/ReVanced/revanced-integrations/issues/574)) ([da57fb9](https://github.com/ReVanced/revanced-integrations/commit/da57fb95233ed251518fbd5c56a92bc39c4e0015))
-* **YouTube:** Reorganize settings menu ([#571](https://github.com/ReVanced/revanced-integrations/issues/571)) ([eea4a48](https://github.com/ReVanced/revanced-integrations/commit/eea4a48cd565712c09d0ddd35ae256871ebe1964))
+* **YouTube - Downloads:** Use external downloader when selecting 'Download' in home feed flyout menu ([#587](https://github.com/ReVanced/revanced-integrations/issues/587)) ([254da31](https://github.com/ReVanced/revanced-integrations/commit/254da31d16c39781f46e1cdea1e9ba22e2fce6d1))
+* **YouTube - External downloader:** Add ability to use in-app download button ([771a0de](https://github.com/ReVanced/revanced-integrations/commit/771a0de3bc9bec3ec5a8e4f8b02edfa9df7b1997))
+* **YouTube - Hide layout components:** Filter home/search results by keywords ([#584](https://github.com/ReVanced/revanced-integrations/issues/584)) ([0cbad98](https://github.com/ReVanced/revanced-integrations/commit/0cbad9820577c476f1f29b6ac77611b38afbb950))
+* **YouTube - Hide Shorts components:** Hide like and dislike buttons ([2a08e5a](https://github.com/ReVanced/revanced-integrations/commit/2a08e5a98e9e9a00bb306313ff487d67c042a92e))
+* **YouTube - Hide Shorts components:** Hide sound metadata label ([46d8ef6](https://github.com/ReVanced/revanced-integrations/commit/46d8ef6f88bd4c912a45357541291af38b5fc81f))
+* **YouTube - Hide Shorts components:** Hide title and full video link label ([59165de](https://github.com/ReVanced/revanced-integrations/commit/59165de801a5481fa4055dcf1797fe84dce235c0))
+* **YouTube - Hide Shorts components:** Selectively hide Shorts for home / subscription / search ([#592](https://github.com/ReVanced/revanced-integrations/issues/592)) ([1ee99aa](https://github.com/ReVanced/revanced-integrations/commit/1ee99aa6f0b4af15eeca25c7e21e8a0f5e9d189a))
 
 
-### Patches: ReVanced/revanced-patches-4.3.0.jar
+### Patches: ReVanced/revanced-patches-4.4.0.jar
 
-#### [4.3.0](https://github.com/ReVanced/revanced-patches/compare/v4.2.0...v4.3.0) (2024-03-02)
+#### [4.4.0](https://github.com/ReVanced/revanced-patches/compare/v4.3.0...v4.4.0) (2024-03-27)
 
 
 ### Bug Fixes
 
-* Compile DEX without debugging information ([f5df957](https://github.com/ReVanced/revanced-patches/commit/f5df9578669f71a67411bc93a25a7e8da43610d0))
-* **Override certificate pinning:** Always overwrite with a generic network security configuration ([2a842a1](https://github.com/ReVanced/revanced-patches/commit/2a842a1e14e1993eb028ae0bd1a93e227bb929a6))
-* **YouTube - Spoof app version:** Remove broken versions ([#2776](https://github.com/ReVanced/revanced-patches/issues/2776)) ([9466d97](https://github.com/ReVanced/revanced-patches/commit/9466d973c6d7a2891e3fa9f283107b64399152ea))
-* **YouTube - Spoof signature:** Fix tracking such as history or watch time ([bcd8b48](https://github.com/ReVanced/revanced-patches/commit/bcd8b48e70693dac1bfcc0bf4971d6b526065b59))
+* **TikTok:** Hook application context earlier to prevent crash ([#2893](https://github.com/ReVanced/revanced-patches/issues/2893)) ([395ccda](https://github.com/ReVanced/revanced-patches/commit/395ccda7b9218c522c7ca0f99f75a12036d3e3f3))
+* **YouTube - Client spoof:** Spoof all user agents ([44a8a13](https://github.com/ReVanced/revanced-patches/commit/44a8a1399897caaff3ff45db8549ddedb2f01b68))
+* **YouTube - Hide ads:** Prevent app crash if hiding fullscreen ads is not possible ([#2910](https://github.com/ReVanced/revanced-patches/issues/2910)) ([9f50470](https://github.com/ReVanced/revanced-patches/commit/9f50470bf6582fe2f20a903a97bf66c41f296fb2))
+* **YouTube Music:** Fix compatibility with latest versions ([#2924](https://github.com/ReVanced/revanced-patches/issues/2924)) ([8378c84](https://github.com/ReVanced/revanced-patches/commit/8378c8481634a63a5568480475757e64b7ec466e))
+* **YouTube:** Fix video playback by switching to ReVanced GmsCore vendor ([#2907](https://github.com/ReVanced/revanced-patches/issues/2907)) ([33ea122](https://github.com/ReVanced/revanced-patches/commit/33ea12228c2ae5dcadf3e7c7016d4bf6006d899a))
 
 
 ### Features
 
-* **OpeningHours:** Add `Fix crash` patch ([#2697](https://github.com/ReVanced/revanced-patches/issues/2697)) ([0d011b8](https://github.com/ReVanced/revanced-patches/commit/0d011b876ecf05031a7daa54ab7e6d3506728a47))
-* **Sync for Reddit:** Add `Fix /s/ links` patch ([f15ef3f](https://github.com/ReVanced/revanced-patches/commit/f15ef3f63460254236185f8e22c9395db4db9465))
-* **Twitter - Unlock downloads:** Unlock GIF downloads ([d0f91c8](https://github.com/ReVanced/revanced-patches/commit/d0f91c8550592723e1252e1af2971b508591dd59))
-* **VSCO - Unlock pro:** Constrain to last working version ([6dd4a7c](https://github.com/ReVanced/revanced-patches/commit/6dd4a7c29e48c3bc517bbdd7ed160624c36c2333))
-* **X:** Add `Open links as query` patch ([#2730](https://github.com/ReVanced/revanced-patches/issues/2730)) ([ba75a51](https://github.com/ReVanced/revanced-patches/commit/ba75a51b71dbb9157db230b3e97a90361019fe30))
-* **YouTube - Change start page:** Add more start pages ([cc1d9b7](https://github.com/ReVanced/revanced-patches/commit/cc1d9b743633c619fb6acc428e884c1c9b53e10b))
-* **YouTube - Spoof app version:** Add target versions ([#2787](https://github.com/ReVanced/revanced-patches/issues/2787)) ([83a7bd8](https://github.com/ReVanced/revanced-patches/commit/83a7bd8d69e62623fc4d2ba73d9fb49e92751d89))
-* **YouTube:** Reorganize settings menu ([#2737](https://github.com/ReVanced/revanced-patches/issues/2737)) ([36132df](https://github.com/ReVanced/revanced-patches/commit/36132df4be6a04c08b6f3dd79de1bcea93a80fb8))
+* **Instagram - Hide timeline ads:** Make compatible with latest versions ([a212f29](https://github.com/ReVanced/revanced-patches/commit/a212f29bd33bb5e10f024e058d26e20ee926190b))
+* **Mi Fitness:** Add `Force English locale` and `Fix login` patch ([#2734](https://github.com/ReVanced/revanced-patches/issues/2734)) ([7a25791](https://github.com/ReVanced/revanced-patches/commit/7a25791d53530b1236896b2c3d6275ee7556e8b7))
+* **Sync for Lemmy:** Add `Disable ads` patch ([#2872](https://github.com/ReVanced/revanced-patches/issues/2872)) ([0785819](https://github.com/ReVanced/revanced-patches/commit/0785819dd5ad487c778b5baf09004cdab3687184))
+* **YouTube - Downloads:** Use external downloader when selecting 'Download' in home feed flyout menu ([#2881](https://github.com/ReVanced/revanced-patches/issues/2881)) ([10afc8c](https://github.com/ReVanced/revanced-patches/commit/10afc8cc71ff29fea4937fb12fd3d1edf9c581f5))
+* **YouTube - Downloads:** Add ability to use in-app download button ([d900011](https://github.com/ReVanced/revanced-patches/commit/d9000113a905c14f8409aa75008f1ef6a1aecd0c))
+* **YouTube - Hide layout components:** Filter home/search results by keywords ([#2853](https://github.com/ReVanced/revanced-patches/issues/2853)) ([5916204](https://github.com/ReVanced/revanced-patches/commit/59162042b0a68edf7f94a3c21f838dada3c3f9c3))
+* **YouTube - Hide Shorts components:** Hide like and dislike buttons ([2df0892](https://github.com/ReVanced/revanced-patches/commit/2df0892682406e67283c4aeaacebf8f222029833))
+* **YouTube - Hide Shorts components:** Hide sound metadata label ([ea7d1e0](https://github.com/ReVanced/revanced-patches/commit/ea7d1e0d08cc245117ffe8ad0df3c31c5e87f739))
+* **YouTube - Hide Shorts components:** Hide title and full video link label ([e7b64e1](https://github.com/ReVanced/revanced-patches/commit/e7b64e154e7fb8edd0037f5e171f4aa3ed9017f8))
+* **YouTube - Hide Shorts components:** Selectively hide Shorts for home / subscription / search ([#2925](https://github.com/ReVanced/revanced-patches/issues/2925)) ([497c067](https://github.com/ReVanced/revanced-patches/commit/497c067e80e560eb125f5fc30eef9763929b4ee4))
+* **YouTube :** Remove `HDR auto brightness` patch ([#2863](https://github.com/ReVanced/revanced-patches/issues/2863)) ([b4c7bf4](https://github.com/ReVanced/revanced-patches/commit/b4c7bf48084184e5f031f7f5139a9a29341d8ebf))
+* **YouTube Vanced:** Remove `Hide ads` patch ([87887e4](https://github.com/ReVanced/revanced-patches/commit/87887e4163dd9e242209f4d0fefb415f9bc7ca75))
+* **YouTube:** Support version `19.05`, `19.06`, `19.07`, `19.08` and `19.09` ([#2862](https://github.com/ReVanced/revanced-patches/issues/2862)) ([f044dde](https://github.com/ReVanced/revanced-patches/commit/f044dde054861ff16846a6be6287f86fa3afb3d8))
 
 
 
