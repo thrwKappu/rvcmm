@@ -1,36 +1,19 @@
 ## Apps:  
-* **YouTube** (all): v19.09.37  
+* **Music** (arm-v7a): v6.45.54  
 * **Music** (arm64-v8a): v6.45.54  
+* **YouTube** (all): v19.09.37  
 ---
 
 ## Build Details:  
 ### CLI: j-hc/revanced-cli-4.5.0-all.jar
-### Integrations: ReVanced/revanced-integrations-1.5.0.apk
+### Integrations: ReVanced/revanced-integrations-1.6.0.apk
 
-#### [1.5.0](https://github.com/ReVanced/revanced-integrations/compare/v1.4.0...v1.5.0) (2024-03-27)
+#### [1.6.0](https://github.com/ReVanced/revanced-integrations/compare/v1.5.0...v1.6.0) (2024-03-28)
 ### Bug Fixes
-* Check index of pattern in string instead of the other way around ([96a1e46](https://github.com/ReVanced/revanced-integrations/commit/96a1e4680d23be7154bb83290b1887fcd1a22f53))
-* Handle custom preferences ([#586](https://github.com/ReVanced/revanced-integrations/issues/586)) ([ad477e4](https://github.com/ReVanced/revanced-integrations/commit/ad477e4859ef69beda297f7a2a6c29a918077628))
-* Revert AGP dependency update ([ab07a56](https://github.com/ReVanced/revanced-integrations/commit/ab07a563b9ef890dc8a673eeb4268ce1c9f15a69))
-* **TikTok:** Hook application context earlier to prevent crash ([#588](https://github.com/ReVanced/revanced-integrations/issues/588)) ([9ac2d63](https://github.com/ReVanced/revanced-integrations/commit/9ac2d634897d961eba1b704f2722ea757bb83e0a))
-* **YouTube - Announcements:** Only compare ID to not show same announcement after a fix-up ([#579](https://github.com/ReVanced/revanced-integrations/issues/579)) ([5d14f53](https://github.com/ReVanced/revanced-integrations/commit/5d14f53acd0b1eabd6951543edd7d7c662b6c502))
-* **YouTube - Client spoof:**  Allow playback for links with timestamp ([#582](https://github.com/ReVanced/revanced-integrations/issues/582)) ([eee3f35](https://github.com/ReVanced/revanced-integrations/commit/eee3f352c59141f47f6bda6c6cd350f1a16f1450))
-* **YouTube - Disable suggested video end screen:** Disable by default to fix autoplay issues ([#578](https://github.com/ReVanced/revanced-integrations/issues/578)) ([b9c1eec](https://github.com/ReVanced/revanced-integrations/commit/b9c1eec69fab64f213dd77d1f932e3244d81ab2d))
-* **YouTube - Downloads:** Use new task context ([#583](https://github.com/ReVanced/revanced-integrations/issues/583)) ([468dfac](https://github.com/ReVanced/revanced-integrations/commit/468dfac0544e282658675a8be65b4e43aa351068))
-* **YouTube - HDR auto brightness:** Remove non functional and obsolete patch ([#585](https://github.com/ReVanced/revanced-integrations/issues/585)) ([b060732](https://github.com/ReVanced/revanced-integrations/commit/b060732e861b011cac8737ed597385a3315f6057))
-* **YouTube - Hide ads:** Prevent app crash if hiding fullscreen ads is not possible ([#590](https://github.com/ReVanced/revanced-integrations/issues/590)) ([4ec955f](https://github.com/ReVanced/revanced-integrations/commit/4ec955fd0133643826e47be7089fbfa07fd9a089))
-* **YouTube - Hide layout components:** Correctly hide Join button ([b945e2f](https://github.com/ReVanced/revanced-integrations/commit/b945e2f44b1a62326e6d45345c1467668d803f53))
-* **YouTube - Hide seekbar:** Use original seekbar color if Theme patch is not included ([#580](https://github.com/ReVanced/revanced-integrations/issues/580)) ([8d48a90](https://github.com/ReVanced/revanced-integrations/commit/8d48a90a8b8bc7ce9e22580b7a66c4c12fd6d54f))
-* **YouTube - Hide Shorts components:** Correctly hide join button ([b7a8995](https://github.com/ReVanced/revanced-integrations/commit/b7a8995f798e386ee1d9ab5bbd857c1736cc5a29))
-* **YouTube:** Fix video playback by switching to ReVanced GmsCore vendor ([#589](https://github.com/ReVanced/revanced-integrations/issues/589)) ([6e947e2](https://github.com/ReVanced/revanced-integrations/commit/6e947e24c2ac36e1bddcd25412870a36aa6c85c8))
+* **YouTube - Hide layout components:** Correctly hide community posts ([fbc8066](https://github.com/ReVanced/revanced-integrations/commit/fbc80667735778877f262763d6d53afb1dba3bf6))
+* **YouTube - Navigation buttons:** Hide subscriptions tab ([623d11b](https://github.com/ReVanced/revanced-integrations/commit/623d11b8e8b9f5166b53d8ae195a5d5a6c644661))
 ### Features
-* **YouTube - Downloads:** Use external downloader when selecting 'Download' in home feed flyout menu ([#587](https://github.com/ReVanced/revanced-integrations/issues/587)) ([254da31](https://github.com/ReVanced/revanced-integrations/commit/254da31d16c39781f46e1cdea1e9ba22e2fce6d1))
-* **YouTube - External downloader:** Add ability to use in-app download button ([771a0de](https://github.com/ReVanced/revanced-integrations/commit/771a0de3bc9bec3ec5a8e4f8b02edfa9df7b1997))
-* **YouTube - Hide layout components:** Filter home/search results by keywords ([#584](https://github.com/ReVanced/revanced-integrations/issues/584)) ([0cbad98](https://github.com/ReVanced/revanced-integrations/commit/0cbad9820577c476f1f29b6ac77611b38afbb950))
-* **YouTube - Hide Shorts components:** Hide like and dislike buttons ([2a08e5a](https://github.com/ReVanced/revanced-integrations/commit/2a08e5a98e9e9a00bb306313ff487d67c042a92e))
-* **YouTube - Hide Shorts components:** Hide sound metadata label ([46d8ef6](https://github.com/ReVanced/revanced-integrations/commit/46d8ef6f88bd4c912a45357541291af38b5fc81f))
-* **YouTube - Hide Shorts components:** Hide title and full video link label ([59165de](https://github.com/ReVanced/revanced-integrations/commit/59165de801a5481fa4055dcf1797fe84dce235c0))
-* **YouTube - Hide Shorts components:** Selectively hide Shorts for home / subscription / search ([#592](https://github.com/ReVanced/revanced-integrations/issues/592)) ([1ee99aa](https://github.com/ReVanced/revanced-integrations/commit/1ee99aa6f0b4af15eeca25c7e21e8a0f5e9d189a))
+* **GmsCore support:** Open download link if possible ([#596](https://github.com/ReVanced/revanced-integrations/issues/596)) ([999727d](https://github.com/ReVanced/revanced-integrations/commit/999727d5e6889b6242473f1b14bf618918417e77))
 
 
 ### Patches: ReVanced/revanced-patches-4.4.0.jar
