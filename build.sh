@@ -167,7 +167,6 @@ done
 wait
 rm -rf temp/tmp.*
 if [ -z "$(ls -A1 ${BUILD_DIR})" ]; then abort "All builds failed."; fi
-fi
 log "---\n\n## Build Details:"
 log "$(cat $TEMP_DIR/changelog.md)"
 log "\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
