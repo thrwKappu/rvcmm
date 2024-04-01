@@ -2,7 +2,7 @@
 
 MODULE_TEMPLATE_DIR="rvcmm-template"
 TEMP_DIR="temp"
-BIN_DIR="bin"
+BIN_DIR="tools"
 BUILD_DIR="build"
 
 if [ "${GITHUB_TOKEN:-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; else GH_HEADER=; fi
