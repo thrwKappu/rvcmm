@@ -73,10 +73,9 @@ jobs:
           overwrite: true
 
       - name: Remove previous release(s)
-        uses: dev-drprasad/delete-older-releases@v0.3.1
+        uses: dev-drprasad/delete-older-releases@v0.3.3
         with:
-          keep_latest: 2
-          keep_min_download_counts: 1
+          keep_latest: 3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
