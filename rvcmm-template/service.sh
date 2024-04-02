@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 MODDIR=${0%/*}
 RVPATH=$NVBASE/rvcmm/${MODDIR##*/}.apk
-. $MODPATH/config
+. $MODDIR/config
 
 until [ "$(getprop sys.boot_completed)" = 1 ]; do sleep 1; done
 until [ -d "/sdcard/Android" ]; do sleep 1; done
