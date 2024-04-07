@@ -1,4 +1,4 @@
-z#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 MODULE_TEMPLATE_DIR="rvcmm-template"
 TEMP_DIR="temp"
