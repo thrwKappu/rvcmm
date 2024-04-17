@@ -492,7 +492,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: $app_name" \
 			"$version - $arch" \
-			"Original template by j-hc | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/} | Selected Patches: ${patches_string}" \
+			"Selected Patches: ${patches_string} | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/}" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
 			"$base_template"
 
@@ -528,7 +528,7 @@ module_prop() {
 name=${2}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
-author=thrwKappu, j-hc
+author=thrwKappu, Original template by j-hc
 description=${4}" >"${6}/module.prop"
 	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then echo "updateJson=${5}" >>"${6}/module.prop"; fi
 }
