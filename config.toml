@@ -6,16 +6,18 @@ enable-magisk-update = true   # set this to false if you do not want to receive 
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 build-mode = "module"
 included-patches = ""
 excluded-patches = "'Announcements' 'Premium heading'"
 module-prop-name = "rvcmm-yt"
+include-stock = true
 
 [Music]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 build-mode = "module"
 excluded-patches = ""
 module-prop-name = "rvcmm-ytm"
 arch = "both"
+include-stock = true
