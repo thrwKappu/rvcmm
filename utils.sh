@@ -10,6 +10,7 @@ NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
 REBUILD=${REBUILD:-false}
 
 # -------------------- json/toml --------------------
+json_get() { grep -o "\"${1}\":[^\"]*\"[^\"]*\"" | sed -E 's/".*".*"(.*)"/\1/'; }
 toml_prep() { __TOML__=$(tr -d '\t\r' <<<"$1" | tr "'" '"' | grep -o '^[^#]*' | grep -v '^$' | sed -r 's/(\".*\")|\s*/\1/g; 1i []'); }
 toml_get_table_names() {
 	local tn
@@ -37,7 +38,7 @@ abort() {
 }
 
 get_rv_prebuilts() {
-	local integrations_src=$1 patches_src=$2 integrations_ver=$3 patches_ver=$4 cli_src=$5 cli_ver=$6
+	local cli_src=$1 cli_ver=$2 integrations_src=$3 integrations_ver=$4 patches_src=$5 patches_ver=$6
 	local patches_dir=${patches_src%/*}
 	patches_dir=${TEMP_DIR}/${patches_dir,,}
 	local integrations_dir=${integrations_src%/*}
@@ -80,10 +81,10 @@ get_rv_prebuilts() {
 	#echo -e "[Changelog](https://github.com/${patches_src}/releases/tag/v$(sed 's/.*-\(.*\)\..*/\1/' <<<$nm2))\n" >>"$TEMP_DIR/changelog.md"
 	echo -e "\n${rv_patches_changelog//# [/#### [}\n---\n" >>"$TEMP_DIR/changelog.md"
 
-	dl_if_dne "$rv_cli_jar" "$rv_cli_url" >&2 || return 1
-	dl_if_dne "$rv_integrations_apk" "$rv_integrations_url" >&2 || return 1
-	dl_if_dne "$rv_patches_jar" "$rv_patches_url" >&2 || return 1
-	dl_if_dne "$rv_patches_json" "$(grep 'json' <<<"$rv_patches_dl")" >&2 || return 1
+	gh_dl "$rv_cli_jar" "$rv_cli_url" >&2 || return 1
+	gh_dl "$rv_integrations_apk" "$rv_integrations_url" >&2 || return 1
+	gh_dl "$rv_patches_jar" "$rv_patches_url" >&2 || return 1
+	gh_dl "$rv_patches_json" "$(grep 'json' <<<"$rv_patches_dl")" >&2 || return 1
 
 	echo "$rv_cli_jar" "$rv_integrations_apk" "$rv_patches_jar" "$rv_patches_json"
 }
@@ -488,8 +489,8 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: $app_name" \
 			"$version - $arch" \
-			"Selected Patches: ${patches_string} | Patched with: ${args[ptjar]##*/} + ${args[integ]##*/} on ${args[cli]##*/}" \
-			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-}/update/${upj}" \
+			"Selected Patches: ${patches_string} | Patched with: $(basename ${args[ptjar]%.jar}) + $(basename ${args[integ]%.apk}) on $(basename ${args[cli]%.jar})" \
+			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
 
 		local module_output="RVCMM-${app_name_l}-v${version}-${arch}-${rv_brand_f}.zip"
