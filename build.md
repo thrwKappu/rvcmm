@@ -1,35 +1,58 @@
 ## Apps:  
 * **Music** (arm-v7a): v7.03.52  
-* **Music** (arm64-v8a): v7.03.52  
 * **YouTube** (all): v19.16.39  
 ---
 
 ## Build Details:  
 ### CLI: j-hc/revanced-cli-4.6.0-all.jar
-### Integrations: ReVanced/revanced-integrations-1.10.0.apk
+### Integrations: ReVanced/revanced-integrations-1.11.0.apk
 
-#### [1.10.0](https://github.com/ReVanced/revanced-integrations/compare/v1.9.2...v1.10.0) (2024-06-02)
+#### [1.11.0](https://github.com/ReVanced/revanced-integrations/compare/v1.10.0...v1.11.0) (2024-06-23)
+
+
 ### Bug Fixes
-* **YouTube - Spoof client:** Allow swipe gestures to enter/exit fullscreen when spoofing with `Android VR` client ([#645](https://github.com/ReVanced/revanced-integrations/issues/645)) ([b826865](https://github.com/ReVanced/revanced-integrations/commit/b826865ef40a55dc79e6e146e3c35bfe7d792886))
-* **YouTube - Spoof client:** Restore playback speed menu when spoofing to an iOS client ([2b2a70e](https://github.com/ReVanced/revanced-integrations/commit/2b2a70e6ea02ab3d140d500860d1c70c359fe8ef))
+
+* **YouTube - Client spoof:** Correctly play more livestreams using Android VR ([#652](https://github.com/ReVanced/revanced-integrations/issues/652)) ([58f8172](https://github.com/ReVanced/revanced-integrations/commit/58f8172b2d30fecd31d541f7470abf61b7e303c7))
+* **YouTube - Hide description components:** Replace `Hide game section` and `Hide music section` with `Hide attributes section` ([#654](https://github.com/ReVanced/revanced-integrations/issues/654)) ([f82dfce](https://github.com/ReVanced/revanced-integrations/commit/f82dfce887bbeccbfdb8e8f8d3d84db6ce28539a))
+* **YouTube - Return YouTube Dislike:** Do not replace view count with dislikes ([5f79196](https://github.com/ReVanced/revanced-integrations/commit/5f7919669250e95fc47c1a2705b352b53aa226f6))
+* **YouTube:** Rename `Minimized playback` to `Remove background playback restrictions` ([#651](https://github.com/ReVanced/revanced-integrations/issues/651)) ([84c50c0](https://github.com/ReVanced/revanced-integrations/commit/84c50c080c2a8c096b7709164cbaec5466a8492c))
+
+
 ### Features
-* **YouTube - Hide layout components:** Disable like / subscribe button glow animation ([#646](https://github.com/ReVanced/revanced-integrations/issues/646)) ([777ffb1](https://github.com/ReVanced/revanced-integrations/commit/777ffb13605dcedd58f22ccbedf62a12201e85cf))
-* **YouTube - Playback speed:** Add option to show speed dialog button in video player ([#636](https://github.com/ReVanced/revanced-integrations/issues/636)) ([59220d6](https://github.com/ReVanced/revanced-integrations/commit/59220d6e25380d5fe6cc8c75456c04d980a83f34))
-* **YouTube:** Support version `19.12`, `19.13`, `19.14`, `19.15` and `19.16` ([#643](https://github.com/ReVanced/revanced-integrations/issues/643)) ([4dce73a](https://github.com/ReVanced/revanced-integrations/commit/4dce73a6fbfeeffb8c2b1759b9c5a5eacb1e3d4b))
+
+* **Boost For Reddit:** Add `Fix /s/ links` patch ([#631](https://github.com/ReVanced/revanced-integrations/issues/631)) ([0c9ad35](https://github.com/ReVanced/revanced-integrations/commit/0c9ad35fc9024efe33c97b51714225c5d5226f59))
+* **YouTube - Comments:** Add `Hide 'Create a Short' button` option ([#656](https://github.com/ReVanced/revanced-integrations/issues/656)) ([064d8e9](https://github.com/ReVanced/revanced-integrations/commit/064d8e99a96167282f63725d33502f251632dcdb))
+* **YouTube - Comments:** Add `Hide Thanks button` and `Hide 'Comments by members' header` options ([#653](https://github.com/ReVanced/revanced-integrations/issues/653)) ([240e805](https://github.com/ReVanced/revanced-integrations/commit/240e805489e3603df026a7a3cf78b939461f5f9e))
+* **YouTube - Miniplayer:** Rename `Tablet mini player` and allow selecting the style of the in-app miniplayer ([#649](https://github.com/ReVanced/revanced-integrations/issues/649)) ([f483af6](https://github.com/ReVanced/revanced-integrations/commit/f483af6d3a2c1003cd566b4bf36fa4a257d1d6d3))
 
 
-### Patches: ReVanced/revanced-patches-4.9.0.jar
 
-#### [4.9.0](https://github.com/ReVanced/revanced-patches/compare/v4.8.3...v4.9.0) (2024-06-02)
+
+
+### Patches: ReVanced/revanced-patches-4.10.0.jar
+
+#### [4.10.0](https://github.com/ReVanced/revanced-patches/compare/v4.9.0...v4.10.0) (2024-06-23)
+
+
 ### Bug Fixes
-* **YouTube - Spoof client:** Allow swipe gestures to enter/exit fullscreen when spoofing with `Android VR` client ([#3259](https://github.com/ReVanced/revanced-patches/issues/3259)) ([5114900](https://github.com/ReVanced/revanced-patches/commit/5114900b1b5572c04ba6759eedab77f0a934b058))
-* **YouTube - Spoof client:** Restore playback speed menu when spoofing to an iOS client ([95f290f](https://github.com/ReVanced/revanced-patches/commit/95f290f1139cc8679beecac53c623847668f885e))
+
+* **YouTube - Client spoof:** Correctly play more livestreams using Android VR ([#3316](https://github.com/ReVanced/revanced-patches/issues/3316)) ([c05264a](https://github.com/ReVanced/revanced-patches/commit/c05264af3944cbfe8d9aa34fb0e0fddb05a1d42f))
+* **YouTube - Hide description components:** Replace `Hide game section` and `Hide music section` with `Hide attributes section` ([#3327](https://github.com/ReVanced/revanced-patches/issues/3327)) ([0198a43](https://github.com/ReVanced/revanced-patches/commit/0198a436f97b127a2a5dd283644254f9a0ae3e43))
+* **YouTube Music:** Rename `Minimized playback` to `Remove background playback restrictions` ([#3315](https://github.com/ReVanced/revanced-patches/issues/3315)) ([3c31e55](https://github.com/ReVanced/revanced-patches/commit/3c31e55b13d9495e857f068f8cd2b4320112d763))
+* **YouTube:** Rename `Minimized playback` to `Remove background playback restrictions` ([#3314](https://github.com/ReVanced/revanced-patches/issues/3314)) ([37d415b](https://github.com/ReVanced/revanced-patches/commit/37d415b53af4771d9c97a8b1c153be32bf3ac2e0))
+
+
 ### Features
-* **Messenger:** Add `Hide inbox subtabs` patch ([#3163](https://github.com/ReVanced/revanced-patches/issues/3163)) ([24e4ebd](https://github.com/ReVanced/revanced-patches/commit/24e4ebd77ad0f349b479926bf3983b72c2683496))
-* **YouTube - Hide layout components:** Disable like / subscribe button glow animation ([#3265](https://github.com/ReVanced/revanced-patches/issues/3265)) ([68d35ea](https://github.com/ReVanced/revanced-patches/commit/68d35eafc15513c23cd5220260023e7ec5b7978a))
-* **YouTube - Playback speed:** Add option to show speed dialog button in video player ([#3197](https://github.com/ReVanced/revanced-patches/issues/3197)) ([ad00305](https://github.com/ReVanced/revanced-patches/commit/ad00305ff57d5e8041de7375bea7d3ad6f18c4e2))
-* **YouTube Music:** Support version `7.03` ([#3272](https://github.com/ReVanced/revanced-patches/issues/3272)) ([d1ceca3](https://github.com/ReVanced/revanced-patches/commit/d1ceca39984f7933b28d81802d04bb3ead327595))
-* **YouTube:** Support version `19.12`, `19.13`, `19.14`, `19.15` and `19.16` ([#3239](https://github.com/ReVanced/revanced-patches/issues/3239)) ([99b07e0](https://github.com/ReVanced/revanced-patches/commit/99b07e0e18574668f36bb3c962c8d11222114be4))
+
+* Add `Change version code` patch ([#3338](https://github.com/ReVanced/revanced-patches/issues/3338)) ([685ef39](https://github.com/ReVanced/revanced-patches/commit/685ef39119daf1033a83262982519531c481c40f))
+* **Boost For Reddit:** Add `Fix /s/ links` patch ([#3154](https://github.com/ReVanced/revanced-patches/issues/3154)) ([5fa9fd2](https://github.com/ReVanced/revanced-patches/commit/5fa9fd2dfef43838d7311a967a3e805256a5d116))
+* **Boost for Reddit:** Add `Fix audio missing in video downloads` patch ([#3287](https://github.com/ReVanced/revanced-patches/issues/3287)) ([a9258d4](https://github.com/ReVanced/revanced-patches/commit/a9258d48d3ddf8552ab56219677a3b31ee553666))
+* **YouTube - Comments:** Add `Hide 'Create a Short' button` option ([#3333](https://github.com/ReVanced/revanced-patches/issues/3333)) ([be9e244](https://github.com/ReVanced/revanced-patches/commit/be9e24420fda80903e44e2e2278ea4904ecac4e1))
+* **YouTube - Comments:** Add `Hide Thanks button` and `Hide 'Comments by members' header` options ([#3317](https://github.com/ReVanced/revanced-patches/issues/3317)) ([9c4c4f0](https://github.com/ReVanced/revanced-patches/commit/9c4c4f05a762d745404101bbc3925ab4eba2deb8))
+* **YouTube - Miniplayer:** Rename `Tablet mini player` and allow selecting the style of the in-app miniplayer ([#3302](https://github.com/ReVanced/revanced-patches/issues/3302)) ([5511736](https://github.com/ReVanced/revanced-patches/commit/5511736b0c5dd409db6a68db0f85e389bb95be47))
+
+
+
 
 ---  
 
