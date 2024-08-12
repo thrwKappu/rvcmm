@@ -1,6 +1,6 @@
 #!/system/bin/sh
 {
 	MODDIR=${0%/*}
-	rm "$NVBASE/rvcmm/${MODDIR##*/}".apk
-	rmdir "$NVBASE/rvcmm"
+	rm "/data/adb/rvcmm/${MODDIR##*/}".apk
+	rmdir "/data/adb/rvcmm"
 } &
