@@ -1,40 +1,37 @@
 ## Apps:  
-* **Music** (arm-v7a): v7.19.51  
-* **Music** (arm64-v8a): v7.19.51  
+* **Music** (arm64-v8a): v7.20.51  
+* **Music** (arm-v7a): v7.20.51  
 * **YouTube** (all): v19.16.39  
 ---
 
 ## Build Details:  
 ### CLI: j-hc/revanced-cli-4.6.0-all.jar
-### Integrations: ReVanced/revanced-integrations-1.14.2.apk
+### Integrations: ReVanced/revanced-integrations-1.15.0.apk
 
-##### [1.14.2](https://github.com/ReVanced/revanced-integrations/compare/v1.14.1...v1.14.2) (2024-09-23)
+#### [1.15.0](https://github.com/ReVanced/revanced-integrations/compare/v1.14.2...v1.15.0) (2024-09-30)
 ### Bug Fixes
-* **YouTube - Hide layout components:** Hide new kind of community posts ([#695](https://github.com/ReVanced/revanced-integrations/issues/695)) ([b384926](https://github.com/ReVanced/revanced-integrations/commit/b3849267a7e1a90bfdb129f0e3abd9f6ecf7234e))
-* **YouTube - Spoof video streams:** Change default client type to Android VR ([a2e8bbb](https://github.com/ReVanced/revanced-integrations/commit/a2e8bbb422eb55b955b954b095fcdb9813cb3a8c))
-* **YouTube - Spoof video streams:** Change default client type to Android VR ([#697](https://github.com/ReVanced/revanced-integrations/issues/697)) ([d06706d](https://github.com/ReVanced/revanced-integrations/commit/d06706d717310d4b0926a10253611f674f95e3f6))
+* **YouTube - Check watch history domain name resolution:** Do not show warning if network connection is flaky ([#702](https://github.com/ReVanced/revanced-integrations/issues/702)) ([80482df](https://github.com/ReVanced/revanced-integrations/commit/80482df3fae05cd5bd9e3b430022f07cf118565c))
+* **YouTube:** Show video chapter titles without clipping when overlay buttons are enabled ([#699](https://github.com/ReVanced/revanced-integrations/issues/699)) ([325cc17](https://github.com/ReVanced/revanced-integrations/commit/325cc179001bb79366f4ed6a5f84f717fbff66b6))
+### Features
+* **YouTube - Disable precise seeking gesture:** Hide 
 
+### Patches: ReVanced/revanced-patches-4.16.0.jar
 
-### Patches: ReVanced/revanced-patches-4.15.0.jar
-
-#### [4.15.0](https://github.com/ReVanced/revanced-patches/compare/v4.14.1...v4.15.0) (2024-09-23)
+#### [4.16.0](https://github.com/ReVanced/revanced-patches/compare/v4.15.0...v4.16.0) (2024-09-30)
 
 
 ### Bug Fixes
 
-* **TikTok - Playback speed:** Prevent crash by fixing invalid patch ([82d53cb](https://github.com/ReVanced/revanced-patches/commit/82d53cbc3bbfa585ba4337fdfaec9f0f19c802e6))
-* **TikTok - Settings:** Prevent crash by fixing invalid patch ([8074032](https://github.com/ReVanced/revanced-patches/commit/8074032fad3eff1c03296a882d2e2820da99b592))
-* **Twitter - Open links with app chooser:** Constrain patch to last working version `10.48.0-release` ([b9955d5](https://github.com/ReVanced/revanced-patches/commit/b9955d5ff6e456593b01f0f25d80ff660d02082a))
-* **YouTube - Spoof video streams:** Change default client type to Android VR ([#3672](https://github.com/ReVanced/revanced-patches/issues/3672)) ([a3306f6](https://github.com/ReVanced/revanced-patches/commit/a3306f6717a09b734354f00363a96abad0ae14e7))
+* **Soundcloud:** Support latest versions ([#3702](https://github.com/ReVanced/revanced-patches/issues/3702)) ([099ac5e](https://github.com/ReVanced/revanced-patches/commit/099ac5ea2cf55633a7c6a7e6f8e963599bcd5784))
+* **Twitter - Open links with app chooser:** Fix incorrect version in compatibility list ([#3683](https://github.com/ReVanced/revanced-patches/issues/3683)) ([adafe85](https://github.com/ReVanced/revanced-patches/commit/adafe85d77f6a0031a5523b9b7da69475959d78d))
+* **YouTube - SponsorBlock:** Fade out SB buttons without overlapping other buttons ([#3719](https://github.com/ReVanced/revanced-patches/issues/3719)) ([bf96108](https://github.com/ReVanced/revanced-patches/commit/bf9610894f0a9f9e751e2eed5b825c5d327a722c))
+* **YouTube:** Show video chapter titles without clipping when overlay buttons are enabled ([#3674](https://github.com/ReVanced/revanced-patches/issues/3674)) ([4b88c31](https://github.com/ReVanced/revanced-patches/commit/4b88c316ed90c56e83e2aee266561833b36fc37d))
 
 
 ### Features
 
-* **TikTok:** Bump patches to support the latest version 36.5.4 ([e5dcb72](https://github.com/ReVanced/revanced-patches/commit/e5dcb72597092fb32003f11fdf6f861ede4e7ff3))
-
-
-
-
+* **Google Photos:** Restore hidden 'Back up while charging' toggle ([#3678](https://github.com/ReVanced/revanced-patches/issues/3678)) ([f9e19ce](https://github.com/ReVanced/revanced-patches/commit/f9e19ce6e9185fdf31b2b0d5f2934f6e8a544b8e))
+* **YouTube - Disable precise seeking gesture:** Hide 
 ---  
 
 [rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)  
