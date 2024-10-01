@@ -2,7 +2,7 @@
 
 set -euo pipefail
 shopt -s nullglob
-trap "rm -rf temp/*tmp.* temp/*/*tmp.*; exit 130" INT
+trap "rm -rf temp/*tmp.* temp/*/*tmp.* temp/*-temporary-files; exit 130" INT
 
 if [ "${1-}" = "clean" ]; then
 	rm -rf temp build logs build.md
@@ -108,7 +108,7 @@ for table_name in $(toml_get_table_names); do
 		fi
 	fi
 	if [ "${app_args[riplib]}" = "true" ] && [ "$(toml_get "$t" riplib)" = "false" ]; then app_args[riplib]=false; fi
-	app_args[rv_brand]=$(toml_get "$t" rv-brand) || app_args[rv_brand]="$DEF_RV_BRAND"
+	app_args[rv_brand]=$(toml_get "$t" rv-brand) || app_args[rv_brand]=$DEF_RV_BRAND
 
 	app_args[excluded_patches]=$(toml_get "$t" excluded-patches) || app_args[excluded_patches]=""
 	if [ -n "${app_args[excluded_patches]}" ] && [[ ${app_args[excluded_patches]} != *'"'* ]]; then abort "patch names inside excluded-patches must be quoted"; fi
@@ -178,7 +178,7 @@ for table_name in $(toml_get_table_names); do
 done
 wait
 rm -rf temp/tmp.*
-if [ -z "$(ls -A1 ${BUILD_DIR})" ]; then abort "All builds failed."; fi
+if [ -z "$(ls -A1 "${BUILD_DIR}")" ]; then abort "All builds failed."; fi
 log "---\n\n## Build Details:"
 log "$(cat $TEMP_DIR/changelog.md)"
 log "\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"

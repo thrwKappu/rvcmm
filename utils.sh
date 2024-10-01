@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 MODULE_TEMPLATE_DIR="rvcmm-template"
-TEMP_DIR="temp"
-BIN_DIR="tools"
-BUILD_DIR="build"
+CWD=$(pwd)
+TEMP_DIR=${CWD}/"temp"
+BIN_DIR=${CWD}/"bin"
+BUILD_DIR=${CWD}/"build"
 
 if [ "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; else GH_HEADER=; fi
 NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
-REBUILD=${REBUILD:-false}
 
 # -------------------- json/toml --------------------
 json_get() { grep -o "\"${1}\":[^\"]*\"[^\"]*\"" | sed -E 's/".*".*"(.*)"/\1/'; }
@@ -103,7 +103,7 @@ get_prebuilts() {
 config_update() {
 	if [ ! -f build.md ]; then abort "build.md not available"; fi
 	declare -A sources
-	: >$TEMP_DIR/skipped
+	: >"$TEMP_DIR"/skipped
 	local conf=""
 	# shellcheck disable=SC2154
 	conf+=$(sed '1d' <<<"$main_config_t")
@@ -162,6 +162,7 @@ _req() {
 	if [ "$op" = - ]; then
 		wget -nv -O "$op" "$@" "$ip"
 	else
+		if [ -f "$op" ]; then return; fi
 		local dlp
 		dlp="$(dirname "$op")/tmp.$(basename "$op")"
 		if [ -f "$dlp" ]; then
@@ -172,7 +173,7 @@ _req() {
 		mv -f "$dlp" "$op"
 	fi
 }
-req() { _req "$1" "$2" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0"; }
+req() { _req "$1" "$2" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0"; }
 gh_req() { _req "$1" "$2" --header="$GH_HEADER"; }
 gh_dl() {
 	if [ ! -f "$1" ]; then
@@ -280,7 +281,7 @@ dl_uptodown() {
 	local uptodown_dlurl=$1 version=$2 output=$3 arch=$4 _dpi=$5 is_latest=$6
 	local url
 	if [ "$is_latest" = false ]; then
-	url=$(grep -F "${version}</span>" -B 2 <<<"$__UPTODOWN_RESP__" | head -1 | sed -n 's;.*data-url=".*download\/\(.*\)".*;\1;p') || return 1
+		url=$(grep -F "${version}</span>" -B 2 <<<"$__UPTODOWN_RESP__" | head -1 | sed -n 's;.*data-url=".*download\/\(.*\)".*;\1;p') || return 1
 		url="/$url"
 	else url=""; fi
 	if [ "$arch" != all ]; then
@@ -305,8 +306,8 @@ dl_uptodown() {
 	req "$url" "$output"
 }
 get_uptodown_pkg_name() { $HTMLQ --text "tr.full:nth-child(1) > td:nth-child(3)" <<<"$__UPTODOWN_RESP_PKG__"; }
-
-# -------------------- archive --------------------
+# --------------------------------------------------
+# -------------------- archive ---------------------
 dl_archive() {
 	local url=$1 version=$2 output=$3 arch=$4
 	local path version=${version// /}
@@ -321,14 +322,17 @@ get_archive_resp() {
 }
 get_archive_vers() { sed 's/^[^-]*-//;s/-\(all\|arm64-v8a\|arm-v7a\)\.apk//g' <<<"$__ARCHIVE_RESP__"; }
 get_archive_pkg_name() { echo "$__ARCHIVE_PKG_NAME__"; }
+# --------------------------------------------------
 
 patch_apk() {
 	local stock_input=$1 patched_apk=$2 patcher_args=$3 rv_cli_jar=$4 rv_patches_jar=$5
 	local cmd="java -jar $rv_cli_jar patch $stock_input -p -o $patched_apk -b $rv_patches_jar  $patcher_args --keystore=ks.keystore \
 --keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc --options=options.json"
 	pr "$cmd"
-	eval "$cmd"
-	[ -f "$patched_apk" ]
+	if eval "$cmd"; then [ -f "$patched_apk" ]; else
+		rm "$patched_apk" 2>/dev/null || :
+		return 1
+	fi
 }
 
 check_sig() {
@@ -356,13 +360,15 @@ build_rv() {
 	p_patcher_args+=("$(join_args "${args[excluded_patches]}" -e) $(join_args "${args[included_patches]}" -i)")
 	[ "${args[exclusive_patches]}" = true ] && p_patcher_args+=("--exclusive")
 
+	local tried_dl=()
 	for dl_p in archive apkmirror uptodown; do
 		if [ -z "${args[${dl_p}_dlurl]}" ]; then continue; fi
-		if ! get_"${dl_p}"_resp "${args[${dl_p}_dlurl]}" || ! pkg_name=$(get_"${dl_p}"_pkg_name); then
+		if ! get_${dl_p}_resp "${args[${dl_p}_dlurl]}" || ! pkg_name=$(get_"${dl_p}"_pkg_name); then
 			args[${dl_p}_dlurl]=""
 			epr "ERROR: Could not find ${table} in ${dl_p}"
 			continue
 		fi
+		tried_dl+=("$dl_p")
 		dl_from=$dl_p
 		break
 	done
@@ -392,6 +398,15 @@ build_rv() {
 		epr "empty version, not building ${table}."
 		return 0
 	fi
+
+	if [ "$mode_arg" = module ]; then
+		build_mode_arr=(module)
+	elif [ "$mode_arg" = apk ]; then
+		build_mode_arr=(apk)
+	elif [ "$mode_arg" = both ]; then
+		build_mode_arr=(apk module)
+	fi
+
 	pr "Choosing version '${version}' for ${table}"
 	local version_f=${version// /}
 	version_f=${version_f#v}
@@ -400,6 +415,7 @@ build_rv() {
 		for dl_p in archive apkmirror uptodown; do
 			if [ -z "${args[${dl_p}_dlurl]}" ]; then continue; fi
 			pr "Downloading '${table}' from ${dl_p}"
+			if ! isoneof $dl_p "${tried_dl[@]}"; then get_${dl_p}_resp "${args[${dl_p}_dlurl]}"; fi
 			if ! dl_${dl_p} "${args[${dl_p}_dlurl]}" "$version" "$stock_apk" "$arch" "${args[dpi]}" "$get_latest_ver"; then
 				epr "ERROR: Could not download '${table}' from ${dl_p} with version '${version}', arch '${arch}', dpi '${args[dpi]}'"
 				continue
@@ -421,13 +437,6 @@ build_rv() {
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
 
-	if [ "$mode_arg" = module ]; then
-		build_mode_arr=(module)
-	elif [ "$mode_arg" = apk ]; then
-		build_mode_arr=(apk)
-	elif [ "$mode_arg" = both ]; then
-		build_mode_arr=(apk module)
-	fi
 	local patcher_args patched_apk build_mode
 	local rv_brand_f=${args[rv_brand],,}
 	rv_brand_f=${rv_brand_f// /-}
@@ -456,20 +465,18 @@ build_rv() {
 				fi
 			fi
 		fi
-		if [ ! -f "$patched_apk" ] || [ "$REBUILD" = true ]; then
-			if ! patch_apk "$stock_apk" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
-				epr "Building '${table}' failed!"
-				return 0
-			fi
+		if ! patch_apk "$stock_apk" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
+			epr "Building '${table}' failed!"
+			return 0
 		fi
 		if [ "$build_mode" = apk ]; then
 			local apk_output="${BUILD_DIR}/${app_name_l}-${rv_brand_f}-v${version_f}-${arch_f}.apk"
-			cp -f "$patched_apk" "$apk_output"
+			mv -f "$patched_apk" "$apk_output"
 			pr "Built ${table} (non-root): '${apk_output}'"
 			continue
 		fi
 		local base_template
-		base_template=$(mktemp -d -p $TEMP_DIR)
+		base_template=$(mktemp -d -p "$TEMP_DIR")
 		cp -a $MODULE_TEMPLATE_DIR/. "$base_template"
 		local upj="${table,,}-update.json"
 
@@ -494,14 +501,12 @@ build_rv() {
 			"$base_template"
 
 		local module_output="RVCMM-${app_name_l}-v${version}-${arch}-${rv_brand_f}.zip"
-		if [ ! -f "$module_output" ] || [ "$REBUILD" = true ]; then
-			pr "Packing module ${table}"
-			cp -f "$patched_apk" "${base_template}/base.apk"
-			if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
-			pushd >/dev/null "$base_template" || abort "Module template dir not found"
-			zip -"$COMPRESSION_LEVEL" -FSqr "../../${BUILD_DIR}/${module_output}" .
-			popd >/dev/null || :
-		fi
+		pr "Packing module ${table}"
+		cp -f "$patched_apk" "${base_template}/base.apk"
+		if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
+		pushd >/dev/null "$base_template" || abort "Module template dir not found"
+		zip -"$COMPRESSION_LEVEL" -FSqr "${BUILD_DIR}/${module_output}" .
+		popd >/dev/null || :
 		pr "Built ${table} (root): '${BUILD_DIR}/${module_output}'"
 	done
 }
