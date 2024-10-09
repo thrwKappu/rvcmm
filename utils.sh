@@ -465,9 +465,11 @@ build_rv() {
 				fi
 			fi
 		fi
-		if ! patch_apk "$stock_apk" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
-			epr "Building '${table}' failed!"
-			return 0
+		if [ "${NORB:-}" != true ] || [ ! -f "$patched_apk" ]; then
+			if ! patch_apk "$stock_apk" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
+				epr "Building '${table}' failed!"
+				return 0
+			fi
 		fi
 		if [ "$build_mode" = apk ]; then
 			local apk_output="${BUILD_DIR}/${app_name_l}-${rv_brand_f}-v${version_f}-${arch_f}.apk"

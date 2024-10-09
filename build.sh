@@ -51,6 +51,9 @@ java --version >/dev/null || abort "\`openjdk 17\` is not installed. install it 
 zip --version >/dev/null || abort "\`zip\` is not installed. install it with 'apt install zip' or equivalent"
 # ----------------
 rm -rf rvcmm-template/bin/*/tmp.*
+if [ "$(echo "$TEMP_DIR"/changelog.md)" ]; then
+	: >"$TEMP_DIR"/changelog.md || :
+fi
 get_prebuilts
 
 set_prebuilts() {
