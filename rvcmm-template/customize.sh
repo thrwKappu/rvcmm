@@ -169,8 +169,8 @@ fi
 ui_print "  - Cleanup"
 rm -rf "${MODPATH:?}/bin" "$MODPATH/$PKG_NAME.apk"
 
-if [ -d "/data/adb/modules/zygisk-assistant" ]; then
-	ui_print " - zygisk-assistant found, please grant root to $PKG_NAME"
-fi
-
 ui_print "  - Finished"
+
+if [ -d "/data/adb/modules/zygisk-assistant" ]; then
+	ui_print "zygisk-assistant found, please grant root to $PKG_NAME if you have mounting problem"
+fi
