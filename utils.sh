@@ -3,7 +3,7 @@
 MODULE_TEMPLATE_DIR="rvcmm-template"
 CWD=$(pwd)
 TEMP_DIR=${CWD}/"temp"
-BIN_DIR=${CWD}/"bin"
+BIN_DIR=${CWD}/"tools"
 BUILD_DIR=${CWD}/"build"
 
 if [ "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; else GH_HEADER=; fi
@@ -222,7 +222,7 @@ dl_apkmirror() {
 	local url=$1 version=${2// /-} output=$3 arch=$4 dpi=$5 apkorbundle=APK
 	if [ "$arch" = "arm-v7a" ]; then arch="armeabi-v7a"; fi
 	local apparch resp node app_table dlurl=""
-	if [ "$arch" = all ]; then
+	if [ "$arch" = "all" ]; then
 		apparch=(universal noarch 'arm64-v8a + armeabi-v7a')
 	else apparch=("$arch" universal noarch 'arm64-v8a + armeabi-v7a'); fi
 	url="${url}/${url##*/}-${version//./-}-release/"
@@ -284,7 +284,7 @@ dl_uptodown() {
 		url=$(grep -F "${version}</span>" -B 2 <<<"$__UPTODOWN_RESP__" | head -1 | sed -n 's;.*data-url=".*download\/\(.*\)".*;\1;p') || return 1
 		url="/$url"
 	else url=""; fi
-	if [ "$arch" != all ]; then
+	if [ "$arch" != "all" ]; then
 		local app_code data_version files node_arch content resp
 		if [ "$is_latest" = false ]; then
 			resp=$(req "${1}/download${url}" -)
