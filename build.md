@@ -1,6 +1,5 @@
 ## Apps:
 * **Music** (arm64-v8a): v7.27.52
-* **YouTube** (all): v19.43.41
 
 ---
 
