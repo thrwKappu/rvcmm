@@ -576,8 +576,8 @@ build_rv() {
 		fi
 		module_prop \
 			"${args[module_prop_name]}" \
-			"RVCMM: $app_name" \
-			"$version - $arch" \
+			"RVCMM: $app_name - $arch" \
+			"$version" \
 			"Selected Patches: ${patches_string} | Patched with: $(basename ${args[ptjar]%.rvc}) on $(basename ${args[cli]%.jar})" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
@@ -609,7 +609,7 @@ MODULE_ARCH=$ma" >"$1/config"
 }
 module_prop() {
 	echo "id=${1}
-name=${2} (${NEXT_VER_CODE})
+name=${2}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=thrwKappu, Original template by j-hc
