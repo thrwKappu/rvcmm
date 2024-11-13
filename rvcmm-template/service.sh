@@ -8,6 +8,7 @@ err() {
 	[ ! -f "$MODDIR/err" ] && cp "$MODDIR/module.prop" "$MODDIR/err"
 	sed -i "s/^des.*/description=⚠️ Needs reflash: '${1}'/g" "$MODDIR/module.prop"
 }
+
 until [ "$(getprop sys.boot_completed)" = 1 ]; do sleep 1; done
 until [ -d "/sdcard/Android" ]; do sleep 1; done
 while
@@ -23,23 +24,19 @@ run() {
 	fi
 	sleep 4
 
-	BASEPATH=${BASEPATH##*:}
-	BASEPATH=${BASEPATH%/*}
+	BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
 	if [ ! -d "$BASEPATH/lib" ]; then
 		ls -Zla "$BASEPATH" >"$MODDIR/log.txt"
 		ls -Zla "$BASEPATH/lib" >>"$MODDIR/log.txt"
 	else rm "$MODDIR/log.txt" >/dev/null 2>&1; fi
-
-	VERSION=$(dumpsys package "$PKG_NAME" | grep -m1 versionName)
-	VERSION="${VERSION#*=}"
+	VERSION=$(dumpsys package "$PKG_NAME" | grep -m1 versionName) VERSION="${VERSION#*=}"
 	if [ "$VERSION" != "$PKG_VER" ] && [ "$VERSION" ]; then
 		err "version mismatch (installed:${VERSION}, module:$PKG_VER)"
 		return
 	fi
 
 	grep "$PKG_NAME" /proc/mounts | while read -r line; do
-		mp=${line#* }
-		mp=${mp%% *}
+		mp=${line#* } mp=${mp%% *}
 		umount -l "${mp%%\\*}"
 	done
 

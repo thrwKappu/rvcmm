@@ -14,9 +14,7 @@ elif [ "$ARCH" = "x86" ]; then
 	ARCH_LIB=x86
 elif [ "$ARCH" = "x64" ]; then
 	ARCH_LIB=x86_64
-else
-	abort "  ERROR: unsupported arch: ${ARCH}"
-fi
+else abort "  ERROR: unsupported arch: ${ARCH}"; fi
 
 RVPATH=/data/adb/rvcmm/${MODPATH##*/}.apk
 
@@ -27,9 +25,9 @@ if su -M -c true >/dev/null 2>/dev/null; then
 else
 	alias mm='nsenter -t1 -m'
 fi
+
 mm grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
-	mp=${line#* }
-	mp=${mp%% *}
+	mp=${line#* } mp=${mp%% *}
 	mm umount -l "${mp%%\\*}"
 	ui_print "  - Unmounted ${mp%%\\*}"
 done
@@ -58,19 +56,17 @@ if ! pmex path "$PKG_NAME" >&2; then
 	fi
 fi
 
-INS=true
 IS_SYS=false
+INS=true
 if BASEPATH=$(pmex path "$PKG_NAME"); then
 	echo >&2 "'$BASEPATH'"
-	BASEPATH=${BASEPATH##*:}
-	BASEPATH=${BASEPATH%/*}
+	BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
 	if [ "${BASEPATH:1:4}" != data ]; then
 		ui_print "* $PKG_NAME is a system app."
 		IS_SYS=true
 	elif [ ! -f "$MODPATH/$PKG_NAME.apk" ]; then
 		ui_print "  - Stock $PKG_NAME APK was not found"
-		VERSION=$(dumpsys package "$PKG_NAME" | grep -m1 versionName)
-		VERSION="${VERSION#*=}"
+		VERSION=$(dumpsys package "$PKG_NAME" | grep -m1 versionName) VERSION="${VERSION#*=}"
 		if [ "$VERSION" = "$PKG_VER" ] || [ -z "$VERSION" ]; then
 			ui_print "  - Skipping stock installation"
 			INS=false
@@ -110,7 +106,7 @@ install() {
 		fi
 		if ! op=$(pmex install-commit "$SES"); then
 			if echo "$op" | grep -q INSTALL_FAILED_VERSION_DOWNGRADE; then
-				ui_print "  - ERROR: INSTALL_FAILED_VERSION_DOWNGRADE"
+				ui_print "  - Handling INSTALL_FAILED_VERSION_DOWNGRADE"
 				if [ "$IS_SYS" = true ]; then
 					mkdir -p /data/adb/rvcmm/empty /data/adb/post-fs-data.d
 					SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
@@ -134,8 +130,7 @@ install() {
 			abort "$op"
 		fi
 		if BASEPATH=$(pmex path "$PKG_NAME"); then
-			BASEPATH=${BASEPATH##*:}
-			BASEPATH=${BASEPATH%/*}
+			BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
 		else
 			settings put global verifier_verify_adb_installs "$VERIF_ADB"
 			abort "  ERROR: install $PKG_NAME manually and reflash the module"
@@ -159,12 +154,11 @@ fi
 
 ui_print "  - Setting Permissions"
 set_perm "$MODPATH/base.apk" 1000 1000 644 u:object_r:apk_data_file:s0
+
 ui_print "  - Mounting $PKG_NAME"
 mkdir -p "/data/adb/rvcmm"
 RVPATH=/data/adb/rvcmm/${MODPATH##*/}.apk
 mv -f "$MODPATH/base.apk" "$RVPATH"
-
-
 
 if ! op=$(mm mount -o bind "$RVPATH" "$BASEPATH/base.apk" 2>&1); then
 	ui_print "  ERROR: Mount failed!"
