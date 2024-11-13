@@ -21,14 +21,16 @@ COMPRESSION_LEVEL=$(toml_get "$main_config_t" compression-level) || COMPRESSION_
 if ! PARALLEL_JOBS=$(toml_get "$main_config_t" parallel-jobs); then
 	PARALLEL_JOBS=$(nproc);
 fi
-DEF_PATCHES_VER=$(toml_get "$main_config_t" patches-version) || DEF_PATCHES_VER=""
-DEF_INTEGRATIONS_VER=$(toml_get "$main_config_t" integrations-version) || DEF_INTEGRATIONS_VER=""
-DEF_CLI_VER=$(toml_get "$main_config_t" cli-version) || DEF_CLI_VER=""
+
+REMOVE_RV_INTEGRATIONS_CHECKS=$(toml_get "$main_config_t" remove-rv-integrations-checks) || REMOVE_RV_INTEGRATIONS_CHECKS="true"
+DEF_PATCHES_VER=$(toml_get "$main_config_t" patches-version) || DEF_PATCHES_VER="latest"
+# DEF_INTEGRATIONS_VER=$(toml_get "$main_config_t" integrations-version) || DEF_INTEGRATIONS_VER="latest"
+DEF_CLI_VER=$(toml_get "$main_config_t" cli-version) || DEF_CLI_VER="latest"
 DEF_PATCHES_SRC=$(toml_get "$main_config_t" patches-source) || DEF_PATCHES_SRC="ReVanced/revanced-patches"
-DEF_INTEGRATIONS_SRC=$(toml_get "$main_config_t" integrations-source) || DEF_INTEGRATIONS_SRC="ReVanced/revanced-integrations"
+# DEF_INTEGRATIONS_SRC=$(toml_get "$main_config_t" integrations-source) || DEF_INTEGRATIONS_SRC="ReVanced/revanced-integrations"
 DEF_CLI_SRC=$(toml_get "$main_config_t" cli-source) || DEF_CLI_SRC="j-hc/revanced-cli"
 DEF_RV_BRAND=$(toml_get "$main_config_t" rv-brand) || DEF_RV_BRAND="ReVanced"
-mkdir -p $TEMP_DIR $BUILD_DIR
+mkdir -p "$TEMP_DIR" "$BUILD_DIR"
 
 if [ "${2-}" = "--config-update" ]; then
 	config_update
@@ -56,20 +58,6 @@ if [ "$(echo "$TEMP_DIR"/changelog.md)" ]; then
 fi
 get_prebuilts
 
-set_prebuilts() {
-	local integrations_src=$1 patches_src=$2 cli_src=$3 integrations_ver=$4 patches_ver=$5 cli_ver=$6
-	local patches_dir=${patches_src%/*}
-	local integrations_dir=${integrations_src%/*}
-	local cli_dir=${cli_src%/*}
-	cli_ver=${cli_ver#v}
-	integrations_ver="${integrations_ver#v}"
-	patches_ver="${patches_ver#v}"
-	app_args[cli]=$(find "${TEMP_DIR}/${cli_dir,,}" -name "revanced-cli-${cli_ver:-*}-all.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[cli]}" ] || return 1
-	app_args[integ]=$(find "${TEMP_DIR}/${integrations_dir,,}" -name "revanced-integrations-${integrations_ver:-*}.apk" -type f -print -quit 2>/dev/null) && [ "${app_args[integ]}" ] || return 1
-	app_args[ptjar]=$(find "${TEMP_DIR}/${patches_dir,,}" -name "revanced-patches-${patches_ver:-*}.jar" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjar]}" ] || return 1
-	app_args[ptjs]=$(find "${TEMP_DIR}/${patches_dir,,}" -name "patches-${patches_ver:-*}.json" -type f -print -quit 2>/dev/null) && [ "${app_args[ptjs]}" ] || return 1
-}
-
 declare -A cliriplib
 log "## Apps:"
 idx=0
@@ -86,21 +74,21 @@ for table_name in $(toml_get_table_names); do
 	declare -A app_args
 	patches_src=$(toml_get "$t" patches-source) || patches_src=$DEF_PATCHES_SRC
 	patches_ver=$(toml_get "$t" patches-version) || patches_ver=$DEF_PATCHES_VER
-	integrations_src=$(toml_get "$t" integrations-source) || integrations_src=$DEF_INTEGRATIONS_SRC
-	integrations_ver=$(toml_get "$t" integrations-version) || integrations_ver=$DEF_INTEGRATIONS_VER
+	# integrations_src=$(toml_get "$t" integrations-source) || integrations_src=$DEF_INTEGRATIONS_SRC
+	# integrations_ver=$(toml_get "$t" integrations-version) || integrations_ver=$DEF_INTEGRATIONS_VER
 	cli_src=$(toml_get "$t" cli-source) || cli_src=$DEF_CLI_SRC
 	cli_ver=$(toml_get "$t" cli-version) || cli_ver=$DEF_CLI_VER
 
-	if ! set_prebuilts "$integrations_src" "$patches_src" "$cli_src" "$integrations_ver" "$patches_ver" "$cli_ver"; then
-		if ! RVP="$(get_rv_prebuilts "$cli_src" "$cli_ver" "$integrations_src" "$integrations_ver" "$patches_src" "$patches_ver")"; then
-			abort "could not download rv prebuilts"
-		fi
-		read -r rv_cli_jar rv_integrations_apk rv_patches_jar rv_patches_json <<<"$RVP"
-		app_args[cli]=$rv_cli_jar
-		app_args[integ]=$rv_integrations_apk
-		app_args[ptjar]=$rv_patches_jar
-		app_args[ptjs]=$rv_patches_json
+	# if ! RVP="$(get_rv_prebuilts "$cli_src" "$cli_ver" "$integrations_src" "$integrations_ver" "$patches_src" "$patches_ver")"; then
+	if ! RVP="$(get_rv_prebuilts "$cli_src" "$cli_ver" "$patches_src" "$patches_ver")"; then
+		abort "could not download rv prebuilts"
 	fi
+	# read -r rv_cli_jar rv_integrations_apk rv_patches_jar rv_patches_json <<<"$RVP"
+	read -r rv_cli_jar rv_patches_jar <<<"$RVP"
+	app_args[cli]=$rv_cli_jar
+	# app_args[integ]=$rv_integrations_apk
+	app_args[ptjar]=$rv_patches_jar
+	# app_args[ptjs]=$rv_patches_json
 	if [[ -v cliriplib[${app_args[cli]}] ]]; then app_args[riplib]=${cliriplib[${app_args[cli]}]}; else
 		if [[ $(java -jar "${app_args[cli]}" patch 2>&1) == *rip-lib* ]]; then
 			cliriplib[${app_args[cli]}]=true
@@ -182,7 +170,7 @@ done
 wait
 rm -rf temp/tmp.*
 if [ -z "$(ls -A1 "${BUILD_DIR}")" ]; then abort "All builds failed."; fi
-log "---\n\n## Build Details:"
+log "\n---\n\n## Build Details:"
 log "$(cat $TEMP_DIR/changelog.md)"
-log "\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
+log "---\n\n[rvcmm](https://github.com/thrwKappu/rvcmm/), based on [revanced-magisk-module](https://github.com/j-hc/revanced-magisk-module)"
 pr "Done"
