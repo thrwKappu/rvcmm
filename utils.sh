@@ -80,8 +80,11 @@ get_rv_prebuilts() {
 			file="${dir}/${name}"
 			gh_dl "$file" "$url" >&2 || return 1
 			echo "### $tag: $(cut -d/ -f1 <<<"$src")/${name}" >>"${TEMP_DIR}/changelog.md"
-			changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
-			echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
+
+			if [ "$tag" = "Patches" ]; then
+				changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
+				echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
+			fi
 		else
 			local for_err=$file
 			if [ "$ver" = "latest" ]; then
@@ -93,17 +96,6 @@ get_rv_prebuilts() {
 			tag_name=v${tag_name%.*}
 		fi
 		if [ "$tag" = "Patches" ]; then
-			# if [ ! -f "$file" ]; then
-			# 	local resp changelog
-			# 	resp=$(gh_req "$rv_rel" -) || return 1
-			# 	if [ "$ver" = "dev" ]; then resp=$(jq -r '.[0]' <<<"$resp"); fi
-			# 	pr $resp
-			# 	changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
-			# 	pr $changelog
-			# 	#echo -e "[Changelog](https://github.com/${src}/releases/tag/${tag_name})\n" >>"${cl_dir}/changelog.md"
-			# 	echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
-			# 	pr "Changelog dumped"
-			# fi
 			if [ "$REMOVE_RV_INTEGRATIONS_CHECKS" = true ]; then
 				if ! (
 					mkdir -p "${file}-zip" || return 1
@@ -119,7 +111,7 @@ get_rv_prebuilts() {
 				rm -r "${file}-zip" || :
 			fi
 		fi
-		echo -n "$file"
+		echo -n "$file  "
 	done
 	echo
 }
