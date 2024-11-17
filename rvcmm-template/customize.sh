@@ -42,7 +42,7 @@ pmex() {
 
 if ! pmex path "$PKG_NAME" >&2; then
 	if pmex install-existing "$PKG_NAME" >&2; then
-		BASEPATH=$(pmex path "$PKG_NAME") || abort "ERROR: pm path failed $BASEPATH"
+		BASEPATH=$(pmex path "$PKG_NAME") || abort "  ERROR: pm path failed $BASEPATH"
 		echo >&2 "'$BASEPATH'"
 		BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
 		if [ "${BASEPATH:1:4}" = data ]; then
