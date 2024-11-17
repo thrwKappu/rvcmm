@@ -3,10 +3,12 @@
 
 compression-level = 9         # compression level for module zips. between 1 and 9
 enable-magisk-update = true   # set this to false if you do not want to receive updates for the module in magisk app
+parallel-jobs = 1
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
 # archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 build-mode = "module"
 included-patches = ""
 excluded-patches = "'Announcements' 'Premium heading'"
@@ -16,6 +18,7 @@ include-stock = true
 [Music]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 # archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 build-mode = "module"
 excluded-patches = ""
 module-prop-name = "rvcmm-ytm"
