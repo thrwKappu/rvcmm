@@ -1,6 +1,8 @@
 ## Apps:
+* **Facebook** (arm64-v8a): v490.0.0.63.82
+* **Messenger** (arm64-v8a): v484.0.0.68.109
+* **Music** (arm64-v8a): v7.27.53
 * **YouTube** (all): v19.43.41
-* **Music** (arm64-v8a): v7.27.52
 
 ---
 
