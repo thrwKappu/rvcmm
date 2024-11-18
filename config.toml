@@ -9,9 +9,8 @@ parallel-jobs = 1
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
 # archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-build-mode = "module"
-included-patches = ""
 excluded-patches = "'Announcements' 'Premium heading'"
+build-mode = "module"
 module-prop-name = "rvcmm-yt"
 include-stock = true
 
@@ -20,7 +19,23 @@ apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 # archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 build-mode = "module"
-excluded-patches = ""
 module-prop-name = "rvcmm-ytm"
+arch = "arm64-v8a"
+include-stock = true
+
+[Messenger]
+apkmirror-dlurl = "https://apkmirror.com/apk/facebook-2/messenger/"
+uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
+excluded-patches = "'Disable switching emoji to sticker'" # last working version is v439 which is 10 months old
+build-mode = "module"
+module-prop-name = "rvcmm-fb-msg"
+arch = "arm64-v8a"
+include-stock = true
+
+[Facebook]
+apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
+uptodown-dlurl = "https://facebook.en.uptodown.com/android"
+build-mode = "module"
+module-prop-name = "rvcmm-fb-main"
 arch = "arm64-v8a"
 include-stock = true
