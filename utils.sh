@@ -126,6 +126,7 @@ get_rv_prebuilts() {
 set_prebuilts() {
 	APKSIGNER="${BIN_DIR}/apksigner.jar"
 	HTMLQ="${BIN_DIR}/htmlq-x86_64"
+	TOML="${BIN_DIR}/tq-x86_64"
 }
 
 config_update() {
