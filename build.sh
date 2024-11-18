@@ -57,10 +57,16 @@ if [ "$(echo "$TEMP_DIR"/changelog.md)" ]; then
 	: >"$TEMP_DIR"/changelog.md || :
 fi
 
-mkdir -p ${MODULE_TEMPLATE_DIR}/bin/arm64 ${MODULE_TEMPLATE_DIR}/bin/arm ${MODULE_TEMPLATE_DIR}/bin/x86 ${MODULE_TEMPLATE_DIR}/bin/x64
+mkdir -p ${MODULE_TEMPLATE_DIR}/bin/arm64
 gh_dl "${MODULE_TEMPLATE_DIR}/bin/arm64/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-arm64-v8a"
+
+#${MODULE_TEMPLATE_DIR}/bin/arm
 # gh_dl "${MODULE_TEMPLATE_DIR}/bin/arm/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-armeabi-v7a"
+
+# ${MODULE_TEMPLATE_DIR}/bin/x86
 # gh_dl "${MODULE_TEMPLATE_DIR}/bin/x86/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-x86"
+
+# ${MODULE_TEMPLATE_DIR}/bin/x64
 # gh_dl "${MODULE_TEMPLATE_DIR}/bin/x64/cmpr" "https://github.com/j-hc/cmpr/releases/latest/download/cmpr-x86_64"
 
 declare -A cliriplib
