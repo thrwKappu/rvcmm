@@ -89,9 +89,11 @@ get_rv_prebuilts() {
 			echo "### $tag: $(cut -d/ -f1 <<<"$src")/${name}" >>"${TEMP_DIR}/changelog.md"
 
 			if [ "$tag" = "Patches" ]; then
-				changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
+				# changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
 				# echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
-				echo -e "\n---\n\n## Patch Changelog:\n\n###"$(echo "$changelog" | sed -r "s/^#\s\[[^#]*###//") >>"${TEMP_DIR}/changelog.md"
+				changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\r\\n\)/\\n/g')
+				changelog=$(echo "$changelog" | sed 's/\(\\n\)\+/\\n/g')
+				echo -e "\n---\n\n## Patch Changelog:\n\n###"$(echo "$changelog" | sed -r 's/^#+\s\[[^#]*(###)+//') >>"${TEMP_DIR}/changelog.md"
 			fi
 		else
 			local for_err=$file
