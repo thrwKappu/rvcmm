@@ -15,7 +15,9 @@
 
 ## Patch Changelog:
 
-### Bug - Spoof video Use system language as default iOS audio stream
+Bug Fixes
+* **YouTube - Spoof video streams:** Use system language as default iOS audio stream ([#4042](https://github.com/ReVanced/revanced-patches/issues/4042)) ([4017185](https://github.com/ReVanced/revanced-patches/commit/4017185e760c0569e6644b94bbe66a84fa245b4b))
+  
 
 ---
 
