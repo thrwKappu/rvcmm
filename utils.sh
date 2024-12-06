@@ -74,7 +74,7 @@ get_rv_prebuilts() {
 			name_ver="$ver"
 		fi
 
-		local url file tag_name name
+		local url file tag_name name 
 		file=$(find "$dir" -name "${fprefix}-${name_ver#v}.${ext}" -type f 2>/dev/null)
 		if [ -z "$file" ]; then
 			local resp asset name
@@ -91,9 +91,10 @@ get_rv_prebuilts() {
 			if [ "$tag" = "Patches" ]; then
 				# changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
 				# echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
-				changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\r\\n\)/\\n/g')
+				local changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\r\\n\)/\\n/g')
 				changelog=$(echo "$changelog" | sed 's/\(\\n\)\+/\\n/g')
-				echo -e "\n---\n\n## Patch Changelog:\n\n###"$(echo "$changelog" | sed -r 's/^#+\s\[[^#]*(###)+//') >>"${TEMP_DIR}/changelog.md"
+				changelog=$(echo "$changelog" | sed -r 's/^#+\s\[[^#]*(###)+//')
+				echo -e "\n---\n\n## Patch Changelog:\n\n###$changelog" >>"${TEMP_DIR}/changelog.md"
 			fi
 		else
 			local for_err=$file
