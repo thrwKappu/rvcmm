@@ -22,21 +22,21 @@ module-prop-name = "rvcmm-ytm"
 arch = "arm64-v8a"
 include-stock = true
 
-[Messenger]
-apkmirror-dlurl = "https://apkmirror.com/apk/facebook-2/messenger/"
-uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
-excluded-patches = "'Disable switching emoji to sticker'" # last working version is v439 which is 10+ months old
-version = "latest"
-build-mode = "module"
-module-prop-name = "rvcmm-fb-msg"
-arch = "arm64-v8a"
-include-stock = true
+#[Messenger]
+#apkmirror-dlurl = "https://apkmirror.com/apk/facebook-2/messenger/"
+#uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
+#excluded-patches = "'Disable switching emoji to sticker'" # last working version is v439 which is 10+ months old
+#version = "latest"
+#build-mode = "module"
+#module-prop-name = "rvcmm-fb-msg"
+#arch = "arm64-v8a"
+#include-stock = true
 
-[Facebook]
-apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
-uptodown-dlurl = "https://facebook.en.uptodown.com/android"
-build-mode = "module"
-module-prop-name = "rvcmm-fb-main"
-arch = "arm64-v8a"
-include-stock = true
-version = "490.0.0.63.82" # last known version that 'Hide sponsored stories' passed
+#[Facebook]
+#apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
+#uptodown-dlurl = "https://facebook.en.uptodown.com/android"
+#build-mode = "module"
+#module-prop-name = "rvcmm-fb-main"
+#arch = "arm64-v8a"
+#include-stock = true
+#version = "490.0.0.63.82" # last known version that 'Hide sponsored stories' passed
