@@ -588,7 +588,7 @@ build_rv() {
 
 		module_config "$base_template" "$pkg_name" "$version" "$arch"
 
-		local rv_patches_ver="${rv_patches_jar##*-}" rv_cli_ver="${rv_cli_jar*-}"
+		local rv_patches_ver="${rv_patches_jar##*-}" rv_cli_ver="${rv_cli_jar##*-}"
 		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}";
 		if [ "${args[exclusive_patches]}" != true ]; then
 			patches_string="ALL (Default)"
