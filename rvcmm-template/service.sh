@@ -3,7 +3,6 @@
 MODDIR=${0%/*}
 RVPATH=/data/adb/rvcmm/${MODDIR##*/}.apk
 . "$MODDIR/config"
-. "$MODDIR/common.sh"
 
 err() {
 	[ ! -f "$MODDIR/err" ] && cp "$MODDIR/module.prop" "$MODDIR/err"
@@ -13,7 +12,7 @@ err() {
 until [ "$(getprop sys.boot_completed)" = 1 ]; do sleep 1; done
 until [ -d "/sdcard/Android" ]; do sleep 1; done
 while
-	BASEPATH=$(pmex path "$PKG_NAME")
+	BASEPATH=$(pm path "$PKG_NAME" 2>&1 </dev/null)
 	SVCL=$?
 	[ $SVCL = 20 ]
 do sleep 2; done
@@ -36,9 +35,9 @@ run() {
 		return
 	fi
 
-	mz grep "$PKG_NAME" /proc/mounts | while read -r line; do
+	grep "$PKG_NAME" /proc/mounts | while read -r line; do
 		mp=${line#* } mp=${mp%% *}
-		mz umount -l "${mp%%\\*}"
+		umount -l "${mp%%\\*}"
 	done
 
 	if ! chcon u:object_r:apk_data_file:s0 "$RVPATH"; then
@@ -46,7 +45,7 @@ run() {
 		return
 	fi
 
-	mz mount "$RVPATH" "$BASEPATH/base.apk"
+	mount -o bind "$RVPATH" "$BASEPATH/base.apk"
 	am force-stop "$PKG_NAME"
 	[ -f "$MODDIR/err" ] && mv -f "$MODDIR/err" "$MODDIR/module.prop"
 }

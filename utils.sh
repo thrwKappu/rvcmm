@@ -186,10 +186,7 @@ _req() {
 	local ip="$1" op="$2"
 	shift 2
 	if [ "$op" = - ]; then
-		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip"; then
-			epr "Request failed: $ip"
-			return 1
-		fi
+		curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip"
 	else
 		if [ -f "$op" ]; then return; fi
 		local dlp
@@ -198,14 +195,11 @@ _req() {
 			while [ -f "$dlp" ]; do sleep 1; done
 			return
 		fi
-		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip" -o "$dlp"; then
-			epr "Request failed: $ip"
-			return 1
-		fi
+		curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip" -o "$dlp" || return 1
 		mv -f "$dlp" "$op"
 	fi
 }
-req() { _req "$1" "$2" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0"; }
+req() { _req "$1" "$2" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0"; }
 gh_req() { _req "$1" "$2" -H "$GH_HEADER"; }
 gh_dl() {
 	if [ ! -f "$1" ]; then
@@ -266,18 +260,17 @@ isoneof() {
 merge_splits() {
 	local bundle=$1 output=$2
 	pr "Merging splits"
-	gh_dl "$TEMP_DIR/apkeditor.jar" "https://github.com/REAndroid/APKEditor/releases/download/V1.4.2/APKEditor-1.4.2.jar" >/dev/null || return 1
+	gh_dl "$TEMP_DIR/apkeditor.jar" "https://github.com/REAndroid/APKEditor/releases/download/V1.3.9/APKEditor-1.3.9.jar" >/dev/null || return 1
 	if ! OP=$(java -jar "$TEMP_DIR/apkeditor.jar" merge -i "${bundle}" -o "${bundle}.mzip" -clean-meta -f 2>&1); then
-		epr "Apkeditor ERROR: $OP"
+		epr "$OP"
 		return 1
 	fi
 	# this is required because of apksig
 	mkdir "${bundle}-zip"
 	unzip -qo "${bundle}.mzip" -d "${bundle}-zip"
-	(
-		cd "${bundle}-zip" || abort
+	pushd "${bundle}-zip" || abort
 	zip -0rq "${CWD}/${bundle}.zip" .
-	)
+	popd || abort
 	# if building module, sign the merged apk properly
 	if isoneof "module" "${build_mode_arr[@]}"; then
 		patch_apk "${bundle}.zip" "${output}" "--exclusive" "${args[cli]}" "${args[ptjar]}"
@@ -316,10 +309,8 @@ dl_apkmirror() {
 		is_bundle=true
 	else
 		if [ "$arch" = "arm-v7a" ]; then arch="armeabi-v7a"; fi
-		local resp node app_table uurl dlurl=""
-		uurl=$(grep -F "downloadLink" <<<"$__APKMIRROR_RESP__" | grep -F "${version//./-}-release/" |
-			sed -n 's;.*href="\(.*-release\).*;\1;p')
-		if [ -z "$uurl" ]; then url="${url}/${url##*/}-${version//./-}-release/"; else url=https://www.apkmirror.com$uurl; fi
+		local resp node app_table dlurl=""
+		url="${url}/${url##*/}-${version//./-}-release/"
 		resp=$(req "$url" -) || return 1
 		node=$($HTMLQ "div.table-row.headerFont:nth-last-child(1)" -r "span:nth-child(n+3)" <<<"$resp")
 		if [ "$node" ]; then
@@ -336,10 +327,10 @@ dl_apkmirror() {
 	fi
 
 	if [ "$is_bundle" = true ]; then
-		req "$url" "${output}.apkm" || return 1
+		req "$url" "${output}.apkm"
 		merge_splits "${output}.apkm" "${output}"
 	else
-		req "$url" "${output}" || return 1
+		req "$url" "${output}"
 	fi
 }
 get_apkmirror_vers() {
@@ -526,8 +517,8 @@ build_rv() {
 		done
 		if [ ! -f "$stock_apk" ]; then return 0; fi
 	fi
-	if ! OP=$(check_sig "$stock_apk" "$pkg_name" 2>&1) && ! grep -qFx "ERROR: Missing META-INF/MANIFEST.MF" <<<"$OP"; then
-		abort "apk signature mismatch '$stock_apk': $OP"
+	if ! check_sig "$stock_apk" "$pkg_name"; then
+		abort "apk signature mismatch '$stock_apk'"
 	fi
 	log "* **${app_name}** (${arch}): v${version}"
 
@@ -588,7 +579,6 @@ build_rv() {
 
 		module_config "$base_template" "$pkg_name" "$version" "$arch"
 
-		local rv_patches_ver="${rv_patches_jar##*-}" rv_cli_ver="${rv_cli_jar*-}"
 		local patches_string="${args[included_patches]}. Excluded: ${args[excluded_patches]}";
 		if [ "${args[exclusive_patches]}" != true ]; then
 			patches_string="ALL (Default)"
@@ -603,7 +593,7 @@ build_rv() {
 			"${args[module_prop_name]}" \
 			"RVCMM: $app_name - $arch" \
 			"$version" \
-			"Selected Patches: ${patches_string} | Patched with: ${rv_patches_ver%%}) on ${rv_cli_ver%%}" \
+			"Selected Patches: ${patches_string} | Patched with: $(basename ${args[ptjar]%.rvc}) on $(basename ${args[cli]%.jar})" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
 
