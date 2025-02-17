@@ -1,25 +1,26 @@
 ## Apps:
-* **Music** (arm64-v8a): v7.29.52
 * **YouTube** (all): v19.47.53
+* **Music** (arm64-v8a): v8.05.51
 
 ---
 
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.11.0.rvp
+### Patches: ReVanced/patches-5.12.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
-* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
-* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
-* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+* **Windy.app:** Remove obsolete `Unlock pro` patch ([#4428](https://github.com/ReVanced/revanced-patches/issues/4428)) ([83d116e](https://github.com/ReVanced/revanced-patches/commit/83d116e8fd3935ee431cfdf0b8e095d04ee77259))
+* **YouTube - Spoof video streams:** Change default client to `Android TV` ([#4465](https://github.com/ReVanced/revanced-patches/issues/4465)) ([0412c79](https://github.com/ReVanced/revanced-patches/commit/0412c7901dc8599b6079d9c3ba26452f88af642b))
+* **YouTube:** Remove obsolete 18.x targets ([#4454](https://github.com/ReVanced/revanced-patches/issues/4454)) ([a006758](https://github.com/ReVanced/revanced-patches/commit/a0067581d0f877e1b4eb1f888a25786f09676b2e))
 ### Features
-* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+* **Return YouTube Dislike:** add `Show estimated likes` setting ([#4443](https://github.com/ReVanced/revanced-patches/issues/4443)) ([9a88b42](https://github.com/ReVanced/revanced-patches/commit/9a88b4239fd63d5f91105fec8e7d59d318a5d09a))
+* **YouTube - SponsorBlock:** Redesign skip buttons ([#4427](https://github.com/ReVanced/revanced-patches/issues/4427)) ([8f4883f](https://github.com/ReVanced/revanced-patches/commit/8f4883fc002420bfb4056401e23445c99e1d3fce))
+* **YouTube Music:** Support version `8.05.51` ([128441e](https://github.com/ReVanced/revanced-patches/commit/128441e78bc0d096c3fc2f57782ab90c39c3ae4b))
 
 ---
 
