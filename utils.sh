@@ -317,7 +317,7 @@ dl_apkmirror() {
 	else
 		if [ "$arch" = "arm-v7a" ]; then arch="armeabi-v7a"; fi
 		local resp node app_table uurl dlurl=""
-		uurl=$(grep -F "downloadLink" <<<"$__APKMIRROR_RESP__" | grep -F "${version//./-}-release/" |
+		uurl=$(grep -F "downloadLink" <<<"$__APKMIRROR_RESP__" | grep -F "${version//./-}-release/" | head -1 |
 			sed -n 's;.*href="\(.*-release\).*;\1;p')
 		if [ -z "$uurl" ]; then url="${url}/${url##*/}-${version//./-}-release/"; else url=https://www.apkmirror.com$uurl; fi
 		resp=$(req "$url" -) || return 1
@@ -336,10 +336,10 @@ dl_apkmirror() {
 	fi
 
 	if [ "$is_bundle" = true ]; then
-		req "$url" "${output}.apkm"
+		req "$url" "${output}.apkm" || return 1
 		merge_splits "${output}.apkm" "${output}"
 	else
-		req "$url" "${output}"
+		req "$url" "${output}" || return 1
 	fi
 }
 get_apkmirror_vers() {
@@ -527,7 +527,7 @@ build_rv() {
 		if [ ! -f "$stock_apk" ]; then return 0; fi
 	fi
 	if ! OP=$(check_sig "$stock_apk" "$pkg_name" 2>&1) && ! grep -qFx "ERROR: Missing META-INF/MANIFEST.MF" <<<"$OP"; then
-		abort "apk signature mismatch '$stock_apk'"
+		abort "apk signature mismatch '$stock_apk': $OP"
 	fi
 	log "* **${app_name}** (${arch}): v${version}"
 
