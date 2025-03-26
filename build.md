@@ -7,18 +7,18 @@
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.15.0.rvp
+### Patches: ReVanced/patches-5.16.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **YouTube - Spoof app version:** Change oldest spoof target to 19.01.34 ([5012439](https://github.com/ReVanced/revanced-patches/commit/5012439a8e53b2a4ab5e85c47976e1ab28a51208))
-* **YouTube - Spoof app version:** Remove broken spoof targets that YouTube no longer supports ([#4610](https://github.com/ReVanced/revanced-patches/issues/4610)) ([883fbe7](https://github.com/ReVanced/revanced-patches/commit/883fbe71233c57cb1241e57c122b43f40722acc7))
-* **YouTube:** Do not show restart prompt more than once if setting change is canceled ([49797fe](https://github.com/ReVanced/revanced-patches/commit/49797fe8d0c4a0981ef621a31356c4315ae3777b))
+* **YouTube - Settings:** System navigation bar is located above the settings ui on Android 15+ ([f7497be](https://github.com/ReVanced/revanced-patches/commit/f7497be2c5e4abcde6eb55b84955124a28f55cae))
 ### Features
-* **YouTube - SponsorBlock:** Add opacity setting to category segment colors ([#4582](https://github.com/ReVanced/revanced-patches/issues/4582)) ([6e8ffba](https://github.com/ReVanced/revanced-patches/commit/6e8ffbade9e03658f725622631e44dabf2995861))
+* **Spotify:** Add `Unlock premium` patch ([#4644](https://github.com/ReVanced/revanced-patches/issues/4644)) ([f048c50](https://github.com/ReVanced/revanced-patches/commit/f048c50e56fc1f5a5c607860be4206ef83b528fe))
+* **YouTube - Comments:** Add `Hide AI Comments summary` ([#4634](https://github.com/ReVanced/revanced-patches/issues/4634)) ([e9b7f26](https://github.com/ReVanced/revanced-patches/commit/e9b7f263f739bd130f6ea79913851a52355977c5))
+* **YouTube - Video description:** Add `Hide AI-generated video summary` ([#4636](https://github.com/ReVanced/revanced-patches/issues/4636)) ([521fd48](https://github.com/ReVanced/revanced-patches/commit/521fd48602432ab436d8711c19d7130b2b05af12))
 
 ---
 
