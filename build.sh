@@ -10,6 +10,13 @@ if [ "${1-}" = "clean" ]; then
 fi
 
 source utils.sh
+
+# -- check_deps --
+jq --version >/dev/null || abort "\`jq\` is not installed. install it with 'apt install jq' or equivalent"
+java --version >/dev/null || abort "\`openjdk 17\` is not installed. install it with 'apt install openjdk-17-jre' or equivalent"
+zip --version >/dev/null || abort "\`zip\` is not installed. install it with 'apt install zip' or equivalent"
+# ----------------
+
 set_prebuilts
 
 vtf() { if ! isoneof "${1}" "true" "false"; then abort "ERROR: '${1}' is not a valid option for '${2}': only true or false is allowed"; fi; }
@@ -47,11 +54,6 @@ fi
 
 if ((COMPRESSION_LEVEL > 9)) || ((COMPRESSION_LEVEL < 0)); then abort "compression-level must be within 0-9"; fi
 
-# -- check_deps --
-jq --version >/dev/null || abort "\`jq\` is not installed. install it with 'apt install jq' or equivalent"
-java --version >/dev/null || abort "\`openjdk 17\` is not installed. install it with 'apt install openjdk-17-jre' or equivalent"
-zip --version >/dev/null || abort "\`zip\` is not installed. install it with 'apt install zip' or equivalent"
-# ----------------
 rm -rf rvcmm-template/bin/*/tmp.*
 if [ "$(echo "$TEMP_DIR"/changelog.md)" ]; then
 	: >"$TEMP_DIR"/changelog.md || :
