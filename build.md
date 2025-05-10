@@ -1,27 +1,26 @@
 ## Apps:
-* **Music** (arm64-v8a): v8.05.51
 * **YouTube** (all): v20.12.46
+* **Music** (arm64-v8a): v8.05.51
 
 ---
 
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.22.0.rvp
+### Patches: ReVanced/patches-5.23.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **TikTok - Feed filter:** Hide ads in following feed ([#4844](https://github.com/ReVanced/revanced-patches/issues/4844)) ([c255ac1](https://github.com/ReVanced/revanced-patches/commit/c255ac18e0b2dcf917bd0559876be5a2a81023db))
-* **YouTube - Hide layout components:** Hide new type of community posts ([#4888](https://github.com/ReVanced/revanced-patches/issues/4888)) ([f0c9c35](https://github.com/ReVanced/revanced-patches/commit/f0c9c35778ab43a99149ee5ad0ccfd8aeb09f638))
-* **YouTube - Hide Shorts components:** Hide action buttons A/B button layout ([#4889](https://github.com/ReVanced/revanced-patches/issues/4889)) ([9dcd3d3](https://github.com/ReVanced/revanced-patches/commit/9dcd3d35dddf019547ab6ce431bac7a5a8a4c291))
-* **YouTube - Shorts autoplay:** Fix autoplay with YT 20.12 ([06b35b2](https://github.com/ReVanced/revanced-patches/commit/06b35b2a7d7371915881e8f430c32ce15fa224de))
-* **YouTube - Spoof app version:** Do not hide spoof version in general settings menu ([#4861](https://github.com/ReVanced/revanced-patches/issues/4861)) ([f459c3c](https://github.com/ReVanced/revanced-patches/commit/f459c3c7fae3a1b8addf3354488dcef9f95255cc))
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([#4842](https://github.com/ReVanced/revanced-patches/issues/4842)) ([00aa200](https://github.com/ReVanced/revanced-patches/commit/00aa2000ba2eef15a0dd827c2bd84c2e85c412e0))
+* **YouTube:** Improve litho filtering performance ([#4904](https://github.com/ReVanced/revanced-patches/issues/4904)) ([7b43986](https://github.com/ReVanced/revanced-patches/commit/7b43986871a68e5cb43331d2fb2fdb9ef67438ad))
 ### Features
-* **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/ReVanced/revanced-patches/issues/4851)) ([f198bec](https://github.com/ReVanced/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
-* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/ReVanced/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/ReVanced/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+* **Lightroom:** Constrain patches to last working version ([efef03b](https://github.com/ReVanced/revanced-patches/commit/efef03b80da21552d0d8be6913faba64e4fb5ed1))
+* **Pandora:** Add `Disable audio ads` and `Unlimited skips` patch ([#4841](https://github.com/ReVanced/revanced-patches/issues/4841)) ([0cf7a4c](https://github.com/ReVanced/revanced-patches/commit/0cf7a4c6be615ed0a52a6bacf87592f5f43ff575))
+* **Prime Video:** Add `Skip ads` patch ([#4824](https://github.com/ReVanced/revanced-patches/issues/4824)) ([bb672c4](https://github.com/ReVanced/revanced-patches/commit/bb672c4674ddc201b8b2648c3906cfc31ef43f10))
+* **Spotify:** Add `Sanitize sharing links` patch ([#4829](https://github.com/ReVanced/revanced-patches/issues/4829)) ([2e3511d](https://github.com/ReVanced/revanced-patches/commit/2e3511d03c8198bbdb9336888df038a33fb3ab8c))
 
 ---
 
