@@ -7,20 +7,23 @@
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.23.0.rvp
+### Patches: ReVanced/patches-5.24.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([#4842](https://github.com/ReVanced/revanced-patches/issues/4842)) ([00aa200](https://github.com/ReVanced/revanced-patches/commit/00aa2000ba2eef15a0dd827c2bd84c2e85c412e0))
-* **YouTube:** Improve litho filtering performance ([#4904](https://github.com/ReVanced/revanced-patches/issues/4904)) ([7b43986](https://github.com/ReVanced/revanced-patches/commit/7b43986871a68e5cb43331d2fb2fdb9ef67438ad))
+* **YouTube - Hide layout components:** Fix `Hide video recommendation labels` ([#4956](https://github.com/ReVanced/revanced-patches/issues/4956)) ([ae05ac3](https://github.com/ReVanced/revanced-patches/commit/ae05ac38151ebd3197953af97ca0dd847a04cc2d))
 ### Features
-* **Lightroom:** Constrain patches to last working version ([efef03b](https://github.com/ReVanced/revanced-patches/commit/efef03b80da21552d0d8be6913faba64e4fb5ed1))
-* **Pandora:** Add `Disable audio ads` and `Unlimited skips` patch ([#4841](https://github.com/ReVanced/revanced-patches/issues/4841)) ([0cf7a4c](https://github.com/ReVanced/revanced-patches/commit/0cf7a4c6be615ed0a52a6bacf87592f5f43ff575))
-* **Prime Video:** Add `Skip ads` patch ([#4824](https://github.com/ReVanced/revanced-patches/issues/4824)) ([bb672c4](https://github.com/ReVanced/revanced-patches/commit/bb672c4674ddc201b8b2648c3906cfc31ef43f10))
-* **Spotify:** Add `Sanitize sharing links` patch ([#4829](https://github.com/ReVanced/revanced-patches/issues/4829)) ([2e3511d](https://github.com/ReVanced/revanced-patches/commit/2e3511d03c8198bbdb9336888df038a33fb3ab8c))
+* **GmsCore support:** Open vendor specific DontKillMyApp if available ([#4952](https://github.com/ReVanced/revanced-patches/issues/4952)) ([b89927a](https://github.com/ReVanced/revanced-patches/commit/b89927a10e3b909a3c37fbb75c16a7abbce44560))
+* **Instagram:** Support app version `378.0.0.52.68` and add `bypass check signature` ([#4901](https://github.com/ReVanced/revanced-patches/pull/4901)) ([dda7473](https://github.com/ReVanced/revanced-patches/commit/dda747379bf56df9718d2eaebb6dad917a8ffd40))
+* **NU.nl:** Support version `11.3.0` ([#4925](https://github.com/ReVanced/revanced-patches/issues/4925)) ([bedde60](https://github.com/ReVanced/revanced-patches/commit/bedde60fc1a52b0fd491174b3b5b887435eb621a))
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/ReVanced/revanced-patches/issues/4893)) ([23bfdc9](https://github.com/ReVanced/revanced-patches/commit/23bfdc98fbbcc8ecf0ffbf8704f58dd2272e4af2))
+* **YouTube - Hide description components:** Add `Hide Ask` ([#4972](https://github.com/ReVanced/revanced-patches/issues/4972)) ([ebc94a5](https://github.com/ReVanced/revanced-patches/commit/ebc94a5da6214b67399c9c01515689bd4b20547c))
+* **YouTube - Hide layout components:** Add `Hide ticket shelf` ([#4969](https://github.com/ReVanced/revanced-patches/issues/4969)) ([6436af7](https://github.com/ReVanced/revanced-patches/commit/6436af7e77c77d2034dfceba8bc51132ad7632be))
+* **YouTube - Hide player components:** Hide related video overlay in fullscreen ([#4938](https://github.com/ReVanced/revanced-patches/issues/4938)) ([ac9be97](https://github.com/ReVanced/revanced-patches/commit/ac9be9760c9965e54df196b227a310d64ead4bf5))
+* **YouTube - Settings:** Add ability to search in settings ([#4881](https://github.com/ReVanced/revanced-patches/issues/4881)) ([aca8b20](https://github.com/ReVanced/revanced-patches/commit/aca8b207c15f254bcc9ad94bc7dfb895f21d4058))
 
 ---
 
