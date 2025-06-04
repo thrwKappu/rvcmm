@@ -7,29 +7,22 @@
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.25.0.rvp
+### Patches: ReVanced/patches-5.26.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Hide ADB status:** Resolve app crash on startup ([#5029](https://github.com/ReVanced/revanced-patches/issues/5029)) ([1abebd5](https://github.com/ReVanced/revanced-patches/commit/1abebd5f3b73250c6638d2d8a274b92ea8268924))
-* **Messenger:** Remove outdated `Disable switching emoji to sticker` patch ([#5044](https://github.com/ReVanced/revanced-patches/issues/5044)) ([7b182ca](https://github.com/ReVanced/revanced-patches/commit/7b182cab825ee3a4a3ca528c744c9d2a351c7cf8))
-* **Spotify Lite:** Remove obsolete `Enable on demand` patch ([#5046](https://github.com/ReVanced/revanced-patches/issues/5046)) ([4886d47](https://github.com/ReVanced/revanced-patches/commit/4886d47506c94b03c1f190ecc4947d3d91df6a47))
-* **YouTube - Hide ads:** Hide new type of general ad ([#5004](https://github.com/ReVanced/revanced-patches/issues/5004)) ([37e59d2](https://github.com/ReVanced/revanced-patches/commit/37e59d2771528c631dc13e73dac095fec95c6485))
-* **YouTube - Open Shorts in regular player:** Do not exit app when pressing back button in regular player ([#5020](https://github.com/ReVanced/revanced-patches/issues/5020)) ([3384f8d](https://github.com/ReVanced/revanced-patches/commit/3384f8dd0ff2a345f2e387f4ed1570079a83ccb6))
-* **Yuka - Unlock premium:** Remove broken patch that is no longer supported ([#5018](https://github.com/ReVanced/revanced-patches/issues/5018)) ([fac6e59](https://github.com/ReVanced/revanced-patches/commit/fac6e59d281e21e57abdcfc899cd1aeb18e5c2b8))
+* **Spotify - Custom theme:** Apply accent color in more places ([#5039](https://github.com/ReVanced/revanced-patches/issues/5039)) ([9357887](https://github.com/ReVanced/revanced-patches/commit/9357887b6fca7aaf34dfb0163645b6a998e1db76))
+* **YouTube - Hide Shorts components:** Disable A/B player that prevents hiding buttons ([#5104](https://github.com/ReVanced/revanced-patches/issues/5104)) ([835b7bd](https://github.com/ReVanced/revanced-patches/commit/835b7bd7bd667abd632822c98898972e5124dbb6))
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([#5081](https://github.com/ReVanced/revanced-patches/issues/5081)) ([8ecacaa](https://github.com/ReVanced/revanced-patches/commit/8ecacaad27162d9380014a9a13ac9220b12257b2))
 ### Features
-* Add `Disable pairip license check` patch ([#4927](https://github.com/ReVanced/revanced-patches/issues/4927)) ([42d2c27](https://github.com/ReVanced/revanced-patches/commit/42d2c277982ef63e6ad42d85e46f13c3ab50243c))
-* **Messenger:** Add `Remove Meta AI` patch ([#4945](https://github.com/ReVanced/revanced-patches/issues/4945)) ([012dff7](https://github.com/ReVanced/revanced-patches/commit/012dff7b6511b9e519ccac96f6713cf1a1b327b4))
-* **Prime Video:** Add `Rename shared permissions` patch ([#5049](https://github.com/ReVanced/revanced-patches/issues/5049)) ([80f1fc6](https://github.com/ReVanced/revanced-patches/commit/80f1fc629e30e391bd5877f07dbdf4b6613bd1cf))
-* **Spotify:** Add `Fix Facebook login` patch ([#5023](https://github.com/ReVanced/revanced-patches/issues/5023)) ([34932dc](https://github.com/ReVanced/revanced-patches/commit/34932dc43933d346a5a3adadc62c0dbd38a633b5))
-* **Threads:** Add `Hide ads` patch ([#5064](https://github.com/ReVanced/revanced-patches/issues/5064)) ([3c4cecb](https://github.com/ReVanced/revanced-patches/commit/3c4cecb966c2f99bfde99552686dda19ade5f67e))
-* **YouTube - Enable debugging:** Add settings menu to share debug logs ([#5021](https://github.com/ReVanced/revanced-patches/issues/5021)) ([1ec4a88](https://github.com/ReVanced/revanced-patches/commit/1ec4a88464a2a2810c02cf072950b618d183779a))
-* **YouTube - Settings:** Add a color picker ([#4981](https://github.com/ReVanced/revanced-patches/issues/4981)) ([1e0e398](https://github.com/ReVanced/revanced-patches/commit/1e0e398574329173aff11a4dc9acfc3fcdeabe16))
-* **YouTube - Swipe controls:** Add separate color settings for the brightness and volume bars ([#5043](https://github.com/ReVanced/revanced-patches/issues/5043)) ([80f50e8](https://github.com/ReVanced/revanced-patches/commit/80f50e8c50ca6a8366b7fd7b01459fb16fa1074a))
-* **YouTube:** Add `Disable haptic feedback` patch ([#5033](https://github.com/ReVanced/revanced-patches/issues/5033)) ([bbe7974](https://github.com/ReVanced/revanced-patches/commit/bbe79744a513c96f9016476e8435f999e94c45d7))
+* **Proton Mail:** Add `Remove free accounts limit` patch ([#4970](https://github.com/ReVanced/revanced-patches/issues/4970)) ([b0440ad](https://github.com/ReVanced/revanced-patches/commit/b0440ad6af0e190e516974ce896dcc54c8d2e122))
+* **Spotify:** Add `Hide Create button` patch ([#5062](https://github.com/ReVanced/revanced-patches/issues/5062)) ([3201681](https://github.com/ReVanced/revanced-patches/commit/32016819d2adbdfdd5e028941d56feda36d20b00))
+* **Sync for Reddit:** Add `Fix post thumbnails` patch ([e1ec30c](https://github.com/ReVanced/revanced-patches/commit/e1ec30c5b07560a39d7b8ab293b0c1f39fd59ef2))
+* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([#5069](https://github.com/ReVanced/revanced-patches/issues/5069)) ([9a1e6ca](https://github.com/ReVanced/revanced-patches/commit/9a1e6ca178d9833ee2c681fb130b9290a4e89cd8))
 
 ---
 
