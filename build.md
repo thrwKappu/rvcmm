@@ -7,22 +7,23 @@
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.26.0.rvp
+### Patches: ReVanced/patches-5.27.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Spotify - Custom theme:** Apply accent color in more places ([#5039](https://github.com/ReVanced/revanced-patches/issues/5039)) ([9357887](https://github.com/ReVanced/revanced-patches/commit/9357887b6fca7aaf34dfb0163645b6a998e1db76))
-* **YouTube - Hide Shorts components:** Disable A/B player that prevents hiding buttons ([#5104](https://github.com/ReVanced/revanced-patches/issues/5104)) ([835b7bd](https://github.com/ReVanced/revanced-patches/commit/835b7bd7bd667abd632822c98898972e5124dbb6))
-* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([#5081](https://github.com/ReVanced/revanced-patches/issues/5081)) ([8ecacaa](https://github.com/ReVanced/revanced-patches/commit/8ecacaad27162d9380014a9a13ac9220b12257b2))
+* **Bandcamp - Remove play limits:** Support latest app version ([#5124](https://github.com/ReVanced/revanced-patches/issues/5124)) ([863e92b](https://github.com/ReVanced/revanced-patches/commit/863e92b20ad6682f10524e475ed18f879048ecae))
+* **Spotify - Hide Create button:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+* **YouTube - Hide Shorts components:** Disable A/B player flags that prevents hiding buttons ([bef0dac](https://github.com/ReVanced/revanced-patches/commit/bef0dacac54caf1ca9511d7bc19b19140ccb4eaf))
+* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
 ### Features
-* **Proton Mail:** Add `Remove free accounts limit` patch ([#4970](https://github.com/ReVanced/revanced-patches/issues/4970)) ([b0440ad](https://github.com/ReVanced/revanced-patches/commit/b0440ad6af0e190e516974ce896dcc54c8d2e122))
-* **Spotify:** Add `Hide Create button` patch ([#5062](https://github.com/ReVanced/revanced-patches/issues/5062)) ([3201681](https://github.com/ReVanced/revanced-patches/commit/32016819d2adbdfdd5e028941d56feda36d20b00))
-* **Sync for Reddit:** Add `Fix post thumbnails` patch ([e1ec30c](https://github.com/ReVanced/revanced-patches/commit/e1ec30c5b07560a39d7b8ab293b0c1f39fd59ef2))
-* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
-* **YouTube - Playback Speed:** Use modern custom speed dialog ([#5069](https://github.com/ReVanced/revanced-patches/issues/5069)) ([9a1e6ca](https://github.com/ReVanced/revanced-patches/commit/9a1e6ca178d9833ee2c681fb130b9290a4e89cd8))
+* Add `Hide app icon` patch ([#4977](https://github.com/ReVanced/revanced-patches/issues/4977)) ([92311b8](https://github.com/ReVanced/revanced-patches/commit/92311b8e5675f3d4b80ed690d34b699fb847e3cd))
+* **Google Photos:** Add `Enable DCIM folders backup control` patch ([#5138](https://github.com/ReVanced/revanced-patches/issues/5138)) ([328d232](https://github.com/ReVanced/revanced-patches/commit/328d232fe77406fa93a14768fc66e7b998506fba))
+* **Messenger:** Add `Hide Facebook button` patch ([#5057](https://github.com/ReVanced/revanced-patches/issues/5057)) ([9175b23](https://github.com/ReVanced/revanced-patches/commit/9175b23e8360d13c8c1c9c8602ca0b5931d13627))
+* **YouTube - Hide player overlay buttons:** Add in app setting for \
 
 ---
 
