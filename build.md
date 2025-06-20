@@ -7,23 +7,22 @@
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.27.0.rvp
+### Patches: ReVanced/patches-5.28.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Bandcamp - Remove play limits:** Support latest app version ([#5124](https://github.com/ReVanced/revanced-patches/issues/5124)) ([863e92b](https://github.com/ReVanced/revanced-patches/commit/863e92b20ad6682f10524e475ed18f879048ecae))
-* **Spotify - Hide Create button:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
-* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
-* **YouTube - Hide Shorts components:** Disable A/B player flags that prevents hiding buttons ([bef0dac](https://github.com/ReVanced/revanced-patches/commit/bef0dacac54caf1ca9511d7bc19b19140ccb4eaf))
-* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
+* **Google Photos:** Resolve startup crash if MicroG GmsCore does not already have granted permissions ([a93d74d](https://github.com/ReVanced/revanced-patches/commit/a93d74d26e7ef87a3745df2b9fe82722d65a0e59))
+* **Messenger - Remove Meta AI:** Improve patch logic ([#5153](https://github.com/ReVanced/revanced-patches/issues/5153)) ([4ad4887](https://github.com/ReVanced/revanced-patches/commit/4ad488744d87543c31e453dc7b6d8182b3a7f440))
+* **Pandora - Disable ads:** Support latest app target ([#5185](https://github.com/ReVanced/revanced-patches/issues/5185)) ([ca83047](https://github.com/ReVanced/revanced-patches/commit/ca83047f5c4acbb267d5b98db80ad111999086e0))
+* **Spotify:** Fix `Hide Create button` and `Sanitize sharing links` for older but supported app targets ([#5159](https://github.com/ReVanced/revanced-patches/issues/5159)) ([e7dd061](https://github.com/ReVanced/revanced-patches/commit/e7dd061c513af90861c0ab0d7adc6ee43be57ce2))
+* **Threads - Hide ads:** Constrain patch to the last working app target ([#5189](https://github.com/ReVanced/revanced-patches/issues/5189)) ([3558c44](https://github.com/ReVanced/revanced-patches/commit/3558c44a05c13f19fefdbbf14b364181a79f17c0))
+* **YouTube:** Remove old app targets that are no longer supported by YouTube ([#5192](https://github.com/ReVanced/revanced-patches/issues/5192)) ([c9e54e1](https://github.com/ReVanced/revanced-patches/commit/c9e54e1d36243945ac1ec3108fe38edf0e15d772))
 ### Features
-* Add `Hide app icon` patch ([#4977](https://github.com/ReVanced/revanced-patches/issues/4977)) ([92311b8](https://github.com/ReVanced/revanced-patches/commit/92311b8e5675f3d4b80ed690d34b699fb847e3cd))
-* **Google Photos:** Add `Enable DCIM folders backup control` patch ([#5138](https://github.com/ReVanced/revanced-patches/issues/5138)) ([328d232](https://github.com/ReVanced/revanced-patches/commit/328d232fe77406fa93a14768fc66e7b998506fba))
-* **Messenger:** Add `Hide Facebook button` patch ([#5057](https://github.com/ReVanced/revanced-patches/issues/5057)) ([9175b23](https://github.com/ReVanced/revanced-patches/commit/9175b23e8360d13c8c1c9c8602ca0b5931d13627))
-* **YouTube - Hide player overlay buttons:** Add in app setting for \
+* Use modern style settings dialogs ([#5109](https://github.com/ReVanced/revanced-patches/issues/5109)) ([312b6dc](https://github.com/ReVanced/revanced-patches/commit/312b6dc04e01c2758cd304ca8606306027aa2f01))
+* **Spotify:** Add `Change lyrics provider` patch ([#4937](https://github.com/ReVanced/revanced-patches/issues/4937)) ([8736b6a](https://github.com/ReVanced/revanced-patches/commit/8736b6a80b48cb1f4562c9f9919804006ddb18bd))
 
 ---
 
