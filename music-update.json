@@ -1,6 +1,6 @@
 {
-  "version": "v8.29.56",
-  "versionCode": 323,
-  "zipUrl": "https://github.com/thrwKappu/rvcmm/releases/download/323/RVCMM-b323-music-v8.29.56-arm64-v8a.zip",
+  "version": "v8.30.51",
+  "versionCode": 324,
+  "zipUrl": "https://github.com/thrwKappu/rvcmm/releases/download/324/RVCMM-b324-music-v8.30.51-arm64-v8a.zip",
   "changelog": "https://raw.githubusercontent.com/thrwKappu/rvcmm/update/build.md"
 }
