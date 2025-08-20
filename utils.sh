@@ -10,7 +10,7 @@ if [ "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
 
 # -------------------- json/toml --------------------
-json_get() { grep -o "\"${1}\":[^\"]*\"[^\"]*\"" | sed -E 's/".*".*"(.*)"/\1/'; }
+json_get() { grep -o "\"${1}\": \"[^,]*" | sed -r 's/".*": "(.*)"/\1/'; }
 toml_prep() {
 	if [ ! -f "$1" ]; then return 1; fi
 	if [ "${1##*.}" == toml ]; then
@@ -91,8 +91,7 @@ get_rv_prebuilts() {
 			if [ "$tag" = "Patches" ]; then
 				# changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\n\)\+/\\n/g')
 				# echo -e "\n${changelog//# [/#### [}" >>"${TEMP_DIR}/changelog.md"
-				local changelog=$(json_get 'body' <<<"$resp" | sed 's/\(\\r\\n\)/\\n/g')
-				changelog=$(echo "$changelog" | sed 's/\(\\n\)\+/\\n/g')
+				local changelog=$(json_get 'body' <<<"$resp" | sed -e 's/\(\\r\\n\)/\\n/g' -e 's/\(\\n\)\+/\\n/g')
 				changelog=$(echo "$changelog" | sed -r 's/^#+\s\[[^#]*(###)+//')
 				echo -e "\n---\n\n## Patch Changelog:\n\n###$changelog" >>"${TEMP_DIR}/changelog.md"
 			fi
