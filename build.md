@@ -1,33 +1,27 @@
 ## Apps:
-* **Music** (arm64-v8a): v8.33.53
 * **YouTube** (all): v20.13.41
+* **Music** (arm64-v8a): v8.35.52
 
 ---
 
 ## Build Details:
 
 ### CLI: j-hc/revanced-cli-5.0.0-all.jar
-### Patches: ReVanced/patches-5.34.0.rvp
+### Patches: ReVanced/patches-5.35.0.rvp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Backdrops:** Remove broken patch that is no longer supported ([#5627](https://github.com/ReVanced/revanced-patches/issues/5627)) ([ebb8332](https://github.com/ReVanced/revanced-patches/commit/ebb83320838aa99dd4417d45a50333dd42c1218a))
-* **pixiv - Hide ads:** Constrain patch to last working app target ([d8ea56c](https://github.com/ReVanced/revanced-patches/commit/d8ea56ca4be47df1c43f96ec41b91c800f1d9daf))
-* **Twitch:** Constrain patches to last working app targets ([#5373](https://github.com/ReVanced/revanced-patches/issues/5373)) ([29a4748](https://github.com/ReVanced/revanced-patches/commit/29a47481c4efa209a3a53df60613b59a73adbe07))
-* **YouTube - Hide layout components:** Do not hide community posts on channel profiles ([#5634](https://github.com/ReVanced/revanced-patches/issues/5634)) ([9e3d5a2](https://github.com/ReVanced/revanced-patches/commit/9e3d5a2b36106479470f3f69920518b57e8c4dca))
-* **YouTube - Player Controls:** Fix chapter title overlapping the bottom buttons ([#5673](https://github.com/ReVanced/revanced-patches/issues/5673)) ([09ccee7](https://github.com/ReVanced/revanced-patches/commit/09ccee71384df338bbf8acc1097f619a372c4868))
-* **YouTube - SponsorBlock:** Do not hide voting or create button when the video ends ([6aba4e2](https://github.com/ReVanced/revanced-patches/commit/6aba4e284de9bb94b49eea8be2baf2870eecbbcf))
-* **YouTube - Video playback:** Disable HDR video does not disable Dolby Vision HDR ([#5661](https://github.com/ReVanced/revanced-patches/issues/5661)) ([6dab988](https://github.com/ReVanced/revanced-patches/commit/6dab98810645b96bd0387ba7d607e5d8ffb1b5bb))
-* **YouTube - Video quality:** Fix additional incorrect quality resolutions used by YouTube ([a2a1fbe](https://github.com/ReVanced/revanced-patches/commit/a2a1fbe2959be8334c54cfc3426c24a960c55c8f))
-* **YouTube - Video quality:** Show FHD+ icon for 1080p 60fps enhanced bitrate ([76bed37](https://github.com/ReVanced/revanced-patches/commit/76bed3734093713af24ef065d5ffc5b1cd83f29a))
+* **Proton mail:** Constrain patches to last working app target ([21c34b9](https://github.com/ReVanced/revanced-patches/commit/21c34b908e07a97de8c31c7c828b44a8cc4739b6))
+* **Spotify - Unlock Premium:** Make compatible with latest versions again by fixing fingerprint ([#5684](https://github.com/ReVanced/revanced-patches/issues/5684)) ([30dcff1](https://github.com/ReVanced/revanced-patches/commit/30dcff13a56883efc499b71faadb403877cd1c67))
+* **YouTube - Hide layout components:** Hide Playable shelf header ([fbb5046](https://github.com/ReVanced/revanced-patches/commit/fbb50463f0e3f533a278c5251cfbce59f09ce641))
 ### Features
-* **Instagram:** Support latest app version ([#5611](https://github.com/ReVanced/revanced-patches/issues/5611)) ([26fe690](https://github.com/ReVanced/revanced-patches/commit/26fe690dfbefe6c412c5f81f208a3b1d2fbd7a0a))
-* **NU.nl:** Support latest app version ([#5643](https://github.com/ReVanced/revanced-patches/issues/5643)) ([7338e4a](https://github.com/ReVanced/revanced-patches/commit/7338e4a5a99f913256120d0d58fede3aa4ee8922))
-* **YouTube - Hide player flyout menu items:** Add option to hide quality flyout menu ([eb55068](https://github.com/ReVanced/revanced-patches/commit/eb5506856a2eaf2a8585e598868ddba3e1429159))
-* **YouTube - Hide video action buttons:** Add \
+* **BaconReader:** Add `Fix Redgifs API` patch ([#5761](https://github.com/ReVanced/revanced-patches/issues/5761)) ([08868c0](https://github.com/ReVanced/revanced-patches/commit/08868c00d3c4f1f37f4a77f333a03ca5a3259b59))
+* **Boost/Sync for Reddit:** Add `Fix Redgifs` patch  ([#5725](https://github.com/ReVanced/revanced-patches/issues/5725)) ([c5e8079](https://github.com/ReVanced/revanced-patches/commit/c5e8079eab08075a72078cd0fa79f3beb1f75d98))
+* **Instagram:** Add `Hide navigation buttons` patch ([#5678](https://github.com/ReVanced/revanced-patches/issues/5678)) ([415cf0f](https://github.com/ReVanced/revanced-patches/commit/415cf0fb5b9b3dcaf4592943a69eea1c10447b07))
+* **Instagram:** Add `Hide Stories from Home` patch ([#5756](https://github.com/ReVanced/revanced-patches/issues/5756)) ([3ae3251](https://github.com/ReVanced/revanced-patches/commit/3ae3251dc0317b6ced136fe9aa14be369642f203))
 
 ---
 
