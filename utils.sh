@@ -10,7 +10,7 @@ if [ "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
 
 # -------------------- json/toml --------------------
-json_get() { grep -o "\"${1}\": \"[^,]*" | sed -r 's/".*": "(.*)"/\1/'; }
+json_get() { grep -o "\"${1}\": \"[^,]*\|\"${1}\":[^\"]*\"[^\"]*\"" | sed -r 's/".*": "(.*)"/\1/'; }
 toml_prep() {
 	if [ ! -f "$1" ]; then return 1; fi
 	if [ "${1##*.}" == toml ]; then
