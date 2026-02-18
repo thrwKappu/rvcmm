@@ -79,7 +79,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-      - name: Update changelog and Magisk update json
+      - name: Update changelog and update.json
         id: update_config
         run: |
           git checkout -f update || git switch --discard-changes --orphan update
