@@ -127,7 +127,9 @@ get_prebuilts() {
 				echo -e "\n---\n\n## Patch Changelog:\n\n###$changelog" >>"${TEMP_DIR}/changelog.md"
 			fi
 			if [ "$REMOVE_RV_INTEGRATIONS_CHECKS" = true ]; then
-				local extensions_ext=$(unzip -l "${file}" "extensions/shared*" | grep -o "shared.*") extensions_ext="${extensions_ext#*.}"
+				local extensions_ext
+				extensions_ext=$(unzip -l "${file}" "extensions/shared*" | grep -o "shared.*")
+				extensions_ext="${extensions_ext#*.}"
 				if ! (
 					mkdir -p "${file}-zip" || return 1
 					unzip -qo "${file}" -d "${file}-zip" || return 1
