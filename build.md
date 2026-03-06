@@ -6,22 +6,20 @@
 ## Build Details:
 
 ### CLI: MorpheApp/morphe-cli-1.4.0-all.jar
-### Patches: MorpheApp/patches-1.16.0.mpp
+### Patches: MorpheApp/patches-1.17.0.mpp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **YouTube - Hide end screen suggested video:** Add user dialogs to minimize user confusion ([#637](https://github.com/MorpheApp/morphe-patches/issues/637)) ([6d4af87](https://github.com/MorpheApp/morphe-patches/commit/6d4af87dd6880d6114c24815109da4149df3c3b8))
-* **YouTube - Hide Shorts components:** Resolve Shorts header not being hidden ([#649](https://github.com/MorpheApp/morphe-patches/issues/649)) ([84901c2](https://github.com/MorpheApp/morphe-patches/commit/84901c261ea0808514cca24c5bd7687389acae5c))
+* **Custom branding:** Do not override base app name for root installation ([8eb6d48](https://github.com/MorpheApp/morphe-patches/commit/8eb6d483a53e99eaa5aece259f0d5a27d2ef5053))
+* **Spoof video streams:** Show TV client deobfuscate toast only if debugging is enabled ([b9b685c](https://github.com/MorpheApp/morphe-patches/commit/b9b685c6aac6aac59aab04f6b5b28252bc424683))
+* **YouTube - Hide layout components:** Resolve \"Hide Explore the podcast\" not working ([#691](https://github.com/MorpheApp/morphe-patches/issues/691)) ([fd50458](https://github.com/MorpheApp/morphe-patches/commit/fd504587cacaf665816c908b5db124f7a2e7bdd1))
+* **YouTube - LithoFilterPatch:** Use an encoded native byte array for buffer searching ([#654](https://github.com/MorpheApp/morphe-patches/issues/654)) ([bb5cc01](https://github.com/MorpheApp/morphe-patches/commit/bb5cc0198ee87f292795c3b03127a6a82ef72647))
 ### Features
-* **YouTube Music:** Add `Change header` patch ([#650](https://github.com/MorpheApp/morphe-patches/issues/650)) ([f6f03e5](https://github.com/MorpheApp/morphe-patches/commit/f6f03e55d01863f3d436e00108cc608d933ddbd9))
-* **YouTube Music:** Add `Change start page` patch ([#653](https://github.com/MorpheApp/morphe-patches/issues/653)) ([bc3c1bd](https://github.com/MorpheApp/morphe-patches/commit/bc3c1bda7afd3748f3bd7c7a9831ae4bad64b80f))
-* **YouTube - Navigation bar:** Add `Show search button` setting ([#634](https://github.com/MorpheApp/morphe-patches/issues/634)) ([b46e492](https://github.com/MorpheApp/morphe-patches/commit/b46e4923592ce5f752d6e2db156a3838c25f4f4f))
-* **YouTube:** Add `Open system share sheet` patch ([#625](https://github.com/MorpheApp/morphe-patches/issues/625)) ([64ff907](https://github.com/MorpheApp/morphe-patches/commit/64ff9079777a2b935886c35eae0e454984d56b52))
-* **YouTube:** Add `Override YouTube Music actions` patch ([#677](https://github.com/MorpheApp/morphe-patches/issues/677)) ([904dcda](https://github.com/MorpheApp/morphe-patches/commit/904dcda3f17faf26753529351d5c4b57cdbda162))
-
+* **Spoof video streams:** Add \"Force player JavaScript hash\" and \"Player JavaScript hash\" ([#722](https://github.com/MorpheApp/morphe-patches/issues/722)) ([c184dbe](https://github.com/MorpheApp/morphe-patches/commit/c184dbe74aac4f2c2f7cb74955a05063209a9f2e))
+* **YouTube - Navigation bar:** Add \"Hide navigation bar\
 ### CLI: MorpheApp/morphe-cli-1.4.0-all.jar
 
 ---
