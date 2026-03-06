@@ -107,8 +107,8 @@ install() {
 				if [ "$IS_SYS" = true ]; then
 					SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
 					if [ -f "$SCNM" ]; then
-						ui_print "  - Remove the old module. Reboot and reflash!"
 						ui_print ""
+						ui_print "  - Remove the old module. Reboot and reflash!"
 						install_err=" "
 						break
 					fi
@@ -188,10 +188,12 @@ if [ "$KSU" ]; then
 	fi
 	if [ "$UID" ]; then
 		if ! OP=$("${MODPATH:?}/bin/$ARCH/ksu_profile" "$UID" "$PKG_NAME" 2>&1); then
-			ui_print "ERROR ksu_profile: $OP"
+			ui_print "  $OP"
+			ui_print "  Please manually disable 'Unmount modules' option"
+			ui_print "  for $PKG_NAME in your root manager app"
 		fi
 	else
-		ui_print "ERROR: UID could not be found for $PKG_NAME"
+		ui_print "  ERROR: UID could not be found for $PKG_NAME"
 		dumpsys package "$PKG_NAME" >&2
 	fi
 fi

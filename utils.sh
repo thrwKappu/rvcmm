@@ -88,7 +88,7 @@ get_prebuilts() {
 		fi
 
 		local url file tag_name name
-		file=$(find "$dir" -name "${fprefix}-${name_ver#v}.*" -type f 2>/dev/null)
+		file=$(find "$dir" -name "*${fprefix}-${name_ver#v}.*" -type f 2>/dev/null)
 		if [ -z "$file" ]; then
 			local resp asset name
 			resp=$(gh_req "$rv_rel" -) || return 1
@@ -128,7 +128,7 @@ get_prebuilts() {
 			fi
 			if [ "$REMOVE_RV_INTEGRATIONS_CHECKS" = true ]; then
 				local extensions_ext
-				extensions_ext=$(unzip -l "${file}" "extensions/shared*" | grep -o "shared.*")
+				extensions_ext=$(unzip -l "${file}" "extensions/shared.*" | grep -o "shared\..*")
 				extensions_ext="${extensions_ext#*.}"
 				if ! (
 					mkdir -p "${file}-zip" || return 1
@@ -144,13 +144,19 @@ get_prebuilts() {
 				rm -r "${file}-zip" || :
 			fi
 		fi
-		echo -n "$file  "
+		echo -n "$file "
 	done
 	echo
 }
 
 set_prebuilts() {
 	APKSIGNER="${BIN_DIR}/apksigner.jar"
+	# local arch
+	# arch=$(uname -m)
+	# if [ "$arch" = aarch64 ]; then arch=arm64; elif [ "${arch:0:5}" = "armv7" ]; then arch=arm; fi
+	# HTMLQ="${BIN_DIR}/htmlq/htmlq-${arch}"
+	# AAPT2="${BIN_DIR}/aapt2/aapt2-${arch}"
+	# TOML="${BIN_DIR}/toml/tq-${arch}"
 	HTMLQ="${BIN_DIR}/htmlq-x86_64"
 	TOML="${BIN_DIR}/tq-x86_64"
 }
@@ -480,6 +486,16 @@ get_archive_vers() { sed 's/^[^-]*-//;s/-\(all\|arm64-v8a\|arm-v7a\)\.apk//g' <<
 get_archive_pkg_name() { echo "$__ARCHIVE_PKG_NAME__"; }
 # --------------------------------------------------
 
+# -------------------- direct ----------------------
+dl_direct() {
+	local url=$1 version=${2// /-} output=$3 arch=$4 dpi=$5
+	req "$url" "${output}" || return 1
+}
+get_direct_vers() { cut -d- -f2 <<<"$__DIRECT_APKNAME__"; }
+get_direct_pkg_name() { cut -d- -f1 <<<"$__DIRECT_APKNAME__"; }
+get_direct_resp() { __DIRECT_APKNAME__=$(awk -F/ '{print $NF}' <<<"$1"); }
+# --------------------------------------------------
+
 patch_apk() {
 	local stock_input=$1 patched_apk=$2 patcher_args=$3 cli_jar=$4 patches_jar=$5
 	local cmd="java -jar '$cli_jar' patch '$stock_input' --purge -o '$patched_apk' -p '$patches_jar' --keystore=ks.keystore \
@@ -716,5 +732,5 @@ version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=thrwKappu, Original template by j-hc
 description=${4}" >"${6}/module.prop"
-	if [ "$ENABLE_MAGISK_UPDATE" = true ]; then echo "updateJson=${5}" >>"${6}/module.prop"; fi
+	if [ "$ENABLE_MODULE_UPDATE" = true ]; then echo "updateJson=${5}" >>"${6}/module.prop"; fi
 }
