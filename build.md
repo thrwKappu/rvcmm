@@ -5,22 +5,21 @@
 
 ## Build Details:
 
-### CLI: MorpheApp/morphe-cli-1.4.0-all.jar
-### Patches: MorpheApp/patches-1.17.0.mpp
+### CLI: MorpheApp/morphe-cli-1.5.0-all.jar
+### Patches: MorpheApp/patches-1.18.0.mpp
 
 ---
 
 ## Patch Changelog:
 
 ### Bug Fixes
-* **Custom branding:** Do not override base app name for root installation ([8eb6d48](https://github.com/MorpheApp/morphe-patches/commit/8eb6d483a53e99eaa5aece259f0d5a27d2ef5053))
-* **Spoof video streams:** Show TV client deobfuscate toast only if debugging is enabled ([b9b685c](https://github.com/MorpheApp/morphe-patches/commit/b9b685c6aac6aac59aab04f6b5b28252bc424683))
-* **YouTube - Hide layout components:** Resolve \"Hide Explore the podcast\" not working ([#691](https://github.com/MorpheApp/morphe-patches/issues/691)) ([fd50458](https://github.com/MorpheApp/morphe-patches/commit/fd504587cacaf665816c908b5db124f7a2e7bdd1))
-* **YouTube - LithoFilterPatch:** Use an encoded native byte array for buffer searching ([#654](https://github.com/MorpheApp/morphe-patches/issues/654)) ([bb5cc01](https://github.com/MorpheApp/morphe-patches/commit/bb5cc0198ee87f292795c3b03127a6a82ef72647))
+* **Custom branding:** Safely clone bitmaps to prevent native recycled crash in Glide ([#732](https://github.com/MorpheApp/morphe-patches/issues/732)) ([f5ffa47](https://github.com/MorpheApp/morphe-patches/commit/f5ffa4735097f4d9aaf33c55d469fdf20fcd3d83))
+* **YouTube - Hide layout components:** Replace \"Hide AI comments summary\" with \"Sanitize category bar\ ([#731](https://github.com/MorpheApp/morphe-patches/issues/731)) ([bb0debf](https://github.com/MorpheApp/morphe-patches/commit/bb0debfc6343afd2b723411a15354209a734c691))
+* **YouTube - Hide player flyout menu items:** Do not hide entire flyout menu for eperimental app targets ([7407796](https://github.com/MorpheApp/morphe-patches/commit/7407796551978351a74db742715154ca8e96493e))
+* **YouTube - Hide Shorts components:** Hide Shorts in search nav button ([#749](https://github.com/MorpheApp/morphe-patches/issues/749)) ([4bb1162](https://github.com/MorpheApp/morphe-patches/commit/4bb11623be6828e4e0d53afc736678c34400266f))
+* **YouTube - Hide video action buttons:** Some action buttons cannot be hidden in YouTube 20.22+ ([#736](https://github.com/MorpheApp/morphe-patches/issues/736)) ([61ebf75](https://github.com/MorpheApp/morphe-patches/commit/61ebf754b8e92a072ed9721573fb26cfe468e888))
 ### Features
-* **Spoof video streams:** Add \"Force player JavaScript hash\" and \"Player JavaScript hash\" ([#722](https://github.com/MorpheApp/morphe-patches/issues/722)) ([c184dbe](https://github.com/MorpheApp/morphe-patches/commit/c184dbe74aac4f2c2f7cb74955a05063209a9f2e))
-* **YouTube - Navigation bar:** Add \"Hide navigation bar\
-### CLI: MorpheApp/morphe-cli-1.4.0-all.jar
+* Add `Disable Play Store updates`
 
 ---
 
