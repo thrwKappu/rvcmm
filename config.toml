@@ -17,7 +17,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 build-mode = "module"
 module-prop-name = "rvcmm-yt"
 include-stock = true
-version = "20.21.37" # better 'Hide video action buttons' support https://github.com/MorpheApp/morphe-patches/issues/102
+version = "20.40.45" # 'Hide video action buttons' seems to be fixed, but seems like 20.44.38 has some weird quirks
 
 [Music]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
