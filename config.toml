@@ -13,10 +13,9 @@ remove-rv-integrations-checks = false
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
 # archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-# excluded-patches = "'Announcements'"
+#excluded-patches = "'Spoof video streams'" # no need for root
 build-mode = "module"
 module-prop-name = "rvcmm-yt"
-include-stock = true
 version = "20.40.45" # 'Hide video action buttons' seems to be fixed, but seems like 20.44.38 has some weird quirks
 
 [Music]
@@ -26,7 +25,7 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 build-mode = "module"
 module-prop-name = "rvcmm-ytm"
 arch = "arm64-v8a"
-include-stock = true
+#excluded-patches = "'Spoof video streams'" # no need for root
 
 #[Messenger]
 #apkmirror-dlurl = "https://apkmirror.com/apk/facebook-2/messenger/"

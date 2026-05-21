@@ -8,5 +8,6 @@
 /logs
 build.md
 cmpr
+*-temporary-files
 test.toml
 options.toml
