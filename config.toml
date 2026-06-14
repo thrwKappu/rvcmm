@@ -10,16 +10,16 @@ rv-brand = "Morphe"
 remove-rv-integrations-checks = false
 
 [YouTube]
-apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-# archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+#apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
+#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 #excluded-patches = "'Spoof video streams'" # no need for root
 build-mode = "module"
 module-prop-name = "rvcmm-yt"
-version = "20.40.45" # 'Hide video action buttons' seems to be fixed, but seems like 20.44.38 has some weird quirks
+version = "20.31.42" # 20.44.38+ have some niche problem https://github.com/MorpheApp/morphe-patches/pull/930
 
 [Music]
-apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
+#apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 #archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 build-mode = "module"
