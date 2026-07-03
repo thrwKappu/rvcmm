@@ -6,23 +6,23 @@
 ## Build Details:
 
 ### CLI: MorpheApp/morphe-cli-1.9.1-all.jar
-### Patches: MorpheApp/patches-1.32.0.mpp
+### Patches: MorpheApp/patches-1.33.0.mpp
 
 ---
 
 ## Patch Changelog:
 
 ### 🐛 Bug Fixes
-* **YouTube - Bypass link redirects:** Resolve patch not working on community posts and video descriptions ([#1755](https://github.com/MorpheApp/morphe-patches/issues/1755)) ([c5c6376](https://github.com/MorpheApp/morphe-patches/commit/c5c6376546efdc90cbf89f7f5554880432161b22))
-* **YouTube - Change form factor:** Prevent app crash when using tablet mode in `onResume` state ([#1803](https://github.com/MorpheApp/morphe-patches/issues/1803)) ([4b0de25](https://github.com/MorpheApp/morphe-patches/commit/4b0de256e74f6eeb279ba164146fb9a01f2f8176))
-* **YouTube - Disable player popup panels:** Patch doesn't work in some circumstances ([6d6018c](https://github.com/MorpheApp/morphe-patches/commit/6d6018cf4a4ee6f79a283001aebe5b9d21767741))
-* **YouTube - Hide layout components:** Resolve \"Hide horizontal shelves\ hiding other components ([#930](https://github.com/MorpheApp/morphe-patches/issues/930)) ([3c53157](https://github.com/MorpheApp/morphe-patches/commit/3c5315774896dc78ab5ad4d7b44380f9a21d3312))
-* **YouTube - Link sanitize:** Live links sanitize doesn't work ([ad91b37](https://github.com/MorpheApp/morphe-patches/commit/ad91b3759c42befbf4c32804cad5de5a48f14255))
-* **YouTube - Navigation bar:** Prevent navigation bar animation when swiping to dismiss miniplayer ([#1800](https://github.com/MorpheApp/morphe-patches/issues/1800)) ([dcc4c0c](https://github.com/MorpheApp/morphe-patches/commit/dcc4c0c28ac600ca057c8720f5e71f8c712011ac))
-* **YouTube - Override YouTube Music buttons:** Target app opens when clicking on 'YouTube Music' button inside explore menu ([#1707](https://github.com/MorpheApp/morphe-patches/issues/1707)) ([1f08df2](https://github.com/MorpheApp/morphe-patches/commit/1f08df24848bce582919e21b4b3e3f7bb6ebe5ab))
-* **YouTube - Reload video:** App exits after pressing back button ([#1740](https://github.com/MorpheApp/morphe-patches/issues/1740)) ([743bc76](https://github.com/MorpheApp/morphe-patches/commit/743bc76743c529aa8f6da4ecffd9643088c7fd97))
-* **YouTube - Remove viewer discretion dialog:** In-app video downloader does not work for Premium users ([#1756](https://github.com/MorpheApp/morphe-patches/issues/1756)) ([3353302](https://github.com/MorpheApp/morphe-patches/commit/3353302753352388dbeef9454bb7902cdeb9eae0))
-* **YouTube Music - Track crossfade:** Dismissing the queue does not stop playback
+* **Change package name:** Add incompatible apps, update all permissions and providers ([#1847](https://github.com/MorpheApp/morphe-patches/issues/1847)) ([ff5359a](https://github.com/MorpheApp/morphe-patches/commit/ff5359ac6d61b7b7274a7d7ed7c06198c1ed3b7f))
+* **Reddit - Hide communities shelf:** Communities shelf not being hidden on experimental versions ([#1828](https://github.com/MorpheApp/morphe-patches/issues/1828)) ([0f05846](https://github.com/MorpheApp/morphe-patches/commit/0f0584668a38f7ba721a2eb9c4daec9c00de8466))
+* **Reddit - Hide Trending shelves:** Hide 'Trending communities' shelf in search suggestions ([#1785](https://github.com/MorpheApp/morphe-patches/issues/1785)) ([a9a58fb](https://github.com/MorpheApp/morphe-patches/commit/a9a58fb2069437dbcbe6613f740881ca21cfd45c))
+* **Reddit - Hide Trending shelves:** Hide 'Trending on Reddit' shelf ([#1849](https://github.com/MorpheApp/morphe-patches/issues/1849)) ([5dfff49](https://github.com/MorpheApp/morphe-patches/commit/5dfff49c21f0aad61e997ad1ef31c65af58f85ab))
+* **YouTube - Add to queue:** Show reload options when player is minimized ([#1879](https://github.com/MorpheApp/morphe-patches/issues/1879)) ([95c4ecf](https://github.com/MorpheApp/morphe-patches/commit/95c4ecfb4525ca0964a223fdf2c0f51a9d8d6da0))
+* **YouTube - Add to queue:** Support tablet form factor ([#1891](https://github.com/MorpheApp/morphe-patches/issues/1891)) ([f55b720](https://github.com/MorpheApp/morphe-patches/commit/f55b7206f78e6b5dbe063e6f9e39093929047f34))
+* **YouTube - Add to queue:** Use app activity for dialog to open dialog ([f3e2b2b](https://github.com/MorpheApp/morphe-patches/commit/f3e2b2b3f3350ff6bea937f9eb81da10aab14c34))
+* **YouTube - Bypass link redirects:** Fix potential crash and cleanup ([6a0b518](https://github.com/MorpheApp/morphe-patches/commit/6a0b518403228c5575f80abf1c3cf48159454563))
+* **YouTube - Disable player popup panels:** patch doesn't work for some users ([#1821](https://github.com/MorpheApp/morphe-patches/issues/1821)) ([2d34625](https://github.com/MorpheApp/morphe-patches/commit/2d34625cb3e6635fa5381ded1e38c464b8d9e269))
+* **YouTube - Hide layout components:**  Match `RD` playlist URLs to improve \
 
 ---
 
