@@ -1,4 +1,6 @@
-. "$MODPATH/config"
+#!/system/bin/sh
+MODDIR=$MODPATH
+. "$MODPATH/utils.sh"
 
 if [ -n "$MODULE_ARCH" ] && [ "$MODULE_ARCH" != "$ARCH" ]; then
 	abort "  ERROR: Wrong arch
@@ -16,25 +18,9 @@ elif [ "$ARCH" = "x64" ]; then
 	ARCH_LIB=x86_64
 else abort "  ERROR: unsupported arch: ${ARCH}"; fi
 
-RVPATH=/data/adb/rvcmm/${MODPATH##*/}.apk
-
 set_perm_recursive "$MODPATH/bin" 0 0 0755 0777
 
-su -M -c grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
-	mp=${line#* } mp=${mp%% *}
-	su -M -c umount -l "${mp%%\\*}"
-	ui_print " - Unmounted ${mp%%\\*}"
-done
-am force-stop "$PKG_NAME"
-
-am force-stop "$PKG_NAME"
-
-pmex() {
-	OP=$(pm "$@" 2>&1 </dev/null)
-	RET=$?
-	echo "$OP"
-	return $RET
-}
+umount_all
 
 if OP=$(dumpsys package "$PKG_NAME") && [ "$OP" ]; then
 	if echo "$OP" | grep -m1 pkgFlags | grep -Fq UPDATED_SYSTEM_APP; then
@@ -48,9 +34,7 @@ fi
 
 IS_SYS=false
 INS=true
-if BASEPATH=$(pmex path "$PKG_NAME"); then
-	echo >&2 "'$BASEPATH'"
-	BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
+if BASEPATH=$(get_basepath); then
 	if [ "${BASEPATH:1:4}" != data ]; then
 		ui_print "  - Detected $PKG_NAME as a system app"
 		SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
@@ -64,9 +48,9 @@ if BASEPATH=$(pmex path "$PKG_NAME"); then
 		abort?
 	fi
 
-	VERSION=$(dumpsys package "$PKG_NAME" 2>&1 | grep -m1 versionName=) VERSION="${VERSION#*=}"
+	VERSION=$(get_app_version)
 	if [ "$VERSION" ] && [ "$VERSION" = "$PKG_VER" ]; then
-			ui_print "  - $PKG_NAME is already up-to-date ($VERSION)"
+		ui_print "  - $PKG_NAME is already up-to-date ($VERSION)"
 		INS=false
 	elif [ ! -f "$MODPATH/stock/base.apk" ]; then
 		ui_print "  ERROR: Version mismatch
@@ -123,8 +107,8 @@ install() {
 			install_err="$op"
 			break
 		fi
-		if BASEPATH=$(pmex path "$PKG_NAME"); then
-			BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
+		if BASEPATH=$(get_basepath); then
+			:
 		else
 			install_err=" "
 			break
@@ -155,8 +139,8 @@ ui_print "  - Setting Permissions"
 set_perm "$MODPATH/base.apk" 1000 1000 644 u:object_r:apk_data_file:s0
 
 ui_print "  - Mounting $PKG_NAME"
+# move out the apk from /data/adb/modules/.. to /data/adb/rvhc to not trip some root detections
 mkdir -p "/data/adb/rvcmm"
-RVPATH=/data/adb/rvcmm/${MODPATH##*/}.apk
 mv -f "$MODPATH/base.apk" "$RVPATH"
 
 if ! op=$(su -M -c mount -o bind "$RVPATH" "$BASEPATH/base.apk" 2>&1); then
@@ -170,10 +154,11 @@ cmd package compile -m speed-profile -f "$PKG_NAME" >/dev/null 2>&1
 # nohup cmd package compile -m speed-profile -f "$PKG_NAME" >/dev/null 2>&1
 
 if [ "$KSU" ]; then
-	UID=$(dumpsys package "$PKG_NAME" 2>&1 | grep -m1 uid=)
+	DUMPSYS=$(dumpsys package "$PKG_NAME" 2>&1)
+	UID=$(echo "$DUMPSYS" | grep -m1 uid=)
 	UID=${UID#*=} UID=${UID%% *}
 	if [ -z "$UID" ]; then
-		UID=$(dumpsys package "$PKG_NAME" 2>&1 | grep -m1 userId=)
+		UID=$(echo "$DUMPSYS" | grep -m1 userId=)
 		UID=${UID#*=} UID=${UID%% *}
 	fi
 	if [ "$UID" ]; then

@@ -16,7 +16,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 #excluded-patches = "'Spoof video streams'" # no need for root
 build-mode = "module"
 module-prop-name = "rvcmm-yt"
-version = "20.31.42" # 20.44.38+ have some niche problem https://github.com/MorpheApp/morphe-patches/pull/930
+#version = "20.31.42" # "Hide horizontal shelves" still have some problems, but descripton in 20.44.38+ seems to be fixed  https://github.com/MorpheApp/morphe-patches/pull/930
 
 [Music]
 #apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
