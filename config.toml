@@ -10,38 +10,20 @@ rv-brand = "Morphe"
 remove-rv-integrations-checks = false
 
 [YouTube]
-#apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 #excluded-patches = "'Spoof video streams'" # no need for root
+excluded-patches = "'Custom branding'" # https://github.com/MorpheApp/morphe-patches/issues/2951#issuecomment-5665855650
 build-mode = "module"
 module-prop-name = "rvcmm-yt"
 #version = "20.31.42" # "Hide horizontal shelves" still have some problems, but descripton in 20.44.38+ seems to be fixed  https://github.com/MorpheApp/morphe-patches/pull/930
+enable-update-checks = true
 
 [Music]
-#apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
-#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 build-mode = "module"
 module-prop-name = "rvcmm-ytm"
 arch = "arm64-v8a"
-#excluded-patches = "'Spoof video streams'" # no need for root
-
-#[Messenger]
-#apkmirror-dlurl = "https://apkmirror.com/apk/facebook-2/messenger/"
-#uptodown-dlurl = "https://facebook-messenger.en.uptodown.com/android"
-#excluded-patches = "'Disable switching emoji to sticker'" # last working version is v439 which is 10+ months old
-#version = "latest"
-#build-mode = "module"
-#module-prop-name = "rvcmm-fb-msg"
-#arch = "arm64-v8a"
-#include-stock = true
-
-#[Facebook]
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/facebook/"
-#uptodown-dlurl = "https://facebook.en.uptodown.com/android"
-#build-mode = "module"
-#module-prop-name = "rvcmm-fb-main"
-#arch = "arm64-v8a"
-#include-stock = true
-#version = "490.0.0.63.82" # last known version that 'Hide sponsored stories' passed

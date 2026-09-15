@@ -1,6 +1,6 @@
 #!/system/bin/sh
-MODDIR=$MODPATH
-. "$MODPATH/utils.sh"
+export MODULE_HOT_INSTALL_REQUEST="true"
+MODDIR="$MODPATH" . "$MODPATH/utils.sh"
 
 if [ -n "$MODULE_ARCH" ] && [ "$MODULE_ARCH" != "$ARCH" ]; then
 	abort "  ERROR: Wrong arch
@@ -32,20 +32,12 @@ else
 	fi
 fi
 
-IS_SYS=false
+IS_SYSTEM_APP=false
 INS=true
 if BASEPATH=$(get_basepath); then
-	if [ "${BASEPATH:1:4}" != data ]; then
+	if [ "${BASEPATH:1:4}" != "data" ]; then
+		IS_SYSTEM_APP=true
 		ui_print "  - Detected $PKG_NAME as a system app"
-		SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
-		mkdir -p /data/adb/post-fs-data.d
-		echo "mount -t tmpfs none $BASEPATH" >"$SCNM"
-		chmod +x "$SCNM"
-		ui_print "  - Created the uninstall script."
-		ui_print ""
-		ui_print "  - Reboot and reflash the module!"
-
-		abort?
 	fi
 
 	VERSION=$(get_app_version)
@@ -92,9 +84,23 @@ install() {
 
 		if ! op=$(pmex install-commit "$SES"); then
 			ui_print "$op"
-			if echo "$op" | grep -q -e INSTALL_FAILED_VERSION_DOWNGRADE -e INSTALL_FAILED_UPDATE_INCOMPATIBLE; then
+			if echo "$op" | grep -q -e INSTALL_FAILED_VERSION_DOWNGRADE -e INSTALL_FAILED_UPDATE_INCOMPATIBLE -e INSTALL_FAILED_DUPLICATE; then
+				if [ "$IS_SYSTEM_APP" = true ]; then
+					mkdir -p /data/adb/rvcmm/empty /data/adb/post-fs-data.d
+					chcon u:object_r:system_file:s0 /data/adb/rvcmm/empty
+					P="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
+					echo "mount -o bind /data/adb/rvcmm/empty ${BASEPATH}" >"$P"
+					chmod +x "$P"
+					
+					ui_print "  - Created the uninstall script."
+					ui_print ""
+					ui_print "  - Reboot and reflash module again"
+					install_err="  "
+					break
+				fi
+				
 				ui_print "  - Uninstalling..."
-				if ! op=$(pmex uninstall "$PKG_NAME"); then
+				if ! op=$(pmex uninstall --user 0 "$PKG_NAME"); then
 					ui_print "$op"
 					if [ $IT = 2 ]; then
 						install_err="  ERROR: pm uninstall failed."
@@ -110,7 +116,7 @@ install() {
 		if BASEPATH=$(get_basepath); then
 			:
 		else
-			install_err=" "
+			install_err="  "
 			break
 		fi
 		break
@@ -118,8 +124,7 @@ install() {
 	settings put global verifier_verify_adb_installs "$VERIF1"
 	settings put global package_verifier_enable "$VERIF2"
 	if [ "$install_err" ]; then
-		ui_print "$install_err"
-		abort "  $install_err"
+		abort "$install_err"
 	fi
 }
 
@@ -139,7 +144,7 @@ ui_print "  - Setting Permissions"
 set_perm "$MODPATH/base.apk" 1000 1000 644 u:object_r:apk_data_file:s0
 
 ui_print "  - Mounting $PKG_NAME"
-# move out the apk from /data/adb/modules/.. to /data/adb/rvhc to not trip some root detections
+# move out the apk from /data/adb/modules/.. to /data/adb/rvcmm to not trip some root detections
 mkdir -p "/data/adb/rvcmm"
 mv -f "$MODPATH/base.apk" "$RVPATH"
 
@@ -174,5 +179,6 @@ fi
 
 ui_print "  - Cleanup"
 rm -rf "${MODPATH:?}/bin" "$MODPATH/stock/"
+cp -f "$MODPATH/module.prop" "$MODPATH/module.prop.orig"
 
 ui_print "  - Finished"
