@@ -75,7 +75,7 @@ get_prebuilts() {
 	cl_dir=${TEMP_DIR}/${cl_dir,,}
 	[ -d "$cl_dir" ] || mkdir "$cl_dir"
 
-	for src_ver in "CLI $cli_src $cli_ver" "Patches $patches_src $patches_ver"; do
+	for src_ver in "Patches $patches_src $patches_ver" "CLI $cli_src $cli_ver"; do
 		set -- $src_ver
 		local tag=$1 src=$2 ver=${3-}
 
